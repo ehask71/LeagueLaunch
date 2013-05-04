@@ -6,13 +6,26 @@ class AppController extends Controller {
     public $theme = 'default';
     public $uses = array('TblSettings','TblSites');
     
+    public $components = array(
+		'Session',
+		'Auth'
+	);
+
     public function beforeFilter() {
 	
 	$domain = $this->getDomain();
 	if($this->TblSites->getSiteId($domain)){
-	    $settings = $this->TblSettings->getSiteSettings($domain);
-	    $this->set('domain',$domain);
-	    $this->set('settings',$settings);
+	    $result = $this->TblSites->find('first',array(
+		'conditions' => array(
+		    'TblSites.domain'=>$domain,
+		    'TblSites.isactive'=>'yes')
+	    ));
+	    if(count($result)>0){
+		$settings = $this->TblSettings->buildSettings($result['TblSites'],$result['TblSettings']);
+		print_r($settings);
+		$this->set('domain',$domain);
+		$this->set('settings',$settings);
+	    }
 	}
     }
     
