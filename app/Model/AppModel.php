@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Application model for Cake.
  *
@@ -20,16 +21,23 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
 App::uses('Model', 'Model');
 
-/**
- * Application model for Cake.
- *
- * Add your application-wide methods in the class below, your models
- * will inherit them.
- *
- * @package       app.Model
- */
 class AppModel extends Model {
+
+    // For custom find('xxx') methods. The function looks for a __findFindType class method.
+    function find($type, $options = array()) {
+	$method = null;
+	if (is_string($type)) {
+	    $method = sprintf('__find%s', Inflector::camelize($type));
+	}
+
+	if ($method && method_exists($this, $method)) {
+	    return $this->{$method}($options);
+	} else {
+	    $args = func_get_args();
+	    return call_user_func_array(array('parent', 'find'), $args);
+	}
+    }
+
 }
