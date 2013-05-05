@@ -6,10 +6,10 @@ class AppController extends Controller {
     public $theme = 'default';
     public $uses = array('TblSettings','TblSites');
     
-    public $components = array(
+    /*public $components = array(
 		'Session',
 		'Auth'
-	);
+	);*/
 
     public function beforeFilter() {
 	
