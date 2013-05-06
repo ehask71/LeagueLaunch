@@ -10,7 +10,7 @@ class Keywords extends AppModel {
         if(count($key)==0){
             $key = 'baseball,football,rugby,tennis,track,volleyball,golf';
         } else {
-            $key = $key['keywords'];
+            $key = $key['Keywords']['keywords'];
         }
         return $key;
     }
