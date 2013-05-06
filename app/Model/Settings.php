@@ -5,13 +5,13 @@ App::uses('AppModel', 'Model');
  *
  * @author Eric
  */
-class TblSettings extends AppModel{
+class Settings extends AppModel{
     
     public $useTable = 'settings';
     
     public $belongsTo = array(
-        'TblSites' => array(
-            'className'    => 'TblSites',
+        'Sites' => array(
+            'className'    => 'Sites',
             'foreignKey'   => 'site_id'
         )
     );
