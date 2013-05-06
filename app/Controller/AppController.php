@@ -28,10 +28,10 @@ class AppController extends Controller {
                 $this->set('domain', $domain);
                 $this->set('settings', $settings);
             } else {
-                $this->redirect("/notconfigured");
+                throw new NotFoundException($domain.' Was not found or is misconfigured');
             }
         } else {
-            $this->redirect("/notconfigured");
+            throw new NotFoundException($domain.' Was not found or is misconfigured');
         }
     }
 
