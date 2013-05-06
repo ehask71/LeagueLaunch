@@ -26,7 +26,9 @@ class AppController extends Controller {
 		$settings = $this->Settings->buildSettings($result['Sites'],$result['Settings']);
 		$this->set('domain',$domain);
 		$this->set('settings',$settings);
-	    }
+	    } else {
+                $this->redirect("/notconfigured");
+            }
 	}
     }
     
