@@ -34,6 +34,12 @@ class Settings extends AppModel{
 	    $settings['theme'] = 'default';
 	}
 	
+        if(!isset($settings['meta_keywords'])){
+            App::import('model','Keywords');
+            $keywords = new Keywords();
+            $settings['meta_keywords'] = $keywords->getSportKeywords($site['sport']);
+        }
+        
         foreach($settings as $key=>$value){
             Configure::write("__".$key, $value);
         }
