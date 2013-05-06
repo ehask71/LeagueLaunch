@@ -6,12 +6,14 @@ class AppController extends Controller {
     public $theme = 'default';
     public $uses = array('Settings','Sites');
     
-    /*public $components = array(
+    public $components = array(
 		'Session',
 		'Auth'
-	);*/
+    );
 
     public function beforeFilter() {
+	$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
+        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
 	
 	$domain = $this->getDomain();
 	if($this->Sites->getSiteId($domain)){
