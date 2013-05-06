@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 05, 2013 at 11:14 PM
--- Server version: 5.1.53
--- PHP Version: 5.3.4
+-- Generation Time: May 06, 2013 at 07:33 AM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.3.13
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -35,10 +36,25 @@ CREATE TABLE IF NOT EXISTS `admins` (
   PRIMARY KEY (`admin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `admins`
+-- Table structure for table `keywords`
 --
 
+CREATE TABLE IF NOT EXISTS `keywords` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sport` varchar(50) NOT NULL,
+  `keywords` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `keywords`
+--
+
+INSERT INTO `keywords` (`id`, `sport`, `keywords`) VALUES
+(1, 'baseball', 'pitcher,homerun,players,1st base,bases loaded,2nd base,hotdog,inning,out,strike,walk,little league,AAU,travel ball,all-star,allstar,flyball');
 
 -- --------------------------------------------------------
 
@@ -54,11 +70,6 @@ CREATE TABLE IF NOT EXISTS `players` (
   `nickname` varchar(100) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `players`
---
-
 
 -- --------------------------------------------------------
 
@@ -118,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `sites` (
 --
 
 INSERT INTO `sites` (`site_id`, `domain`, `leaguename`, `sport`, `organization`, `slogan`, `existingdomain`, `firstname`, `lastname`, `email`, `address`, `address2`, `city`, `state`, `zip`, `country`, `phone`, `fax`, `date_added`, `isactive`) VALUES
-(1, 'league.com', 'Test League', 'baseball', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2013-05-04 01:53:45', 'yes');
+(1, 'league.com', 'Test League', 'baseball', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2013-05-04 05:53:45', 'yes');
 
 -- --------------------------------------------------------
 
@@ -143,3 +154,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `email`, `display_name`, `password`) VALUES
 (1, NULL, 'ehask71@gmail.com', NULL, '$2a$14$Hrx5WsMN5rU/wTGJUrWQXe/5vTjVMrSrS8EKbNZ24Sr4gEr3mqwDu');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
