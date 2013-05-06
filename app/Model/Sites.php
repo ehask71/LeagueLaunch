@@ -9,7 +9,7 @@ class Sites extends AppModel{
     
     public $useTable = 'sites';
     public $primaryKey = 'site_id';
-    public $hasMany = 'TblSettings';
+    public $hasMany = 'Settings';
     
     public function getSiteId($domain){
 	$sql = "SELECT * FROM sites WHERE domain = '$domain' AND isactive = 'yes'";
