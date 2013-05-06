@@ -35,7 +35,7 @@ class Settings extends AppModel{
 	}
 	
         foreach($settings as $key=>$value){
-            Configure::write("__".$key, $val);
+            Configure::write("__".$key, $value);
         }
         
 	return $settings;
