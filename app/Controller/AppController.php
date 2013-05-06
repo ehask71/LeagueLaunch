@@ -31,8 +31,6 @@ class AppController extends Controller {
     
     public function beforeRender() {
 	parent::beforeRender();
-	//$this->viewClass = 'Theme';
-	//$this->theme = 'default';
     }
     public function getDomain(){
 	if(strpos($_SERVER['SERVER_NAME'], 'leaguelaunch.com')){
