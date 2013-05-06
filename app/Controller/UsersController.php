@@ -6,9 +6,19 @@ class UsersController extends AppController {
 	parent::beforeFilter();
 	$this->Auth->allow();
     }
-    
-    public function login() {
 
+    public function login() {
+	if ($this->request->is('post')) {
+	    if ($this->Auth->login()) {
+		$this->redirect($this->Auth->redirect());
+	    } else {
+		$this->Session->setFlash('Your username or password was incorrect.');
+	    }
+	}
     }
-    
+
+    public function logout() {
+	
+    }
+
 }
