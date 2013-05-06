@@ -17,11 +17,11 @@ class AppController extends Controller {
 	if($this->Sites->getSiteId($domain)){
 	    $result = $this->Sites->find('first',array(
 		'conditions' => array(
-		    'TblSites.domain'=>$domain,
-		    'TblSites.isactive'=>'yes')
+		    'Sites.domain'=>$domain,
+		    'Sites.isactive'=>'yes')
 	    ));
 	    if(count($result)>0){
-		$settings = $this->Settings->buildSettings($result['TblSites'],$result['TblSettings']);
+		$settings = $this->Settings->buildSettings($result['Sites'],$result['Settings']);
 		print_r($settings);
 		$this->set('domain',$domain);
 		$this->set('settings',$settings);
