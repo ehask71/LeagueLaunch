@@ -24,7 +24,6 @@ class AppController extends Controller {
 	    ));
 	    if(count($result)>0){
 		$settings = $this->Settings->buildSettings($result['Sites'],$result['Settings']);
-		print_r($settings);
 		$this->set('domain',$domain);
 		$this->set('settings',$settings);
 	    }
@@ -34,6 +33,7 @@ class AppController extends Controller {
     public function beforeRender() {
 	parent::beforeRender();
     }
+    
     public function getDomain(){
 	if(strpos($_SERVER['SERVER_NAME'], 'leaguelaunch.com')){
 	    $domain = str_replace('.leaguelaunch.com','',str_replace('www.', '', $_SERVER['SERVER_NAME']));
