@@ -4,7 +4,7 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
     public $viewClass   = 'Theme';
     public $theme = 'default';
-    public $uses = array('TblSettings','TblSites');
+    public $uses = array('Settings','Sites');
     
     /*public $components = array(
 		'Session',
@@ -14,14 +14,14 @@ class AppController extends Controller {
     public function beforeFilter() {
 	
 	$domain = $this->getDomain();
-	if($this->TblSites->getSiteId($domain)){
-	    $result = $this->TblSites->find('first',array(
+	if($this->Sites->getSiteId($domain)){
+	    $result = $this->Sites->find('first',array(
 		'conditions' => array(
 		    'TblSites.domain'=>$domain,
 		    'TblSites.isactive'=>'yes')
 	    ));
 	    if(count($result)>0){
-		$settings = $this->TblSettings->buildSettings($result['TblSites'],$result['TblSettings']);
+		$settings = $this->Settings->buildSettings($result['TblSites'],$result['TblSettings']);
 		print_r($settings);
 		$this->set('domain',$domain);
 		$this->set('settings',$settings);
