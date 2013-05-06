@@ -5,7 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @author Eric
  */
-class TblSites extends AppModel{
+class Sites extends AppModel{
     
     public $useTable = 'sites';
     public $primaryKey = 'site_id';
