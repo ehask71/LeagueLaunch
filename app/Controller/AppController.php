@@ -25,6 +25,8 @@ class AppController extends Controller {
                     ));
             if (count($result) > 0) {
                 $settings = $this->Settings->buildSettings($result['Sites'], $result['Settings']);
+                $this->set('meta_keywords',($settings['meta_keywords'] != '')?$settings['meta_keywords']:$settings['default_meta_keywords']);
+                $this->set('meta_description',($settings['meta_description'] != '')?$settings['meta_description']:$settings['default_meta_description']);
                 $this->set('domain', $domain);
                 $this->set('settings', $settings);
             } else {
