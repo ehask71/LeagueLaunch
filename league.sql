@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.5.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 06, 2013 at 07:33 AM
--- Server version: 5.5.24-log
--- PHP Version: 5.3.13
+-- Generation Time: May 07, 2013 at 11:09 PM
+-- Server version: 5.0.96-community-log
+-- PHP Version: 5.3.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `league`
+-- Database: `demoleag_league`
 --
 
 -- --------------------------------------------------------
@@ -27,13 +27,40 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `admins` (
-  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_id` int(11) NOT NULL auto_increment,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `isactive` enum('yes','no') NOT NULL DEFAULT 'yes',
-  PRIMARY KEY (`admin_id`)
+  `isactive` enum('yes','no') NOT NULL default 'yes',
+  PRIMARY KEY  (`admin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `coach2teams`
+--
+
+CREATE TABLE IF NOT EXISTS `coach2teams` (
+  `ct_id` int(10) unsigned NOT NULL auto_increment,
+  `team_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY  (`ct_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `divisions`
+--
+
+CREATE TABLE IF NOT EXISTS `divisions` (
+  `division_id` int(10) unsigned NOT NULL auto_increment,
+  `site_id` int(10) unsigned NOT NULL,
+  `name` varchar(75) NOT NULL,
+  `last_updated` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`division_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -43,10 +70,10 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 CREATE TABLE IF NOT EXISTS `keywords` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL auto_increment,
   `sport` varchar(50) NOT NULL,
   `keywords` text NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
@@ -59,16 +86,30 @@ INSERT INTO `keywords` (`id`, `sport`, `keywords`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `playerprofiles`
+--
+
+CREATE TABLE IF NOT EXISTS `playerprofiles` (
+  `profile_id` int(10) unsigned NOT NULL auto_increment,
+  `player_id` int(10) unsigned NOT NULL,
+  `site_id` int(10) unsigned NOT NULL,
+  `last_updated` timestamp NOT NULL default '0000-00-00 00:00:00' on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`profile_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `players`
 --
 
 CREATE TABLE IF NOT EXISTS `players` (
-  `id` int(11) NOT NULL,
+  `player_id` int(11) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `firstname` varchar(80) NOT NULL,
   `lastname` varchar(80) NOT NULL,
   `nickname` varchar(100) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -78,12 +119,12 @@ CREATE TABLE IF NOT EXISTS `players` (
 --
 
 CREATE TABLE IF NOT EXISTS `settings` (
-  `sid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sid` int(10) unsigned NOT NULL auto_increment,
   `site_id` int(10) unsigned NOT NULL,
-  `type` enum('object','array','string') NOT NULL DEFAULT 'string',
+  `type` enum('object','array','string') NOT NULL default 'string',
   `name` varchar(50) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY (`sid`)
+  PRIMARY KEY  (`sid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
@@ -101,7 +142,7 @@ INSERT INTO `settings` (`sid`, `site_id`, `type`, `name`, `value`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `sites` (
-  `site_id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_id` int(11) NOT NULL auto_increment,
   `domain` varchar(80) NOT NULL,
   `leaguename` varchar(200) NOT NULL,
   `sport` varchar(100) NOT NULL,
@@ -119,17 +160,33 @@ CREATE TABLE IF NOT EXISTS `sites` (
   `country` varchar(100) NOT NULL,
   `phone` varchar(25) NOT NULL,
   `fax` varchar(25) NOT NULL,
-  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `isactive` enum('yes','pending','no') NOT NULL DEFAULT 'pending',
-  PRIMARY KEY (`site_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `date_added` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `isactive` enum('yes','pending','no') NOT NULL default 'pending',
+  PRIMARY KEY  (`site_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `sites`
 --
 
 INSERT INTO `sites` (`site_id`, `domain`, `leaguename`, `sport`, `organization`, `slogan`, `existingdomain`, `firstname`, `lastname`, `email`, `address`, `address2`, `city`, `state`, `zip`, `country`, `phone`, `fax`, `date_added`, `isactive`) VALUES
-(1, 'league.com', 'Test League', 'baseball', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2013-05-04 05:53:45', 'yes');
+(1, 'league.com', 'Test League', 'baseball', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2013-05-04 05:53:45', 'yes'),
+(2, 'demo', 'Demo League', 'baseball', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2013-05-08 03:24:09', 'yes');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teams`
+--
+
+CREATE TABLE IF NOT EXISTS `teams` (
+  `team_id` int(10) unsigned NOT NULL auto_increment,
+  `site_id` int(11) NOT NULL,
+  `division_id` int(10) unsigned NOT NULL,
+  `name` varchar(75) NOT NULL,
+  `last_updated` timestamp NOT NULL default '0000-00-00 00:00:00' on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`team_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -138,12 +195,12 @@ INSERT INTO `sites` (`site_id`, `domain`, `leaguename`, `sport`, `organization`,
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `display_name` varchar(50) DEFAULT NULL,
+  `user_id` int(11) NOT NULL auto_increment,
+  `username` varchar(255) default NULL,
+  `email` varchar(255) default NULL,
+  `display_name` varchar(50) default NULL,
   `password` varchar(128) NOT NULL,
-  PRIMARY KEY (`user_id`),
+  PRIMARY KEY  (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
