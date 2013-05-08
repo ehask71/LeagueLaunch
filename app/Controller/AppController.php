@@ -25,7 +25,7 @@ class AppController extends Controller {
                     ));
             if (count($result) > 0) {
                 $settings = $this->Settings->buildSettings($result['Sites'], $result['Settings']);
-                $this->set('meta_keywords',(!@$settings['meta_keywords']!='')?$settings['meta_keywords']:'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
+                $this->set('meta_keywords',(!@$settings['meta_keywords']!='')?@$settings['meta_keywords']:'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
                 $this->set('meta_description',(!@$settings['meta_description']!='')?@$settings['meta_description']:'LeagueLaunch.com :: League Management Made Easy');
                 $this->set('domain', $domain);
                 $this->set('settings', $settings);
