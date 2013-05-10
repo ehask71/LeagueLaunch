@@ -1,5 +1,4 @@
 <?php
-
 class DATABASE_CONFIG {
 
     public $default = null;
