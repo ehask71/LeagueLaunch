@@ -27,7 +27,7 @@ class AppController extends Controller {
                 $settings = $this->Settings->buildSettings($result['Sites'], $result['Settings']);
 		$this->theme = $settings['theme'];
 		// Load Theme configs
-		Configure::config('themeconfig', new PhpReader(APP . 'View' . DS . 'Themed' . DS . $this->theme));
+		Configure::config('themeconfig', new PhpReader(APP . 'View' . DS . 'Themed' . DS . ucfirst($this->theme)));
 		Configure::load($this->theme.'.conf', 'themeconfig',true);
 		print_r(Configure::read('Theme_Config'));
                 $this->set('meta_keywords',(!@$settings['meta_keywords']!='')?@$settings['meta_keywords']:'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
