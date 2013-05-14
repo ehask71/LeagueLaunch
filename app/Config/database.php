@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9a22196cb533f70b8212da44f9b81b4d508eab4
 class DATABASE_CONFIG {
 
     public $default = null;
