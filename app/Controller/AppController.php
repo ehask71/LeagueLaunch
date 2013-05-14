@@ -1,6 +1,6 @@
 <?php
-
 App::uses('Controller', 'Controller');
+App::uses('PhpReader', 'Configure');
 
 class AppController extends Controller {
 
