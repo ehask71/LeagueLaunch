@@ -1,0 +1,115 @@
+/* header */
+div.searchBox form #headerSearch, #commentForm form fieldset.inputFields input, #commentForm form fieldset.textArea textarea, #contactForm form fieldset.inputFields input, #contactForm form fieldset.textArea textarea {
+	border: solid 1px #bfbfbf;
+}
+#commentForm form fieldset.inputFields #name, #contactForm form fieldset.inputFields #name {
+	margin: 0;
+}
+
+/* home social */
+div.homeSocial ul li a.facebook, div.footerSocial ul li a.facebook, #ourCrew div.member table ul li a.facebook, #postAuthor div.authorInfo ul li a.facebook, #socialNetwork li a.facebook {
+	background: url("../images/facebook_normal.png") left top no-repeat;
+}
+div.homeSocial ul li a.facebook:hover, div.footerSocial ul li a.facebook:hover, #ourCrew div.member table ul li a.facebook:hover, #postAuthor div.authorInfo ul li a.facebook:hover, #socialNetwork li a.facebook:hover {
+	background: url("../images/facebook_hover.png") left top no-repeat;
+}
+div.homeSocial ul li a.twitter, div.footerSocial ul li a.twitter, #ourCrew div.member table ul li a.twitter, #postAuthor div.authorInfo ul li a.twitter, #socialNetwork li a.twitter {
+	background: url("../images/twitter_normal.png") left top no-repeat;
+}
+div.homeSocial ul li a.twitter:hover, div.footerSocial ul li a.twitter:hover, #ourCrew div.member table ul li a.twitter:hover, #postAuthor div.authorInfo ul li a.twitter:hover, #socialNetwork li a.twitter:hover {
+	background: url("../images/twitter_hover.png") left top no-repeat;
+}
+div.homeSocial ul li a.google, div.footerSocial ul li a.google, #ourCrew div.member table ul li a.google, #postAuthor div.authorInfo ul li a.google, #socialNetwork li a.google {
+	background: url("../images/google_normal.png") left top no-repeat;
+}
+div.homeSocial ul li a.google:hover, div.footerSocial ul li a.google:hover, #ourCrew div.member table ul li a.google:hover, #postAuthor div.authorInfo ul li a.google:hover, #socialNetwork li a.google:hover {
+	background: url("../images/google_hover.png") left top no-repeat;
+}
+div.homeSocial ul li a.vimeo, div.footerSocial ul li a.vimeo, #ourCrew div.member table ul li a.vimeo, #postAuthor div.authorInfo ul li a.vimeo, #socialNetwork li a.vimeo {
+	background: url("../images/vimeo_normal.png") left top no-repeat;
+}
+div.homeSocial ul li a.vimeo:hover, div.footerSocial ul li a.vimeo:hover, #ourCrew div.member table ul li a.vimeo:hover, #postAuthor div.authorInfo ul li a.vimeo:hover, #socialNetwork li a.vimeo:hover {
+	background: url("../images/vimeo_hover.png") left top no-repeat;
+}
+div.homeSocial ul li a.flickr, div.footerSocial ul li a.flickr, #socialNetwork li a.flickr {
+	background: url("../images/flickr_normal.png") left top no-repeat;
+}
+div.homeSocial ul li a.flickr:hover, div.footerSocial ul li a.flickr:hover, #socialNetwork li a.flickr:hover {
+	background: url("../images/flickr_hover.png") left top no-repeat;
+}
+
+/* home slider */
+#homeSlider div.cycle-slideshow div div.cycle-overlay {
+	background: #fff;
+}
+
+/* newsletter */
+#newsLetter form #newsletterInput {
+	border: solid 1px #bfbfbf;
+}
+
+/* footer flickr */
+.flickrFeed li {
+	margin: 0 15px 10px 0;
+}
+
+/* gallery */
+#categContainer div.arrange ul li a.grid {
+	background: url("../images/grid_normal.jpg") left top no-repeat;
+}
+#categContainer div.arrange ul li a.grid:hover, #categContainer div.arrange ul li a.grid.selected {
+	background: url("../images/grid_hover.jpg") left top no-repeat;
+}
+#categContainer div.arrange ul li a.list {
+	background: url("../images/list_normal.jpg") left top no-repeat;
+}
+#categContainer div.arrange ul li a.list:hover, #categContainer div.arrange ul li a.list.selected {
+	background: url("../images/list_hover.jpg") left top no-repeat;
+}
+#categContainer div.arrange ul li a.full {
+	background: url("../images/full_normal.jpg") left top no-repeat;
+}
+#categContainer div.arrange ul li a.full:hover, #categContainer div.arrange ul li a.full.selected {
+	background: url("../images/full_hover.jpg") left top no-repeat;
+}
+#gallery_1 > ul li div.image-hover {
+	background: #f2594b;
+}
+
+
+/* contact */
+#contactInfo ul li.address span {
+	background: url("../images/address.jpg") left top no-repeat;
+}
+#contactInfo ul li.email span {
+	background: url("../images/email.jpg") left top no-repeat;
+}
+#contactInfo ul li.phone span {
+	background: url("../images/phone.jpg") left top no-repeat;
+}
+#contactInfo ul li.fax span {
+	background: url("../images/fax.jpg") left top no-repeat;
+}
+
+
+/* sport pages */
+#sideNav ul li a.active {
+	border-bottom: solid 1px #777777;
+	border-top: none;
+}
+#poll form label {
+	margin-top: -20px;
+	margin-left: 5px;
+}
+#poll form input[type=radio] + label {
+	background: none;
+}
+#featuredNews #slidePager {
+	width: 15%;
+}
+#leagueTeams ul li p span {
+	width: 25%;
+}
+#playerLatestPhotos li, #teamLatestPhotos li {
+	margin: 10px 10px 0 0;
+}

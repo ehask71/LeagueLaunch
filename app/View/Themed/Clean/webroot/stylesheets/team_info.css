@@ -1,0 +1,426 @@
+/* #team info Page Styles
+================================================== */
+
+/* left column */
+.leftColumn {
+	margin-top: 60px;
+}
+
+/* photo id */
+#teamLogo > div {
+	position: relative;
+}
+#teamLogo img {
+	display: block;
+	padding: 5px;
+	background: url("../images/dotted_black.png") center center repeat;
+}
+#teamLogo .topLeft {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -1060px no-repeat;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	z-index: 101;
+}
+#teamLogo .topRight {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") -20px -1060px no-repeat;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	z-index: 101;
+}
+#teamLogo .bottomRight {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") -20px -1080px no-repeat;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	z-index: 101;
+}
+#teamLogo .bottomLeft {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -1080px no-repeat;
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	z-index: 101;
+}
+
+
+/* social network */
+#socialNetwork {
+	margin-top: 60px;
+}
+#socialNetwork ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#socialNetwork ul li {
+	display: block;
+	float: left;
+	margin-right: 3px;
+}
+#socialNetwork ul li a {
+	width: 32px;
+	height: 32px;
+	display: block;
+	background: url("../images/sprite1.png") no-repeat;
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+}
+#socialNetwork li:nth-child(1) a {
+	background-position: 0 -900px;
+}
+#socialNetwork li:nth-child(1) a:hover {
+	background-position: -32px -900px;
+}
+#socialNetwork li:nth-child(2) a {
+	background-position: 0 -932px;
+}
+#socialNetwork li:nth-child(2) a:hover {
+	background-position: -32px -932px;
+}
+#socialNetwork li:nth-child(3) a {
+	background-position: 0 -964px;
+}
+#socialNetwork li:nth-child(3) a:hover {
+	background-position: -32px -964px;
+}
+#socialNetwork li:nth-child(4) a {
+	background-position: 0 -996px;
+}
+#socialNetwork li:nth-child(4) a:hover {
+	background-position: -32px -996px;
+}
+#socialNetwork li:nth-child(5) a {
+	background-position: 0 -1028px;
+}
+#socialNetwork li:nth-child(5) a:hover {
+	background-position: -32px -1028px;
+}
+
+/* player latest tweets */
+#teamLatestTweets {
+	margin-top: 60px;
+}
+#teamLatestTweets .twitterFeed ul {
+	margin: 0;
+	padding: 0;
+}
+#teamLatestTweets .twitterFeed ul li {
+	width: 100%;
+	display: block;
+	float: left;
+	margin: 0 0 10px 0;
+	padding: 0 0 0 30px;
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+	background: url("../images/twitter.png") left 6px no-repeat;
+}
+#teamLatestTweets .twitterFeed ul li:last-child {
+	margin: 0;
+}
+#teamLatestTweets .twitterFeed ul li a:link, #teamLatestTweets .twitterFeed ul li a:visited, #teamLatestTweets .twitterFeed ul li a 
+{
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #f2594b;
+}
+#teamLatestTweets .twitterFeed ul li a:hover, #teamLatestTweets .twitterFeed ul li a:visited {
+	text-decoration: underline;
+}
+#teamLatestTweets .twitterFeed ul li img {
+	display: none;
+}
+#teamLatestTweets .twitterFeed ul li span.tweet_join {
+	display: none;
+}
+
+/* news letter */
+#newsLetter {
+	margin-top: 60px;
+}
+#newsLetter form {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#newsLetter form #newsletterInput {
+	width: 100%;
+	height: 30px;
+	padding: 5px 10px 5px 10px;
+	margin: 0 0 10px 0;
+	background: #eeeeee;
+	border: none;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-o-border-radius: 20px;
+	box-shadow: 0px 0px 3px #c6c6c6 inset;
+	-moz-box-shadow: 0px 0px 3px #c6c6c6 inset;
+	-webkit-box-shadow: 0px 0px 3px #c6c6c6 inset;
+	-o-box-shadow: 0px 0px 3px #c6c6c6 inset;
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+	float: left;
+}
+#newsLetter form #newsletterInput:focus {
+	box-shadow: 0px 0px 3px #55ccd9 inset;
+	-moz-box-shadow: 0px 0px 3px #55ccd9 inset;
+	-webkit-box-shadow: 0px 0px 3px #55ccd9 inset;
+	-o-box-shadow: 0px 0px 3px #55ccd9 inset;
+}
+#newsLetter form #subscribe {
+	border: none;
+	width: 100px;
+	height: 30px;
+	background: url("../images/sprite1.png") 0 -120px no-repeat;
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	cursor: pointer;
+	float: left;
+	display: block;
+}
+#newsLetter form #subscribe:hover {
+	background-position: 0 -150px;
+}
+
+/* club location */
+#clubLocation {
+	margin-top: 60px;
+}
+#clubLocation iframe {
+	padding: 5px;
+	background: url("../images/dotted_black.png") left top repeat;
+}
+
+/* middle column */
+.middleColumn {
+	margin-top: 60px;
+}
+
+/* team info table */
+#teamInfo table {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-spacing: 0px 5px;
+}
+#teamInfo thead {
+	background: #383838;
+}
+#teamInfo thead th {
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	font: normal 12px/12px 'Droid Serif', Georgia, Serif;
+	color: #f2f2f2;
+	border-right: solid 1px #807f7f;
+}
+#teamInfo thead th:nth-child(1) {
+	width: 35%;
+}
+#teamInfo tbody {
+	clear: both;
+}
+#teamInfo tbody tr {
+	padding: 5px 0;
+	background: #f2f2f2;
+	border: solid 1px #fff;
+}
+#teamInfo tbody tr td {
+	font: normal 11px/44px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+	text-align: left;
+	border-right: solid 1px #dddddd;
+	padding: 0 10px;
+}
+#teamInfo tbody tr td a, #teamInfo tbody tr td a:link, #teamInfo tbody tr td a:visited {
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+}
+#teamInfo tbody tr td a:hover, #teamInfo tbody tr td a:active {
+	color: #f2594b;
+}
+#teamInfo tbody tr td.caption {
+	font: normal 12px/12px 'Droid Serif', Georgia, Serif;
+	color: #fff;
+	background: #55ccd9;
+	text-align: center;
+}
+#teamInfo tbody tr td a.seeAll {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	width: 100px;
+	height: 30px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -660px no-repeat;
+	float: right;
+	margin-top: 8px;
+}
+#teamInfo tbody tr td a.seeAll:hover {
+	background-position: 0 -690px;
+}
+#teamInfo tbody tr td a.seeAllPlayers {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	width: 100px;
+	height: 30px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -780px no-repeat;
+	float: right;
+	margin-top: 8px;
+}
+#teamInfo tbody tr td a.seeAllPlayers:hover {
+	background-position: 0 -810px;
+}
+#teamInfo tbody tr td a.contactButton {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	width: 100px;
+	height: 30px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -720px no-repeat;
+	float: right;
+	margin-top: 8px;
+}
+#teamInfo tbody tr td a.contactButton:hover {
+	background-position: 0 -750px;
+}
+
+/* team history */
+#teamHistory {
+	margin-top: 60px;
+}
+#teamHistory p {
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+}
+#teamHistory p a:link, #teamHistory p a:visited {
+	color: #f2594b;
+}
+#teamHistory p a:hover, #teamHistory p a:active {
+	text-decoration: underline;
+}
+
+
+/* right column */
+.rightColumn {
+	margin-top: 60px;
+}
+
+/* team latest photos */
+#teamLatestPhotos ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#teamLatestPhotos li {
+	display: block;
+	float: left;
+	padding: 0;
+	margin: 10px 15px 0 0;
+}
+#teamLatestPhotos li:nth-child(1), #teamLatestPhotos li:nth-child(2), #teamLatestPhotos li:nth-child(3), #teamLatestPhotos li:nth-child(4) {
+	margin-top: 0;
+}
+#teamLatestPhotos li:nth-child(4), #teamLatestPhotos li:nth-child(8) {
+	margin-right: 0;
+}
+#teamLatestPhotos li img {
+	background: url("../images/dotted_black.png") left top repeat;
+	padding: 5px;
+	border: none;
+}
+
+/* team latest video */
+#teamLatestVideo {
+	margin-top: 60px;
+}
+#teamLatestVideo iframe {
+	padding: 5px;
+	background: url("../images/dotted_black.png") left top repeat;
+	display: block;
+}
+
+/* team manager */
+#teamManager {
+	margin-top: 60px;
+}
+#teamManager > div {
+	position: relative;
+	margin-bottom: 10px;
+}
+#teamManager img {
+	display: block;
+	padding: 5px;
+	background: url("../images/dotted_black.png") center center repeat;
+}
+#teamManager .topLeft {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -1060px no-repeat;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	z-index: 101;
+}
+#teamManager .topRight {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") -20px -1060px no-repeat;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	z-index: 101;
+}
+#teamManager .bottomRight {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") -20px -1080px no-repeat;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	z-index: 101;
+}
+#teamManager .bottomLeft {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -1080px no-repeat;
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	z-index: 101;
+}
+#teamManager p {
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+}
+#teamManager p a:link, #teamManager p a:visited {
+	color: #f2594b;
+}
+#teamManager p a:hover, #teamManager p a:active {
+	text-decoration: underline;
+}
+
+
+

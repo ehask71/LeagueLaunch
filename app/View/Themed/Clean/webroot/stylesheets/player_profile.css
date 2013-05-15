@@ -1,0 +1,377 @@
+/* #Player profile Page Styles
+================================================== */
+
+/* left column */
+.leftColumn {
+	margin-top: 60px;
+}
+
+/* photo id */
+#photoId > div {
+	position: relative;
+}
+#photoId img {
+	display: block;
+	padding: 5px;
+	background: url("../images/dotted_black.png") center center repeat;
+}
+#photoId .topLeft {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -1060px no-repeat;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	z-index: 101;
+}
+#photoId .topRight {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") -20px -1060px no-repeat;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	z-index: 101;
+}
+#photoId .bottomRight {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") -20px -1080px no-repeat;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	z-index: 101;
+}
+#photoId .bottomLeft {
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -1080px no-repeat;
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	z-index: 101;
+}
+
+
+/* social network */
+#socialNetwork {
+	margin-top: 60px;
+}
+#socialNetwork ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#socialNetwork ul li {
+	display: block;
+	float: left;
+	margin-right: 3px;
+}
+#socialNetwork ul li a {
+	width: 32px;
+	height: 32px;
+	display: block;
+	background: url("../images/sprite1.png") no-repeat;
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+}
+#socialNetwork li:nth-child(1) a {
+	background-position: 0 -900px;
+}
+#socialNetwork li:nth-child(1) a:hover {
+	background-position: -32px -900px;
+}
+#socialNetwork li:nth-child(2) a {
+	background-position: 0 -932px;
+}
+#socialNetwork li:nth-child(2) a:hover {
+	background-position: -32px -932px;
+}
+#socialNetwork li:nth-child(3) a {
+	background-position: 0 -964px;
+}
+#socialNetwork li:nth-child(3) a:hover {
+	background-position: -32px -964px;
+}
+#socialNetwork li:nth-child(4) a {
+	background-position: 0 -996px;
+}
+#socialNetwork li:nth-child(4) a:hover {
+	background-position: -32px -996px;
+}
+#socialNetwork li:nth-child(5) a {
+	background-position: 0 -1028px;
+}
+#socialNetwork li:nth-child(5) a:hover {
+	background-position: -32px -1028px;
+}
+
+/* player latest tweets */
+#playerLatestTweets {
+	margin-top: 60px;
+}
+#playerLatestTweets .twitterFeed ul {
+	margin: 0;
+	padding: 0;
+}
+#playerLatestTweets .twitterFeed ul li {
+	width: 100%;
+	display: block;
+	float: left;
+	margin: 0 0 10px 0;
+	padding: 0 0 0 30px;
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+	background: url("../images/twitter.png") left 6px no-repeat;
+}
+#playerLatestTweets .twitterFeed ul li:last-child {
+	margin: 0;
+}
+#playerLatestTweets .twitterFeed ul li a:link, #playerLatestTweets .twitterFeed ul li a:visited, #playerLatestTweets .twitterFeed ul li a 
+{
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #f2594b;
+}
+#playerLatestTweets .twitterFeed ul li a:hover, #playerLatestTweets .twitterFeed ul li a:visited {
+	text-decoration: underline;
+}
+#playerLatestTweets .twitterFeed ul li img {
+	display: none;
+}
+#playerLatestTweets .twitterFeed ul li span.tweet_join {
+	display: none;
+}
+
+/* player latest photos */
+#playerLatestPhotos {
+	margin-top: 60px;
+}
+#playerLatestPhotos ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#playerLatestPhotos li {
+	display: block;
+	float: left;
+	padding: 0;
+	margin: 10px 15px 0 0;
+}
+#playerLatestPhotos li:nth-child(1), #playerLatestPhotos li:nth-child(2), #playerLatestPhotos li:nth-child(3), #playerLatestPhotos li:nth-child(4) {
+	margin-top: 0;
+}
+#playerLatestPhotos li:nth-child(4), #playerLatestPhotos li:nth-child(8) {
+	margin-right: 0;
+}
+#playerLatestPhotos li img {
+	background: url("../images/dotted_black.png") left top repeat;
+	padding: 5px;
+	border: none;
+}
+
+/* player latest video */
+#playerLatestVideo {
+	margin-top: 60px;
+}
+#playerLatestVideo iframe {
+	padding: 5px;
+	background: url("../images/dotted_black.png") left top repeat;
+	display: block;
+}
+
+/* right column */
+.rightColumn {
+	margin-top: 60px;
+}
+
+/* player's info table */
+#playerInfo table {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-spacing: 0px 5px;
+}
+#playerInfo thead {
+	background: #383838;
+}
+#playerInfo thead th {
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	font: normal 12px/12px 'Droid Serif', Georgia, Serif;
+	color: #f2f2f2;
+	border-right: solid 1px #807f7f;
+}
+#playerInfo thead th:nth-child(1) {
+	width: 25%;
+}
+#playerInfo tbody {
+	clear: both;
+}
+#playerInfo tbody tr {
+	padding: 5px 0;
+	background: #f2f2f2;
+	border: solid 1px #fff;
+}
+#playerInfo tbody tr td {
+	font: normal 11px/44px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+	text-align: left;
+	border-right: solid 1px #dddddd;
+	padding: 0 10px;
+}
+#playerInfo tbody tr td a, #playerInfo tbody tr td a:link, #playerInfo tbody tr td a:visited {
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+}
+#playerInfo tbody tr td a:hover, #playerInfo tbody tr td a:active {
+	color: #f2594b;
+}
+#playerInfo tbody tr td.caption {
+	font: normal 12px/12px 'Droid Serif', Georgia, Serif;
+	color: #fff;
+	background: #55ccd9;
+	text-align: center;
+}
+#playerInfo tbody tr td a.seeAll {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	width: 100px;
+	height: 30px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -660px no-repeat;
+	float: right;
+	margin-top: 8px;
+}
+#playerInfo tbody tr td a.seeAll:hover {
+	background-position: 0 -690px;
+}
+#playerInfo tbody tr td a.contactButton {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	width: 100px;
+	height: 30px;
+	display: block;
+	background: url("../images/sprite1.png") 0 -720px no-repeat;
+	float: right;
+	margin-top: 8px;
+}
+#playerInfo tbody tr td a.contactButton:hover {
+	background-position: 0 -750px;
+}
+
+/* player's abilities */
+#playerAbilities {
+	margin-top: 60px;
+}
+#playerAbilities table {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-spacing: 0px 5px;
+}
+#playerAbilities thead {
+	background: #383838;
+}
+#playerAbilities thead th {
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	font: normal 12px/12px 'Droid Serif', Georgia, Serif;
+	color: #f2f2f2;
+	border-right: solid 1px #807f7f;
+}
+#playerAbilities thead th:nth-child(1) {
+	width: 25%;
+}
+#playerAbilities tbody {
+	clear: both;
+}
+#playerAbilities tbody tr {
+	padding: 5px 0;
+	background: #f2f2f2;
+	border: solid 1px #fff;
+}
+#playerAbilities tbody tr td {
+	font: normal 11px/11px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+	text-align: left;
+	border-right: solid 1px #dddddd;
+	padding: 12px 10px;
+}
+#playerAbilities tbody tr td a, #playerAbilities tbody tr td a:link, #playerAbilities tbody tr td a:visited {
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+}
+#playerAbilities tbody tr td a:hover, #playerAbilities tbody tr td a:active {
+	color: #f2594b;
+}
+#playerAbilities tbody tr td.caption {
+	font: normal 12px/12px 'Droid Serif', Georgia, Serif;
+	color: #fff;
+	background: #55ccd9;
+	text-align: center;
+}
+
+/* progress bar in the abilities td */
+#playerAbilities tbody tr td div.progressBar {
+	overflow: hidden;
+	display: inline-block;
+	height: 22px;
+	background: #fff;
+	padding: 2px;
+	width: 100%;
+	border: solid 1px #55ccd9;
+	border-radius: 20px;
+	position: relative;
+}
+#playerAbilities tbody tr td div.progressBar div{
+    float: left;
+    height: 16px;                
+    background: #f2594b url("../images/dotted_white.png") left top repeat;
+    border-radius: 20px;
+}
+#playerAbilities tbody tr td div.progressBar p {
+	position: absolute;
+	top: 4px;
+	left: 50%;
+	color: #000;
+	font: normal 11px/11px 'Open Sans', Arial, sans-serif;
+	text-shadow: none;
+}
+
+/* player's biography */
+#playerBiography {
+	margin-top: 60px;
+}
+#playerBiography p {
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+}
+#playerBiography p a:link, #playerBiography p a:visited {
+	color: #f2594b;
+}
+#playerBiography p a:hover, #playerBiography p a:active {
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
