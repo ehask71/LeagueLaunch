@@ -1,0 +1,267 @@
+/* #Gallery 1 Page Styles
+================================================== */
+
+/* gallery nav */
+#galleryNav {
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
+#categContainer {
+	background: #f2f2f2;
+	border: solid 1px #fff;
+}
+#categContainer div h3 {
+	float: left;
+	font: normal 12px/12px 'Droid Serif', Georgia, serif;
+	color: #fff;
+	background: #55ccd9;
+	padding: 10px 20px;
+	text-shadow: none;
+	position: relative;
+}
+#categContainer div h3:after {
+	content: ' ';
+	height: 0;
+	width: 0;
+	position: absolute;
+	border: 7px solid transparent;
+	border-left-color: #55ccd9;
+	left: 100%;
+	top: 32%;
+	float: left;
+}
+#categContainer div.filter ul {
+	margin: 0 0 0 20px;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+#categContainer div.filter ul li {
+	display: inline-block;
+	color: #55ccd9;
+	margin-top: 5px;
+}
+#categContainer div.filter ul li a:link, #categContainer div.filter ul li a:visited {
+	font: normal 11px/11px 'Open Sans', Arial, sans-serif;
+	color: #55ccd9;
+}
+#categContainer div.filter ul li a:hover, #categContainer div.filter ul li a:active, #categContainer div.filter ul li.selected a {
+	color: #f2594b;
+}
+#categContainer div.arrange ul {
+	margin: 0 0 0 20px;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+#categContainer div.arrange ul li {
+	display: block;
+	float: left;
+	margin-right: 6px;
+}
+#categContainer div.arrange ul li a:link, #categContainer div.arrange ul li a:visited {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	width: 30px;
+	height: 30px;
+	display: block;
+}
+#categContainer div.arrange ul li:nth-child(1) a {
+	background: url("../images/sprite1.png") -100px -280px no-repeat;
+}
+#categContainer div.arrange ul li:nth-child(1) a:hover, #categContainer div.arrange ul li:nth-child(1) a:visited, #categContainer div.arrange ul li:nth-child(1) a.selected {
+	background-position: -100px -310px;
+}
+#categContainer div.arrange ul li:nth-child(2) a {
+	background: url("../images/sprite1.png") -100px -340px no-repeat;
+}
+#categContainer div.arrange ul li:nth-child(2) a:hover, #categContainer div.arrange ul li:nth-child(2) a:visited, #categContainer div.arrange ul li:nth-child(2) a.selected {
+	background-position: -100px -370px;
+}
+#categContainer div.arrange ul li:nth-child(3) a {
+	background: url("../images/sprite1.png") -100px -400px no-repeat;
+}
+#categContainer div.arrange ul li:nth-child(3) a:hover, #categContainer div.arrange ul li:nth-child(3) a:visited, #categContainer div.arrange ul li:nth-child(3) a.selected {
+	background-position: -100px -430px;
+}
+
+
+/* gallery 4 columns */
+#gallery_1 > ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	float: left;
+	clear: both;
+}
+#gallery_1 > ul li {
+	margin-top: 20px;
+	position: relative;
+	overflow: hidden;
+}
+#gallery_1 > ul li:nth-child(1), #gallery_1 > ul li:nth-child(2), #gallery_1 > ul li:nth-child(3), #gallery_1 > ul li:nth-child(4) {
+	margin-top: 0;
+}
+#gallery_1 > ul li img {
+	padding: 5px;
+	background: url("../images/dotted_black.png") left top repeat;
+	margin: 0 auto;
+	display: block;
+}
+#gallery_1 > ul li div.image-hover {
+	position: absolute;
+	top: 42%;
+	left: 0;
+	background: rgba(242, 89, 75, 0.8);
+	width: 100%;
+	padding: 10px 0;
+	z-index: 9;
+	display: none;
+}
+#gallery_1 > ul li div.image-hover a {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	float: left;
+	display: block;
+}
+#gallery_1 > ul li div.image-hover a.zoom {
+	width: 16px;
+	height: 16px;
+	background: url("../images/zoom.png") left top no-repeat;
+	margin-left: 80px;
+}
+#gallery_1 > ul li div.image-hover a.imgLink {
+	width: 16px;
+	height: 16px;
+	background: url("../images/link.png") center center no-repeat;
+	margin-left: 20px;
+}
+
+/* meta data and text */
+#gallery_1 > ul li div.titleAndMeta {
+	background: #f2f2f2;
+	margin-top: 5px;
+	float: left;
+	width: 100%;
+}
+#gallery_1 > ul li div.titleAndMeta h3 a:link, #gallery_1 > ul li div.titleAndMeta h3 a:visited {
+	float: left;
+	border-right: solid 1px #dddddd;
+	font: normal 11px/11px 'Droid Serif', Georgia, serif;
+	color: #65686b;
+	padding: 10px 15px 10px 5px;
+	text-shadow: none;
+}
+#gallery_1 > ul li div.titleAndMeta h3 a:hover, #gallery_1 > ul li div.titleAndMeta h3 a:active {
+	color: #f2594b;
+}
+#gallery_1 > ul li div.titleAndMeta p {
+	font: normal 11px/11px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+	padding: 3px 0;
+	float: left;
+	margin: 8px 0 0 0;
+}
+#gallery_1 > ul li div.titleAndMeta p a, #gallery_1 > ul li div.titleAndMeta p a:link, #gallery_1 > ul li div.titleAndMeta p a:visited {
+	color: #65686b;
+}
+#gallery_1 > ul li div.titleAndMeta p a:hover, #gallery_1 > ul li div.titleAndMeta p a:active {
+	color: #f2594b;
+}
+#gallery_1 > ul li div.titleAndMeta p.lovesCount {
+	background: url("../images/love.png") left center no-repeat;
+	padding-left: 25px;
+	margin-left: 10px;
+}
+#gallery_1 > ul li div.titleAndMeta p.commentsCount {
+	background: url("../images/comment.png") left center no-repeat;
+	padding-left: 25px;
+	margin-left: 10px;
+}
+#gallery_1 > ul li p {
+	font: normal 11px/22px 'Open Sans', Arial, sans-serif;
+	color: #65686b;
+	padding: 0;
+	float: left;
+	margin: 10px 0 0 0;
+}
+
+/* pagination */
+div#pagination {
+	margin-top: 60px;
+	width: 100%;
+	float: left;
+	clear: both;
+}
+#pagination ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+#pagination ul li {
+	display: block;
+	float: left;
+	margin-right: 3px;
+}
+#pagination ul li a:link, #pagination ul li a:visited {
+	display: block;
+	font: normal 12px/25px 'Open Sans', Arial, sans-serif;
+	color: #55ccd9;
+	text-align: center;
+	padding: 0 10px;
+	border-top: solid 1px #f2f2f2;
+	border-right: solid 1px #dedede;
+	border-left: solid 1px #dedede;
+	box-shadow: 0px 1px 0px #b7b7b7;
+	-moz-box-shadow: 0px 1px 0px #b7b7b7;
+	-webkit-box-shadow: 0px 1px 0px #b7b7b7;
+	-o-box-shadow: 0px 1px 0px #b7b7b7;
+	background: #ededed;
+	background: -moz-linear-gradient(top,  #ededed 0%, #e0e0e0 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ededed), color-stop(100%,#e0e0e0));
+	background: -webkit-linear-gradient(top,  #ededed 0%,#e0e0e0 100%);
+	background: -o-linear-gradient(top,  #ededed 0%,#e0e0e0 100%);
+	background: -ms-linear-gradient(top,  #ededed 0%,#e0e0e0 100%);
+	background: linear-gradient(to bottom,  #ededed 0%,#e0e0e0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#e0e0e0',GradientType=0 );
+
+}
+#pagination ul li a:hover, #pagination ul li a:active, #pagination ul li a.current {
+	color: #f2594b;
+	-moz-box-shadow: 0px 1px 0px #000;
+	-webkit-box-shadow: 0px 1px 0px #000;
+	-o-box-shadow: 0px 1px 0px #000;
+}
+#pagination a.nextPage {
+	width: 33px;
+	height: 25px;
+	display: block;
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	background: url("../images/sprite1.png") -100px 0 no-repeat;
+	float: right;
+	margin-left: 10px;
+}
+#pagination a.nextPage:hover {
+	background-position: -100px -25px;
+}
+#pagination a.prevPage {
+	width: 33px;
+	height: 25px;
+	display: block;
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	background: url("../images/sprite1.png") -100px -50px no-repeat;
+	float: right;
+}
+#pagination a.prevPage:hover {
+	background-position: -100px -75px;
+}
