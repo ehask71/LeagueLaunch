@@ -20,19 +20,20 @@
   ================================================== -->
         <?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('cake.generic');
+                echo $this->Html->css('basic-styles');
+                echo $this->Html->css('main');
+                echo $this->Html->css('home');
                 echo $this->Html->meta('keywords',$meta_keywords);
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	<link rel="stylesheet" href="stylesheets/basic-styles.css">
-	<link rel="stylesheet" href="stylesheets/main.css">
-	<link rel="stylesheet" href="stylesheets/home.css">
 
 	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<link rel="stylesheet" href="stylesheets/ie_fix.css">
+                <?php 
+		echo $this->Html->script('http://html5shim.googlecode.com/svn/trunk/html5.js');
+		echo $this->Html->css('ie_fix');
+                ?>
 	<![endif]-->
 
 	<!-- Favicons
