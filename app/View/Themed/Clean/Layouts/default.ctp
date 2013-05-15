@@ -18,6 +18,14 @@
 
 	<!-- CSS
   ================================================== -->
+        <?php
+		echo $this->Html->meta('icon');
+		echo $this->Html->css('cake.generic');
+                echo $this->Html->meta('keywords',$meta_keywords);
+		echo $this->fetch('meta');
+		echo $this->fetch('css');
+		echo $this->fetch('script');
+	?>
 	<link rel="stylesheet" href="stylesheets/basic-styles.css">
 	<link rel="stylesheet" href="stylesheets/main.css">
 	<link rel="stylesheet" href="stylesheets/home.css">
