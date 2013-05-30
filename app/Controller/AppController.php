@@ -15,7 +15,7 @@ class AppController extends Controller {
     public function beforeFilter() {
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
         $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
-
+	$this->Widget->build();
         $domain = $this->getDomain();
         if ($this->Sites->getSiteId($domain)) {
             $result = $this->Sites->find('first', array(
