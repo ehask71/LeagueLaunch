@@ -26,6 +26,10 @@ class AppController extends Controller {
             if (count($result) > 0) {
                 $settings = $this->Settings->buildSettings($result['Sites'], $result['Settings']);
 		$this->theme = $settings['theme'];
+                // Override if we are admin!
+                if (isset($this->params['prefix']) && $this->params['prefix'] == 'admin') {
+                    $this->theme = 'admin';
+                }
 		// Load Theme configs
 		//echo APP . 'View' . DS . 'Themed' . DS . ucfirst($this->theme);
 		Configure::config('themeconfig', new PhpReader(APP . 'View' . DS . 'Themed' . DS . ucfirst($this->theme) . DS));
