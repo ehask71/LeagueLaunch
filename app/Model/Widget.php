@@ -7,8 +7,8 @@ App::uses('AppModel', 'Model');
 
 class Widget extends AppModel {
     
-    public function build(){
-	echo 'Params'.print_r($GLOBALS['Dispatcher'],1);
+    public function build($controller,$action){
+	echo $controller. ' ' . $action;
     }
 
 }
