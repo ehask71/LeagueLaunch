@@ -17,6 +17,7 @@ class HomeController extends AppController {
     public function notconfigured(){
         
     }
+    
 }
 
 ?>
