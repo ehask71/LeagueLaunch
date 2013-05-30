@@ -6,7 +6,7 @@ class AppController extends Controller {
 
     public $viewClass = 'Theme';
     public $theme = 'default';
-    public $uses = array('Settings', 'Sites');
+    public $uses = array('Settings', 'Sites','Widget');
     public $components = array(
         'Session',
         'Auth'
