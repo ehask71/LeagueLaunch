@@ -9,13 +9,14 @@ class AppController extends Controller {
     public $uses = array('Settings', 'Sites','Widget');
     public $components = array(
         'Session',
-        'Auth'
+        'Auth' => array(
+            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login')
+        )
     );
 
     public function beforeFilter() {
-        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
-        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
-	$this->Widget->build($this->params['controller'],$this->params['action']);
+	$this->Widget->build($this->prefix,$this->params['controller'],$this->params['action']);
         $domain = $this->getDomain();
         if ($this->Sites->getSiteId($domain)) {
             $result = $this->Sites->find('first', array(
