@@ -1,7 +1,8 @@
 <?php
 
 class UsersController extends AppController {
-
+    public $uses = array('users');
+    
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow();
