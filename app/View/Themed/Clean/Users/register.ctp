@@ -1,7 +1,7 @@
 <h2>Register</h2> 
 <?php
 echo $this->Form->create();
-echo $this->Form->input('site_id',array('type'=>'hidden'));
+echo $this->Form->input('site_id',array('type'=>'hidden','value'=>$site_id));
 echo $this->Form->input('firstname');
 echo $this->Form->input('lastname');
 echo $this->Form->input('zip');
