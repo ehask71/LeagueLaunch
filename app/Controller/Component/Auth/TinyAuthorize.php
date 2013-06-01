@@ -4,7 +4,7 @@ App::uses('Hash', 'Utility');
 App::uses('BaseAuthorize', 'Controller/Component/Auth');
 
 if (!defined('CLASS_USER')) {
-	define('CLASS_USER', 'User'); # override if you have it in a plugin: PluginName.User etc
+	define('CLASS_USER', 'Users'); # override if you have it in a plugin: PluginName.User etc
 }
 if (!defined('AUTH_CACHE')) {
 	define('AUTH_CACHE', '_cake_core_'); # use the most persistent cache by default
