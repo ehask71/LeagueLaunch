@@ -1,7 +1,7 @@
 <?php
 
 class UsersController extends AppController {
-    public $uses = array('Users');
+    public $uses = array('User');
     
     public function beforeFilter() {
         parent::beforeFilter();
@@ -32,7 +32,7 @@ class UsersController extends AppController {
 
     public function register() {
         if ($this->request->is('post')) {
-            if ($this->Users->save($this->request->data)) {
+            if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash('The user has been saved');
                 $this->redirect(array('action' => 'index'));
             } else {
