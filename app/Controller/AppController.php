@@ -24,6 +24,7 @@ class AppController extends Controller {
         $this->Auth->authorize = array('Tiny');
         $this->Auth->authenticate = array('Form');
 	$this->Widget->build($this->prefix,$this->params['controller'],$this->params['action']);
+        print_r($this->Auth->user());
         $domain = $this->getDomain();
         if ($this->Sites->getSiteId($domain)) {
             $result = $this->Sites->find('first', array(
