@@ -29,7 +29,7 @@ class AppController extends Controller {
 		)
 	    );
 	$this->Widget->build($this->prefix,$this->params['controller'],$this->params['action']);
-        print_r($this->Auth->user());
+        //print_r($this->Auth->user());
         $domain = $this->getDomain();
         if ($this->Sites->getSiteId($domain)) {
             $result = $this->Sites->find('first', array(
