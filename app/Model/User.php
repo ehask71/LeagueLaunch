@@ -34,7 +34,7 @@ class User extends AppModel {
 		'alias' => 'RolesUser',
 		'type' => 'INNER',
 		'conditions' =>
-		array('users.id=RolesUser.user_id')),
+		array('User.id=RolesUser.user_id')),
 	    array(
 		'table' => 'roles',
 		'alias' => 'Role',
