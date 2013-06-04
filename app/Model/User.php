@@ -10,14 +10,13 @@ App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
 
     public $primaryKey = 'id';
-    
     public $hasAndBelongsToMany = array(
 	'Role' => array(
 	    'className' => 'Role',
 	    'joinTable' => 'roles_users',
 	    'foreignKey' => 'user_id',
 	    'assosciationForeignKey' => 'role_id',
-	    'unique' => true,
+	    'unique' => 'keepExisting',
 	)
     );
 
@@ -26,6 +25,24 @@ class User extends AppModel {
 	    $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
 	}
 	return true;
+    }
+
+    public function beforeFind(array $query) {
+	$query['joins'] = array(
+	    array(
+		'table' => 'roles_users',
+		'alias' => 'RolesUser',
+		'type' => 'INNER',
+		'conditions' =>
+		array('users.id=RolesUser.user_id')),
+	    array(
+		'table' => 'roles',
+		'alias' => 'Role',
+		'type' => 'INNER',
+		'conditions' =>
+		array('RolesUser.role_id=Role.id')));
+
+	return $query;
     }
 
 }
