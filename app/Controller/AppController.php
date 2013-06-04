@@ -22,7 +22,7 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         $this->Auth->authorize = array('Tiny');
-        $this->Auth->authenticate = array('Form');
+        $this->Auth->authenticate = array('Form' => array('contain' => array('RolesUsers')));
 	$this->Widget->build($this->prefix,$this->params['controller'],$this->params['action']);
         print_r($this->Auth->user());
         $domain = $this->getDomain();
