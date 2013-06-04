@@ -25,10 +25,7 @@ class AppController extends Controller {
         $this->Auth->authenticate = array(
 	    'Form' => array(
 		'recursive'=>1,
-		'contain' => array('RolesUsers'),
-		'fields' => array(
-		    'username' => 'email'
-		    )
+		'contain' => array('RolesUsers')
 		)
 	    );
 	$this->Widget->build($this->prefix,$this->params['controller'],$this->params['action']);
