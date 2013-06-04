@@ -15,7 +15,7 @@ class AppController extends Controller {
                     'fields' => array('username' => 'email')
                 )
             ),
-            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login')
         )
     );
