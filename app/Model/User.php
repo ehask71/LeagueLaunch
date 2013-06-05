@@ -41,7 +41,7 @@ class User extends AppModel {
 		'type' => 'INNER',
 		'conditions' =>
 		array('RolesUser.role_id=Role.id')));
-        print_r($query);
+        //print_r($query);
 	return $query;
     }
 
