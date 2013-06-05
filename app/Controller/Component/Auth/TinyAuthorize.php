@@ -75,7 +75,6 @@ class TinyAuthorize extends BaseAuthorize {
 			} else {
 				$roles = (array)$user[$this->settings['aclModel']];
 			}
-			mail('ehask71@gmail.com','Roles',  print_r($roles,1));
 		} elseif (isset($user[$this->settings['aclKey']])) {
 			$roles = array($user[$this->settings['aclKey']]);
 		} else {
