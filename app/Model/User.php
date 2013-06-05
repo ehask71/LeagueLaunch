@@ -45,8 +45,8 @@ class User extends AppModel {
 	if(isset($query['conditions']['RolesUser.site_id'])){
 	    $query['joins'][0]['conditions'][] = "RolesUser.site_id={$query['conditions']['RolesUser.site_id']}";
 	}
-	echo "<pre>";
-        print_r($query);
+	//echo "<pre>";
+        //print_r($query);
 	return $query;
     }
 
