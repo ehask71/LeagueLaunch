@@ -33,7 +33,7 @@ class AppController extends Controller {
 		$this->Auth->authenticate = array(
 		    'Form' => array(
 			//'fields' => array('username'=>'User.email'),
-			'conditions' => array('RolesUser.site_id' => $result['Sites']['site_id']),
+			'scope' => array('RolesUser.site_id' => $result['Sites']['site_id']),
 			'recursive' => 1,
 			//'contain' => array('RolesUser')
 		    )
