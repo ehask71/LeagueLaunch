@@ -37,7 +37,7 @@ class AppController extends Controller {
 	    if (count($result) > 0) {
 		$this->Auth->authenticate = array(
 		    'Form' => array(
-			'fields' => array('username'=>'User.email'),
+			//'fields' => array('username'=>'User.email'),
 			'conditions' => array('RolesUser.site_id' => $result['Sites']['site_id']),
 			'recursive' => 1,
 			//'contain' => array('RolesUser')
