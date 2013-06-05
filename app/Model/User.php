@@ -41,6 +41,10 @@ class User extends AppModel {
 		'type' => 'INNER',
 		'conditions' =>
 		array('RolesUser.role_id=Role.id')));
+	// Custom SaaS app mod
+	if(isset($query['conditions']['RolesUser.site_id'])){
+	    $query['joins'][0]['conditions'][] = "RolesUser.site_id={$query['conditions']['RolesUser.site_id']}";
+	}
 	echo "<pre>";
         print_r($query);
 	return $query;
