@@ -44,7 +44,7 @@ class Settings extends AppModel{
             Configure::write("Settings.".$key, $value);
         }
         Configure::write("Settings.site_id", $site['site_id']);
-        print_r($site);
+        print_r($settings);
 	return $settings;
     }
 }
