@@ -123,6 +123,7 @@
 
 	<div id="contetnContainer" class="container">
         <?php echo $this->Session->flash(); ?>
+            <?php echo $this->Session->flash('auth'); ?>
 	<?php echo $this->fetch('content'); ?>    
         </div><!-- end of content container -->
 
