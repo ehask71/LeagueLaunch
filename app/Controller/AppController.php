@@ -34,7 +34,7 @@ class AppController extends Controller {
 		    'Form' => array(
 			//'fields' => array('username'=>'User.email'),
 			'scope' => array(
-			    'RolesUser.site_id' => $result['Sites']['site_id'],
+			    //'RolesUser.site_id' => $result['Sites']['site_id'],
 			    'User.is_active' => 'yes'
 			),
 			'recursive' => 1,
