@@ -16,11 +16,15 @@ class User extends AppModel {
 	    'joinTable' => 'roles_users',
 	    'foreignKey' => 'user_id',
 	    'assosciationForeignKey' => 'role_id',
-	    'unique' => 'keepExisting',
-            'conditions' => array('RolesUser.site_id' => Configure::read('Settings.site_id'))
+	    'unique' => 'keepExisting'
 	)
     );
 
+    function __construct($id = false, $table = null, $ds = null) { 
+        $this->hasAndBelongsToMany['Role']['conditions'] = array('RolesUser.site_id' => Configure::read('Settings.site_id')); 
+        parent::__construct($id, $table, $ds); 
+    } 
+    
     public function beforeSave($options = array()) {
 	if (isset($this->data[$this->alias]['password'])) {
 	    $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
