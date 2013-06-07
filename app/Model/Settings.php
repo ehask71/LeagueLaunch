@@ -43,8 +43,9 @@ class Settings extends AppModel{
         foreach($settings as $key=>$value){
             Configure::write("Settings.".$key, $value);
         }
+        // Store Our Site_id for use elsewhere
         Configure::write("Settings.site_id", $site['site_id']);
-        print_r(Configure::read('Settings'));
+
 	return $settings;
     }
 }
