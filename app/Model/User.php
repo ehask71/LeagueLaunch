@@ -17,7 +17,7 @@ class User extends AppModel {
 	    'foreignKey' => 'user_id',
 	    'assosciationForeignKey' => 'role_id',
 	    'unique' => 'keepExisting',
-            'conditions' => array('RolesUser.site_id'=>2)
+            'conditions' => array('RolesUser.site_id' => Configure::read('Settings.site_id'))
 	)
     );
 
