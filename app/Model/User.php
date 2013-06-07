@@ -28,7 +28,7 @@ class User extends AppModel {
     }
 
     public function beforeFind(array $query) {
-	$query['joins'] = array(
+	/*$query['joins'] = array(
 	    array(
 		'table' => 'roles_users',
 		'alias' => 'RolesUser',
@@ -48,7 +48,7 @@ class User extends AppModel {
             unset($query['conditions']['RolesUser.site_id']);
 	}
 	//echo "<pre>";
-        //print_r($query);
+        //print_r($query);*/
 	return $query;
     }
 
