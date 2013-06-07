@@ -52,8 +52,10 @@ class User extends AppModel {
 	    //$query['joins'][0]['conditions'][] = "RolesUser.site_id={$query['conditions']['RolesUser.site_id']}";
             unset($query['conditions']['RolesUser.site_id']);
 	}
-	//echo "<pre>";
-        //print_r($query);*/
+         * 
+         */
+	echo "<pre>";
+        print_r($query);
 	return $query;
     }
 
