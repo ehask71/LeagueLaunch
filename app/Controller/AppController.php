@@ -13,7 +13,7 @@ class AppController extends Controller {
 	'Auth' => array(
 	    'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
 	    'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-            'loginAction'    => '/users/login',
+            'loginAction'    => '/login',
 	)
     );
 
