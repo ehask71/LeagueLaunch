@@ -34,7 +34,8 @@ class User extends AppModel {
 		'alias' => 'RolesUser',
 		'type' => 'INNER',
 		'conditions' =>
-		array('User.id=RolesUser.user_id')),
+		array('User.id=RolesUser.user_id',
+                      'RolesUser.site_id='.$query['conditions']['RolesUser.site_id'])),
 	    array(
 		'table' => 'roles',
 		'alias' => 'Role',
@@ -43,7 +44,8 @@ class User extends AppModel {
 		array('RolesUser.role_id=Role.id')));
 	// Custom SaaS app mod
 	if(isset($query['conditions']['RolesUser.site_id'])){
-	    $query['joins'][0]['conditions'][] = "RolesUser.site_id={$query['conditions']['RolesUser.site_id']}";
+	    //$query['joins'][0]['conditions'][] = "RolesUser.site_id={$query['conditions']['RolesUser.site_id']}";
+            unset($query['conditions']['RolesUser.site_id']);
 	}
 	//echo "<pre>";
         //print_r($query);
