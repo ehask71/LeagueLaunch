@@ -34,6 +34,7 @@ class AppController extends Controller {
 		$this->Auth->authenticate = array(
 		    'Form' => array(
 			//'fields' => array('username'=>'User.email'),
+                        'fields' => array('username' => 'email', 'password' => 'password'), 
 			'scope' => array(
 			    //'RolesUser.site_id' => $result['Sites']['site_id'],
 			    'User.is_active' => 'yes'
