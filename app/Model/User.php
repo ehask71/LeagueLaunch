@@ -54,8 +54,8 @@ class User extends AppModel {
 	}
          * 
          */
-	echo "<pre>";
-        print_r($query);
+	//echo "<pre>";
+        //print_r($query);
 	return $query;
     }
 
