@@ -82,7 +82,7 @@
                     <section class="container_12">
                         <section id="page_content" class="page_content">					
                             <section class="header grid_12">
-                                <a class="logo" href="index.html"></a>
+                                <a class="logo" href="/admin/home"></a>
                                 <form method="get" id="searchform" action="#">
                                     <input placeholder="Search..." type="text" name="s" id="s" />
                                 </form>
@@ -90,7 +90,7 @@
                             </section>
                             <div>
                                 <ul id="menu">
-                                    <li><a href="index.html">Dashboard<span class="icon1"></span></a></li>
+                                    <li><a href="/admin/home">Dashboard<span class="icon1"></span></a></li>
                                     <li><a href="#">Plugins<span class="icon6"></span></a>
                                         <ul>	 
                                             <li><a href="calendar.html">Advanced calendar</a></li>
