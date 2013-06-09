@@ -62,7 +62,7 @@
         </script>
 
         <!--=== ENABLE HTML5 TAGS FOR IE ===-->
-        <!--[if IE]><script src="js/html5.js"></script><![endif]-->
+        <!--[if IE]><?php echo $this->Html->script('html5');?><![endif]-->
 
         <title>Admin theme </title>
     </head>
@@ -71,13 +71,8 @@
         <section class="top_panel">
             <div class="panel_elements">
                 <ul class="panel_item">
-                    <li><a href="#">Private messages [14]</a></li>
-                    <li><a href="#">System Log [52]</a></li>
-                    <li><a href="#">Inactive entries [6]</a></li>
-                    <li><a href="#">Comments approval [89]</a></li>
-                    <li><a href="#">New users [27]</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li class="right"><a href="#">Logout<span class="logout"></span></a></li>
+                    <li><a href="/admin/home/settings">Settings</a></li>
+                    <li class="right"><a href="/logout">Logout<span class="logout"></span></a></li>
                 </ul>
             </div>
         </section>
