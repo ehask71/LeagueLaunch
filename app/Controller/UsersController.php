@@ -1,11 +1,13 @@
 <?php
 
 class UsersController extends AppController {
+    
     public $uses = array('User');
+    public $components = array('Email');
     
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login','register');
+        $this->Auth->allow('login','register','forgetpwd','confirmpwd');
     }
 
     public function isAuthorized($user) {
@@ -40,7 +42,17 @@ class UsersController extends AppController {
             }
         }
     }
-
+    
+    public function forgetpwd() {
+        if ($this->request->is('post')) {
+            
+        }
+    }
+    
+    public function confirmpwd() {
+        
+    }
+    
     public function logout() {
         $this->redirect($this->Auth->logout());
     }
