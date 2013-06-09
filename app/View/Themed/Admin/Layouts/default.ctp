@@ -16,7 +16,7 @@
         echo $this->Html->css('grid');
         echo $this->Html->css('uniform.default');
         echo $this->Html->css('chosen');
-        //<link rel="stylesheet" href="plugins/jqueryui/all/themes/base/jquery.ui.all.css" />
+        echo $this->Html->css('/js/jqueryui/all/themes/base/jquery.ui.all');
 
         echo $this->Html->css('style');
         echo $this->Html->css('config');
@@ -29,10 +29,10 @@
         echo $this->Html->script('jquery.uniform');
         echo $this->Html->script('chosen.jquery');
         echo $this->Html->script('jquery.placeholder');
-        //<script src="plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
-        //<script src="plugins/jqueryui/all/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+        echo $this->Html->script('/js/ckeditor/ckeditor');
+        echo $this->Html->script('/js/jqueryui/all/jquery-ui-1.8.16.custom.min');
         echo $this->Html->script('http://www.google.com/jsapi');
-        //<script type="text/javascript" src="plugins/gvchart/jquery.gvChart-1.0.1.min.js"></script>
+        echo $this->Html->script('/js/gvchart/jquery.gvChart-1.0.1.min');
 
         echo $this->Html->script('head_scripts');
         ?>
