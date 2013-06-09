@@ -1,6 +1,10 @@
 <div class="grid_12">
     <div class="box">
-        <h2>Fundraisers</h2>
+        <h2>
+            Fundraisers
+            <span class="l"></span>
+            <span class="r"></span>
+        </h2>
         <div class="block">
             <div class="block_in">
                 <table>
