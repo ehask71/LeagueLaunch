@@ -48,11 +48,11 @@
 				//'type' => 'select',
 				'options' => array('baseball','football','soccer'),
 				'div' => false,
-				'class' => 'i-format',
-				'label' => 'Description',
+				'class' => 'chzn-select-deselect',
+				'label' => 'Sport',
 				'before' => '<section class="form_row"><div class="grid_2">',
 				'between' => '</div><div class="grid_10"><div class="block_content">',
-				'after' => '<small>League Description</small?</div></div><div class="clear"></div></section>'
+				'after' => '<small>Your Leagues Sport</small?</div></div><div class="clear"></div></section>'
 			    ));?>
 			    <section class="form_row">
 				<div class="grid_2"><label>Input:</label></div>
