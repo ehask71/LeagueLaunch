@@ -36,30 +36,7 @@
 
         echo $this->Html->script('head_scripts');
         ?>
-        <script type="text/javascript">
-            gvChartInit();
-            jQuery(document).ready(function(){
-                jQuery('#myGraph1').gvChart({
-                    chartType: 'AreaChart',
-                    gvSettings: {
-                        vAxis: {title: 'Visitors'},
-                        hAxis: {title: 'Month'},
-                        width: 450,
-                        height: 200
-                    }
-                });					
-					
-                jQuery('#myGraph4').gvChart({
-                    chartType: 'ColumnChart',
-                    gvSettings: {
-                        vAxis: {title: 'Visitors'},
-                        hAxis: {title: 'Month'},
-                        width: 450,
-                        height: 200
-                    }
-                });
-            });
-        </script>
+        
 
         <!--=== ENABLE HTML5 TAGS FOR IE ===-->
         <!--[if IE]><?php echo $this->Html->script('html5');?><![endif]-->
