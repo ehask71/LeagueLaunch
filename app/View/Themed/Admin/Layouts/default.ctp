@@ -35,8 +35,6 @@
         echo $this->Html->script('/js/gvchart/jquery.gvChart-1.0.1.min');
 
         echo $this->Html->script('head_scripts');
-	echo $this->Html->script('scripts');
-	echo $this->Html->script('ui_calls');
         ?>
         
 
@@ -114,7 +112,9 @@
                 </section><!-- end of #container -->
             </section><!-- End of .wrapper_layout -->
         </section><!-- End of #main_wrapper -->
-        <script src="js/ui_calls.js" type="text/javascript"></script>
-        <script src="js/scripts.js" type="text/javascript"></script>
+        <?php
+	echo $this->Html->script('scripts');
+	echo $this->Html->script('ui_calls');
+	?>
     </body>
 </html>
