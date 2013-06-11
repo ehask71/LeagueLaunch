@@ -18,6 +18,10 @@ class HomeController extends AppController {
 	
     }
     
+    public function admin_settings(){
+	
+    }
+
     public function notconfigured(){
         
     }
