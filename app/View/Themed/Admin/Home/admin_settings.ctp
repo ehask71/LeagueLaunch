@@ -7,12 +7,6 @@
         </h2>
         <div class="block">
             <div class="block_in">
-		<script>
-		    $(function() {
-			$( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-			$( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-		    });
-		</script>
 		<style type="text/css">
 		    .ui-tabs-vertical { width: 55em; }
 		    .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
@@ -41,6 +35,12 @@
 			<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
 		    </div>
 		</div>
+		<script type="text/javascript">
+		    $(function() {
+			$( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+			$( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+		    });
+		</script>
 	    </div>
 	</div>
     </div>
