@@ -49,7 +49,7 @@
 				'options' => array('baseball','football','soccer'),
 				'div' => false,
 				'class' => 'chzn-select-deselect',
-				'width'=> '350px',
+				'style'=> 'width:350px',
 				'label' => 'Sport',
 				'before' => '<section class="form_row"><div class="grid_2">',
 				'between' => '</div><div class="grid_10"><div class="block_content">',
