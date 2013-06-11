@@ -24,6 +24,8 @@
 			</ul>
 			<div id="tabs-1">
 			    <?=$this->Form->input('test',array(
+				'div' => false,
+				'class' => 'i-format',
 				'label' => 'Test',
 				'before' => '<section class="form_row"><div class="grid_2">',
 				'between' => '</div><div class="grid_10"><div class="block_content">',
