@@ -35,6 +35,8 @@
         echo $this->Html->script('/js/gvchart/jquery.gvChart-1.0.1.min');
 
         echo $this->Html->script('head_scripts');
+	echo $this->Html->script('scripts');
+	echo $this->Html->script('ui_calls');
         ?>
         
 
