@@ -14,7 +14,11 @@ class SitesController extends AppController {
     }
     
     public function index(){
-        
+        $this->redirect('/');
+    }
+    
+    public function admin_settings(){
+	
     }
     
 }
