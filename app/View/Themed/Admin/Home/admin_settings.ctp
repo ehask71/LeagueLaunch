@@ -23,7 +23,8 @@
 			    <li><a href="#tabs-3">Aenean lacinia</a></li>
 			</ul>
 			<div id="tabs-1">
-			    <?=$this->Form->create('test',array(
+			    <?=$this->Form->input('test',array(
+				'label' => 'Test',
 				'before' => '<section class="form_row"><div class="grid_2">',
 				'between' => '</div><div class="grid_10"><div class="block_content">',
 				'after' => '</div></div><div class="clear"></div></section>'
