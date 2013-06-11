@@ -16,20 +16,43 @@
 		    .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 58em;}
 		</style>
 		<div id="tabs">
-		    <form class="form_place" action="#">
+		    <!--<form class="form_place" action="#">-->
+		    <?php
+			echo $this->Form->create(NULL, array(
+			    'class' => 'form_place',
+			    'type' => 'file'
+			));?>
 			<ul>
-			    <li><a href="#tabs-1">Nunc tincidunt</a></li>
+			    <li><a href="#tabs-1">Basic Info</a></li>
 			    <li><a href="#tabs-2">Proin dolor</a></li>
 			    <li><a href="#tabs-3">Aenean lacinia</a></li>
 			</ul>
 			<div id="tabs-1">
-			    <?=$this->Form->input('test',array(
+			    <?=$this->Form->input('Setting.meta_keywords',array(
 				'div' => false,
 				'class' => 'i-format',
-				'label' => 'Test',
+				'label' => 'Keywords',
 				'before' => '<section class="form_row"><div class="grid_2">',
 				'between' => '</div><div class="grid_10"><div class="block_content">',
-				'after' => '</div></div><div class="clear"></div></section>'
+				'after' => '<small>Comma Seperated</small?</div></div><div class="clear"></div></section>'
+			    ));?>
+			    <?=$this->Form->input('Settings.meta_description',array(
+				'div' => false,
+				'class' => 'i-format',
+				'label' => 'Description',
+				'before' => '<section class="form_row"><div class="grid_2">',
+				'between' => '</div><div class="grid_10"><div class="block_content">',
+				'after' => '<small>League Description</small?</div></div><div class="clear"></div></section>'
+			    ));?>
+			    <?=$this->Form->input('Sites.sport',array(
+				//'type' => 'select',
+				'options' => array('baseball','football','soccer'),
+				'div' => false,
+				'class' => 'i-format',
+				'label' => 'Description',
+				'before' => '<section class="form_row"><div class="grid_2">',
+				'between' => '</div><div class="grid_10"><div class="block_content">',
+				'after' => '<small>League Description</small?</div></div><div class="clear"></div></section>'
 			    ));?>
 			    <section class="form_row">
 				<div class="grid_2"><label>Input:</label></div>
@@ -50,7 +73,7 @@
 			    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
 			    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
 			</div>
-		    </form>
+		    <?php echo $this->Form->end('Update'); ?>
 		</div>
 		<script type="text/javascript">
 		    $(function() {
