@@ -55,15 +55,6 @@
 				'between' => '</div><div class="grid_10"><div class="block_content">',
 				'after' => '<br/><small>Your Leagues Sport</small?</div></div><div class="clear"></div></section>'
 			    ));?>
-			    <section class="form_row">
-				<div class="grid_2"><label>Input:</label></div>
-				<div class="grid_10">
-				    <div class="block_content">
-					<input type="text" required="required" class="i-format" name="input_example">
-				    </div>
-				</div>
-				<div class="clear"></div>
-			    </section>
 			</div>
 			<div id="tabs-2">
 			    <h2>Content heading 2</h2>
