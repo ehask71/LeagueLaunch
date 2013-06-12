@@ -20,6 +20,7 @@ class SitesController extends AppController {
     
     public function admin_settings(){
 	$id = Configure::read('Settings.site_id');
+	$this->Settings->site_id = $id; 
 	if ($this->request->is('post')) {
 	    echo "<pre>";
 	    print_r($this->request->data);
