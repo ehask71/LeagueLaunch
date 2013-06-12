@@ -9,6 +9,8 @@ class Settings extends AppModel{
     
     public $useTable = 'settings';
     
+    public $actsAs = array('KeyValue.KeyValue');
+	
     public $belongsTo = array(
         'Sites' => array(
             'className'    => 'Sites',
