@@ -46,7 +46,7 @@
 			    ));?>
 			    <?=$this->Form->input('Sites.sport',array(
 				//'type' => 'select',
-				'options' => array('baseball','football','soccer'),
+				'options' => array('baseball'=>'baseball','football'=>'football','soccer'=>'soccer'),
 				'div' => false,
 				'class' => 'chzn-select-deselect',
 				'style'=> 'width:350px',
