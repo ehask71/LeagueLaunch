@@ -24,7 +24,9 @@ class SitesController extends AppController {
 	if ($this->request->is('post')) {
             if($this->request->data){
                 foreach ($this->request->data['Settings'] AS $key=>$var){
-                    $this->Settings->query("REPLACE INTO settings SET value = '".addslashes($var)."' WHERE name='".$key."' AND site_id = ".Configure::read('Settings.site_id'));
+                    $this->Settings->query("INSERT INTO settings SET value = '".addslashes($var)."' WHERE name='".$key."' AND site_id = ".Configure::read('Settings.site_id').
+                            "ON DUPLICATE KEY UPDATE
+                                value='".addslashes($var)."'");
                         
                 }
                 $this->Session->setFlash('Settings Saved!');
