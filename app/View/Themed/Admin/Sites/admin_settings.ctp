@@ -49,10 +49,11 @@
 				'options' => array('baseball','football','soccer'),
 				'div' => false,
 				'class' => 'chzn-select-deselect',
+				'style'=> 'width:350px',
 				'label' => 'Sport',
 				'before' => '<section class="form_row"><div class="grid_2">',
 				'between' => '</div><div class="grid_10"><div class="block_content">',
-				'after' => '<small>Your Leagues Sport</small?</div></div><div class="clear"></div></section>'
+				'after' => '<br/><small>Your Leagues Sport</small?</div></div><div class="clear"></div></section>'
 			    ));?>
 			    <section class="form_row">
 				<div class="grid_2"><label>Input:</label></div>
