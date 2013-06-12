@@ -28,7 +28,7 @@ class Settings extends AppModel{
         return $results;
     }
     
-    function buildSettings($site,$setarray){
+    public function buildSettings($site,$setarray){
 	$settings = array();
 	if(count($setarray)>0){
 	    foreach ($setarray as $row) {
