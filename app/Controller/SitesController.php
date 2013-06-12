@@ -22,6 +22,7 @@ class SitesController extends AppController {
 	$id = Configure::read('Settings.site_id');
 	$this->Settings->site_id = $id; 
 	if ($this->request->is('post')) {
+            
             if($this->Settings->save($this->request->data)){
                 $this->Session->setFlash('Settings Saved!');
                 $this->redirect('/admin/sites/settings');
