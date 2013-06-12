@@ -18,7 +18,7 @@ class KeyValueBehavior extends ModelBehavior {
 	 * @var array 
 	 */
 	public $keyValueOptions = array(
-		'uniqueKeys' => false,
+		'uniqueKeys' => true,
 		'fields' => array(
 			'key' => 'name',
 			'value' => 'value'
