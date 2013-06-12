@@ -22,7 +22,11 @@ class SitesController extends AppController {
 	$id = Configure::read('Settings.site_id');
 	$this->Settings->site_id = $id; 
 	if ($this->request->is('post')) {
-            if($this->Settings->save($this->request->data)){
+            if($this->request->data){
+                foreach ($this->request->data['Settings'] AS $key=>$var){
+                    $this->Settings->query("REPLACE INTO settings SET value = '".addslashes($var)."' WHERE name='".$key."' AND site_id = ".Configure::read('Settings.site_id'));
+                        
+                }
                 $this->Session->setFlash('Settings Saved!');
                 //$this->redirect('/admin/sites/settings');
             } 
