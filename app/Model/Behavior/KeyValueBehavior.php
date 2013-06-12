@@ -84,6 +84,7 @@ class KeyValueBehavior extends ModelBehavior {
 				$insert[$Model->alias][$fields['key']] = $key;
 
 				if ($uniqueKeys) {
+                                        print_r(reset($insert));
 					$Model->deleteAll(reset($insert));
 				}
 
