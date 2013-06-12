@@ -7,6 +7,8 @@ App::uses('AppModel', 'Model');
  */
 class Settings extends AppModel{
     
+    public $findMethods = array('bysiteid' =>  true);
+    
     public $useTable = 'settings';
     
     public $actsAs = array('KeyValue');
@@ -17,6 +19,14 @@ class Settings extends AppModel{
             'foreignKey'   => 'site_id'
         )
     );
+    
+    protected function _findBysiteid($state, $query, $results = array()) {
+        if ($state === 'before') {
+            $query['conditions']['Settings.site_id'] = Configure::read('Settings.site_id');
+            return $query;
+        }
+        return $results;
+    }
     
     function buildSettings($site,$setarray){
 	$settings = array();
