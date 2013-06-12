@@ -26,6 +26,7 @@ class SitesController extends AppController {
                 $this->Session->setFlash('Settings Saved!');
                 $this->redirect('/admin/sites/settings');
             }
+            $this->set('sub',$this->request->data);
 	}
 	$this->set('settings', $this->Settings->find('bysiteid'));
     }
