@@ -34,7 +34,7 @@
 				'label' => 'Keywords',
 				'before' => '<section class="form_row"><div class="grid_2">',
 				'between' => '</div><div class="grid_10"><div class="block_content">',
-				'after' => '<small>Comma Seperated</small?</div></div><div class="clear"></div></section>'
+				'after' => '<small>Comma Seperated</small></div></div><div class="clear"></div></section>'
 			    ));?>
 			    <?=$this->Form->input('Settings.meta_description',array(
 				'div' => false,
@@ -42,7 +42,7 @@
 				'label' => 'Description',
 				'before' => '<section class="form_row"><div class="grid_2">',
 				'between' => '</div><div class="grid_10"><div class="block_content">',
-				'after' => '<small>League Description</small?</div></div><div class="clear"></div></section>'
+				'after' => '<small>League Description</small></div></div><div class="clear"></div></section>'
 			    ));?>
 			    <?=$this->Form->input('Sites.sport',array(
 				//'type' => 'select',
@@ -53,7 +53,7 @@
 				'label' => 'Sport',
 				'before' => '<section class="form_row"><div class="grid_2">',
 				'between' => '</div><div class="grid_10"><div class="block_content">',
-				'after' => '<br/><small>Your Leagues Sport</small?</div></div><div class="clear"></div></section>'
+				'after' => '<br/><small>Your Leagues Sport</small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
 			<div id="tabs-2">
