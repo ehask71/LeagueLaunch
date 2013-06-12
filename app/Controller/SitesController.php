@@ -24,7 +24,7 @@ class SitesController extends AppController {
 	    echo "<pre>";
 	    print_r($this->request->data);
 	}
-	$this->set('settings', $this->Settings->findById($id));
+	$this->set('settings', $this->Settings->find('bysiteid'));
     }
     
 }
