@@ -73,6 +73,10 @@
 			$( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
 		    });
 		</script>
+                <pre>
+                <?php print_r($settings);
+                print_r($sub);
+                ?>
 	    </div>
 	</div>
     </div>
