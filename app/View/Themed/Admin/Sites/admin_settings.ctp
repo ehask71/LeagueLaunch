@@ -28,7 +28,7 @@
 			    <li><a href="#tabs-3">Aenean lacinia</a></li>
 			</ul>
 			<div id="tabs-1">
-			    <?=$this->Form->input('Setting.meta_keywords',array(
+			    <?=$this->Form->input('Settings.meta_keywords',array(
 				'div' => false,
 				'class' => 'i-format',
 				'label' => 'Keywords',
