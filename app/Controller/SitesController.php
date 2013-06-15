@@ -9,7 +9,7 @@ App::uses('AppController', 'Controller');
 class SitesController extends AppController {
 
     public $name = 'Sites';
-    public $uses = array('Settings');
+    public $uses = array('Settings', 'Sites');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -31,7 +31,7 @@ class SitesController extends AppController {
                                 value='" . addslashes($var) . "'");
                     }
                 }
-                $siteskeys = array('domain','leaguename','sport','organization','slogan','firstname','lastname','email','address');
+                $siteskeys = array('domain', 'leaguename', 'sport', 'organization', 'slogan', 'firstname', 'lastname', 'email', 'address');
                 if (is_array($this->request->data['Sites'])) {
                     foreach ($this->request->data['Sites'] AS $key => $var) {
                         $this->Settings->query("INSERT INTO sites SET value = '" . addslashes($var) . "',name='" . $key . "',site_id = " . Configure::read('Settings.site_id') .
@@ -47,9 +47,18 @@ class SitesController extends AppController {
         $this->set('settings', $this->Settings->find('bysiteid'));
         $this->set('sub', $this->request->data);
     }
-    
-    public function admin_account(){
-        
+
+    public function admin_account() {
+        $siteid = Configure::read('Settings.site_id');
+        if ($this->request->isPut()) {
+            
+        } else {
+            $site = $this->Sites->read(null, $siteid);
+            $this->request->data = null;
+            if (!empty($site)) {
+                $this->request->data = $site;
+            }
+        }
     }
 
 }
