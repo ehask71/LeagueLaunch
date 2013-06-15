@@ -51,7 +51,12 @@ class SitesController extends AppController {
     public function admin_account() {
         $siteid = Configure::read('Settings.site_id');
         if ($this->request->isPut()) {
-            
+            $this->Sites->set($this->data);
+            if ($this->Sites->siteValidate()) {
+                $this->Sites->save($this->request->data, false);
+                $this->Session->setFlash(__('Your account has been successfully updated'));
+                $this->redirect('/admin/sites/account');
+            }
         } else {
             $site = $this->Sites->read(null, $siteid);
             $this->request->data = null;
