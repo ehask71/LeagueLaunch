@@ -90,6 +90,9 @@
 			    ));?>
                 <?=$this->Form->input('site_id',array(
                                 'type' => 'hidden',
+                                'before' => '',
+                                'between' => '',
+				'after' => ''
 			    ));?>
                 <?php echo $this->Form->end('Update'); ?>
             </div>
