@@ -88,6 +88,9 @@
 				'class' => 'i-format',
 				'label' => 'Fax',
 			    ));?>
+                <?=$this->Form->input('site_id',array(
+                                'type' => 'hidden',
+			    ));?>
                 <?php echo $this->Form->end('Update'); ?>
             </div>
 	</div>
