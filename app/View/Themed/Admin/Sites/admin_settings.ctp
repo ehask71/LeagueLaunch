@@ -60,7 +60,7 @@
 		    <?php echo $this->Form->end(array(
                         'label' => 'Update',
                         'div' => array(
-                            'class' => 'form_row'
+                            'class' => 'grid_12'
                         )
                      )); ?>
 		</div>
