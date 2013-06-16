@@ -29,12 +29,12 @@ class Sites extends AppModel {
             'leaguename' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the League Name')
+                    'message' => 'Please enter the League\'s Name')
             ),
             'sport' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please Select Your Leagues Sport')
+                    'message' => 'Please Select Your League\'s Sport')
             ),
             'firstname' => array(
                 'mustNotEmpty' => array(
@@ -49,7 +49,7 @@ class Sites extends AppModel {
             'email' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the League Email'),
+                    'message' => 'Please enter the League\'s Email'),
                 'mustBeEmail' => array(
                     'rule' => array('email'),
                     'message' => 'Please enter a valid email',
@@ -58,32 +58,32 @@ class Sites extends AppModel {
             'address' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the League Address')
+                    'message' => 'Please enter the League\'s Address')
             ),
             'city' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the League City')
+                    'message' => 'Please enter the League\'s City')
             ),
             'state' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the League State')
+                    'message' => 'Please enter the League\'s State')
             ),
             'zip' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the League Zip')
+                    'message' => 'Please enter the League\'s Zip')
             ),
             'country' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the League Country')
+                    'message' => 'Please enter the League\'s Country')
             ),
             'phone' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the email')
+                    'message' => 'Please enter the League\'s Contact Number')
             )
         );
         $this->validate = $validate1;
