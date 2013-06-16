@@ -51,6 +51,13 @@ class SitesController extends AppController {
             }
         }
     }
+    
+    /**
+     *   Register a Site/League
+     */
+    public function register(){
+        
+    }
 
 }
 
