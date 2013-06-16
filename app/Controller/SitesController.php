@@ -29,7 +29,6 @@ class SitesController extends AppController {
                 $this->redirect('/admin/sites/settings');
             }
         }
-        $this->set('sports',$this->Sports->getSports());
 	$this->request->data = $this->Settings->buildPopulateArray();
     }
 
