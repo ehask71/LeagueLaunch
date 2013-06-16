@@ -77,7 +77,7 @@ class Settings extends AppModel {
 	//print_r($settings);
 	$data = array();
 	foreach ($settings AS $row){
-	    $data[$row['Settings']['name']] = $row['Settings']['value']; 
+	    $data['Settings'][$row['Settings']['name']] = $row['Settings']['value']; 
 	}
 	return $data;
     }
