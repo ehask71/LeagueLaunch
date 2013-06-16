@@ -30,7 +30,7 @@
 			    ));?>
                 <?=$this->Form->input('sport',array(
 				//'type' => 'select',
-				'options' => array('baseball'=>'baseball','football'=>'football','soccer'=>'soccer'),
+				'options' => $sports,
 				'class' => 'chzn-select-deselect',
 				'style'=> 'width:350px',
 				'label' => 'Sport',
