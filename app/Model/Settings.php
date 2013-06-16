@@ -45,7 +45,7 @@ class Settings extends AppModel {
 	if (!isset($settings['theme'])) {
 	    $settings['theme'] = 'default';
 	}
-        echo $settings['meta_keywords'];
+
 	if (strlen($settings['meta_keywords']) < 2) {
 	    App::import('model', 'Keywords');
 	    $keywords = new Keywords();
