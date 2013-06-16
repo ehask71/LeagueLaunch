@@ -62,8 +62,8 @@ class Settings extends AppModel {
     }
 
     public function updateKeyVal($data) {
-	if (is_array($data->request->data['Settings'])) {
-	    foreach ($data->request->data['Settings'] AS $key => $var) {
+	if (is_array($data['Settings'])) {
+	    foreach ($data['Settings'] AS $key => $var) {
 		$this->query("INSERT INTO settings SET value = '" . addslashes($var) . "',name='" . $key . "',site_id = " . Configure::read('Settings.site_id') .
 			" ON DUPLICATE KEY UPDATE
                                 value='" . addslashes($var) . "'");
