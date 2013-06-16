@@ -10,6 +10,7 @@ class Sports extends AppModel {
     
     public function getSports(){
 	$sport = array(
+	    '' => 'Select Your League Sport',
 	    'baseball'=>'Baseball',
 	    'football'=>'Football',
 	    'soccer'=>'Soccer'
