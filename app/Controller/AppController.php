@@ -52,7 +52,7 @@ class AppController extends Controller {
 		//echo APP . 'View' . DS . 'Themed' . DS . ucfirst($this->theme);
 		Configure::config('themeconfig', new PhpReader(APP . 'View' . DS . 'Themed' . DS . ucfirst($this->theme) . DS));
 		Configure::load($this->theme . 'conf', 'themeconfig', true);
-		//print_r($result['Sites']);
+		//print_r($result['Settings']);
 		//print_r(Configure::read());
 		$this->set('meta_keywords', (!@$settings['meta_keywords'] != '') ? @$settings['meta_keywords'] : 'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
 		$this->set('meta_description', (!@$settings['meta_description'] != '') ? @$settings['meta_description'] : 'LeagueLaunch.com :: League Management Made Easy');
