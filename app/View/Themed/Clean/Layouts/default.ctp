@@ -24,6 +24,7 @@
                 echo $this->Html->css('main');
                 echo $this->Html->css('home');
                 echo $this->Html->meta('keywords',$meta_keywords);
+                echo $this->Html->meta('description',$meta_description);
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
