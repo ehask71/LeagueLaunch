@@ -70,6 +70,16 @@ class Settings extends AppModel {
 	    }
 	}
     }
+    
+    public function buildPopulateArray(){
+	$site_id = Configure::read('Settings.site_id');
+	$settings = $this->find('bysiteid');
+	$data = array();
+	foreach ($settings AS $row){
+	    $data[$row['name']] = $row['value']; 
+	}
+	return $data;
+    }
 
 }
 
