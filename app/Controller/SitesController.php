@@ -31,14 +31,6 @@ class SitesController extends AppController {
                                 value='" . addslashes($var) . "'");
                     }
                 }
-                $siteskeys = array('domain', 'leaguename', 'sport', 'organization', 'slogan', 'firstname', 'lastname', 'email', 'address');
-                if (is_array($this->request->data['Sites'])) {
-                    foreach ($this->request->data['Sites'] AS $key => $var) {
-                        $this->Settings->query("INSERT INTO sites SET value = '" . addslashes($var) . "',name='" . $key . "',site_id = " . Configure::read('Settings.site_id') .
-                                " ON DUPLICATE KEY UPDATE
-                                value='" . addslashes($var) . "'");
-                    }
-                }
 
                 $this->Session->setFlash('Settings Saved!');
                 //$this->redirect('/admin/sites/settings');
