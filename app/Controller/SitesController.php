@@ -36,7 +36,7 @@ class SitesController extends AppController {
                 $this->redirect('/admin/sites/settings');
             }
         }
-        $this->set('settings', $this->Settings->find('bysiteid'));
+        $this->set('settings', $this->Settings->buildPopulateArray());
         $this->set('sub', $this->request->data);
     }
 
