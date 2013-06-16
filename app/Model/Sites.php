@@ -49,10 +49,10 @@ class Sites extends AppModel {
             'email' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the League\'s Email'),
+                    'message' => 'Please Enter the League\'s Email'),
                 'mustBeEmail' => array(
                     'rule' => array('email'),
-                    'message' => 'Please enter a valid email',
+                    'message' => 'Please Enter A Valid Email',
                     'last' => true),
             ),
             'address' => array(
