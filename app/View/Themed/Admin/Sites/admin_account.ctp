@@ -77,7 +77,9 @@
 				'label' => 'Zip',
 			    ));?>
                 <?=$this->Form->input('country',array(
-				'class' => 'i-format',
+				'options' => $countries,
+				'class' => 'chzn-select-deselect',
+				'style'=> 'width:350px',
 				'label' => 'Country',
 			    ));?>
                 <?=$this->Form->input('phone',array(
