@@ -58,6 +58,10 @@ class User extends AppModel {
         //print_r($query);
 	return $query;
     }
+    
+    public function getAssociatedUsers(){
+	
+    }
 
 }
 
