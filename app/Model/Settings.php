@@ -74,7 +74,7 @@ class Settings extends AppModel {
     public function buildPopulateArray(){
 	$site_id = Configure::read('Settings.site_id');
 	$settings = $this->find('bysiteid');
-	print_r($settings);
+	//print_r($settings);
 	$data = array();
 	foreach ($settings AS $row){
 	    $data[$row['Settings']['name']] = $row['Settings']['value']; 
