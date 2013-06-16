@@ -24,21 +24,13 @@ class SitesController extends AppController {
         $this->Settings->site_id = $id;
         if ($this->request->is('post')) {
             if ($this->request->data) {
-                /*if (is_array($this->request->data['Settings'])) {
-                    foreach ($this->request->data['Settings'] AS $key => $var) {
-                        $this->Settings->query("INSERT INTO settings SET value = '" . addslashes($var) . "',name='" . $key . "',site_id = " . Configure::read('Settings.site_id') .
-                                " ON DUPLICATE KEY UPDATE
-                                value='" . addslashes($var) . "'");
-                    }
-                }*/
 		$this->Settings->updateKeyVal($this->request->data);
                 $this->Session->setFlash('Settings Saved!');
                 $this->redirect('/admin/sites/settings');
             }
         }
+        $this->set('sports',$this->Sports->getSports());
 	$this->request->data = $this->Settings->buildPopulateArray();
-        //$this->set('settings', $this->Settings->buildPopulateArray());
-        $this->set('sub', $this->request->data);
     }
 
     public function admin_account() {
