@@ -28,7 +28,7 @@
 			    <li><a href="#tabs-3">Aenean lacinia</a></li>
 			</ul>
 			<div id="tabs-1">
-			    <?=$this->Form->input('Settings.meta_keywords',array(
+			    <?=$this->Form->input('meta_keywords',array(
 				'div' => false,
 				'class' => 'i-format',
 				'label' => 'Keywords',
@@ -36,7 +36,7 @@
 				'between' => '</div><div class="grid_10"><div class="block_content">',
 				'after' => '<small>Comma Seperated</small></div></div><div class="clear"></div></section>'
 			    ));?>
-			    <?=$this->Form->input('Settings.meta_description',array(
+			    <?=$this->Form->input('meta_description',array(
 				'div' => false,
 				'class' => 'i-format',
 				'label' => 'Description',
