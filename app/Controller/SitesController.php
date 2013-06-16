@@ -9,7 +9,7 @@ App::uses('AppController', 'Controller');
 class SitesController extends AppController {
 
     public $name = 'Sites';
-    public $uses = array('Settings', 'Sites');
+    public $uses = array('Settings', 'Sites','Country');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -50,6 +50,7 @@ class SitesController extends AppController {
 
     public function admin_account() {
         $siteid = Configure::read('Settings.site_id');
+	$this->set('countries',$this->Country->getCountries());
         if ($this->request->isPut()) {
             $this->Sites->set($this->data);
             if ($this->Sites->siteValidate()) {
