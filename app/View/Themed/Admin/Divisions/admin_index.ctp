@@ -30,7 +30,7 @@
                             } else {
                                 ?>
                         <tr>
-                            <td colspan="5" style="text-align: center;">No Divisions</td>
+                            <td colspan="5" style="text-align: center;">No Divisions Configured</td>
                         </tr>
                                 <?php
                             }
