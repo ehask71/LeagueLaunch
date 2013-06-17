@@ -27,8 +27,7 @@
 			    ));?>
 		<?=$this->Form->input('name',array(
 				'class' => 'i-format',
-				'label' => 'New Division',
-				//'after' => '<small>Domain</small></div></div><div class="clear"></div></section>'
+				'label' => 'Add New Division'
 			    ));?>
 		<?php echo $this->Form->end('Add Division'); ?>
                 <table>
