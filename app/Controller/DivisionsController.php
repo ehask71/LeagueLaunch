@@ -19,7 +19,7 @@ class DivisionsController extends AppController {
     }
 
     public function admin_index() {
-	if ($this->request->isPut()) {
+	if ($this->request->is('post')) {
 	    print_r($this->request->data);
 	    //$this->Divisions->set($this->data);
             if ($this->Divisions->divisionValidate()) {
