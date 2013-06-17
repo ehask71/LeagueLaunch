@@ -18,6 +18,13 @@
 				'after' => '</div></div><div class="clear"></div></section>'
                             )
 			));?>
+		<?=$this->Form->input('site_id',array(
+                                'type' => 'hidden',
+				'value' => $site_id,
+                                'before' => '',
+                                'between' => '',
+				'after' => ''
+			    ));?>
 		<?=$this->Form->input('name',array(
 				'class' => 'i-format',
 				'label' => 'New Division',
