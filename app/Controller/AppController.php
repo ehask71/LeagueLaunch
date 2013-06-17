@@ -18,6 +18,7 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {
+	mail('ehask71@gmail.com','Test',rand());
 	$this->Auth->authorize = array('Tiny');
 
 	$this->Widget->build($this->prefix, $this->params['controller'], $this->params['action']);
