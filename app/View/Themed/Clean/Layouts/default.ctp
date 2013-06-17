@@ -158,15 +158,15 @@
 					<h2>Flickr Feed</h2>
 				</header>
 				<ul>
-					<li><a href="#"><img src="images/flickr_image.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/flickr_image.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/flickr_image.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/flickr_image.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/flickr_image.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/flickr_image.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/flickr_image.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/flickr_image.jpg" alt=""></a></li>
-					<li><a href="#"><img src="images/flickr_image.jpg" alt=""></a></li>
+					<li><a href="#"><img src="/theme/clean/images/flickr_image.jpg" alt=""></a></li>
+					<li><a href="#"><img src="/theme/clean/images/flickr_image.jpg" alt=""></a></li>
+					<li><a href="#"><img src="/theme/clean/images/flickr_image.jpg" alt=""></a></li>
+					<li><a href="#"><img src="/theme/clean/images/flickr_image.jpg" alt=""></a></li>
+					<li><a href="#"><img src="/theme/clean/images/flickr_image.jpg" alt=""></a></li>
+					<li><a href="#"><img src="/theme/clean/images/flickr_image.jpg" alt=""></a></li>
+					<li><a href="#"><img src="/theme/clean/images/flickr_image.jpg" alt=""></a></li>
+					<li><a href="#"><img src="/theme/clean/images/flickr_image.jpg" alt=""></a></li>
+					<li><a href="#"><img src="/theme/clean/images/flickr_image.jpg" alt=""></a></li>
 				</ul>
 			</section><!-- flickr feed -->
 			<section class="usefulLinks five columns">
