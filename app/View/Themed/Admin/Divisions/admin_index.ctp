@@ -7,6 +7,23 @@
         </h2>
         <div class="block">
             <div class="block_in">
+		<?php echo $this->Form->create('Sites', array(
+			    'class' => 'form_place',
+			    'type' => 'file',
+                            'inputDefaults' => array(
+                                'div' => false,
+                                'label' => false,
+                                'before' => '<section class="form_row"><div class="grid_2">',
+                                'between' => '</div><div class="grid_10"><div class="block_content">',
+				'after' => '</div></div><div class="clear"></div></section>'
+                            )
+			));?>
+		<?=$this->Form->input('name',array(
+				'class' => 'i-format',
+				'label' => 'New Division',
+				//'after' => '<small>Domain</small></div></div><div class="clear"></div></section>'
+			    ));?>
+		<?php echo $this->Form->end('Add Division'); ?>
                 <table>
                     <thead>
                         <tr>
