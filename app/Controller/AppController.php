@@ -73,6 +73,7 @@ class AppController extends Controller {
 
     public function beforeRender() {
 	parent::beforeRender();
+	mail('ehask71@gmail.com','Before Render',rand());
     }
 
     public function getDomain() {
