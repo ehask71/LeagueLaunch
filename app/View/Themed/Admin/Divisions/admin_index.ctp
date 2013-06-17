@@ -45,8 +45,8 @@
                                 foreach ($divisions AS $row){
                                     ?>
                         <tr>
-                            <td><?=$row['name'];?></td>
-                            <td><?=$row['last_updated'];?></td>
+                            <td><?=$row['Divisions']['name'];?></td>
+                            <td><?=$row['Divisions']['last_updated'];?></td>
                             <td></td>
                         </tr>
                                     <?php
