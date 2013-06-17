@@ -20,8 +20,8 @@ class DivisionsController extends AppController {
 
     public function admin_index() {
 	if ($this->request->isPut()) {
-	    print_r($this->data);
-	    $this->Divisions->set($this->data);
+	    print_r($this->request->data);
+	    //$this->Divisions->set($this->data);
             if ($this->Divisions->divisionValidate()) {
                 $this->Divisions->save($this->request->data, false);
                 $this->Session->setFlash(__('The Division was Added!'));
