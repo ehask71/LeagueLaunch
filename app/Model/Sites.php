@@ -89,6 +89,16 @@ class Sites extends AppModel {
         $this->validate = $validate1;
         return $this->validates();
     }
+    
+    public function getDomain() {
+	if (strpos($_SERVER['SERVER_NAME'], 'leaguelaunch.com')) {
+	    $domain = str_replace('.leaguelaunch.com', '', str_replace('www.', '', $_SERVER['SERVER_NAME']));
+	} else {
+	    $domain = str_replace('www.', '', $_SERVER['SERVER_NAME']);
+	}
+
+	return $domain;
+    }
 
 }
 
