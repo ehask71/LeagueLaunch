@@ -15,7 +15,12 @@ class DivisionsController extends AppController {
     }
 
     public function index() {
-	
+	$divisions = $this->Divisions->find('all', array(
+	    'conditions' => array(
+		'Divisions.site_id' => Configure::read('Settings.site_id')
+	    )
+		));
+	$this->set('divisions', $divisions);
     }
 
     public function admin_index() {
