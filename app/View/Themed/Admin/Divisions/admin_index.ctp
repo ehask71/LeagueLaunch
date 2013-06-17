@@ -7,7 +7,7 @@
         </h2>
         <div class="block">
             <div class="block_in">
-		<?php echo $this->Form->create('Sites', array(
+		<?php echo $this->Form->create('Divisions', array(
 			    'class' => 'form_place',
 			    'type' => 'file',
                             'inputDefaults' => array(
