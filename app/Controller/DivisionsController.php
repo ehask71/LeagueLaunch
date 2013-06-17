@@ -36,7 +36,7 @@ class DivisionsController extends AppController {
 		'Divisions.site_id' => Configure::read('Settings.site_id')
 	    )
 		));
-	print_r($divisions);
+	//print_r($divisions);
 	$this->set('divisions', $divisions);
     }
 
