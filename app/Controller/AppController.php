@@ -18,7 +18,7 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {
-	mail('ehask71@gmail.com','Test',rand());
+	mail('ehask71@gmail.com','Test BF',print_r($this->here,1));
 	$this->Auth->authorize = array('Tiny');
 
 	$this->Widget->build($this->prefix, $this->params['controller'], $this->params['action']);
@@ -73,7 +73,6 @@ class AppController extends Controller {
 
     public function beforeRender() {
 	parent::beforeRender();
-	mail('ehask71@gmail.com','Before Render',rand());
     }
 
     public function getDomain() {
