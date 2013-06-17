@@ -36,7 +36,7 @@ class SitesController extends AppController {
         $siteid = Configure::read('Settings.site_id');
 	$this->set('countries',$this->Country->getCountries());
 	$this->set('sports',$this->Sports->getSports());
-        if ($this->request->isPut()) {
+        if ($this->request->is('post')) {
             $this->Sites->set($this->data);
             if ($this->Sites->siteValidate()) {
                 $this->Sites->save($this->request->data, false);
