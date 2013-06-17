@@ -40,7 +40,7 @@ class SitesController extends AppController {
             $this->Sites->set($this->data);
             if ($this->Sites->siteValidate()) {
                 $this->Sites->save($this->request->data, false);
-                $this->Session->setFlash(__('Your account has been successfully updated'));
+                $this->Session->setFlash(__('Your account has been successfully updated'),'default',array('class'=>'alert succes_msg'));
                 $this->redirect('/admin/sites/account');
             }
         } else {
