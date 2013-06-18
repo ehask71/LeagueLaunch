@@ -61,7 +61,7 @@ class DivisionsController extends AppController {
 	    $this->Session->setFlash(__('Division doesn\'t Exist'),'default',array('class'=>'alert error_msg'));
 	    $this->redirect('/admin/divisions');
 	}
-	if($this->request->is('post')){
+	if($this->request->isPut()){
 	    $this->Divisions->set($this->data);
 	    if ($this->Divisions->divisionValidate()) {
 		$this->Divisions->save($this->request->data, false);
