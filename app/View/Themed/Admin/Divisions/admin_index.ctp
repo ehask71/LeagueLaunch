@@ -47,6 +47,9 @@
                             <td><?=$row['Divisions']['name'];?></td>
                             <td><?=$row['Divisions']['last_updated'];?></td>
                             <td>
+				<?php echo $this->Form->postLink('Edit', 
+                    array('action' => 'edit', $row['Divisions']['division_id']),
+                    array('class'=>'button blue'));?>
 				<?php echo $this->Form->postLink('Delete', 
                     array('action' => 'delete', $row['Divisions']['division_id']),
                     array('class'=>'button red', 'confirm' => 'Are you sure?'));?>
