@@ -46,7 +46,11 @@
                         <tr>
                             <td><?=$row['Divisions']['name'];?></td>
                             <td><?=$row['Divisions']['last_updated'];?></td>
-                            <td></td>
+                            <td>
+				<?php echo $this->Form->postLink('Delete', 
+                    array('action' => 'delete', $row['Divisions']['division_id']),
+                    array('class'=>'button red', 'confirm' => 'Are you sure?'));?>
+			    </td>
                         </tr>
                                     <?php
                                 }
