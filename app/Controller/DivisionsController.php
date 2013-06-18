@@ -41,7 +41,7 @@ class DivisionsController extends AppController {
 	$this->set(compact('divisions'));
     }
     
-    public function delete($id){
+    public function admin_delete($id){
 	$this->Divisions->id = $id;
 	if(!$this->Divisions->exists()){
 	    throw new NotFoundException(__('Division Not Found'));
