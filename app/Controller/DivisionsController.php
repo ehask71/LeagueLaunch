@@ -54,6 +54,28 @@ class DivisionsController extends AppController {
 	$this->Session->setFlash(__('Unable To Delete Division'),'default',array('class'=>'alert error_msg'));
 	$this->redirect('/admin/divisions');
     }
+    
+    public function admin_edit($id){
+	$this->Divisions->id = $id;
+	if(!$this->Divisions->exists()){
+	    $this->Session->setFlash(__('Division doesn\'t Exist'),'default',array('class'=>'alert error_msg'));
+	    $this->redirect('/admin/divisions');
+	}
+	if($this->request->is('post')){
+	    if ($this->Divisions->divisionValidate()) {
+		$this->Divisions->save($this->request->data, false);
+		$this->Session->setFlash(__('The Division was Updated!'),'default',array('class'=>'alert succes_msg'));
+		$this->redirect('/admin/divisions');
+	    }
+	} else {
+	    $div = $this->Divisions->read(null,$id);
+	    $this->request->data = null;
+	    if(!empty($div)){
+		$this->request->data = $div;
+	    }
+	}
+	
+    }
 
 }
 
