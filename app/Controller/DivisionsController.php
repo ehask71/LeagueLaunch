@@ -28,7 +28,7 @@ class DivisionsController extends AppController {
 	if ($this->request->is('post')) {
 	    if ($this->Divisions->divisionValidate()) {
 		$this->Divisions->save($this->request->data, false);
-		$this->Session->setFlash(__('The Division was Added!'));
+		$this->Session->setFlash(__('The Division was Added!'),'default',array('class'=>'alert succes_msg'));
 		$this->redirect('/admin/divisions');
 	    }
 	}
@@ -47,10 +47,10 @@ class DivisionsController extends AppController {
 	    throw new NotFoundException(__('Division Not Found'));
 	}
 	if($this->Divisions->delete()){
-	    $this->Session->setFlash(__('Division Deleted'));
+	    $this->Session->setFlash(__('Division Deleted'),'default',array('class'=>'alert succes_msg'));
 	    $this->redirect('/admin/divisions');
 	}
-	$this->Session->setFlash(__('Unable To Delete Division'));
+	$this->Session->setFlash(__('Unable To Delete Division'),'default',array('class'=>'alert error_msg'));
 	$this->redirect('/admin/divisions');
     }
 
