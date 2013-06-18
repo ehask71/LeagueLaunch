@@ -44,7 +44,8 @@ class DivisionsController extends AppController {
     public function admin_delete($id){
 	$this->Divisions->id = $id;
 	if(!$this->Divisions->exists()){
-	    throw new NotFoundException(__('Division Not Found'));
+	    $this->Session->setFlash(__('Division doesn\'t Exist'),'default',array('class'=>'alert error_msg'));
+	    $this->redirect('/admin/divisions');
 	}
 	if($this->Divisions->delete()){
 	    $this->Session->setFlash(__('Division Deleted'),'default',array('class'=>'alert succes_msg'));
