@@ -62,6 +62,7 @@ class DivisionsController extends AppController {
 	    $this->redirect('/admin/divisions');
 	}
 	if($this->request->is('post')){
+	    $this->Divisions->set($this->data);
 	    if ($this->Divisions->divisionValidate()) {
 		$this->Divisions->save($this->request->data, false);
 		$this->Session->setFlash(__('The Division was Updated!'),'default',array('class'=>'alert succes_msg'));
