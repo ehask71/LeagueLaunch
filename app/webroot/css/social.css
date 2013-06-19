@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+.follow_facebook{
+	background: url(../images/icons/social/16/facebook.png) left top transparent no-repeat;
+	width: 16px;
+	height:16px;
+}
+.follow_twitter{
+	background: url(../images/icons/social/16/twitter.png) left top transparent no-repeat;
+	width: 16px;
+	height:16px;
+}
+
