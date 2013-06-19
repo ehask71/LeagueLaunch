@@ -1,0 +1,319 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-attachment: fixed;
+	background-image: url(../images/body-background.jpg);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-color: #170E0E;
+	font:14px/1.3 Tahoma,'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: "Arial Black","Arial Bold", Arial, Helvetica, sans-serif;	
+}
+hr{border:0 solid #ccc;border-top-width:1px;clear:both;height:0}
+h1{font-size:25px}h2{font-size:23px}h3{font-size:21px}h4{font-size:19px}h5{font-size:17px}h6{font-size:15px}
+a{ text-decoration: none;}
+
+/* 960 mod */
+.grid_16_nospace{
+	padding: 0px;
+	margin:0px;
+}
+
+/* header elements */
+header{
+	background: url(../images/eastbay-header.jpg) center top scroll transparent no-repeat;
+	min-height:149px;
+	height: 149px;
+	max-width:960px;
+}
+header .logo-text h1{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 3em;
+	letter-spacing: .21em;
+	color: #FEFEFE;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, .9);
+}
+header .logo-text.left h1{
+	text-align: right;	
+}
+header .logo-text.right h1{
+	text-align: left;	
+}
+#sub-nav{
+	max-width: 100%;
+	width:250px;
+	letter-spacing: .12em;
+	height: 36px;
+	background-color: #343839;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	margin-left: 30px;
+}
+#sub-nav #top-nav{
+	margin-left:14px;
+}
+#sub-nav #top-nav li{
+	float:left;
+	min-width: 36px;
+	
+}
+#sub-nav #top-nav li a{
+	display: inline-block;
+	padding: 6px;
+	color: #FFF;
+}
+#sub-nav #top-nav li a:hover{
+		border-radius: 4px;
+		background-color:#600;
+}
+#logo{
+	background:url(../images/eastbay-logo.png) center bottom no-repeat transparent scroll;
+	display: block;
+	height: 149px;
+}
+#logo span{
+	position: absolute;
+	left: -9999px;
+}
+#top-search{
+	height: 36px;
+}
+
+#header-search{
+	
+}
+#header-search li{
+	float: left;
+	margin: 6px 2px 4px 2px;
+	
+}
+#header-search li a{
+	display: inline-block;
+	margin: 6px 2px 0;
+}
+#header-search li a span{
+	position: absolute;
+	left:-99999px
+}
+#header-form-wrapper{
+	background-color: #FFF;		
+}
+.header-search-text{
+	border: none;
+	height: 22px;
+	font-size: .9em;
+	background-color: #FFFFFF;
+}
+.header-search-button{
+	border: none;
+	height: 22px;
+	width: 22px;
+	font-size:1em;
+	background-color: #FFFFFF;
+	cursor: pointer;
+	background-image: url(../images/eastbay-search.jpg);
+	background-position: center middle;
+}
+
+/* primary nav elements */
+#nav-container{
+	background: url(../images/eastbay-navbar-background.png) top left repeat-x scroll transparent;
+	height: 36px;
+	margin-top: 22px;
+}
+
+#nav-container ul#nav{
+	z-index: 10001;
+	position: relative;
+}
+
+#nav-container ul#nav li{
+	float: left;
+	min-width:16px;
+	width: auto;
+	margin: 6px 8px;
+	border-left: 1px inset #CCC;
+	padding-left: 8px;
+	position: relative;
+	letter-spacing: .09em;
+}
+#nav-container ul#nav li:first-of-type{
+	border-left: none;
+	padding-left: 0px;
+}
+#nav-container ul#nav li a{
+	color: #FFF;
+	display: inline-block;
+	
+}
+#nav-container ul#nav li a:hover{
+	text-decoration: underline;	
+}
+/* sub nav */
+#nav-container ul#nav li ul{
+	display: none;	
+	position: absolute;
+	
+	margin: 0px;
+	padding:0px;
+	background-color:#515151;
+	border-top:2px solid #660000;
+
+}
+
+#nav-container ul#nav li:hover ul{
+	display: block;
+	z-index: 10002;
+	left:0;
+	top:18px;
+	-moz-box-shadow:    1px 1px 1px rgba(0,0,0,0.8);
+	-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+	box-shadow:         1px 1px 1px rgba(0,0,0,0.8);
+}
+#nav-container ul#nav li ul li{
+	background-color:#515151;
+	border-left:none	;
+	text-align: left;
+	padding: 4px 20px 4px 8px !important;
+	min-width: 36px;
+	width: auto;
+	float: none;
+	margin: 0px;
+	white-space:nowrap;
+}
+#nav-container ul#nav li ul li a{
+	width: 100%;	
+}
+#nav-container ul#nav li ul li:hover{
+	border-right: 1px solid #FFF;
+	background-color: #333;
+}
+/* main content elements */
+section{
+	display: block;	
+	min-height: 500px;
+	background: #FFF url(../images/eastbay-sidebar-background.jpg) right top repeat-y;
+}
+#carousel-container{
+	
+}
+
+#body-content{
+	background-color: #FFF;	
+	min-height: 500px;
+	margin:0;
+	border-right:1px #000 solid;
+}
+#body-content img{
+	border: 1px dotted #666;
+	background-color: #FEFEFE;
+	padding: 4px;
+	border-radius: 4px;
+	max-width: 100%;
+	box-shadow: 1px 1px 3px rgba(0,0,0, 0.8);
+}
+img.right{
+	float: right;
+	margin: 8px;
+}
+img.left{
+	float: left;
+	margin: 8px;
+}
+#body-content div.article{
+	margin: 10px;
+	padding-bottom: 15px;
+	border-bottom: 1px dotted #000;
+}
+div.article h2{
+	font-size: 1.6em;
+	text-shadow: 1px 1px 1px rgba(50, 50, 50, .8);
+}
+div.article h2.attention{
+	background: url(../images/attention.png) left no-repeat scroll transparent;
+	padding-left: 18px;
+}
+div.article cite{
+	color:#666;
+	font-size: .8em;
+	font-style:italic;
+	margin: 4px 0px 12px;
+	display: inline-block;
+}
+#side-bar-right{
+	min-height: 500px;
+	margin: 0;
+	width: 24%;
+	color: #FFF;
+	font-size: .8em;
+	line-height: 1.4em;
+}
+#side-bar-right a{
+	color: #FFF;
+	text-decoration: underline;
+	}
+#side-bar-right .widget{
+	margin: 10px 10px 30px 10px;
+}
+#side-bar-right .widget ul li{
+	border-bottom: 1px dotted #FFF;
+	padding-bottom: 4px;
+	
+}
+#side-bar-right .widget img{
+	margin: 0 auto;
+	max-width: 100%;
+}
+#side-bar-right .widget h2{
+	color: #FFF;
+	text-shadow: 2px 2px 1px rgba(0,0,0, .8);
+	border-bottom: 1px dotted #000;
+	margin-bottom: 6px;
+	width: 100%;
+	display: block;
+	padding-bottom: 10px;
+}
+#side-bar-right .widget .left{
+	float: left;
+	width: 50%;
+	text-align: left;
+}
+#side-bar-right .widget .right{
+	float: right;
+	width: 50%;
+	text-align: right;
+}
+
+/* footer */
+section#footer{
+	background: #515151 url(../images/eastbay-footer-background.png) left top repeat-x scroll;	
+	color: #FFF;
+	font-size: .9em;
+	height: 150px;
+	overflow: hidden;
+	min-height: 150px;
+}
+section#footer .grid_4{
+	margin: 0px;
+	padding: 0px;
+	
+}
+section#footer .grid_4 .content{
+	border-left: 1px inset #000;
+	margin:10px;
+	padding: 0px 6px 8px 10px;
+	height: 150px;
+}
+section#footer .grid_4 .content.first{
+	border-left: none;	
+}
+section#footer h3{
+	color: #FFF;
+	text-shadow: 2px 2px 1px rgba(0,0,0, .8);	
+}
+/* misc */
+.notation{
+	color: #F00;	
+}
