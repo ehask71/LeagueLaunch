@@ -43,6 +43,7 @@ class AppController extends Controller {
 			//'contain' => array('RolesUser')
 		    )
 		);
+                $this->set( 'loggedIn', $this->Auth->loggedIn() );
 		$settings = $this->Settings->buildSettings($result['Sites'], $result['Settings']);
 		
 		// Set Theme From settings
