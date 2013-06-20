@@ -1,6 +1,6 @@
 <?php
 
-if (count($latest_news) > 0) {
+if ($latest_news && count(@$latest_news) > 0) {
     foreach ($latest_news AS $news) {
 	?>
 	<div class = "article">
