@@ -16,7 +16,7 @@
 	echo $this->Html->css('/common/css/960');
 	echo $this->Html->css('/common/css/social');
 	echo $this->Html->css('style');
-	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min');
+	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
 	echo $this->fetch('meta');
 	echo $this->fetch('css');
 	echo $this->fetch('script');
