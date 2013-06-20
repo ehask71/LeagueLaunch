@@ -19,6 +19,7 @@
 	echo $this->fetch('meta');
 	echo $this->fetch('css');
 	echo $this->fetch('script');
+	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min');
 	?>
         <!-- begin JS -->
     </head>
