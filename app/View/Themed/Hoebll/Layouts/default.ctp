@@ -31,7 +31,13 @@
                 <div class="grid_6" >
                     <div id="sub-nav">
                         <ul id="top-nav">
-                            <li><a href="/login" title="Login to {SITENAME}">LOGIN</a></li>
+                            <li><?php
+                            if($this->Session->read('Auth')) {
+                                echo $this->Html->link('Logout'), array('controller'=>'users', 'action'=>'logout'));
+                            } else {
+                                echo $this->Html->link('Login'), array('controller'=>'users', 'action'=>'login')); 
+                            }?>
+                            </li>
                             <li><a href="/register" title="Sign Up with {SITENAME}">SIGNUP</a></li>
                             <li><a href="/contact" title="Contact {SITENAME}">CONTACT</a></li>
                         </ul>
