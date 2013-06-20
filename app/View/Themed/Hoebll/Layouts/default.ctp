@@ -32,7 +32,7 @@
                     <div id="sub-nav">
                         <ul id="top-nav">
                             <li><?php
-                            if($this->Session->read('Auth')) {
+                            if($loggedIn) {
                                 echo $this->Html->link('LOGOUT', array('controller'=>'users', 'action'=>'logout'));
                             } else {
                                 echo $this->Html->link('LOGIN', array('controller'=>'users', 'action'=>'login')); 
