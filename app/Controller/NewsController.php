@@ -16,7 +16,7 @@ class NewsController extends AppController {
 	    'conditions' => array(
 		'News.site_id' => Configure::read('Settings.site_id'),
                 'and' => array(
-                    array('News.start_date <= ' => $date,'News.end_date >= ' => $date)
+                    array('News.start_date <= ' => date('Y-m-d H:i:s'),'News.end_date >= ' => date('Y-m-d H:i:s'))
                 ),
                 'News.is_active' => 'yes'
 	    ) 
