@@ -2,16 +2,13 @@
 $latest_news = $this -> requestAction(array('controller' => 'news','action' => 'index'),array('named'=>array('limit'=>10,'sort'=>'desc')));
 if (isset($latest_news) && count(@$latest_news) > 0) {
     foreach ($latest_news AS $news) {
-        echo "<pre>";
-        print_r($news);
-        echo "</pre>";
 	?>
 	<div class = "article">
-	<h2><?php echo $news['title']?></h2>
-	<cite>posted: <?php echo $news['created']?></cite>
+	<h2><?php echo $news['News']['title']?></h2>
+	<cite>posted: <?php echo $news['News']['created']?></cite>
 	<img src = "ebll/images/test-image.jpg" class = "right">
 	<p>
-	    <?php echo $news['content']?>
+	    <?php echo $news['News']['content']?>
 	</p>
 	</div>
 	<?php
