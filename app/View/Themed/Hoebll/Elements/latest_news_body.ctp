@@ -2,6 +2,9 @@
 $latest_news = $this -> requestAction(array('controller' => 'news','action' => 'index'),array('named'=>array('limit'=>10,'sort'=>'desc')));
 if (isset($latest_news) && count(@$latest_news) > 0) {
     foreach ($latest_news AS $news) {
+        echo "<pre>";
+        print_r($news);
+        echo "</pre>";
 	?>
 	<div class = "article">
 	<h2><?php echo $news['title']?></h2>
