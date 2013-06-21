@@ -1,5 +1,5 @@
 <?php
-
+$latest_news = $this -> requestAction(array('controller' => 'news','action' => 'index'),array('named'=>array('limit'=>10,'sort'=>'desc')));
 if (isset($latest_news) && count(@$latest_news) > 0) {
     foreach ($latest_news AS $news) {
 	?>
@@ -13,5 +13,11 @@ if (isset($latest_news) && count(@$latest_news) > 0) {
 	</div>
 	<?php
     }
+} else {
+    ?>
+<div class="article">
+    <h2>No News!</h2>
+</div>
+    <?php
 }
 ?>
