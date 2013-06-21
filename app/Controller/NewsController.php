@@ -14,7 +14,11 @@ class NewsController extends AppController {
     public function index(){
         $this->paginate = array(
 	    'conditions' => array(
-		'News.site_id' => Configure::read('Settings.site_id')
+		'News.site_id' => Configure::read('Settings.site_id'),
+                'and' => array(
+                    array('News.start_date <= ' => $date,'News.end_date >= ' => $date)
+                ),
+                'News.is_active' => 'yes'
 	    ) 
 	);
         $news = $this->paginate('News');
