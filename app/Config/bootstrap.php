@@ -33,7 +33,7 @@ Cache::config('default', array(
   		'path' => CACHE, //[optional] use system tmp directory - remember to use absolute path
   		'prefix' => $_SERVER['SERVER_NAME'].'_', //[optional]  prefix every cache file with this string
   		'lock' => false, //[optional]  use file locking
-  		'serialize' => true, [optional]
+  		'serialize' => true, //[optional]
  	));
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
