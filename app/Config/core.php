@@ -247,17 +247,17 @@
  * Default settings provided below
  *
  * File storage engine.
- *
- * 	 Cache::config('default', array(
- *		'engine' => 'File', //[required]
- *		'duration' => 3600, //[optional]
- *		'probability' => 100, //[optional]
- * 		'path' => CACHE, //[optional] use system tmp directory - remember to use absolute path
- * 		'prefix' => 'cake_', //[optional]  prefix every cache file with this string
- * 		'lock' => false, //[optional]  use file locking
- * 		'serialize' => true, [optional]
- *	));
- *
+ 
+  	 Cache::config('default', array(
+ 		'engine' => 'File', //[required]
+ 		'duration' => 3600, //[optional]
+ 		'probability' => 100, //[optional]
+  		'path' => CACHE, //[optional] use system tmp directory - remember to use absolute path
+  		'prefix' => $_SERVER['SERVER_NAME'].'_', //[optional]  prefix every cache file with this string
+  		'lock' => false, //[optional]  use file locking
+  		'serialize' => true, [optional]
+ 	));
+ 
  * APC (http://pecl.php.net/package/APC)
  *
  * 	 Cache::config('default', array(
@@ -317,7 +317,7 @@ $engine = 'File';
 // In development mode, caches should expire quickly.
 $duration = '+999 days';
 if (Configure::read('debug') > 0) {
-	$duration = '+10 seconds';
+	$duration = '+3600 seconds';
 }
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
