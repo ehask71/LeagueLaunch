@@ -4,7 +4,9 @@ App::uses('AppController', 'Controller');
 class HomeController extends AppController {
     
     public $helpers = array('Cache');
-    public $cacheAction = "1 hour";
+    public $cacheAction = array(
+	'index' => array('callbacks' => true, 'duration' => 48000)
+    )
     public $name = 'Home';
     
     public function beforeFilter() {
