@@ -30,6 +30,7 @@
             <header>
                 <div class="grid_6" >
                     <div id="sub-nav">
+			<!--nocache-->
                         <ul id="top-nav">
                             <li><?php
                             if($loggedIn) {
@@ -41,6 +42,7 @@
                             <li><a href="/register" title="Sign Up with {SITENAME}">SIGNUP</a></li>
                             <li><a href="/contact" title="Contact {SITENAME}">CONTACT</a></li>
                         </ul>
+			<!--/nocache-->
                     </div>
                     <div class="clear"></div>
                     <div class="logo-text left">
