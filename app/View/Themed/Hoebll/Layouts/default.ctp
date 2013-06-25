@@ -12,9 +12,9 @@
         <meta name="author" content="LeagueLaunch.com" />
         <!-- begin css -->
 	<?php
-	echo $this->Html->css('/common/css/reset');
-	echo $this->Html->css('/common/css/960');
-	echo $this->Html->css('/common/css/social');
+	echo $this->Html->css('/common/css/reset.css');
+	echo $this->Html->css('/common/css/960.css');
+	echo $this->Html->css('/common/css/social.css');
 	echo $this->Html->css('style');
 	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
 	echo $this->fetch('meta');
