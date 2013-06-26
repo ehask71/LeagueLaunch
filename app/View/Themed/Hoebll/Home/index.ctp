@@ -1,6 +1,7 @@
 <div class="grid_12" id="body-content">
     <?php echo $this->element('latest_news_body',array('cache'=>array('time'=>'+1 hour')));?>
     <div class="article">
+        <h2>Testing Youtube Helper Class</h2>
         <?php echo $this->Youtube->video('http://www.youtube.com/watch?v=bmZ9xRO7M9M',array('autohide'=>true));?>
     </div>
 </div>
