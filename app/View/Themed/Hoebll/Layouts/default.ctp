@@ -83,6 +83,7 @@
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->Session->flash('auth'); ?>
 		<?php echo $this->fetch('content'); ?>  
+                <?php echo $this->Youtube->video('http://www.youtube.com/watch?v=bmZ9xRO7M9M');?>
 		<div class="clear"></div>
 	    </section>
 	    <!-- end body -->
