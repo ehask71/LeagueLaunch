@@ -2,7 +2,7 @@
 
 class UsersController extends AppController {
     
-    public $uses = array('User');
+    public $uses = array('User','RoleUser');
     public $components = array('Email');
     
     public function beforeFilter() {
@@ -35,6 +35,11 @@ class UsersController extends AppController {
     public function register() {
         if ($this->request->is('post')) {
             if ($this->User->save($this->request->data)) {
+		// We need to store the site relation to the user we just generated
+		$userid = $this->User->getLastInsertID();
+		$this->loadModel('RoleUser');
+		$this->RoleUser->addUserSite($userid);
+		
                 $this->Session->setFlash('The user has been saved');
                 $this->redirect(array('action' => 'index'));
             } else {
