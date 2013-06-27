@@ -66,11 +66,15 @@ class UsersController extends AppController {
     }
     
     public function admin_index(){
-	$this->User->bindModel(array('hasMany' => array('RoleUser')));
-	$this->paginate = array(
+	$joins = array(
+	  'table' => '(SELECT * FROM roles JOIN roles_users ON roles.id = roles_users.role_id)',
+	    'alias' => 'RolesUser',
 	    'conditions' => array(
-		//'RoleUser.site_id' => Configure::read('Settings.site_id')
-	    ) 
+		'RolesUser.site_id = '.Configure::read('Settings.site_id')
+	    )
+	);
+	$this->paginate = array(
+	    'joins' => $joins
 	);
         $users = $this->paginate('User');
 
