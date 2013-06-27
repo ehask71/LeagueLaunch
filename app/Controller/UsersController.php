@@ -67,7 +67,7 @@ class UsersController extends AppController {
     
     public function admin_index(){
 	$joins = array(
-	  'table' => '(SELECT * FROM roles JOIN roles_users ON roles.id = roles_users.role_id)',
+	  'table' => 'RolesUser',
 	    'alias' => 'RolesUser',
 	    'conditions' => array(
 		'RolesUser.site_id = '.Configure::read('Settings.site_id')
