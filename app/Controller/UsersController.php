@@ -66,6 +66,7 @@ class UsersController extends AppController {
     }
     
     public function admin_index(){
+	$this->User->bindModel(array('hasMany' => array('RoleUser')));
 	$this->paginate = array(
 	    'conditions' => array(
 		'RoleUser.site_id' => Configure::read('Settings.site_id')
