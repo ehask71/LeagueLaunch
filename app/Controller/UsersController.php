@@ -70,6 +70,7 @@ class UsersController extends AppController {
 	    array(
 		'table' => '(SELECT * FROM roles_users LIMIT 1)',
 		'alias' => 'RolesUser',
+		'type' => 'INNER',
 		'conditions' => array(
 		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
 		)
