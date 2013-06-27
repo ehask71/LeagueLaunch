@@ -7,7 +7,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
 	parent::beforeFilter();
-	$this->Auth->allow('login', 'register', 'forgetpwd', 'confirmpwd');
+	$this->Auth->allow('login','logout', 'register', 'forgetpwd', 'confirmpwd');
     }
 
     public function isAuthorized($user) {
