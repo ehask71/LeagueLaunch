@@ -64,5 +64,16 @@ class UsersController extends AppController {
     public function logout() {
 	$this->redirect($this->Auth->logout());
     }
+    
+    public function admin_index(){
+	$this->paginate = array(
+	    'conditions' => array(
+		'RoleUser.site_id' => Configure::read('Settings.site_id')
+	    ) 
+	);
+        $users = $this->paginate('User');
 
+        $this->set('title_for_layout','Users');
+        $this->set(compact('users'));
+    }
 }
