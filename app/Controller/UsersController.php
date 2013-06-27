@@ -68,7 +68,7 @@ class UsersController extends AppController {
     public function admin_index() {
 	$joins = array(
 	    array(
-		'table' => '(SELECT * FROM roles_users LIMIT 1)',
+		'table' => '(SELECT DISTINCT(user_id),site_id FROM roles_users )',
 		'alias' => 'RolesUser',
 		'type' => 'INNER',
 		'conditions' => array(
