@@ -21,7 +21,7 @@
                                 foreach ($users AS $row){
                                     ?>
                         <tr>
-                            <td><?=$row['User']['firstname'].' '.$row['User']['firstname'];?></td>
+                            <td><?=$row['User']['firstname'].' '.$row['User']['lastname'];?></td>
                             <td><?=$row['User']['is_active'];?></td>
                             <td></td>
                         </tr>
