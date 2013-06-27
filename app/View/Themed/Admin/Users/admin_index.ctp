@@ -22,7 +22,7 @@
                                     ?>
                         <tr>
                             <td><?=$row['User']['firstname'].' '.$row['User']['firstname'];?></td>
-                            <td><?=$row['is_active'];?></td>
+                            <td><?=$row['User']['is_active'];?></td>
                             <td></td>
                         </tr>
                                     <?php
@@ -41,8 +41,3 @@
         </div>
     </div>
 </div>
-<pre>
-<?php			    print_r($users);
-print_r($userinfo);
-?>
-</pre>
