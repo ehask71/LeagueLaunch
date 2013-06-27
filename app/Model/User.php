@@ -31,7 +31,8 @@ class User extends AppModel {
 	}
 	return true;
     }
-
+    
+    
     public function beforeFind(array $query) {
 	/*$query['joins'] = array(
 	    array(
