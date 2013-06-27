@@ -42,5 +42,7 @@
     </div>
 </div>
 <pre>
-<?php			    print_r($users);?>
+<?php			    print_r($users);
+print_r($userinfo);
+?>
 </pre>
