@@ -7,7 +7,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
 	parent::beforeFilter();
-	$this->Auth->allow('login','logout', 'register', 'forgetpwd', 'confirmpwd');
+	$this->Auth->allow('login', 'logout', 'register', 'forgetpwd', 'confirmpwd');
     }
 
     public function isAuthorized($user) {
@@ -64,21 +64,24 @@ class UsersController extends AppController {
     public function logout() {
 	$this->redirect($this->Auth->logout());
     }
-    
-    public function admin_index(){
+
+    public function admin_index() {
 	$joins = array(
-	  'table' => 'RolesUser',
-	    'alias' => 'RolesUser',
-	    'conditions' => array(
-		'RolesUser.site_id = '.Configure::read('Settings.site_id')
+	    array(
+		'table' => 'RolesUser',
+		'alias' => 'RolesUser',
+		'conditions' => array(
+		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
+		)
 	    )
 	);
 	$this->paginate = array(
 	    'joins' => $joins
 	);
-        $users = $this->paginate('User');
+	$users = $this->paginate('User');
 
-        $this->set('title_for_layout','Users');
-        $this->set(compact('users'));
+	$this->set('title_for_layout', 'Users');
+	$this->set(compact('users'));
     }
+
 }
