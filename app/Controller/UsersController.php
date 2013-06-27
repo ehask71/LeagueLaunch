@@ -69,7 +69,7 @@ class UsersController extends AppController {
 	$this->User->bindModel(array('hasMany' => array('RoleUser')));
 	$this->paginate = array(
 	    'conditions' => array(
-		'RoleUser.site_id' => Configure::read('Settings.site_id')
+		//'RoleUser.site_id' => Configure::read('Settings.site_id')
 	    ) 
 	);
         $users = $this->paginate('User');
