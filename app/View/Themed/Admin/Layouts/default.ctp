@@ -79,7 +79,7 @@
                                             <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
                                         </ul>
                                     </li>
-                                    <li><?php echo $this->html->link(__('Users').'<span class="icon2"></span>',array('prefix'=>'admin','controller'=>'users'));?>
+                                    <li><?php echo $this->html->link(__('Users').'<span class="icon2"></span>',array('prefix'=>'admin','controller'=>'users'),array('escape' => FALSE));?>
                                         <ul>
                                             <li><a href="forms.html">Basic forms</a></li>
                                             <li><a href="forms_validation.html">Forms validation</a></li>
