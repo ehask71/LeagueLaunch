@@ -68,7 +68,7 @@ class UsersController extends AppController {
     public function admin_index() {
 	$joins = array(
 	    array(
-		'table' => 'RolesUser',
+		'table' => 'roles_users',
 		'alias' => 'RolesUser',
 		'conditions' => array(
 		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
