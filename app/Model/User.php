@@ -19,6 +19,14 @@ class User extends AppModel {
 	    'unique' => 'keepExisting'
 	)
     );
+    
+    public $hasMany = array(
+	'RoleUser' => array(
+	    'className' => 'RoleUser',
+	    'foreignKey' => 'user_id',
+	    'dependant' => true
+	)
+    );
 
     function __construct($id = false, $table = null, $ds = null) {
 	$this->hasAndBelongsToMany['Role']['conditions'] = array('RolesUser.site_id' => Configure::read('Settings.site_id'));
