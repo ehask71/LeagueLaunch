@@ -17,8 +17,8 @@
                     </thead>
                     <tbody>
                         <?php
-                            if(count($fundraisers)>0){
-                                foreach ($fundraisers AS $row){
+                            if(count($users)>0){
+                                foreach ($users AS $row){
                                     ?>
                         <tr>
                             <td><?=$row['User']['firstname'].' '.$row['User']['firstname'];?></td>
@@ -41,3 +41,6 @@
         </div>
     </div>
 </div>
+<pre>
+<?php			    print_r($users);?>
+</pre>
