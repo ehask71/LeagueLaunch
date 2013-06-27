@@ -72,6 +72,7 @@ class UsersController extends AppController {
 		'alias' => 'RolesUser',
 		'type' => 'INNER',
 		'conditions' => array(
+		    'User.id = RolesUser.user_id',
 		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
 		)
 	    )
