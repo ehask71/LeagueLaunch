@@ -1,5 +1,4 @@
 <?php
-    $this->Html->script('wysiwyg', array('block' => 'scriptBottom'));
     $this->Html->scriptStart(array('block' => 'scriptBottom'));
     echo '$(function() {
 	$( "#startDate" ).datepicker({ dateFormat: \'yy-mm-dd\' });
