@@ -1,7 +1,7 @@
 <div class="grid_12">
     <div class="box">
         <h2>
-            Fundraisers
+            Users
             <span class="l"></span>
             <span class="r"></span>
         </h2>
@@ -11,22 +11,18 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Start</th>
-                            <th>End</th>
                             <th>Active</th>
                             <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            if(count($fundraisers)>0){
-                                foreach ($fundraisers AS $row){
+                            if(count($users)>0){
+                                foreach ($users AS $row){
                                     ?>
                         <tr>
-                            <td><?=$row['name'];?></td>
-                            <td><?=$row['start_date'];?></td>
-                            <td><?=$row['end_date'];?></td>
-                            <td><?=$row['is_active'];?></td>
+                            <td><?=$row['User']['firstname'].' '.$row['User']['lastname'];?></td>
+                            <td><?=$row['User']['is_active'];?></td>
                             <td></td>
                         </tr>
                                     <?php
@@ -34,7 +30,7 @@
                             } else {
                                 ?>
                         <tr>
-                            <td colspan="5">No Fundraisers</td>
+                            <td colspan="5">No Users</td>
                         </tr>
                                 <?php
                             }

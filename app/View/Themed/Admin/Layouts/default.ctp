@@ -70,16 +70,16 @@
                                     <li><a href="/admin/home">Dashboard<span class="icon1"></span></a></li>
                                     <li><a href="#">Plugins<span class="icon6"></span></a>
                                         <ul>	 
-                                            <li><a href="calendar.html">Advanced calendar</a></li>
-                                            <li><a href="file_explorer.html">File explorer</a></li>
-                                            <li><a href="charts.html">Charts</a></li>
-                                            <li><a href="tables.html">Data Tables</a></li>
-                                            <li><a href="lightbox.html">LightBox Evolution</a></li>
-                                            <li><a href="alerts.html">Alert messages</a></li>
-                                            <li><a href="dialogs.html">Fallr - Dialogs, modal boxes...</a></li>
+                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
+                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
+                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
+                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
+                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
+                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
+                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Example forms<span class="icon2"></span></a>
+                                    <li><?php echo $this->html->link(__('Users').'<span class="icon2"></span>',array('prefix'=>'admin','controller'=>'users'),array('escape' => FALSE));?>
                                         <ul>
                                             <li><a href="forms.html">Basic forms</a></li>
                                             <li><a href="forms_validation.html">Forms validation</a></li>
