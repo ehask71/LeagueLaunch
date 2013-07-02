@@ -2,8 +2,8 @@
     $this->Html->script('wysiwyg', array('block' => 'scriptBottom'));
     $this->Html->scriptStart(array('block' => 'scriptBottom'));
     echo '$(function() {
-	$( "#startDate" ).datepicker();
-	$( "#endDate" ).datepicker();
+	$( "#startDate" ).datepicker({ dateFormat: \'yy-mm-dd\' });
+	$( "#endDate" ).datepicker({ dateFormat: \'yy-mm-dd\' });
 });';
     $this->Html->scriptEnd();
 ?>
