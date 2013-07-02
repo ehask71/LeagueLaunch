@@ -49,4 +49,12 @@ class NewsController extends AppController {
         $this->set('news',$news);
     }
     
+    public function admin_new(){
+	
+    }
+    
+    public function admin_edit(){
+	
+    }
+    
 }
