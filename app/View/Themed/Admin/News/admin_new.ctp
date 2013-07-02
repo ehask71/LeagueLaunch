@@ -40,8 +40,12 @@
 				'label' => 'End Date'
 			    ));?>
 		<?=$this->Form->input('content',array(
-				'class' => 'i-format',
-				'label' => 'Content'
+				'class' => 'ckeditor',
+				'id' => 'editor1',
+				'rows' => 10,
+				'cols' => 80,
+				'label' => 'Content',
+				'type' => 'textarea',
 			    ));?>
 		<?php echo $this->Form->end('Add News'); ?>
             </div>
