@@ -5,7 +5,7 @@
 	$( "#startDate" ).datepicker();
 	$( "#endDate" ).datepicker();
 });';
-    
+    $this->Html->scriptEnd();
 ?>
 <div class="grid_12">
     <div class="box">
@@ -63,9 +63,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-$(function() {
-	$( "#startDate" ).datepicker();
-	$( "#endDate" ).datepicker();
-});
-</script>
