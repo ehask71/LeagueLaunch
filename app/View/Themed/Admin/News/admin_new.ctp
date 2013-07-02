@@ -1,5 +1,11 @@
 <?php
     $this->Html->script('wysiwyg', array('block' => 'scriptBottom'));
+    $this->Html->scriptStart(array('block' => 'scriptBottom'));
+    echo '$(function() {
+	$( "#startDate" ).datepicker();
+	$( "#endDate" ).datepicker();
+});';
+    
 ?>
 <div class="grid_12">
     <div class="box">
@@ -35,12 +41,14 @@
 		<?=$this->Form->input('start_date',array(
 				'class' => 'input200 hasDatepicker',
 				'id' => 'startDate',
-				'label' => 'Start Date'
+				'label' => 'Start Date',
+				'type' => 'text'
 			    ));?>
 		<?=$this->Form->input('end_date',array(
 				'class' => 'input200 hasDatepicker',
 				'id' => 'endDate',
-				'label' => 'End Date'
+				'label' => 'End Date',
+				'type' => 'text'
 			    ));?>
 		<?=$this->Form->input('content',array(
 				'class' => 'ckeditor',
