@@ -29,7 +29,6 @@
         echo $this->Html->script('jquery.uniform');
         echo $this->Html->script('chosen.jquery');
         echo $this->Html->script('jquery.placeholder');
-        echo $this->Html->script('/js/ckeditor/ckeditor.js');
         echo $this->Html->script('/js/jqueryui/all/jquery-ui-1.8.16.custom.min.js');
         echo $this->Html->script('http://www.google.com/jsapi');
         echo $this->Html->script('/js/gvchart/jquery.gvChart-1.0.1.min');
