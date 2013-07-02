@@ -1,3 +1,6 @@
+<?php
+    $this->Html->script('wysiwyg', array('block' => 'scriptBottom'));
+?>
 <div class="grid_12">
     <div class="box">
         <h2>
