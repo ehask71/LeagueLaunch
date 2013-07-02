@@ -1,15 +1,3 @@
-/*==== Simple DatePicker ====*/
-$(function() {
-	$( "#datepicker" ).datepicker();
-});
-
-/*==== Multiple DatePicker ====*/
-$(function() {
-	$( "#multiple_datepicker" ).datepicker({
-		numberOfMonths: 3,
-		showButtonPanel: true
-	});
-});
 
 /*==== Tabs ====*/
 $(function() {
