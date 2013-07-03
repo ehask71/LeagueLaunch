@@ -24,7 +24,7 @@ class NewsController extends AppController {
                 'News.is_active' => 'yes'
 	    ),
 	    'order' => array(
-		'News.created' => 'desc'
+		'News.id' => 'desc'
 	    )
 	);
         $news = $this->paginate('News');
