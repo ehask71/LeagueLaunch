@@ -66,7 +66,7 @@ class NewsController extends AppController {
 	}
 	if($this->request->isPut()){
 	    $this->News->set($this->data);
-	    if ($this->News->divisionValidate()) {
+	    if ($this->News->newsValidate()) {
 		$this->News->save($this->request->data, false);
 		$this->Session->setFlash(__('The News Item was Updated!'),'default',array('class'=>'alert succes_msg'));
 		$this->redirect('/admin/news');
