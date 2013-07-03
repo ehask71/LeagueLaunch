@@ -46,13 +46,13 @@
 				'label' => 'Title'
 			    ));?>
 		<?=$this->Form->input('start_date',array(
-				'class' => 'input200 hasDatepicker',
+				'class' => 'input200',
 				'id' => 'startDate',
 				'label' => 'Start Date',
 				'type' => 'text'
 			    ));?>
 		<?=$this->Form->input('end_date',array(
-				'class' => 'input200 hasDatepicker',
+				'class' => 'input200',
 				'id' => 'endDate',
 				'label' => 'End Date',
 				'type' => 'text'
