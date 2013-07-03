@@ -25,7 +25,7 @@
 
         <!--============ JQUERY =============-->
         <?php
-        echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
+        echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
         echo $this->Html->script('jquery.uniform');
         echo $this->Html->script('chosen.jquery');
         echo $this->Html->script('jquery.placeholder');
