@@ -28,33 +28,53 @@ class NewsController extends AppController {
         if(!empty($this->request->params['requested'])){
             return $news;
         }
-        $this->set('title_for_layout','Latest News');
+        $this->set('title_for_layout',__('Latest News'));
         $this->set('news',$news);
     }
     
     public function admin_index(){
-	if ($this->request->is('post')) {
-	    $this->News->set($this->data);
-	    if ($this->News->newsValidate()) {
-		
-	    }
-	}
 	$this->paginate = array(
 	    'conditions' => array(
 		'News.site_id' => Configure::read('Settings.site_id')
 	    ) 
 	);
         $news = $this->paginate('News');
-	$this->set('title_for_layout','Latest News');
+	$this->set('title_for_layout',__('News'));
         $this->set('news',$news);
     }
     
     public function admin_new(){
+	if ($this->request->is('post')) {
+	    $this->News->set($this->data);
+	    if ($this->News->newsValidate()) {
+		$this->News->save($this->request->data, false);
+		$this->Session->setFlash(__('The News Article was Added!'),'default',array('class'=>'alert succes_msg'));
+		$this->redirect('/admin/news');
+	    }
+	}
 	
     }
     
-    public function admin_edit(){
-	
+    public function admin_edit($id){
+	$this->News->id = $id;
+	if($this->News->exists()){
+	    $this->Session->setFlash(__('News Item doesn\'t Exist'),'default',array('class'=>'alert error_msg'));
+	    $this->redirect('/admin/news');
+	}
+	if($this->request->isPut()){
+	    $this->News->set($this->data);
+	    if ($this->News->divisionValidate()) {
+		$this->News->save($this->request->data, false);
+		$this->Session->setFlash(__('The News Item was Updated!'),'default',array('class'=>'alert succes_msg'));
+		$this->redirect('/admin/news');
+	    }
+	} else {
+	    $div = $this->Divisions->read(null,$id);
+	    $this->request->data = null;
+	    if(!empty($div)){
+		$this->request->data = $div;
+	    }
+	}
     }
     
 }
