@@ -85,7 +85,7 @@
                                             <li><a href="forms_validation.html">Forms validation</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/admin/news"><span class="icon7"><?=__('News');?></span></a>
+                                    <li><a href="/admin/news"><?=__('News');?><span class="icon7"></span></a>
                                         <ul>
                                             <li><a href="/admin/news"><?=__('Add New');?></a></li>
                                         </ul>
