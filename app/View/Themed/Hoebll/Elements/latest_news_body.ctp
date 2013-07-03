@@ -1,5 +1,5 @@
 <?php
-$latest_news = $this -> requestAction(array('controller' => 'news','action' => 'index'),array('named'=>array('limit'=>10,'sort'=>'desc','order'=>'News.id')));
+$latest_news = $this -> requestAction(array('controller' => 'news','action' => 'index'),array('named'=>array('limit'=>10,'sort'=>'id','direction'=>'desc')));
 if (isset($latest_news) && count(@$latest_news) > 0) {
     foreach ($latest_news AS $news) {
 	?>
