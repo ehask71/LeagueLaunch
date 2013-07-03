@@ -56,8 +56,8 @@ class NewsController extends AppController {
     }
     
     public function admin_edit($id){
-	$this->News->id = $id;
-	if($this->News->exists()){
+	$new = $this->News->find('first',array('conditions' => array('News.id'=>$id)));
+	if(!empty($new)){
 	    $this->Session->setFlash(__('News Item doesn\'t Exist'),'default',array('class'=>'alert error_msg'));
 	    $this->redirect('/admin/news');
 	}
@@ -69,10 +69,10 @@ class NewsController extends AppController {
 		$this->redirect('/admin/news');
 	    }
 	} else {
-	    $div = $this->Divisions->read(null,$id);
+	    //$new = $this->News->find('first',array('conditions' => array('News.id'=>$id)));
 	    $this->request->data = null;
-	    if(!empty($div)){
-		$this->request->data = $div;
+	    if(!empty($new)){
+		$this->request->data = $new;
 	    }
 	}
     }
