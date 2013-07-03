@@ -5,7 +5,7 @@
 	$( "#endDate" ).datepicker({ dateFormat: \'yy-mm-dd\' });
 });';
     $this->Html->scriptEnd();
-    $this->Html->script('/js/ckeditor/ckeditor.js',array('block' => 'scriptTop'));
+    $this->Html->script('/ckeditor/ckeditor.js',array('block' => 'scriptTop'));
 ?>
 <div class="grid_12">
     <div class="box">
