@@ -1,9 +1,10 @@
 <?php
     $this->Html->scriptStart(array('block' => 'scriptBottom'));
-    echo '$(function() {
-	$( "#startDate" ).datepicker({ dateFormat: \'yy-mm-dd\' });
-	$( "#endDate" ).datepicker({ dateFormat: \'yy-mm-dd\' });
-});';
+    echo "$(function() {
+	$( '#startDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+	$( '#endDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+	$( '#endDate' ).datepicker('show');
+});";
     $this->Html->scriptEnd();
     $this->Html->script('/js/ckeditor/ckeditor.js',array('block' => 'scriptTop'));
 ?>
