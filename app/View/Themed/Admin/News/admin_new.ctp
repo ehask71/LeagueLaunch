@@ -1,9 +1,12 @@
 <?php
     $this->Html->scriptStart(array('block' => 'scriptBottom'));
-    echo '$(function() {
-	$( "#startDate" ).datepicker({ dateFormat: \'yy-mm-dd\' });
-	$( "#endDate" ).datepicker({ dateFormat: \'yy-mm-dd\' });
-});';
+    echo "$(function() {
+	$( '#startDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+	$( '#endDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+	window.onload = function(){
+             CKEDITOR.replace( 'ckeditor', { toolbar : 'Normal' } );
+        };
+    });";
     $this->Html->scriptEnd();
     $this->Html->script('/ckeditor/ckeditor.js',array('block' => 'scriptTop'));
 ?>
