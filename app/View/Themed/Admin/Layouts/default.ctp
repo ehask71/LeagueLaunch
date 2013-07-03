@@ -25,11 +25,11 @@
 
         <!--============ JQUERY =============-->
         <?php
-        echo $this->Html->script('jquery');
+        echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
         echo $this->Html->script('jquery.uniform');
         echo $this->Html->script('chosen.jquery');
         echo $this->Html->script('jquery.placeholder');
-        echo $this->Html->script('/js/jqueryui/all/jquery-ui-1.8.16.custom.min.js');
+        echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
         echo $this->Html->script('http://www.google.com/jsapi');
         echo $this->Html->script('/js/gvchart/jquery.gvChart-1.0.1.min');
 
