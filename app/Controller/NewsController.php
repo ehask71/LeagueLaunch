@@ -22,7 +22,10 @@ class NewsController extends AppController {
                     array('News.start_date <= ' => date('Y-m-d H:i:s'),'News.end_date >= ' => date('Y-m-d H:i:s'))
                 ),
                 'News.is_active' => 'yes'
-	    ) 
+	    ),
+	    'order' => array(
+		'News.created' => 'desc'
+	    )
 	);
         $news = $this->paginate('News');
         if(!empty($this->request->params['requested'])){
