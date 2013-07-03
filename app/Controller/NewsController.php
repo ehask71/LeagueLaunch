@@ -60,10 +60,10 @@ class NewsController extends AppController {
 	    'News.id'=>$id,
 	    'News.site_id'=> Configure::read('Settings.site_id')
 	    )));
-	/*if(!empty($new)){
+	if(empty($new)){
 	    $this->Session->setFlash(__('News Item doesn\'t Exist'),'default',array('class'=>'alert error_msg'));
 	    $this->redirect('/admin/news');
-	}*/
+	}
 	if($this->request->isPut()){
 	    $this->News->set($this->data);
 	    if ($this->News->divisionValidate()) {
