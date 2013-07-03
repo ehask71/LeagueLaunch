@@ -1,7 +1,7 @@
 <div class="grid_12">
     <div class="box">
         <h2>
-            Edit Division
+            <?=__('Edit Division');?>
             <span class="l"></span>
             <span class="r"></span>
         </h2>
@@ -34,7 +34,7 @@
 				'class' => 'i-format',
 				'label' => 'Name'
 			    ));?>
-		<?php echo $this->Form->end('Edit Division'); ?>
+		<?php echo $this->Form->end(__('Edit Division')); ?>
 	    </div>
 	</div> 
     </div> 
