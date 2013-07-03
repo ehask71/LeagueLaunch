@@ -3,7 +3,7 @@
     echo "$(function() {
 	$( '#startDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
 	$( '#endDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
-	$( '#endDate' ).datepicker('show');
+	//$( '#endDate' ).datepicker('show');
 });";
     $this->Html->scriptEnd();
     $this->Html->script('/js/ckeditor/ckeditor.js',array('block' => 'scriptTop'));
