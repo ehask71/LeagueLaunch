@@ -56,11 +56,14 @@ class NewsController extends AppController {
     }
     
     public function admin_edit($id){
-	$new = $this->News->find('first',array('conditions' => array('News.id'=>$id)));
-	if(!empty($new)){
+	$new = $this->News->find('first',array('conditions' => array(
+	    'News.id'=>$id,
+	    'News.site_id'=> Configure::read('Settings.site_id')
+	    )));
+	/*if(!empty($new)){
 	    $this->Session->setFlash(__('News Item doesn\'t Exist'),'default',array('class'=>'alert error_msg'));
 	    $this->redirect('/admin/news');
-	}
+	}*/
 	if($this->request->isPut()){
 	    $this->News->set($this->data);
 	    if ($this->News->divisionValidate()) {
