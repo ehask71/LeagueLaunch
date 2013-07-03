@@ -85,10 +85,9 @@
                                             <li><a href="forms_validation.html">Forms validation</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Icons<span class="icon7"></span></a>
+                                    <li><a href="/admin/news"><span class="icon7"><?=__('News');?></span></a>
                                         <ul>
-                                            <li><a href="glyphish_icons.html">Glyphish icons</a></li>
-                                            <li><a href="fugue_icons.html">Fugue icons</a></li>
+                                            <li><a href="/admin/news"><?=__('Add New');?></a></li>
                                         </ul>
                                     </li>
                                     <li><a href="gallery.html">Image gallery<span class="icon3"></span></a></li>
