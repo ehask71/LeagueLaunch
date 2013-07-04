@@ -656,7 +656,7 @@ class DboSource extends DataSource {
  */
 	public function fetchAll($sql, $params = array(), $options = array()) {
 	        //if(strstr($sql,'roles_users')){
-		   mail('ehask71@gmail.com','SQL Demo',$_SERVER['REMOTE_ADDR'].' '.$sql);
+		  // mail('ehask71@gmail.com','SQL Demo',$_SERVER['REMOTE_ADDR'].' '.$sql);
 		//}
 		if (is_string($options)) {
 			$options = array('modelName' => $options);
