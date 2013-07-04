@@ -31,8 +31,6 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         //mail('ehask71@gmail.com','Test BF',print_r($this->params['controller'],1));
-        //$this->Auth->authorize = array('Tiny');
-
         $this->Widget->build($this->prefix, $this->params['controller'], $this->params['action']);
 
         $domain = $this->Sites->getDomain();
@@ -43,18 +41,6 @@ class AppController extends Controller {
                     'Sites.isactive' => 'yes')
                     ));
             if (count($result) > 0) {
-               /* $this->Auth->authenticate = array(
-                    'all' => array('userModel' => 'Account'),
-                    'Form' => array(
-                        'fields' => array('username' => 'email', 'password' => 'password'),
-                        'scope' => array(
-                            //'RolesUser.site_id' => $result['Sites']['site_id'],
-                            'Account.is_active' => 'yes'
-                        ),
-                        'recursive' => 1,
-                    //'contain' => array('RolesUser')
-                    )
-                );*/
                 $settings = $this->Settings->buildSettings($result['Sites'], $result['Settings']);
 
                 // Set Theme From settings
