@@ -1,7 +1,7 @@
 <div class="grid_12">
     <div class="box">
         <h2>
-            Users
+            <?=__('Accounts');?>
             <span class="l"></span>
             <span class="r"></span>
         </h2>
