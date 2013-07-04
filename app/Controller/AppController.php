@@ -33,6 +33,7 @@ class AppController extends Controller {
 		    ));
 	    if (count($result) > 0) {
 		$this->Auth->authenticate = array(
+		    'all' => array('userModel' => 'Account'),
 		    'Form' => array(
                         'fields' => array('username' => 'email', 'password' => 'password'), 
 			'scope' => array(
