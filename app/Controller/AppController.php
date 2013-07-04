@@ -31,7 +31,6 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         //mail('ehask71@gmail.com','Test BF',print_r($this->params['controller'],1));
-        $this->Widget->build($this->prefix, $this->params['controller'], $this->params['action']);
 
         $domain = $this->Sites->getDomain();
         if ($this->Sites->getSiteId($domain)) {
@@ -52,6 +51,9 @@ class AppController extends Controller {
                 // Load Theme configs
                 Configure::config('themeconfig', new PhpReader(APP . 'View' . DS . 'Themed' . DS . ucfirst($this->theme) . DS));
                 Configure::load($this->theme . 'conf', 'themeconfig', true);
+                
+                // Load Widgets For Theme page
+                $this->Widget->build($this->prefix, $this->params['controller'], $this->params['action']);
                 
                 $this->set('userinfo', $this->Auth->user());
                 $this->set('loggedIn', $this->Auth->loggedIn());
