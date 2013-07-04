@@ -11,6 +11,7 @@ class AppController extends Controller {
     public $components = array(
         'Session',
         'Auth' => array(
+            'authorize' => array('Tiny'),
             'authenticate' => array(
                 'all' => array('userModel' => 'Account'),
                 'Form' => array(
@@ -30,7 +31,7 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         //mail('ehask71@gmail.com','Test BF',print_r($this->params['controller'],1));
-        $this->Auth->authorize = array('Tiny');
+        //$this->Auth->authorize = array('Tiny');
 
         $this->Widget->build($this->prefix, $this->params['controller'], $this->params['action']);
 
