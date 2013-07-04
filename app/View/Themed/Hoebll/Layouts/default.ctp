@@ -34,9 +34,9 @@
                         <ul id="top-nav">
                             <li><?php
                             if($loggedIn) {
-                                echo $this->Html->link('LOGOUT', array('controller'=>'users', 'action'=>'logout'));
+                                echo $this->Html->link('LOGOUT', array('controller'=>'account', 'action'=>'logout'));
                             } else {
-                                echo $this->Html->link('LOGIN', array('controller'=>'users', 'action'=>'login')); 
+                                echo $this->Html->link('LOGIN', array('controller'=>'account', 'action'=>'login')); 
                             }?>
                             </li>
                             <li><a href="/register" title="Sign Up with {SITENAME}">SIGNUP</a></li>
