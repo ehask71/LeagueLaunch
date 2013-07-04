@@ -54,7 +54,7 @@ class AppController extends Controller {
                 
                 // Load Widgets For Theme page
                 $this->Widget->build($this->prefix, $this->params['controller'], $this->params['action']);
-                
+                // Make User Info avail to the View & Set a $loggedIn bool
                 $this->set('userinfo', $this->Auth->user());
                 $this->set('loggedIn', $this->Auth->loggedIn());
                 // Set Needed Data (meta, domain, etc)
