@@ -21,8 +21,8 @@
                                 foreach ($users AS $row){
                                     ?>
                         <tr>
-                            <td><?=$row['User']['firstname'].' '.$row['User']['lastname'];?></td>
-                            <td><?=$row['User']['is_active'];?></td>
+                            <td><?=$row['Account']['firstname'].' '.$row['Account']['lastname'];?></td>
+                            <td><?=$row['Account']['is_active'];?></td>
                             <td></td>
                         </tr>
                                     <?php
@@ -30,7 +30,7 @@
                             } else {
                                 ?>
                         <tr>
-                            <td colspan="5">No Users</td>
+                            <td colspan="5">No Accounts</td>
                         </tr>
                                 <?php
                             }
