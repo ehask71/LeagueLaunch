@@ -12,7 +12,7 @@ class AppController extends Controller {
 	'Session',
 	'Auth' => array(
 	    'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
-	    'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+	    'logoutRedirect' => array('controller' => 'account', 'action' => 'login'),
             'loginAction'    => '/login',
 	)
     );
@@ -37,7 +37,7 @@ class AppController extends Controller {
                         'fields' => array('username' => 'email', 'password' => 'password'), 
 			'scope' => array(
 			    //'RolesUser.site_id' => $result['Sites']['site_id'],
-			    'User.is_active' => 'yes'
+			    'Account.is_active' => 'yes'
 			),
 			'recursive' => 1,
 			//'contain' => array('RolesUser')
