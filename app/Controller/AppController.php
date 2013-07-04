@@ -33,8 +33,7 @@ class AppController extends Controller {
         $this->Auth->authorize = array('Tiny');
 
         $this->Widget->build($this->prefix, $this->params['controller'], $this->params['action']);
-        //print_r($this->Auth->user());
-        $this->set('userinfo', $this->Auth->user());
+
         $domain = $this->Sites->getDomain();
         if ($this->Sites->getSiteId($domain)) {
             $result = $this->Sites->find('first', array(
@@ -55,7 +54,6 @@ class AppController extends Controller {
                     //'contain' => array('RolesUser')
                     )
                 );*/
-                $this->set('loggedIn', $this->Auth->loggedIn());
                 $settings = $this->Settings->buildSettings($result['Sites'], $result['Settings']);
 
                 // Set Theme From settings
@@ -67,7 +65,9 @@ class AppController extends Controller {
                 // Load Theme configs
                 Configure::config('themeconfig', new PhpReader(APP . 'View' . DS . 'Themed' . DS . ucfirst($this->theme) . DS));
                 Configure::load($this->theme . 'conf', 'themeconfig', true);
-
+                
+                $this->set('userinfo', $this->Auth->user());
+                $this->set('loggedIn', $this->Auth->loggedIn());
                 // Set Needed Data (meta, domain, etc)
                 $this->set('meta_keywords', (@$settings['meta_keywords'] != '') ? @$settings['meta_keywords'] : 'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
                 $this->set('meta_description', (@$settings['meta_description'] != '') ? @$settings['meta_description'] : 'LeagueLaunch.com :: League Management Made Easy');
