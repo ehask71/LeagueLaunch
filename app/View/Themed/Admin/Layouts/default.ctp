@@ -16,7 +16,7 @@
         echo $this->CloudFlare->css('grid');
         echo $this->CloudFlare->css('uniform.default');
         echo $this->CloudFlare->css('chosen');
-        echo $this->CloudFlare->css('/js/jqueryui/all/themes/base/jquery.ui.all.css');
+        echo $this->Html->css('/js/jqueryui/all/themes/base/jquery.ui.all.css');
 
         //echo $this->Html->css('style');
 	echo $this->CloudFlare->css('style');
