@@ -2,7 +2,7 @@
 /* CSS Document */
 body{
 	background-attachment: fixed;
-	background-image: url(../images/body-background.jpg);
+	background-image: url(cdn.leaguelaunch.com/theme/hoebll/images/body-background.jpg);
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-color: #170E0E;
@@ -23,7 +23,7 @@ a{ text-decoration: none;}
 
 /* header elements */
 header{
-	background: url(../images/eastbay-header.jpg) center top scroll transparent no-repeat;
+	background: url(cdn.leaguelaunch.com/theme/hoebll/images/eastbay-header.jpg) center top scroll transparent no-repeat;
 	min-height:149px;
 	height: 149px;
 	max-width:960px;
@@ -69,7 +69,7 @@ header .logo-text.right h1{
 		background-color:#600;
 }
 #logo{
-	background:url(../images/eastbay-logo.png) center bottom no-repeat transparent scroll;
+	background:url(cdn.leaguelaunch.com/theme/hoebll/images/eastbay-logo.png) center bottom no-repeat transparent scroll;
 	display: block;
 	height: 149px;
 }
@@ -113,13 +113,13 @@ header .logo-text.right h1{
 	font-size:1em;
 	background-color: #FFFFFF;
 	cursor: pointer;
-	background-image: url(../images/eastbay-search.jpg);
+	background-image: url(cdn.leaguelaunch.com/theme/hoebll/images/eastbay-search.jpg);
 	background-position: center middle;
 }
 
 /* primary nav elements */
 #nav-container{
-	background: url(../images/eastbay-navbar-background.png) top left repeat-x scroll transparent;
+	background: url(cdn.leaguelaunch.com/theme/hoebll/images/eastbay-navbar-background.png) top left repeat-x scroll transparent;
 	height: 36px;
 	margin-top: 22px;
 }
@@ -194,7 +194,7 @@ header .logo-text.right h1{
 section{
 	display: block;	
 	min-height: 500px;
-	background: #FFF url(../images/eastbay-sidebar-background.jpg) right top repeat-y;
+	background: #FFF url(cdn.leaguelaunch.com/theme/hoebll/images/eastbay-sidebar-background.jpg) right top repeat-y;
 }
 #carousel-container{
 	
@@ -232,7 +232,7 @@ div.article h2{
 	text-shadow: 1px 1px 1px rgba(50, 50, 50, .8);
 }
 div.article h2.attention{
-	background: url(../images/attention.png) left no-repeat scroll transparent;
+	background: url(cdn.leaguelaunch.com/theme/hoebll/images/attention.png) left no-repeat scroll transparent;
 	padding-left: 18px;
 }
 div.article cite{
@@ -288,7 +288,7 @@ div.article cite{
 
 /* footer */
 section#footer{
-	background: #515151 url(../images/eastbay-footer-background.png) left top repeat-x scroll;	
+	background: #515151 url(cdn.leaguelaunch.com/theme/hoebll/images/eastbay-footer-background.png) left top repeat-x scroll;	
 	color: #FFF;
 	font-size: .9em;
 	height: 150px;
