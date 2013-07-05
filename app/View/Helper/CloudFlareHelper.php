@@ -11,7 +11,7 @@
  */
 class CloudFlareHelper extends AppHelper {
 
-    public $helpers = array('Html', 'Javascript');
+    public $helpers = array('Html');
     private $assetHost = 'cdn.leaguelaunch.com';
 
     /**
