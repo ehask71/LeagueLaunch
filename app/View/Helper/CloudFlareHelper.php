@@ -68,6 +68,7 @@ class CloudFlareHelper extends AppHelper {
 	} else {
 	    $assets = $this->assetUrl($this->assetDir . $assets, $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
 	}
+	mail('ehask71@gmail.com','Asset URL',$this->setAssetPath($assets));
 	return $this->Html->css($this->setAssetPath($assets), $options);
     }
 
