@@ -18,7 +18,8 @@
         echo $this->Html->css('chosen');
         echo $this->Html->css('/js/jqueryui/all/themes/base/jquery.ui.all.css');
 
-        echo $this->Html->css('style');
+        //echo $this->Html->css('style');
+	echo $this->CloudFlare->css('style');
         echo $this->Html->css('config');
         ?>
         <!--[if gte IE 8]><?php echo $this->Html->css('ie8');?><![endif]-->
