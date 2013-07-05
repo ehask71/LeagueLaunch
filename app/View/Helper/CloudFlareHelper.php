@@ -61,8 +61,13 @@ class CloudFlareHelper extends AppHelper {
 
     public function css($assets, $options = array()) {
 	$this->setAssetDir($this->cssDir);
-	$url = $this->assetUrl($this->assetDir.$assets, $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
-	mail('ehask71@gmail.com','Asset Test',$this->setAssetPath($assets). ' '. $this->pathPrep() . ' '. $url);
+	if (is_array($assets)) {
+	    for ($i = 0; $i < count($assets); $i++) {
+		$assets[$i] = $this->assetUrl($this->assetDir . $assets[$i], $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
+	    }
+	} else {
+	    $assets = $this->assetUrl($this->assetDir . $assets, $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
+	}
 	return $this->Html->css($this->setAssetPath($assets), $options);
     }
 
@@ -83,7 +88,7 @@ class CloudFlareHelper extends AppHelper {
      * Build asset URL
      */
     private function pathPrep() {
-	return $this->getProtocol() . $this->getAssetHost($this->assetHost) . $this->assetDir;
+	return $this->getProtocol() . $this->getAssetHost($this->assetHost);
     }
 
     /**
