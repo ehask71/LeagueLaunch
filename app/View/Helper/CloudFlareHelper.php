@@ -37,17 +37,24 @@ class CloudFlareHelper extends AppHelper {
      */
     private $assetDir = NULL;
 
+    private $assetTypes = array(
+	'css' => array('pathPrefix' => CSS_URL, 'ext' => '.css'),
+	'js' => array('pathPrefix' => JS_URL, 'ext' => '.js'),
+	'img' => array('pathPrefix' => IMAGES_URL)
+    );
     /**
      * We should really force the timestamp to improve caching.
      * Trun on the option in core.php
      */
     private $forceTimestamp = FALSE;
+    private $assets = NULL;
 
     /**
      * Return image path/URL either remote or local based on the debug level
      */
     public function image($assets, $options = array()) {
-	$this->setAssetDir($this->imgDir);
+	//$this->setAssetDir($this->imgDir);
+	$this->assets = $assets;
 	return $this->Html->image($this->setAssetPath($assets), $options);
     }
 
@@ -55,31 +62,29 @@ class CloudFlareHelper extends AppHelper {
      * Return JS link path/URL either remote or local based on the debug level
      */
     public function script($assets, $options = array()) {
-	$this->setAssetDir($this->jsDir);
+	//$this->setAssetDir($this->jsDir);
+	$this->assets = $assets;
 	return $this->Html->script($this->setAssetPath($assets), $options);
     }
 
     public function css($assets, $options = array()) {
-	$this->setAssetDir($this->cssDir);
-	if (is_array($assets)) {
-	    for ($i = 0; $i < count($assets); $i++) {
-		$assets[$i] = $this->assetUrl($this->assetDir . $assets[$i], $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
-	    }
-	} else {
-	    $assets = $this->assetUrl($this->assetDir . $assets, $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
-	}
+	$this->assets = $assets;
+	//$this->setAssetDir($this->cssDir);
 	//mail('ehask71@gmail.com','Asset URL',$this->setAssetPath($assets));
-	return $this->Html->css($this->setAssetPath($assets), $options);
+
+	return $this->Html->css($this->setAssetPath($assets, 'css'), $options);
     }
 
-    private function setAssetPath($assets = NULL) {
-	if ($assets && Configure::read('debug') == 0) {
+    private function setAssetPath($assets = NULL, $type = NULL) {
+	if ($assets && Configure::read('debug') == 0 ) {
 	    if (is_array($assets)) {
 		for ($i = 0; $i < count($assets); $i++) {
-		    $assets[$i] = $this->pathPrep() . $assets[$i] . $this->getAssetTimestamp();
+		    $this->setAssetDir($this->$type.'Dir');
+		    $assets[$i] = $this->assetUrl($this->pathPrep() . $assets[$i] . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
 		}
 	    } else {
-		return $this->pathPrep() . $assets . $this->getAssetTimestamp();
+		$this->setAssetDir($this->$type.'Dir');
+		return $this->assetUrl($this->pathPrep() . $assets . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
 	    }
 	}
 	return $assets;
@@ -89,15 +94,20 @@ class CloudFlareHelper extends AppHelper {
      * Build asset URL
      */
     private function pathPrep() {
-	return $this->getProtocol() . $this->getAssetHost($this->assetHost);
+	if (strpos($assets, '//') === false) {
+	    return $this->getProtocol() . $this->getAssetHost($this->assetHost);
+	}
+	return;
     }
 
     /**
      * Set proper asset directory (relative to web root), based on the asset type
      */
     private function setAssetDir($dir = NULL) {
-	if ($dir) {
-	    $this->assetDir = '/' . $dir . '/';
+	if (strpos($this->assets, '//') === false) {
+	    if ($dir) {
+		$this->assetDir = '/' . $dir . '/';
+	    }
 	}
     }
 
