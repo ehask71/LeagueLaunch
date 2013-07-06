@@ -55,7 +55,7 @@ class CloudFlareHelper extends AppHelper {
     public function image($assets, $options = array()) {
 	//$this->setAssetDir($this->imgDir);
 	$this->assets = $assets;
-	return $this->Html->image($this->setAssetPath($assets), $options);
+	return $this->Html->image($this->setAssetPath($assets,'img'), $options);
     }
 
     /**
@@ -64,7 +64,7 @@ class CloudFlareHelper extends AppHelper {
     public function script($assets, $options = array()) {
 	//$this->setAssetDir($this->jsDir);
 	$this->assets = $assets;
-	return $this->Html->script($this->setAssetPath($assets), $options);
+	return $this->Html->script($this->setAssetPath($assets,'js'), $options);
     }
 
     public function css($assets, $options = array()) {
