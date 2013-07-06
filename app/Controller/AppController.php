@@ -82,7 +82,7 @@ class AppController extends Controller {
     }
 
     function _setCommonWidgets() {
-	$this->set('latestArticles', $this->Widget->retrieve('Article', 'latest'));
+	$this->set('latestNews', $this->Widget->retrieve('News', 'latest'));
     }
 
 }
