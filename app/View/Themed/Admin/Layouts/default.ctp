@@ -27,14 +27,14 @@
         <!--============ JQUERY =============-->
         <?php
         echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
-        echo $this->Html->script('jquery.uniform');
-        echo $this->Html->script('chosen.jquery');
-        echo $this->Html->script('jquery.placeholder');
+        echo $this->CloudFlare->script('jquery.uniform');
+        echo $this->CloudFlare->script('chosen.jquery');
+        echo $this->CloudFlare->script('jquery.placeholder');
         echo $this->Html->script('/js/jqueryui/all/jquery-ui-1.8.16.custom.min.js');
         echo $this->Html->script('http://www.google.com/jsapi');
-        echo $this->Html->script('/js/gvchart/jquery.gvChart-1.0.1.min');
+        echo $this->CloudFlare->script('/js/gvchart/jquery.gvChart-1.0.1.min');
 
-        echo $this->Html->script('head_scripts');
+        echo $this->CloudFlare->script('head_scripts');
 	echo $this->fetch('scriptTop');
         ?>
         
