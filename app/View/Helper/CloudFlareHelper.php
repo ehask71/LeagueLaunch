@@ -36,12 +36,12 @@ class CloudFlareHelper extends AppHelper {
      * Will set asset directory depending on the asset type (css, js, img)
      */
     private $assetDir = NULL;
-
     private $assetTypes = array(
 	'css' => array('pathPrefix' => CSS_URL, 'ext' => '.css'),
 	'js' => array('pathPrefix' => JS_URL, 'ext' => '.js'),
 	'img' => array('pathPrefix' => IMAGES_URL)
     );
+
     /**
      * We should really force the timestamp to improve caching.
      * Trun on the option in core.php
@@ -76,14 +76,14 @@ class CloudFlareHelper extends AppHelper {
     }
 
     private function setAssetPath($assets = NULL, $type = NULL) {
-	if ($assets && Configure::read('debug') == 0 ) {
+	if ($assets && Configure::read('debug') == 0) {
 	    if (is_array($assets)) {
 		for ($i = 0; $i < count($assets); $i++) {
-		    $this->setAssetDir($this->$type.'Dir');
+		    $this->setAssetDir($this->$type . 'Dir');
 		    $assets[$i] = $this->assetUrl($this->pathPrep() . $assets[$i] . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
 		}
 	    } else {
-		$this->setAssetDir($this->$type.'Dir');
+		$this->setAssetDir($this->$type . 'Dir');
 		return $this->assetUrl($this->pathPrep() . $assets . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
 	    }
 	}
@@ -94,20 +94,15 @@ class CloudFlareHelper extends AppHelper {
      * Build asset URL
      */
     private function pathPrep() {
-	if (strpos($assets, '//') === false) {
-	    return $this->getProtocol() . $this->getAssetHost($this->assetHost);
-	}
-	return;
+	return $this->getProtocol() . $this->getAssetHost($this->assetHost);
     }
 
     /**
      * Set proper asset directory (relative to web root), based on the asset type
      */
     private function setAssetDir($dir = NULL) {
-	if (strpos($this->assets, '//') === false) {
-	    if ($dir) {
-		$this->assetDir = '/' . $dir . '/';
-	    }
+	if ($dir) {
+	    $this->assetDir = '/' . $dir . '/';
 	}
     }
 
