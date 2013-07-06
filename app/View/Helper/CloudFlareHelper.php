@@ -55,7 +55,7 @@ class CloudFlareHelper extends AppHelper {
     public function image($assets, $options = array()) {
 	//$this->setAssetDir($this->imgDir);
 	$this->assets = $assets;
-	return $this->Html->image($this->setAssetPath($assets,'img'), $options);
+	return $this->Html->image($this->setAssetPath($assets,'img',$options), $options);
     }
 
     /**
@@ -64,7 +64,7 @@ class CloudFlareHelper extends AppHelper {
     public function script($assets, $options = array()) {
 	//$this->setAssetDir($this->jsDir);
 	$this->assets = $assets;
-	return $this->Html->script($this->setAssetPath($assets,'js'), $options);
+	return $this->Html->script($this->setAssetPath($assets,'js',$options), $options);
     }
 
     public function css($assets, $options = array()) {
@@ -72,10 +72,10 @@ class CloudFlareHelper extends AppHelper {
 	//$this->setAssetDir($this->cssDir);
 	//mail('ehask71@gmail.com','Asset URL',$this->setAssetPath($assets));
 
-	return $this->Html->css($this->setAssetPath($assets, 'css'), $options);
+	return $this->Html->css($this->setAssetPath($assets, 'css',$options), $options);
     }
 
-    private function setAssetPath($assets = NULL, $type = NULL) {
+    private function setAssetPath($assets = NULL, $type = NULL,$options = array()) {
 	if ($assets && Configure::read('debug') == 0) {
 	    switch ($type){
 		case 'js':
@@ -91,11 +91,11 @@ class CloudFlareHelper extends AppHelper {
 	    if (is_array($assets)) {
 		for ($i = 0; $i < count($assets); $i++) {
 		    $this->setAssetDir($cf);
-		    $assets[$i] = $this->assetUrl($this->pathPrep() . $assets[$i] . $this->getAssetTimestamp(), $this->assetTypes[$type]);
+		    $assets[$i] = $this->assetUrl($this->pathPrep() . $assets[$i] . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
 		}
 	    } else {
 		$this->setAssetDir($cf);
-		return $this->assetUrl($this->pathPrep() . $assets . $this->getAssetTimestamp(), $this->assetTypes[$type]);
+		return $this->assetUrl($this->pathPrep() . $assets . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
 	    }
 	}
 	return $assets;
