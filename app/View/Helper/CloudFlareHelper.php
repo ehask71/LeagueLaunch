@@ -12,6 +12,7 @@
 class CloudFlareHelper extends AppHelper {
 
     public $helpers = array('Html');
+    
     private $assetHost = 'cdn.leaguelaunch.com';
 
     /**
@@ -36,66 +37,50 @@ class CloudFlareHelper extends AppHelper {
      * Will set asset directory depending on the asset type (css, js, img)
      */
     private $assetDir = NULL;
-    private $assetTypes = array(
-	'css' => array('pathPrefix' => CSS_URL, 'ext' => '.css'),
-	'js' => array('pathPrefix' => JS_URL, 'ext' => '.js'),
-	'img' => array('pathPrefix' => IMAGES_URL)
-    );
 
     /**
      * We should really force the timestamp to improve caching.
      * Trun on the option in core.php
      */
     private $forceTimestamp = FALSE;
-    private $assets = NULL;
 
     /**
      * Return image path/URL either remote or local based on the debug level
      */
     public function image($assets, $options = array()) {
-	//$this->setAssetDir($this->imgDir);
-	$this->assets = $assets;
-	return $this->Html->image($this->setAssetPath($assets,'img',$options), $options);
+	$this->setAssetDir($this->imgDir);
+	return $this->Html->image($this->setAssetPath($assets), $options);
     }
 
     /**
      * Return JS link path/URL either remote or local based on the debug level
      */
     public function script($assets, $options = array()) {
-	//$this->setAssetDir($this->jsDir);
-	$this->assets = $assets;
-	return $this->Html->script($this->setAssetPath($assets,'js',$options), $options);
+	$this->setAssetDir($this->jsDir);
+	return $this->Html->script($this->setAssetPath($assets), $options);
     }
 
     public function css($assets, $options = array()) {
-	$this->assets = $assets;
-	//$this->setAssetDir($this->cssDir);
+	$this->setAssetDir($this->cssDir);
+	if (is_array($assets)) {
+	    for ($i = 0; $i < count($assets); $i++) {
+		$assets[$i] = $this->assetUrl($assets[$i], $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
+	    }
+	} else {
+	    $assets = $this->assetUrl($assets, $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
+	}
 	//mail('ehask71@gmail.com','Asset URL',$this->setAssetPath($assets));
-
-	return $this->Html->css($this->setAssetPath($assets, 'css',$options), $options);
+	return $this->Html->css($this->setAssetPath($assets), $options);
     }
 
-    private function setAssetPath($assets = NULL, $type = NULL,$options = array()) {
+    private function setAssetPath($assets = NULL) {
 	if ($assets && Configure::read('debug') == 0) {
-	    switch ($type){
-		case 'js':
-		    $cf = $this->jsDir;
-		    break;
-		case 'css':
-		    $cf = $this->cssDir;
-		    break;
-		case 'img':
-		    $cf = $this->imgDir;
-		    break;
-	    }
 	    if (is_array($assets)) {
 		for ($i = 0; $i < count($assets); $i++) {
-		    $this->setAssetDir($cf);
-		    $assets[$i] = $this->assetUrl($this->pathPrep() . $assets[$i] . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
+		    $assets[$i] = $this->pathPrep() . $assets[$i] . $this->getAssetTimestamp();
 		}
 	    } else {
-		$this->setAssetDir($cf);
-		return $this->assetUrl($this->pathPrep() . $assets . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
+		return $this->pathPrep() . $assets . $this->getAssetTimestamp();
 	    }
 	}
 	return $assets;
