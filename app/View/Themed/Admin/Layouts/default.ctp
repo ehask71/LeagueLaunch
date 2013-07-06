@@ -40,7 +40,7 @@
         
 
         <!--=== ENABLE HTML5 TAGS FOR IE ===-->
-        <!--[if IE]><?php echo $this->Html->script('html5');?><![endif]-->
+        <!--[if IE]><?php echo $this->CloudFlare->script('html5');?><![endif]-->
 
         <title>Admin theme </title>
     </head>
@@ -113,8 +113,8 @@
             </section><!-- End of .wrapper_layout -->
         </section><!-- End of #main_wrapper -->
         <?php
-	echo $this->Html->script('scripts');
-	echo $this->Html->script('ui_calls');
+	echo $this->CloudFlare->script('scripts');
+	echo $this->CloudFlare->script('ui_calls');
 	echo $this->fetch('scriptBottom');
 	?>
     </body>
