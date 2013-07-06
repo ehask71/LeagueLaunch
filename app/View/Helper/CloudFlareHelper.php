@@ -48,7 +48,7 @@ class CloudFlareHelper extends AppHelper {
      * Return image path/URL either remote or local based on the debug level
      */
     public function image($assets, $options = array()) {
-	$this->setAssetDir($this->imgDir);
+	$assets = $this->assetUrl($assets, $options + array('pathPrefix' => IMAGES_URL));
 	return $this->Html->image($this->setAssetPath($assets), $options);
     }
 
@@ -56,12 +56,17 @@ class CloudFlareHelper extends AppHelper {
      * Return JS link path/URL either remote or local based on the debug level
      */
     public function script($assets, $options = array()) {
-	$this->setAssetDir($this->jsDir);
+	if (is_array($assets)) {
+	    for ($i = 0; $i < count($assets); $i++) {
+		$assets[$i] = $this->assetUrl($assets[$i], $options + array('pathPrefix' => JS_URL, 'ext' => '.js'));
+	    }
+	} else {
+	    $assets = $this->assetUrl($assets, $options + array('pathPrefix' => JS_URL, 'ext' => '.js'));
+	}
 	return $this->Html->script($this->setAssetPath($assets), $options);
     }
 
     public function css($assets, $options = array()) {
-	$this->setAssetDir($this->cssDir);
 	if (is_array($assets)) {
 	    for ($i = 0; $i < count($assets); $i++) {
 		$assets[$i] = $this->assetUrl($assets[$i], $options + array('pathPrefix' => CSS_URL, 'ext' => '.css'));
