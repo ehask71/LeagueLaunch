@@ -77,14 +77,24 @@ class CloudFlareHelper extends AppHelper {
 
     private function setAssetPath($assets = NULL, $type = NULL) {
 	if ($assets && Configure::read('debug') == 0) {
-	    $cf = $type.'Dir';
+	    switch ($type){
+		case 'js':
+		    $cf = $this->jsDir;
+		    break;
+		case 'css':
+		    $cf = $this->cssDir;
+		    break;
+		case 'img':
+		    $cf = $this->imgDir;
+		    break;
+	    }
 	    if (is_array($assets)) {
 		for ($i = 0; $i < count($assets); $i++) {
-		    $this->setAssetDir($this->$cf);
+		    $this->setAssetDir($cf);
 		    $assets[$i] = $this->assetUrl($this->pathPrep() . $assets[$i] . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
 		}
 	    } else {
-		$this->setAssetDir($this->$cf);
+		$this->setAssetDir($cf);
 		return $this->assetUrl($this->pathPrep() . $assets . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
 	    }
 	}
