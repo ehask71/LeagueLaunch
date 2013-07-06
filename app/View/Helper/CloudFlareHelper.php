@@ -91,11 +91,11 @@ class CloudFlareHelper extends AppHelper {
 	    if (is_array($assets)) {
 		for ($i = 0; $i < count($assets); $i++) {
 		    $this->setAssetDir($cf);
-		    $assets[$i] = $this->assetUrl($this->pathPrep() . $assets[$i] . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
+		    $assets[$i] = $this->assetUrl($this->pathPrep() . $assets[$i] . $this->getAssetTimestamp(), $this->assetTypes[$type]);
 		}
 	    } else {
 		$this->setAssetDir($cf);
-		return $this->assetUrl($this->pathPrep() . $assets . $this->getAssetTimestamp(), $options + $this->assetTypes[$type]);
+		return $this->assetUrl($this->pathPrep() . $assets . $this->getAssetTimestamp(), $this->assetTypes[$type]);
 	    }
 	}
 	return $assets;
