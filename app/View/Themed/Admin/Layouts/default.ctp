@@ -20,9 +20,9 @@
 
         //echo $this->Html->css('style');
 	echo $this->CloudFlare->css('style');
-        echo $this->Html->css('config');
+        echo $this->CloudFlare->css('config');
         ?>
-        <!--[if gte IE 8]><?php echo $this->Html->css('ie8');?><![endif]-->
+        <!--[if gte IE 8]><?php echo $this->CloudFlare->css('ie8');?><![endif]-->
 
         <!--============ JQUERY =============-->
         <?php
