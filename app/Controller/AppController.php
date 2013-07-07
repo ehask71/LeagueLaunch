@@ -78,10 +78,10 @@ class AppController extends Controller {
 
     public function beforeRender() {
 	parent::beforeRender();
-	$this->_setCommonWidgets();
+	$this->_setCommonWidgets($this->params);
     }
 
-    function _setCommonWidgets() {
+    function _setCommonWidgets($params) {
 	$this->set('latestNews', $this->Widget->retrieve('News', 'latest'));
     }
 
