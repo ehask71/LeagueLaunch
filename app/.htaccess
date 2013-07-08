@@ -2,7 +2,4 @@
     RewriteEngine on
     RewriteRule    ^$    webroot/    [L]
     RewriteRule    (.*) webroot/$1    [L]
-    RewriteRule    ^img/(.*)$ http://cdn.leaguelaunch.com/$1 [L,R=301]
-    RewriteRule    ^js/(.*)$ http://cdn.leaguelaunch.com/$1 [L,R=301]
-    RewriteRule    ^css/(.*)$ http://cdn.leaguelaunch.com/$1 [L,R=301]
 </IfModule>
