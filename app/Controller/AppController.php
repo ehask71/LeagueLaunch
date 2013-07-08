@@ -78,7 +78,7 @@ class AppController extends Controller {
 
     public function beforeRender() {
 	parent::beforeRender();
-	$this->_setCommonWidgets($this->params);
+	//$this->_setCommonWidgets($this->params);
     }
 
     function _setCommonWidgets($params) {
