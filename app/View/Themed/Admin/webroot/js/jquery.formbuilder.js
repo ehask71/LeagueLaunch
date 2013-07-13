@@ -421,7 +421,7 @@
 							url: opts.save_url,
 							data: $(ul_obj).serializeFormList({
 								prepend: opts.serialize_prefix
-							}) + "&form_id=" + form_db_id +"&name="+encodeURIComponent($('#'+frmb_id + '-name-input').val()),
+							}) + "&form_id=" + form_db_id +"&name="+encodeURIComponent($('#'+frmb_id + '-name-input').val())+"&site_id="+encodeURIComponent($('#form-site-id').val()),
 							success: function () {}
 						});
 					}
