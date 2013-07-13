@@ -1,9 +1,9 @@
 <?php
     $this->Html->scriptStart(array('block' => 'scriptBottom'));
     echo "$(function() {
-        $('#my-form-builder').formbuilder({
-            'save_url': 'example-save.php',
-            'load_url': 'example-json.php',
+        $('#ll-form-builder').formbuilder({
+            'save_url': '/admin/forms/save',
+            'load_url': '/admin/forms/load',
             'useJson' : true
         });
 	$(function() {
@@ -23,6 +23,7 @@
         </h2>
         <div class="block">
             <div class="block_in">
+                <input type="hidden" id="form-site-id" name="form-site-id" value="<?php echo Configure::read('Settings.site_id')?>"/>
                 <div id="ll-form-builder"></div>
             </div>
         </div>
