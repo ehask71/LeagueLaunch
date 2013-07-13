@@ -94,6 +94,19 @@
 						return false;
 					});
 				}(opts.control_box_target);
+                        // Form Name 
+                        var nameBox = function (target) {
+                            var nameInput = frmb_id + '-name-input';
+                            var name_box_content = '';
+                            name_box_content = '<input type="text" class="nameinput" name="'+ nameInput + '" value=""/>';
+                            // Insert the Name Field into page
+                            if (!target) {
+				$(ul_obj).before(name_box_content);
+                            } else {
+				$(target).append(name_box_content);
+                            }
+                            
+                        }(opts.name_box_target);
 			// Json parser to build the form builder
 			var fromJson = function (json) {
 					var values = '';
@@ -408,7 +421,7 @@
 							url: opts.save_url,
 							data: $(ul_obj).serializeFormList({
 								prepend: opts.serialize_prefix
-							}) + "&form_id=" + form_db_id,
+							}) + "&form_id=" + form_db_id +"&name="+encodeURIComponent($('#'+frmb_id + '-name-input').val()),
 							success: function () {}
 						});
 					}
