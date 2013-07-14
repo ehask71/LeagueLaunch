@@ -28,5 +28,9 @@ class FormsController extends AppController {
         $this->set('forms',$forms);
     }
     
+    public function admin_new(){
+        
+    }
+    
 }
 
