@@ -17,7 +17,7 @@
 <div class="grid_12">
     <div class="box">
         <h2>
-            <?php echo __d('Add New Form');?>
+            <?php echo __('Add New Form');?>
             <span class="l"></span>
             <span class="r"></span>
         </h2>
