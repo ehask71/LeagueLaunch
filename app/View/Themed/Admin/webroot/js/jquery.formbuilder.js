@@ -98,7 +98,7 @@
                         var nameBox = function (target) {
                             var nameInput = frmb_id + '-name-input';
                             var name_box_content = '';
-                            name_box_content = '<input type="text" class="nameinput" name="'+ nameInput + '" value=""/>';
+                            name_box_content = '<br/><label>Name of This Form:</label><input type="text" class="nameinput" name="'+ nameInput + '" value=""/>';
                             // Insert the Name Field into page
                             if (!target) {
 				$(ul_obj).before(name_box_content);
