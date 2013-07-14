@@ -6,7 +6,9 @@
 App::uses('AppController', 'Controller');
 
 class FormsController extends AppController {
-
+    
+    public $uses = array('Forms');
+    
     public function beforeFilter() {
 	parent::beforeFilter();
     }
