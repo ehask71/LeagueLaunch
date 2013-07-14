@@ -11,7 +11,7 @@
 	});
     });";
     $this->Html->scriptEnd();
-    $this->Html->css('jquery.formbuilder');
+    echo $this->Html->css('jquery.formbuilder');
     $this->Html->script('jquery.formbuilder',array('block' => 'scriptTop'));
 ?>
 <div class="grid_12">
