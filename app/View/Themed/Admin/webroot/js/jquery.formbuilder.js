@@ -537,7 +537,8 @@
             messages: null,
             form_start : '<section class="form_row"><div class="grid_2">',
             form_between : '</div><div class="grid_10"><div class="block_content">',
-            form_end : '</div></div><div class="clear"></div></section>'
+            form_end : '</div></div><div class="clear"></div></section>',
+            model_prefix : 'Forms'
         };
 
         var defaultMessages = {
@@ -1057,7 +1058,7 @@
                         type: "POST",
                         url: opts.save_url,
                         data: {
-                            'Survey': {
+                            opts.model_prefix : {
                                 'form_id' : form_db_id, 
                                 'form_structure' : $(ul_obj).serializeFormList({
                                     prepend: opts.serialize_prefix
