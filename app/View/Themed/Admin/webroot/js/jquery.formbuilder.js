@@ -90,6 +90,8 @@
 					$('#' + box_id).change(function () {
 						appendNewField($(this).val());
 						$(this).val(0).blur();
+						$(this).find('option:first-child').prop('selected', true)
+    .end().trigger('liszt:updated');
 						// This solves the scrollTo dependency
 						$('html, body').animate({
 							scrollTop: $('#frm-' + (last_id - 1) + '-item').offset().top
