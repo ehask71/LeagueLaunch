@@ -99,7 +99,7 @@
 				}(opts.control_box_target);
                         // Form Name 
                         var nameBox = function (target) {
-                            var nameInput = frmb_id + '-name-input';
+                            var nameInput = 'form-name-input';
                             var name_box_content = '';
                             name_box_content = opts.form_start + 'Name of This Form:'+opts.form_between+'<input type="text" class="input40pc" name="'+ nameInput + '" value=""/>'+opts.form_end;
                             // Insert the Name Field into page
@@ -424,7 +424,7 @@
 							url: opts.save_url,
 							data: $(ul_obj).serializeFormList({
 								prepend: opts.serialize_prefix
-							}) + "&form_id=" + form_db_id +"&name="+encodeURIComponent($('#'+frmb_id + '-name-input').val())+"&site_id="+encodeURIComponent($('#form-site-id').val()),
+							}) + "&form_id=" + form_db_id +"&name="+encodeURIComponent($('#form-name-input').val())+"&site_id="+encodeURIComponent($('#form-site-id').val()),
 							success: function () {}
 						});
 					}
