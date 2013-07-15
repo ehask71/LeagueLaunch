@@ -1052,13 +1052,14 @@
             // saves the serialized data to the server
             var save = function ($obj) {
                 if (opts.save_url) {
+                    prefix = opts.model_prefix;
                     //$obj.button('loading');
                     $.ajax({
                         cache: false,
                         type: "POST",
                         url: opts.save_url,
-                        data: {
-                            opts.model_prefix : {
+                        data: { 
+                            prefix : {
                                 'form_id' : form_db_id, 
                                 'form_structure' : $(ul_obj).serializeFormList({
                                     prepend: opts.serialize_prefix
