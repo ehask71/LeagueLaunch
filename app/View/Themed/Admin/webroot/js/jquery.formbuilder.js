@@ -71,7 +71,7 @@
 					select += '<option value="radio">' + opts.messages.radio + '</option>';
 					select += '<option value="select">' + opts.messages.select + '</option>';
 					// Build the control box and search button content
-					box_content = opts.form_start+opts.messages.add_new_field + opts.form_between + '<select id="' + box_id + '" class="chzn-select-deselect frmb-control">' + select + '</select>' + opts.form_end;
+					box_content = opts.form_start+opts.messages.add_new_field + opts.form_between + '<select id="' + box_id + '" class="chzn-select-deselect" style="width:350px">' + select + '</select>' + opts.form_end;
 					save_button = '<input type="submit" id="' + save_id + '" class="frmb-submit" value="' + opts.messages.save + '"/>';
 					// Insert the control box into page
 					if (!target) {
