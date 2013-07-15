@@ -1,6 +1,6 @@
 <?php
-    $this->Html->scriptStart(array('block' => 'scriptBottom'));
-    echo "$(function() {
+$this->Html->scriptStart(array('block' => 'scriptBottom'));
+echo "$(function() {
         $('#ll-form-builder').formbuilder({
             'save_url': '/admin/forms/save/',
             'load_url': '/admin/forms/load/',
@@ -12,21 +12,35 @@
 	    $('.chzn-select-deselect').chosen({allow_single_deselect:true});
 	});
     });";
-    $this->Html->scriptEnd();
-    echo $this->Html->css('jquery.formbuilder');
-    $this->Html->script('jquery.formbuilder',array('block' => 'scriptTop'));
+$this->Html->scriptEnd();
+echo $this->Html->css('jquery.formbuilder');
+$this->Html->script('jquery.formbuilder', array('block' => 'scriptTop'));
 ?>
 <div class="grid_12">
     <div class="box">
         <h2>
-            <?php echo __('Add New Form');?>
+            <?php echo __('Add New Form'); ?>
             <span class="l"></span>
             <span class="r"></span>
         </h2>
         <div class="block">
             <div class="block_in">
-                <input type="hidden" id="form-site-id" name="form-site-id" value="<?php echo Configure::read('Settings.site_id')?>"/>
-                <div id="ll-form-builder"></div>
+                <?php
+                echo $this->Form->create('Forms', array("type" => "file", "id" => "surveyForm",
+                    'inputDefaults' => array(
+                        'div' => false,
+                        'label' => false,
+                        'before' => '<section class="form_row"><div class="grid_2">',
+                        'between' => '</div><div class="grid_10"><div class="block_content">',
+                        'after' => '</div></div><div class="clear"></div></section>'
+                        )));
+                ?>
+                <input type="hidden" id="form-site-id" name="form-site-id" value="<?php echo Configure::read('Settings.site_id') ?>"/>
+                <div id="ll-form-builder" style="min-height: 200px;"></div>
+                <?php
+                echo $this->Form->input('submit_button_text', array('value' => __('Submit Form', true), 'label' => false, 'div' => false, 'class' => 'input-xxlarge'));
+                ?>
+                <? echo $this->Form->end(); ?>
             </div>
         </div>
     </div>
