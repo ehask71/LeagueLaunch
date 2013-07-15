@@ -4,6 +4,7 @@
  * @author Eric
  */
 App::uses('AppController', 'Controller');
+App::uses('Formbuilder','Vendor');
 
 class FormsController extends AppController {
     
@@ -32,5 +33,15 @@ class FormsController extends AppController {
         
     }
     
+    public function admin_load(){
+	
+    }
+    
+    public function admin_save(){
+	if ($this->request->is('post')) {
+	    $builder = new Formbuilder($this->request->data);
+	    mail('ehask71@gmail.com','Form Save',print_r($builder->get_encoded_form_array(),1));
+	}
+    }
 }
 
