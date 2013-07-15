@@ -88,8 +88,12 @@ class Formbuilder {
 	 * @access public
 	 * @uses generate_html
 	 */
-	public function render_html($form_action = false){
+	public function render_html($form_action = false,$rtn=true){
+	    if($rtn){
+		return $this->generate_html($form_action);
+	    } else {
 		print $this->generate_html($form_action);
+	    }
 	}
 
 
