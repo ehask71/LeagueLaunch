@@ -2,8 +2,8 @@
     $this->Html->scriptStart(array('block' => 'scriptBottom'));
     echo "$(function() {
         $('#ll-form-builder').formbuilder({
-            'save_url': '/admin/forms/save',
-            'load_url': '/admin/forms/load',
+            'save_url': '/admin/forms/save/',
+            'load_url': '/admin/forms/load/',
             'useJson' : true
         });
 	$(function() {
