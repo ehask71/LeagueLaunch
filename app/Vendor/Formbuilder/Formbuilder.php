@@ -31,6 +31,7 @@ class Formbuilder {
      * @access protected
      */
     protected $_form_array;
+    public $prefix = 'Forms';
 
     /**
      * Constructor, loads either a pre-serialized form structure or an incoming POST form
@@ -64,12 +65,22 @@ class Formbuilder {
      * @return array
      */
     public function get_encoded_form_array() {
-        return array(
-            'id' => $this->_form_array['form_id'],
-            'site_id' => $this->_form_array['site_id'],
-            'name' => $this->_form_array['name'],
-            'form_structure' => json_encode($this->_form_array['form_structure'])
-        );
+        if ($this->prefix) {
+            return array($this->prefix => array(
+                    'id' => $this->_form_array['form_id'],
+                    'site_id' => $this->_form_array['site_id'],
+                    'name' => $this->_form_array['name'],
+                    'form_structure' => json_encode($this->_form_array['form_structure'])
+                )
+            );
+        } else {
+            return array(
+                'id' => $this->_form_array['form_id'],
+                'site_id' => $this->_form_array['site_id'],
+                'name' => $this->_form_array['name'],
+                'form_structure' => json_encode($this->_form_array['form_structure'])
+            );
+        }
     }
 
     /**
