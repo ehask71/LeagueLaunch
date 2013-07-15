@@ -777,7 +777,7 @@
                 help = (help != undefined) ? help : '';
                 field += '<div class="frm-elements">';
                 //field += '<label>' + opts.messages.label + '</label>';
-                field += '<input class="edit-in-place" name="title" type="text" placeholder="' + opts.messages.untitled_label + ' ' + opts.messages.datepicker + '" value="' + values + '" /></div>';
+                field += '<input class="edit-in-place" name="title-' + last_id + '" type="text" placeholder="' + opts.messages.untitled_label + ' ' + opts.messages.datepicker + '" value="' + values + '" /></div>';
                 field += '<div class="frm-elements">';
                 //field += '<label>' + opts.messages.help_label + '</label>';
                 field += '<input class="edit-in-place" name="help" placeholder="' + opts.messages.help_label + '" type="text" value="' + help + '" /></div>';
@@ -789,7 +789,7 @@
                 help = (help != undefined) ? help : '';
                 field += '<div class="frm-elements">';
                 //field += '<label>' + opts.messages.label + '</label>';
-                field += '<input class="edit-in-place" id="title-' + last_id + '" type="text" placeholder="' + opts.messages.untitled_label + ' ' + opts.messages.text_field + '" value="' + values + '" />';
+                field += '<input class="edit-in-place" name="title-' + last_id + '" id="title-' + last_id + '" type="text" placeholder="' + opts.messages.untitled_label + ' ' + opts.messages.text_field + '" value="' + values + '" />';
                 field += '</div>';
                 field += '<div class="frm-elements">';
                 //field += '<label>' + opts.messages.help_label + '</label>';
