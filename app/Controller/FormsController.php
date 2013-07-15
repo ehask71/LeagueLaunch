@@ -48,12 +48,12 @@ class FormsController extends AppController {
     public function admin_save(){
         $this->autoRender = false;
 	if ($this->request->is('post')) {
-            require_once(APP.'Vendor'.DS.'Formbuilder/Formbuilder.php');
-	    $builder = new Formbuilder($this->request->data);
-            $this->Forms->save($builder)or die(mysql_error());
+            /*require_once(APP.'Vendor'.DS.'Formbuilder/Formbuilder.php');
+	    $builder = new Formbuilder($this->request->data);*/
+            $this->Forms->save($this->request->data);
             //$this->Session->setFlash(__('The Form was Added!'),'default',array('class'=>'alert succes_msg'));
             //$this->redirect('/admin/forms');
-	    //mail('ehask71@gmail.com','Form Save',print_r($builder->get_encoded_form_array(),1));
+	    mail('ehask71@gmail.com','Form Save',print_r($builder->get_encoded_form_array(),1));
 	}
         debug($this->Forms->validationErrors);
     }
