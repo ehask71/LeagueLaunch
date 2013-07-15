@@ -35,7 +35,7 @@ class FormsController extends AppController {
             $this->Forms->save($builder)or die(mysql_error());
             $this->Session->setFlash(__('The Form was Added!'),'default',array('class'=>'alert succes_msg'));
 	    */
-            mail('ehask71@gmail.com','Form Save',print_r($builder->get_encoded_form_array(),1));
+            mail('ehask71@gmail.com','Form Save',print_r($this->request->data,1));
             
             $this->redirect('/admin/forms');
 	}
