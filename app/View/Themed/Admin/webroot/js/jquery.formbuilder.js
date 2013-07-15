@@ -1051,7 +1051,7 @@
             // saves the serialized data to the server
             var save = function ($obj) {
                 if (opts.save_url) {
-                    $obj.button('loading');
+                    //$obj.button('loading');
                     $.ajax({
                         cache: false,
                         type: "POST",
