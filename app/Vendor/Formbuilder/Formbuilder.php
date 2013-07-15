@@ -52,6 +52,8 @@ class Formbuilder {
 		else if(array_key_exists('frmb', $form)){
 			$_form = array();
 			$_form['form_id'] = ($form['form_id'] == "undefined" ? false : $form['form_id']);
+                        $_form['site_id'] = ($form['site_id'] == "undefined")? false : $form['site_id'];
+                        $_form['name'] = ($form['name'] == "undefined")? false : $form['name'];
 			$_form['form_structure'] = $form['frmb']; // since the form is from POST, set it as the raw array
 			$this->_form_array = $_form;
 		}
