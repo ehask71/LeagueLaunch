@@ -794,7 +794,7 @@
                 field += '</div>';
                 field += '<div class="frm-elements">';
                 //field += '<label>' + opts.messages.help_label + '</label>';
-                field += '<input class="edit-in-place" name="help-' + last_id + '" placeholder="' + opts.messages.help_label + '" type="text" value="' + help + '" /></div>';
+                field += '<input class="edit-in-place" name="help" placeholder="' + opts.messages.help_label + '" type="text" value="' + help + '" /></div>';
                 help = '';
                 appendFieldLi(opts.messages.text, field, required, help);
             };
