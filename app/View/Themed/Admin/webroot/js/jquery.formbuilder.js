@@ -534,7 +534,10 @@
             preview_url: false,
             control_box_target: false,
             serialize_prefix: 'frmb',
-            messages: null
+            messages: null,
+            form_start : '<section class="form_row"><div class="grid_2">',
+            form_between : '</div><div class="grid_10"><div class="block_content">',
+            form_end : '</div></div><div class="clear"></div></section>'
         };
 
         var defaultMessages = {
@@ -564,10 +567,7 @@
             section_break                   : "Section Break",
             tabbable                        : "New Tab",
             untitled_label                  : "Untitled",
-            help_label                      : "Click here to enter some optional help text",
-            form_start : '<section class="form_row"><div class="grid_2">',
-            form_between : '</div><div class="grid_10"><div class="block_content">',
-            form_end : '</div></div><div class="clear"></div></section>'
+            help_label                      : "Click here to enter some optional help text"
         };
 
         var opts = $.extend(defaults, options);
