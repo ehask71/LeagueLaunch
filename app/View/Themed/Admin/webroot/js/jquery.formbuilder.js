@@ -1059,7 +1059,7 @@
                         type: "POST",
                         url: opts.save_url,
                         data: { 
-                            prefix : {
+                            Forms : {
                                 'form_id' : form_db_id, 
                                 'form_structure' : $(ul_obj).serializeFormList({
                                     prepend: opts.serialize_prefix
