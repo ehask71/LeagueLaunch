@@ -17,7 +17,7 @@
 			css_ol_sortable_class : 'ol_opt_sortable',
 			messages: {
 				save				: "Save",
-				add_new_field		: "Add New Field...",
+				add_new_field		: "Add New Field",
 				text				: "Text Field",
 				title				: "Title",
 				paragraph			: "Paragraph",
