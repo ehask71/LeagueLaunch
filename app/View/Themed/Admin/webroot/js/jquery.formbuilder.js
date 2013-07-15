@@ -71,7 +71,7 @@
 					select += '<option value="radio">' + opts.messages.radio + '</option>';
 					select += '<option value="select">' + opts.messages.select + '</option>';
 					// Build the control box and search button content
-					box_content = opts.form_start+opts.messages.add_new_field + opts.form_between + '<select id="' + box_id + '" class="frmb-control chzn-select-deselect">' + select + '</select>' + opts.form_end;
+					box_content = opts.form_start+opts.messages.add_new_field + opts.form_between + '<select id="' + box_id + '" class="chzn-select-deselect frmb-control">' + select + '</select>' + opts.form_end;
 					save_button = '<input type="submit" id="' + save_id + '" class="frmb-submit" value="' + opts.messages.save + '"/>';
 					// Insert the control box into page
 					if (!target) {
@@ -101,7 +101,7 @@
                         var nameBox = function (target) {
                             var nameInput = frmb_id + '-name-input';
                             var name_box_content = '';
-                            name_box_content = opts.form_start + 'Name of This Form:'+opts.form_between+'<input type="text" class="nameinput" name="'+ nameInput + '" value=""/>'+opts.form_end;
+                            name_box_content = opts.form_start + 'Name of This Form:'+opts.form_between+'<input type="text" class="input40pc" name="'+ nameInput + '" value=""/>'+opts.form_end;
                             // Insert the Name Field into page
                             if (!target) {
 				$(ul_obj).before(name_box_content);
