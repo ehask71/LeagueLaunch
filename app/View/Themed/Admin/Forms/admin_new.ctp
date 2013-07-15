@@ -7,7 +7,11 @@
             'useJson' : true
         });
 	$(function() {
-            $('#ll-form-builder ul').sortable({ opacity: 0.6, cursor: 'move'});
+            $('#ll-form-builder ul').sortable({ opacity: 0.6, cursor: 'move
+	    $('.chzn-select').chosen();
+	    $('.chzn-select-deselect').chosen({allow_single_deselect:true});
+	}
+    </script>
 	});
     });";
     $this->Html->scriptEnd();
