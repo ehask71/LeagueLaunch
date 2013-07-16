@@ -1063,7 +1063,9 @@
                                 'form_id' : form_db_id, 
                                 'form_structure' : $(ul_obj).serializeFormList({
                                     prepend: opts.serialize_prefix
-                                })
+                                }),
+				'name' : encodeURIComponent($('#form-name-input').val()),
+				'site_id' : $('#form-site-id').val()
                             }
                         },
                         success: function (response) {
