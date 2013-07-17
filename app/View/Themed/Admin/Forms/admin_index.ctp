@@ -21,7 +21,7 @@
                                 foreach ($forms AS $row){
                                     ?>
                         <tr>
-                            <td><?=$row['Forms']['name'];?></td>
+                            <td><?=urldecode($row['Forms']['name']);?></td>
                             <td><? //$row['Forms']['created'];?></td>
                             <td>
 				<?php echo $this->Form->postLink('Edit', 
