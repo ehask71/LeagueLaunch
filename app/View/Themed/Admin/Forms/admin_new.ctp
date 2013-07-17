@@ -35,8 +35,13 @@ $this->Html->script('jquery.formbuilder', array('block' => 'scriptTop'));
                         'after' => '</div></div><div class="clear"></div></section>'
                         )));
                 ?>
+		<?php 
+		echo $this->Form->input('id', array(
+		    'type' => 'hidden',
+		    'id' => 'formId'
+		));?>
                 <input type="hidden" id="form-site-id" name="form-site-id" value="<?php echo Configure::read('Settings.site_id') ?>"/>
-                <div id="ll-form-builder" style="min-height: 200px;"></div>
+                <div id="ll-form-builder" style="min-height: 300px;"></div>
                 <?php
                 //echo $this->Form->input('save_survey_form', array('type'=>'submit','value' => __('Submit Form', true), 'label' => false,'class' => 'input-xxlarge'));
                 ?>
