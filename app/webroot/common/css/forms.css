@@ -190,3 +190,11 @@ div.submit input[type=submit]:active {
     border-top-color: #32b560;
    background: #32b560;
    }
+   
+div.error-message{
+    color: #FF0000;
+}
+
+div.input.error{
+    border: 1px solid #FF0000;
+}
