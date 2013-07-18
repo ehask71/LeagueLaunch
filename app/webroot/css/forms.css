@@ -1,0 +1,12 @@
+/* 
+    Document   : forms
+    Created on : Jul 18, 2013, 10:23:25 AM
+    Author     : Rob
+    Description:
+        Normalize all forms
+*/
+
+div.input{
+    display: block;
+    margin: 0px 8px 8px 12px;
+}
