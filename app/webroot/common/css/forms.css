@@ -84,6 +84,8 @@ div.input.radio fieldset label{
     height: 35px;
     color: inherit;
     font-size: 1.2em;
+    font-variant: small-caps;
+    background: none;
     text-shadow: 1px 2px rgba(55,55,55,.9);
     display: inline-block;
     padding: 12px 4px 0px 14px;
@@ -91,6 +93,7 @@ div.input.radio fieldset label{
     position: relative; 
     border: 2px solid #CCC; 
     margin-bottom:15px;
+    margin-left:12px;
     border-radius: 4px;
 }
 div.input.radio fieldset label:before, div.input.radio fieldset label:after{
