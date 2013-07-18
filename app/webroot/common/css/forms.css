@@ -132,7 +132,7 @@ div.input.checkbox input[type=checkbox]+label{
     display: inline-block;
 }
 
-div.input.checkbox input[type=checkbox] label:after, div.input.checkbox input[type=checkbox] label:before {
+div.input.checkbox input[type=checkbox]+label:after, div.input.checkbox input[type=checkbox]+label:before {
 	right: 100%;
 	border: solid transparent;
 	content: " ";
@@ -142,14 +142,14 @@ div.input.checkbox input[type=checkbox] label:after, div.input.checkbox input[ty
 	pointer-events: none;
 }
 
-div.input.checkbox input[type=checkbox] label:after {
+div.input.checkbox input[type=checkbox]+label:after {
 	border-color: rgba(0, 0, 0, 0);
 	border-right-color: #000;
 	border-width: 12px;
 	top: 50%;
 	margin-top: -12px;
 }
-div.input.checkbox input[type=checkbox] label:before {
+div.input.checkbox input[type=checkbox]+label:before {
 	border-color: rgba(204, 204, 204, 0);
 	border-right-color: #CCC;
 	border-width: 15px;
