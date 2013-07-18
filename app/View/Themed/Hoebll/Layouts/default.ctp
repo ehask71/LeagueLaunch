@@ -7,8 +7,9 @@
 	echo $this->Html->meta('icon');
 	echo $this->Html->meta('keywords', $meta_keywords);
 	echo $this->Html->meta('description', $meta_description);
+        echo $this->Html->meta('abstract', $meta_abstract);
 	?>
-        <meta name="abstract" content="{ABSTRACT}" />
+        
         <meta name="author" content="LeagueLaunch.com" />
         <!-- begin css -->
 	<?php
