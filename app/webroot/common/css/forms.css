@@ -13,6 +13,7 @@ div.input{
 
 div.input label{
     width: 600px;
+    height: 35px;
     color: #FFF;
     font-variant: small-caps;
     display: block;
@@ -21,6 +22,7 @@ div.input label{
     background: #000; 
     border: 2px solid #CCC; 
     margin-bottom:15px;
+    border-radius: 4px;
 }
 
 div.input label:before, div.input label:after{
@@ -47,8 +49,17 @@ div.input label:before {
     margin-left: -15px; 
 }
 div.input input[type=text],div.input input[type=password]{
-    border-width: 1px solid #CCC;
-    padding: 4px;
-    text-align: left;
-    min-width: 600px;
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
+    border: 1px solid #CED3D8;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 2px 6px rgba(133, 133, 147, 0.22) inset;
+    clear: both;
+    color: #92969B;
+    font: 400 20px/20px "Helvetica Neue","Helvetica","Arial",sans-serif;
+    height: 35px;
+    margin: 0 0 19px;
+    padding: 5px 8px 2px;
+    resize: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+    width:600px;
 }
