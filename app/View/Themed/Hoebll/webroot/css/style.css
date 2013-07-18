@@ -196,6 +196,9 @@ section{
 	min-height: 500px;
 	background: #FFF url(http://cdn.leaguelaunch.com/theme/hoebll/images/eastbay-sidebar-background.jpg) right top repeat-y;
 }
+section h2{
+    padding: 4px 8px 8px 12px; 
+}
 #carousel-container{
 	
 }
