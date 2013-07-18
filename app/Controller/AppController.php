@@ -61,17 +61,20 @@ class AppController extends Controller {
                 // Set Needed Data (meta, domain, etc)
                 $this->set('meta_keywords', (@$settings['meta_keywords'] != '') ? @$settings['meta_keywords'] : 'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
                 $this->set('meta_description', (@$settings['meta_description'] != '') ? @$settings['meta_description'] : 'LeagueLaunch.com :: League Management Made Easy');
-                $this->set('domain', $domain);
+                $this->set('meta_abstract','');
+		$this->set('domain', $domain);
                 $this->set('settings', $settings);
                 $this->set('site_id', $result['Sites']['site_id']);
             } else {
                 $this->set('meta_keywords', 'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
                 $this->set('meta_description', 'LeagueLaunch.com :: League Management Made Easy');
+		$this->set('meta_abstract','');
                 throw new NotFoundException($domain . ' Was not found or is misconfigured');
             }
         } else {
             $this->set('meta_keywords', 'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
             $this->set('meta_description', 'LeagueLaunch.com :: League Management Made Easy');
+	    $this->set('meta_abstract','');
             throw new NotFoundException($domain . ' Was not found or is misconfigured');
         }
     }
