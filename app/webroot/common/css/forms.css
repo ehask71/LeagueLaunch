@@ -34,7 +34,7 @@ div.input label, div.input.radio fieldset legend{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 
-div.input label:before, div.input label:after{
+div.input label:before, div.input label:after, div.input.radio fieldset legend:before, div.input.radio fieldset legend:after{
     top: 100%; 
     border: solid transparent; 
     content: " "; 
@@ -43,14 +43,14 @@ div.input label:before, div.input label:after{
     position: absolute; 
     pointer-events: none; 
 }
-div.input label:after{
+div.input label:after, div.input.radio fieldset legend:after{
     border-color: rgba(0, 0, 0, 0); 
     border-top-color: #000; 
     border-width: 12px; 
     left: 50%; 
     margin-left: -12px;
 }
-div.input label:before { 
+div.input label:before, div.input.radio fieldset legend:before { 
     border-color: rgba(204, 204, 204, 0); 
     border-top-color: #CCC; 
     border-width: 15px; 
@@ -79,7 +79,7 @@ div.input input[type=text]:focus,div.input input[type=password]:focus, div.input
 }
 
 /* handle fieldset checkbox & radio */
-div.input.radio fieldset legend label{
+div.input.radio fieldset label{
     width: auto;
     height: 35px;
     color: inherit;
