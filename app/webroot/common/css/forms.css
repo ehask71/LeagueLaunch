@@ -106,6 +106,8 @@ div.input.radio fieldset label:before, div.input.radio fieldset label:after{
     border-width: 15px;
     top: 50%;
     margin-top: -12px;
+    right:100%;
+    content: " ";
 }
 
 div.input.checkbox input[type=checkbox] label{
