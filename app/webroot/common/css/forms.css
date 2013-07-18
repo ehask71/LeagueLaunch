@@ -93,3 +93,8 @@ div.input.radio fieldset label{
     margin-bottom:15px;
     border-radius: 4px;
 }
+div.input.radio fieldset label:before, div.input.radio fieldset label:after{
+    border: none;
+    left: 50%; 
+    margin-left: -12px;
+}
