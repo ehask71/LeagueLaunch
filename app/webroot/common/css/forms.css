@@ -16,16 +16,37 @@ div.input label{
     font-variant: small-caps;
     display: block;
     padding: 4px;
+    position: relative; 
+    background: #000; 
+    border: 1px solid #CCC; 
+}
+
+div.input label:before, div.input label:after{
+    top: 100%; 
+    border: solid transparent; 
+    content: " "; 
+    height: 0; 
+    width: 0; 
+    position: absolute; 
+    pointer-events: none; 
 }
 div.input label:after{
-    content: " ";
-    border: none;
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
+    border-color: rgba(0, 0, 0, 0); 
+    border-top-color: #000; 
+    border-width: 12px; 
+    left: 50%; 
+    margin-left: -12px;
+}
+div.input label:before { 
+    border-color: rgba(204, 204, 204, 0); 
+    border-top-color: #CCC; 
+    border-width: 13px; 
+    left: 50%; 
+    margin-left: -13px; 
 }
 div.input input[type=text],div.input input[type=password]{
     border-width: 1px solid #CCC;
     padding: 4px;
     text-align: left;
-    min-width: 60000px;
+    min-width: 600px;
 }
