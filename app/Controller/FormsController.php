@@ -4,6 +4,7 @@
  * @author Eric
  */
 App::uses('AppController', 'Controller');
+require_once(APP.'Vendor'.DS.'Formbuilder/Formbuilder.php');
 
 class FormsController extends AppController {
     
@@ -41,21 +42,39 @@ class FormsController extends AppController {
 	}
     }
     
-    public function admin_load(){
+    public function admin_load($id){
 	$this->autoRender = false;
+        
+        if ($this->RequestHandler->isAjax()) {
+            $formStructure = $this->Forms->field('Forms.form_structure', array('Forms.id' => $id,'Forms.site_id' => Configure::read('Settings.site_id')));
+            $formStructure = unserialize($formStructure);
+            $form = new Formbuilder($formStructure);
+            $form->render_json();
+        }
+
+        return false;
     }
     
-    public function admin_save(){
+    public function admin_save($id=null){
         $this->autoRender = false;
-	if ($this->request->is('post')) {
-            /*require_once(APP.'Vendor'.DS.'Formbuilder/Formbuilder.php');
-	    $builder = new Formbuilder($this->request->data);*/
-            $this->Forms->save($this->request->data);
-            //$this->Session->setFlash(__('The Form was Added!'),'default',array('class'=>'alert succes_msg'));
-            //$this->redirect('/admin/forms');
-	    mail('ehask71@gmail.com','Form Save',print_r($builder->get_encoded_form_array(),1));
-	}
-        debug($this->Forms->validationErrors);
+	if ($this->request->is('post') || $this->request->is('put')) {
+            $form_structure = json_decode($this->request->data['Forms']['form_structure'], true);
+            $params['form']['frmb'] = $form_structure['frmb'];
+            $form = new Formbuilder($params['form']);
+            $for_db = $form->get_encoded_form_array();
+
+            if($id){
+                $this->request->data['Forms']['id'] = $id;
+            }
+
+            $this->request->data['Forms']['form_structure'] = serialize($for_db);
+            if ($this->Forms->save($this->request->data)) {
+                $ID = ($this->Forms->getLastInsertID()) ? $this->Forms->getLastInsertID() :   $this->Forms->id;
+                return $ID;
+            }
+            return true;
+        }
+        return false;
     }
 }
 
