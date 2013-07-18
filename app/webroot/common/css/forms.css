@@ -6,7 +6,7 @@
         Normalize all forms
 */
 
-div.input{
+div.input, div.submit{
     display: block;
     margin: 0px 8px 8px 12px;
 }
@@ -159,7 +159,7 @@ div.input.checkbox input[type=checkbox]+label:before {
 	margin-top: -15px;
 }
 
-div.input input[type=submit] {
+div.submit input[type=submit] {
    border-top: 1px solid #96d1f8;
    background: #65a9d7;
    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
@@ -181,12 +181,12 @@ div.input input[type=submit] {
    text-decoration: none;
    vertical-align: middle;
    }
-div.input input[type=submit]:hover {
+div.submit input[type=submit]:hover {
    border-top-color: #28597a;
    background: #28597a;
    color: #ccc;
    }
-div.input input[type=submit]:active {
+div.submit input[type=submit]:active {
    border-top-color: #1b435e;
    background: #1b435e;
    }
