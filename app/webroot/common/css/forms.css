@@ -92,18 +92,20 @@ div.input.radio fieldset label{
     background: none;
     text-shadow: none;
     display: inline-block;
-    padding: 12px 4px 14px 14px;
+    padding: 12px 14px 4px;
     letter-spacing: .08em;
     position: relative; 
-    border: 2px solid #CCC; 
+    border: 1px solid #CCC; 
     margin-bottom:15px;
     margin-right:12px;
     border-radius: 4px;
 }
 div.input.radio fieldset label:before, div.input.radio fieldset label:after{
-    border: none;
-    left: 50%; 
-    margin-left: -12px;
+    border-color: rgba(204, 204, 204, 0);
+    border-right-color: #CCC;
+    border-width: 15px;
+    top: 50%;
+    margin-top: -12px;
 }
 
 div.input.checkbox input[type=checkbox] label{
