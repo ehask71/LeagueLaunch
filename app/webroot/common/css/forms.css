@@ -196,5 +196,6 @@ div.error-message{
 }
 
 div.input.error{
-    border: 1px solid #FF0000;
+    -webkit-box-shadow: 1px 3px 2px rgba(255, 0, 0, .78);
+    box-shadow: 1px 3px 2px rgba(255, 0, 0, .78); 
 }
