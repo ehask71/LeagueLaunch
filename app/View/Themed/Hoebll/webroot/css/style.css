@@ -317,3 +317,6 @@ section#footer h3{
 .notation{
 	color: #F00;	
 }
+section{
+    display: inherit;
+}
