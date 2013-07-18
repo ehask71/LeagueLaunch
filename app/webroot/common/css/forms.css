@@ -10,3 +10,15 @@ div.input{
     display: block;
     margin: 0px 8px 8px 12px;
 }
+
+div.input label{
+    width: 320px;
+    font-variant: small-caps;
+}
+div.input input[type=text],div.input input[type=password]{
+    border-width: 1px solid #000;
+    border-radius: 4px;
+    padding: 4px;
+    text-align: right;
+    min-width: 100px;
+}
