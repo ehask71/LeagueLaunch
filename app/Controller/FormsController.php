@@ -76,5 +76,32 @@ class FormsController extends AppController {
         }
         return false;
     }
+    
+    public function admin_edit($id=null){
+        if (!$id) {
+            return false;
+        }
+        $this->set(compact('id'));
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $text_logo = $this->request->data['Survey']['text_or_logo'];
+            if($text_logo == 'header_text'){
+                @unlink(WWW_ROOT.'/files/surveys/'.$this->request->data['Survey']['header_logo_dir'].'/'.$this->request->data['Survey']['logo']);
+                $this->request->data['Survey']['header_logo_dir'] = null;
+                $this->request->data['Survey']['header_logo'] = null;
+            }
+
+            $thankyou = $this->request->data['Survey']['thankyou'];
+            if($thankyou=='thankyou_content'){
+                $this->request->data['Survey']['thankyou_url'] = null;
+            }
+
+            if ($this->Survey->save($this->request->data)) {
+                $this->redirect('index');
+            }
+        } else {
+            $this->request->data = $this->Survey->find('first', array('conditions'=>array('Survey.id'=>$id)));
+        }
+    }
 }
 
