@@ -13,12 +13,14 @@ div.input{
 
 div.input label{
     width: 600px;
+    color: #FFF;
     font-variant: small-caps;
     display: block;
     padding: 4px;
     position: relative; 
     background: #000; 
-    border: 1px solid #CCC; 
+    border: 2px solid #CCC; 
+    margin-bottom:15px;
 }
 
 div.input label:before, div.input label:after{
@@ -40,9 +42,9 @@ div.input label:after{
 div.input label:before { 
     border-color: rgba(204, 204, 204, 0); 
     border-top-color: #CCC; 
-    border-width: 13px; 
+    border-width: 15px; 
     left: 50%; 
-    margin-left: -13px; 
+    margin-left: -15px; 
 }
 div.input input[type=text],div.input input[type=password]{
     border-width: 1px solid #CCC;
