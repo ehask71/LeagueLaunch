@@ -11,7 +11,7 @@ div.input{
     margin: 0px 8px 8px 12px;
 }
 
-div.input label{
+div.input label, div.input.radio fieldset legend{
     width: 600px;
     height: 35px;
     color: #FFF;
@@ -76,4 +76,20 @@ div.input input[type=text]:focus,div.input input[type=password]:focus, div.input
      border: 1px solid rgba(255,153,0,1);
      background-color:#FFF;
      box-shadow: 1px 1px 3px 2px rgba(255, 153, 0, .78); 
+}
+
+/* handle fieldset checkbox & radio */
+div.input.radio fieldset legend label{
+    width: auto;
+    height: 35px;
+    color: inherit;
+    font-size: 1.2em;
+    text-shadow: 1px 2px rgba(55,55,55,.9);
+    display: inline-block;
+    padding: 12px 4px 0px 14px;
+    letter-spacing: .08em;
+    position: relative; 
+    border: 2px solid #CCC; 
+    margin-bottom:15px;
+    border-radius: 4px;
 }
