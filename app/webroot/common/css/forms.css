@@ -135,7 +135,7 @@ div.input.checkbox input[type=checkbox]+label{
 
 div.input.checkbox input[type=checkbox]+label:after, div.input.checkbox input[type=checkbox]+label:before {
 	right: 100%;
-        left:-14px;
+        left:-15px;
 	border: solid transparent;
 	content: " ";
 	height: 0;
