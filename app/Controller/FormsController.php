@@ -66,8 +66,8 @@ class FormsController extends AppController {
             if($id){
                 $this->request->data['Forms']['id'] = $id;
             }
-
-            $this->request->data['Forms']['form_structure'] = serialize($for_db);
+	    //$this->request->data['Forms']['site_id'] = Configure::read('Settings.site_id');
+            //$this->request->data['Forms']['form_structure'] = serialize($for_db);
             if ($this->Forms->save($this->request->data)) {
                 $ID = ($this->Forms->getLastInsertID()) ? $this->Forms->getLastInsertID() :   $this->Forms->id;
                 return $ID;
