@@ -26,7 +26,7 @@ $this->Html->script('jquery.formbuilder', array('block' => 'scriptTop'));
         <div class="block">
             <div class="block_in">
                 <?php
-                echo $this->Form->create('Forms', array("type" => "file", "id" => "surveyForm",
+                echo $this->Form->create('Forms', array("type" => "file", "id" => "dynamicForm",
                     'inputDefaults' => array(
                         'div' => false,
                         'label' => false,
@@ -39,12 +39,10 @@ $this->Html->script('jquery.formbuilder', array('block' => 'scriptTop'));
 		echo $this->Form->input('id', array(
 		    'type' => 'hidden',
 		    'id' => 'formId'
-		));?>
-                <input type="hidden" id="form-site-id" name="form-site-id" value="<?php echo Configure::read('Settings.site_id') ?>"/>
+		));
+                echo $this->Form->input('name', array('type'=>'text'))?>
+                <input type="hidden" id="form-site-id" name="site_id" value="<?php echo Configure::read('Settings.site_id') ?>"/>
                 <div id="ll-form-builder" style="min-height: 300px;"></div>
-                <?php
-                //echo $this->Form->input('save_survey_form', array('type'=>'submit','value' => __('Submit Form', true), 'label' => false,'class' => 'input-xxlarge'));
-                ?>
                 <? echo $this->Form->end(); ?>
                 <a class="btn btn-primary" id="save_survey_form" type="submit">Save</a>
             </div>
