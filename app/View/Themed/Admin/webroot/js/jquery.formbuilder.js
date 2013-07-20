@@ -671,7 +671,7 @@
                 });
             }(opts.control_box_target);
             // Form Name 
-            var nameBox = function (target) {
+            /*var nameBox = function (target) {
                 var nameInput = 'form-name-input';
                 var name_box_content = '';
                 name_box_content = opts.form_start + 'Name of This Form:'+opts.form_between+'<input type="text" class="input40pc" id="'+ nameInput + '" value=""/>'+opts.form_end;
@@ -682,7 +682,7 @@
                     $(target).append(name_box_content);
                 }
                             
-            }(opts.name_box_target);
+            }(opts.name_box_target);*/
             // Json parser to build the form builder
             var fromJson = function (json) {
                 var values = '';
@@ -1063,9 +1063,7 @@
                                 'id' : form_db_id, 
                                 'form_structure' : $(ul_obj).serializeFormList({
                                     prepend: opts.serialize_prefix
-                                }),
-				'name' : encodeURIComponent($('#form-name-input').val()),
-				'site_id' : $('#form-site-id').val()
+                                })
                             }
                         },
                         success: function (response) {
@@ -1073,8 +1071,8 @@
                                 $obj.button('reset');
                             }else{
                                 //$obj.button('reset');
-                                $('#SurveyId').val($.trim(response));
-                                $('#surveyForm').submit();
+                                $('#formId').val($.trim(response));
+                                $('#dynamicForm').submit();
                             }
                         }
                     });
