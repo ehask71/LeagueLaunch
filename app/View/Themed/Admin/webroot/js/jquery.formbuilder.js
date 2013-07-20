@@ -1072,7 +1072,7 @@
                             }else{
                                 //$obj.button('reset');
                                 $('#formId').val($.trim(response));
-                                //$('#dynamicForm').submit();
+                                $('#dynamicForm').submit();
                             }
                         }
                     });
