@@ -123,7 +123,7 @@ class FormsController extends AppController {
                 $params = unserialize($this->request->data['Forms']['frmb']);
                 $form = new Formbuilder($params);
                 $form->setMessage($msg);
-                $form->setControlPerPage($survey['Forms']['controls_per_page']);
+                //$form->setControlPerPage($survey['Forms']['controls_per_page']);
                 $this->set('renderForm', $form->render_html('save_form', $forms, $results));
             } else {
                 if (isset($this->request->data['Forms']['design']) && !empty($this->request->data['Forms']['design'])) {
@@ -132,7 +132,7 @@ class FormsController extends AppController {
                     $for_db = $form->get_encoded_form_array();
                     $form = new Formbuilder($for_db);
                     $form->setMessage($msg);
-                    $form->setControlPerPage($forms['Forms']['controls_per_page']);
+                    //$form->setControlPerPage($forms['Forms']['controls_per_page']);
                     $form->setPreviewState(true);
                     $this->set('renderForm', $form->render_html('/surveys/save_response/' . $id, $forms, $results));
                 }
@@ -142,7 +142,7 @@ class FormsController extends AppController {
                 $formStructure = unserialize($forms['Forms']['form_structure']);
                 $form = new Formbuilder($formStructure);
                 $form->setMessage($msg);
-                $form->setControlPerPage($forms['Forms']['controls_per_page']);
+                //$form->setControlPerPage($forms['Forms']['controls_per_page']);
                 $this->set('renderForm', $form->render_html(FULL_BASE_URL . $this->base . '/survey/survey_responses/save_response/' . $id, $forms, $results));
             } else {
                 $this->set('renderForm', null);
