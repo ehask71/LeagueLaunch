@@ -124,7 +124,7 @@ class FormsController extends AppController {
                 $form = new Formbuilder($params);
                 $form->setMessage($msg);
                 $form->setControlPerPage($survey['Forms']['controls_per_page']);
-                $this->set('renderHTML', $form->render_html('save_form', $forms, $results));
+                $this->set('renderForm', $form->render_html('save_form', $forms, $results));
             } else {
                 if (isset($this->request->data['Forms']['design']) && !empty($this->request->data['Forms']['design'])) {
                     $params = json_decode($this->request->data['Forms']['design'], true);
@@ -134,7 +134,7 @@ class FormsController extends AppController {
                     $form->setMessage($msg);
                     $form->setControlPerPage($forms['Forms']['controls_per_page']);
                     $form->setPreviewState(true);
-                    $this->set('renderHTML', $form->render_html('/surveys/save_response/' . $id, $forms, $results));
+                    $this->set('renderForm', $form->render_html('/surveys/save_response/' . $id, $forms, $results));
                 }
             }
         } else {
