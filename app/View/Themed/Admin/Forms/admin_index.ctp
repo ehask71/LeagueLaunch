@@ -24,9 +24,7 @@
                             <td><?=urldecode($row['Forms']['name']);?></td>
                             <td><? //$row['Forms']['created'];?></td>
                             <td>
-				<?php echo $this->Form->postLink('Edit', 
-                    array('action' => 'edit', $row['Forms']['id']),
-                    array('class'=>'button blue'));?>
+				<a href="/admin/forms/edit/<?=$row['Forms']['id'];?>" class="button blue">Edit</a> 
 				<?php echo $this->Form->postLink('Delete', 
                     array('action' => 'delete', $row['Forms']['id']),
                     array('class'=>'button red', 'confirm' => 'Are you sure?'));?>
