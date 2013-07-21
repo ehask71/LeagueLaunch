@@ -10,6 +10,7 @@ require_once(APP . 'Vendor' . DS . 'Formbuilder/Formbuilder.php');
 class FormsController extends AppController {
 
     public $uses = array('Forms');
+    public $components = array('RequestHandler', 'Cookie');
 
     public function beforeFilter() {
         parent::beforeFilter();
