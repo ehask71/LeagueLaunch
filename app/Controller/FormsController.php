@@ -5,6 +5,7 @@
  * @author Eric
  */
 App::uses('AppController', 'Controller');
+App::uses('Sanitize', 'Utility');
 require_once(APP . 'Vendor' . DS . 'Formbuilder/Formbuilder.php');
 
 class FormsController extends AppController {
