@@ -47,6 +47,7 @@ class FormsController extends AppController {
         $this->autoRender = false;
         if ($this->RequestHandler->isAjax()) {
             $formStructure = $this->Forms->field('Forms.form_structure', array('Forms.id' => $id, 'Forms.site_id' => Configure::read('Settings.site_id')));
+            mail('ehask71@gmail.com', 'Form Struc', $formStructure);
             $formStructure = unserialize($formStructure);
             $form = new Formbuilder($formStructure);
             $form->render_json();
