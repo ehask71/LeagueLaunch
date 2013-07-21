@@ -35,6 +35,7 @@ class FormsController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['Forms']['name'] = (isset($this->request->data['Forms']['name']) && !empty($this->request->data['Forms']['name'])) ? $this->request->data['Forms']['name'] : __('Untitled', true);
             $this->request->data['Forms']['id'] = trim($this->request->data['Forms']['id']);
+            $this->request->data['Forms']['site_id'] = Configure::read('Settings.site_id');
             $this->Forms->id = $this->request->data['Forms']['id'];
             if ($this->Forms->save($this->request->data)) {
                 mail('ehask71@gmail.com', 'Form Save', print_r($this->request->data, 1));
@@ -65,7 +66,7 @@ class FormsController extends AppController {
             if ($id) {
                 $this->request->data['Forms']['id'] = $id;
             }
-            //$this->request->data['Forms']['site_id'] = Configure::read('Settings.site_id');
+            $this->request->data['Forms']['site_id'] = Configure::read('Settings.site_id');
             //$this->request->data['Forms']['form_structure'] = serialize($for_db);
             if ($this->Forms->save($this->request->data)) {
                 $ID = ($this->Forms->getLastInsertID()) ? $this->Forms->getLastInsertID() : $this->Forms->id;
