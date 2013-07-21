@@ -10,7 +10,7 @@ class Forms extends AppModel {
     
     public function getFormsById($id){
         if (($form = Cache::read('getFormById'.$id)) === false) {
-            $form = $this->find('first', array('conditions' => array('Form.id'=>$id,'Form.site_id'=>  Configure::read('Settings.site_id'))));
+            $form = $this->find('first', array('conditions' => array('Forms.id'=>$id,'Forms.site_id'=>  Configure::read('Settings.site_id'))));
             Cache::write('getFormsById'.$id, $form);
         }
         return $form;
