@@ -38,7 +38,6 @@ class FormsController extends AppController {
             $this->request->data['Forms']['site_id'] = Configure::read('Settings.site_id');
             $this->Forms->id = $this->request->data['Forms']['id'];
             if ($this->Forms->save($this->request->data)) {
-                mail('ehask71@gmail.com', 'Form Save', print_r($this->request->data, 1));
                 $this->redirect('/admin/forms');
             }
         }
