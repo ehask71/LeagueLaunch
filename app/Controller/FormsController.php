@@ -85,18 +85,6 @@ class FormsController extends AppController {
         $this->set(compact('id'));
 
         if ($this->request->is('post') || $this->request->is('put')) {
-            /* $text_logo = $this->request->data['Forms']['text_or_logo'];
-              if ($text_logo == 'header_text') {
-              @unlink(WWW_ROOT . '/files/surveys/' . $this->request->data['Survey']['header_logo_dir'] . '/' . $this->request->data['Survey']['logo']);
-              $this->request->data['Survey']['header_logo_dir'] = null;
-              $this->request->data['Survey']['header_logo'] = null;
-              }
-
-              $thankyou = $this->request->data['Survey']['thankyou'];
-              if ($thankyou == 'thankyou_content') {
-              $this->request->data['Survey']['thankyou_url'] = null;
-              }
-             */
             if ($this->Forms->save($this->request->data)) {
                 $this->redirect('/admin/forms');
             }
