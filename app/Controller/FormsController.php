@@ -143,9 +143,9 @@ class FormsController extends AppController {
                 $form = new Formbuilder($formStructure);
                 $form->setMessage($msg);
                 $form->setControlPerPage($forms['Forms']['controls_per_page']);
-                $this->set('renderHTML', $form->render_html(FULL_BASE_URL . $this->base . '/survey/survey_responses/save_response/' . $id, $forms, $results));
+                $this->set('renderForm', $form->render_html(FULL_BASE_URL . $this->base . '/survey/survey_responses/save_response/' . $id, $forms, $results));
             } else {
-                $this->set('renderHTML', null);
+                $this->set('renderForm', null);
             }
         }
     }
