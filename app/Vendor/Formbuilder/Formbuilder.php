@@ -71,7 +71,7 @@ class Formbuilder {
             $_form = array();
             $_form['form_id'] = (!isset($form['form_id']) || $form['form_id'] == "undefined") ? false : $form['form_id'];
             $_form['site_id'] = (!isset($form['site_id']) || $form['site_id'] == "undefined") ? false : $form['site_id'];
-            $_form['name'] = (isset($form['name']) || $form['name'] == "undefined") ? false : $form['name'];
+            $_form['name'] = (!isset($form['name']) || $form['name'] == "undefined") ? false : $form['name'];
             $_form['form_structure'] = $form['frmb']; // since the form is from POST, set it as the raw array
             $this->_form_array = $_form;
         }
