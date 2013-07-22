@@ -40,6 +40,7 @@ $this->Html->script('jquery.formbuilder', array('block' => 'scriptTop'));
                 ?>
                 <div id="ll-form-builder" style="min-height: 300px;"></div>
                 <? echo $this->Form->end();?>
+		<a class="btn btn-primary" id="save_survey_form" type="submit">Save</a>
             </div>
         </div>
     </div>
