@@ -28,10 +28,8 @@ class FormsController extends AppController {
 	}
 
 	$form = $this->Forms->getFormsById($id);
-	echo '<pre>';
-	print_r($form);
-	$msg = (@$form['Forms']['error_message']) ? $form['Forms']['error_message'] : __('Oops...something went wrong when trying to save your form. Take a look at the errors below and try again.', true);
-	if (@$form['Forms']['published'] == 0) {
+	$msg = ($form['Forms']['error_message']) ? $form['Forms']['error_message'] : __('Oops...something went wrong when trying to save your form. Take a look at the errors below and try again.', true);
+	if ($form['Forms']['published'] == 0) {
 	    $this->layout = 'ajax';
 	    $this->render('unpublished_survey');
 	    return false;
