@@ -15,6 +15,7 @@ class FormsController extends AppController {
 
     public function beforeFilter() {
 	parent::beforeFilter();
+	$this->Auth->allow('view','preview');
     }
 
     public function index() {
