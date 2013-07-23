@@ -86,7 +86,7 @@ div.input input[type=text]:focus,div.input input[type=password]:focus, div.input
 }
 
 /* handle fieldset checkbox & radio */
-div.input.radio fieldset label, div.control-group div.checkbox {
+div.input.radio fieldset label, div.control-group label.checkbox {
     width: auto;
     height: 35px;
     color: inherit;
