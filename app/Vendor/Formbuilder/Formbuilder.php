@@ -316,7 +316,7 @@ class Formbuilder {
 
             $html .= $tabbableHTML;
 
-            $formStructure = (isset($form_data['Survey']['form_structure']) && !empty($form_data['Survey']['form_structure'])) ? $form_data['Survey']['form_structure'] : null;
+            $formStructure = (isset($form_data['Forms']['form_structure']) && !empty($form_data['Forms']['form_structure'])) ? $form_data['Forms']['form_structure'] : null;
             $html .= '<input id="formstructure" type="hidden" name="form_structure" value="' . base64_encode($formStructure) . '">';
             $html .= '<input id="formhash" type="hidden" name="form_hash" value="' . md5(base64_encode($formStructure) . Configure::read('Security.salt')) . '">';
 
