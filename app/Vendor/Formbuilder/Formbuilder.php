@@ -791,7 +791,7 @@ class Formbuilder {
         $field['values'] = (array) $field['values'];
         if (isset($field['values']) && is_array($field['values'])) {
             $multiple = (isset($field['multiple']) && $field['multiple'] == 'checked') ? ' multiple="multiple"' : '';
-            $html .= sprintf('<div class="controls"><select class="input-xlarge" name="%s[]" id="%s"%s>' . "\n", $elemId, $elemId, $multiple);
+            $html .= sprintf('<div class="controls"><select class="chzn-select" name="%s[]" id="%s"%s>' . "\n", $elemId, $elemId, $multiple);
             //if ($field['required']) {
                 //$html .= '<option value="">Select '.$field['title'].'</label>';
             if(isset($field['multiple']) && $field['multiple'] == "checked"){
