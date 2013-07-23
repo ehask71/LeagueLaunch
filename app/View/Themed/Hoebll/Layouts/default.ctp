@@ -19,9 +19,11 @@
         echo $this->Html->css('/common/css/forms.css');
 	echo $this->Html->css('style');
 	echo $this->Html->css('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css');
+	echo $this->Html->css('chosen');
 	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
 	echo $this->Html->script('//code.jquery.com/jquery-migrate-1.0.0.js');
 	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js');
+	echo $this->Html->script('/js/chosen.jquery.min.js');
 	echo $this->fetch('meta');
 	echo $this->fetch('css');
 	echo $this->fetch('script');
