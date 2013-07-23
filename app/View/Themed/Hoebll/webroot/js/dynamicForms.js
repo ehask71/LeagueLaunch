@@ -4,7 +4,7 @@ $(function(){
 
 $(function() {
     if($.browser.msie){
-        $('#wrapper').attr('style', 'border:1px solid #E9E9E9;');
+        //$('#wrapper').attr('style', 'border:1px solid #E9E9E9;');
     }
 
     /*
