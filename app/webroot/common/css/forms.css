@@ -148,6 +148,8 @@ div.input.checkbox input[type=checkbox]+label{
 /*special rule for dynamic forms */
 div.control-group div.controls{
     padding-left:12px;
+    width:100%;
+    max-width: 600px;
 }
 div.control-group div.controls label{
     margin-left: 22px;
@@ -214,9 +216,7 @@ div.submit input[type=submit]:active, div.control-group input[type=submit]:activ
     border-top-color: #32b560;
    background: #32b560;
    }
-   div.controls{
-       position: relative;
-   }   
+    
 div.error-message, span.help-inline.tmp-check-required{
     display:block;
     border: 1px solid #FF0000;
