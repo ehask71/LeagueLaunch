@@ -104,7 +104,7 @@ div.input.radio fieldset label, div.control-group label.checkbox {
     margin-left: 13px;
     border-radius: 4px;
 }
-div.input.radio fieldset label:after, div.input.radio fieldset label:before {
+div.input.radio fieldset label:after, div.input.radio fieldset label:before, div.control-group label.checkbox:before, div.control-group label.checkbox:after {
 	right: 100%;
         left:-12px;
 	border: solid transparent;
@@ -115,14 +115,14 @@ div.input.radio fieldset label:after, div.input.radio fieldset label:before {
 	pointer-events: none;
 }
 
-div.input.radio fieldset label:after {
+div.input.radio fieldset label:after, div.control-group label.checkbox:after {
 	border-color: rgba(255, 255, 255, 0);
 	border-right-color: #ffffff;
 	border-width: 12px;
 	top: 50%;
 	margin-top: -12px;
 }
-div.input.radio fieldset label:before {
+div.input.radio fieldset label:before, div.control-group label.checkbox:before {
 	border-color: rgba(204, 204, 204, 0);
 	border-right-color: #CCC;
 	border-width: 13px;
