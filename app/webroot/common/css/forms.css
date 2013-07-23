@@ -13,7 +13,7 @@ div.input, div.submit, div.control-group, div.btn-group{
 }
 
 div.input label, div.input.radio fieldset legend, div.control-group label{
-    width: 600px;
+    max-width: 620px;
     height: 35px;
     color: #FFF;
     font-size: 1.2em;
@@ -80,7 +80,7 @@ div.btn-group input[type=text]{
     padding: 5px 8px 2px;
     resize: none;
     text-shadow: 0 1px 0 #FFFFFF;
-    width:600px;
+    max-width:620px;
 }
 div.input input[type=text]:focus,div.input input[type=password]:focus, div.input input[type=email]:focus, 
 div.control-group input[type=text]:focus, 
