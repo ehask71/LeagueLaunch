@@ -136,6 +136,10 @@ div.input.checkbox input[type=checkbox]+label{
     margin-left:16px;
 }
 
+/*special rule for dynamic forms */
+div.control-group label.checkbox input[type=checkbox]{
+    left: -50px;
+}
 div.input.checkbox input[type=checkbox]+label:after, div.input.checkbox input[type=checkbox]+label:before {
 	right: 100%;
         left:-15px;
