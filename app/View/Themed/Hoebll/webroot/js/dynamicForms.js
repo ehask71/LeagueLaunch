@@ -245,11 +245,11 @@ $(function() {
                 });
            }
         }else{
-            $("#errorModal").modal("show");
+            $("#errorModal").dialog();
             return false;
         }
     });
-    alert('Loaded');
+    //alert('Loaded');
 
     $('.modal-close').bind('click', function(){
         $obj.button('reset');
