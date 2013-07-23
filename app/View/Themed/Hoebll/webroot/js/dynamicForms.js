@@ -1,7 +1,8 @@
+$(function(){
+     $('.datepickerField').datepicker({dateFormat: 'yy-mm-dd'});
+});
+
 $(function() {
-    if($('.datepickerField').doesExist() === true){
-	$('.datepickerField').datepicker();
-    }
     if($.browser.msie){
         $('#wrapper').attr('style', 'border:1px solid #E9E9E9;');
     }
@@ -248,6 +249,7 @@ $(function() {
             return false;
         }
     });
+    alert('Loaded');
 
     $('.modal-close').bind('click', function(){
         $obj.button('reset');
