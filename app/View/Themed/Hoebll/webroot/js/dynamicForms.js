@@ -224,7 +224,7 @@ $(function() {
     $('#btSubmitSurvey').bind('click',function(e){
         $obj = $(this);
 	e.preventDefault();
-        $obj.button('loading');
+        //$obj.button('loading');
         var error = validateStep(parseInt(current));
         if(error > 0){
            $secureForm = $('#security_code');
