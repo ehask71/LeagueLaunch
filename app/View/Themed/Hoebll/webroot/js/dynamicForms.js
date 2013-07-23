@@ -1,5 +1,7 @@
 $(function() {
-    $('.datepickerField').datepicker();
+    if($('.datepickerField').length() != 0){
+	$('.datepickerField').datepicker();
+    }
     if($.browser.msie){
         $('#wrapper').attr('style', 'border:1px solid #E9E9E9;');
     }
