@@ -64,7 +64,7 @@ div.input label:before, div.input.radio fieldset legend:before, div.control-grou
     left: 50%; 
     margin-left: -15px; 
 }
-div.input input[type=text],div.input input[type=password], div.input input[type=email], div.control-group input[type=text], div.control-group input[type=password], div.control-group input[type=email]{
+div.input select, div.input textarea, div.input input[type=text],div.input input[type=password], div.input input[type=email], div.control-group input[type=text], div.control-group input[type=password], div.control-group input[type=email], div.control-group textarea, div.control-group select{
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
     border: 1px solid #CED3D8;
     border-radius: 4px 4px 4px 4px;
@@ -138,7 +138,7 @@ div.input.checkbox input[type=checkbox]+label{
 
 /*special rule for dynamic forms */
 div.control-group label.checkbox+input[type=checkbox]{
-    margin-left:33px;
+    margin-left:46px;
 }
 div.control-group label.checkbox input[type=checkbox]{
     left: -50px;
@@ -170,7 +170,7 @@ div.input.checkbox input[type=checkbox]+label:before {
 	margin-top: -15px;
 }
 
-div.submit input[type=submit] {
+div.submit input[type=submit], div.control-group input[type=submit] {
     border-top: 1px solid #97f7c4;
    background: #40a152;
    background: -webkit-gradient(linear, left top, left bottom, from(#65c45c), to(#40a152));
@@ -192,17 +192,17 @@ div.submit input[type=submit] {
    text-decoration: none;
    vertical-align: middle;
    }
-div.submit input[type=submit]:hover {
+div.submit input[type=submit]:hover, div.control-group input[type=submit]:hover {
    border-top-color: #329c46;
    background: #329c46;
    color: #ccc;
    }
-div.submit input[type=submit]:active {
+div.submit input[type=submit]:active, div.control-group input[type=submit]:active {
     border-top-color: #32b560;
    background: #32b560;
    }
    
-div.error-message{
+div.error-message, div.help-inline.tmp-check-required{
     border: 1px solid #FF0000;
     color: #FFFFFF;
     height: 25px;
