@@ -218,8 +218,9 @@ $(function() {
     /*
 	if there are errors don't allow the user to submit
 	*/
-    $('#btSubmitSurvey').bind('click',function(){
+    $('#btSubmitSurvey').bind('click',function(e){
         $obj = $(this);
+	e.preventDefault();
         $obj.button('loading');
         var error = validateStep(parseInt(current));
         if(error > 0){
