@@ -1,5 +1,5 @@
 $(function() {
-    if($('.datepickerField').length() != 0){
+    if($('.datepickerField').doesExist() === true){
 	$('.datepickerField').datepicker();
     }
     if($.browser.msie){
