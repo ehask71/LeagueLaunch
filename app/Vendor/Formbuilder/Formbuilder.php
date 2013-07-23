@@ -218,7 +218,7 @@ class Formbuilder {
                     $finishBtn = '<button class="btn btn-primary btn-large" '.$submitDisabled.' id="btSubmitSurvey"><i class="icon-ok icon-white"></i> ' . $submitButton . '</button>';
                 }else{
                     //$finishBtn = '<a class="btn btn-primary btn-large" '.$submitDisabled.' id="btSubmitSurvey"><i class="icon-ok icon-white"></i> ' . $submitButton . '</a>';
-		    $finishBtn = '<input type="submit" value="' . $submitButton . '"/>';
+		    $finishBtn = '<input type="submit" id="btSubmitSurvey" value="' . $submitButton . '"/>';
                 }
                 //load fiedset for each step
                 $liNavi = '';
