@@ -140,6 +140,9 @@ div.input.checkbox input[type=checkbox]+label{
 div.control-group div.controls{
     padding-left:12px;
 }
+div.control-group div.controls label{
+    margin: 0px 12px 0px 0px;
+}
 div.control-group label.checkbox input[type=checkbox]{
     left: -50px;
     position: relative;
