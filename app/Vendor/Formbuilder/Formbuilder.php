@@ -326,9 +326,7 @@ class Formbuilder {
             $html .= '</div>' . "\n";
 
 
-            $html .= '<div class="modal hide fade" id="errorModal" style="display: none;"><div class="modal-header"><a data-dismiss="modal" class="close modal-close">Ã—</a><h3>Error!</h3>
-            </div><div class="modal-body"><p><i class="icon-exclamation-sign"></i> '.$this->_warning_message.'</p>
-            </div><div class="modal-footer"><a data-dismiss="modal" class="btn modal-close" href="#">Close</a></div></div>';
+            $html .= '<div class="modal hide fade" id="errorModal" style="display: none;" title="Error!"><p>'.$this->_warning_message.'</p></div>';
             if($submitDisabled){
                 $html .= '<script type="text/javascript">';
                 $html .= '$(function(){
