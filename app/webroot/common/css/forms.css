@@ -137,13 +137,14 @@ div.input.checkbox input[type=checkbox]+label{
 }
 
 /*special rule for dynamic forms */
-div.control-group label.checkbox+input[type=checkbox]{
-    margin-left:46px;
+div.control-group div.controls{
+    padding-left:12px;
 }
 div.control-group label.checkbox input[type=checkbox]{
     left: -50px;
     position: relative;
 }
+/* end special */
 div.input.checkbox input[type=checkbox]+label:after, div.input.checkbox input[type=checkbox]+label:before {
 	right: 100%;
         left:-15px;
@@ -202,7 +203,8 @@ div.submit input[type=submit]:active, div.control-group input[type=submit]:activ
    background: #32b560;
    }
    
-div.error-message, div.help-inline.tmp-check-required{
+div.error-message, span.help-inline.tmp-check-required{
+    display:block;
     border: 1px solid #FF0000;
     color: #FFFFFF;
     height: 25px;
