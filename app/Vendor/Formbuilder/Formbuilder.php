@@ -217,7 +217,8 @@ class Formbuilder {
                 if($submitDisabled){
                     $finishBtn = '<button class="btn btn-primary btn-large" '.$submitDisabled.' id="btSubmitSurvey"><i class="icon-ok icon-white"></i> ' . $submitButton . '</button>';
                 }else{
-                    $finishBtn = '<a class="btn btn-primary btn-large" '.$submitDisabled.' id="btSubmitSurvey"><i class="icon-ok icon-white"></i> ' . $submitButton . '</a>';
+                    //$finishBtn = '<a class="btn btn-primary btn-large" '.$submitDisabled.' id="btSubmitSurvey"><i class="icon-ok icon-white"></i> ' . $submitButton . '</a>';
+		    $finishBtn = '<input type="submit" value="' . $submitButton . '"/>';
                 }
                 //load fiedset for each step
                 $liNavi = '';
