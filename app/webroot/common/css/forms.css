@@ -13,7 +13,8 @@ div.input, div.submit, div.control-group, div.btn-group{
 }
 
 div.input label, div.input.radio fieldset legend, div.control-group label{
-    max-width: 620px;
+    width:100%;
+    max-width: 600px;
     height: 35px;
     color: #FFF;
     font-size: 1.2em;
@@ -80,7 +81,8 @@ div.btn-group input[type=text]{
     padding: 5px 8px 2px;
     resize: none;
     text-shadow: 0 1px 0 #FFFFFF;
-    max-width:620px;
+    max-width:600px;
+    width:100%;
 }
 div.input input[type=text]:focus,div.input input[type=password]:focus, div.input input[type=email]:focus, 
 div.control-group input[type=text]:focus, 
@@ -238,6 +240,6 @@ div.error-message, span.help-inline.tmp-check-required{
 }
 
 div.input.error{
-    max-width:620px;
+    max-width:600px;
     padding: 12px 4px 0px 4px;
 }
