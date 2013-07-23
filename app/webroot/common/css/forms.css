@@ -6,13 +6,13 @@
         Normalize all forms
 */
 
-div.input, div.submit{
+div.input, div.submit, div.control-group{
     display: block;
     margin: 0px 8px 8px 12px;
     position: relative;
 }
 
-div.input label, div.input.radio fieldset legend{
+div.input label, div.input.radio fieldset legend, div.control-group label{
     width: 600px;
     height: 35px;
     color: #FFF;
@@ -36,12 +36,12 @@ div.input label, div.input.radio fieldset legend{
     box-shadow: 1px 3px 5px rgba(0,0,0,.9);
     -webkit-box-shadow: 1px 3px 5px rgba(0,0,0,.9);
 }
-div.input label a, div.input.radio fieldset legend a{
+div.input label a, div.input.radio fieldset legend a, div.control-group label a{
     color:#FFF;
     text-decoration: underline;
     font-variant: small-caps;
 }
-div.input label:before, div.input label:after, div.input.radio fieldset legend:before, div.input.radio fieldset legend:after{
+div.input label:before, div.input label:after, div.input.radio fieldset legend:before, div.input.radio fieldset legend:after, div.control-group label:before, div.control-group label:after{
     top: 100%; 
     border: solid transparent; 
     content: " "; 
@@ -50,21 +50,21 @@ div.input label:before, div.input label:after, div.input.radio fieldset legend:b
     position: absolute; 
     pointer-events: none; 
 }
-div.input label:after, div.input.radio fieldset legend:after{
+div.input label:after, div.input.radio fieldset legend:after, div.control-group label:after{
     border-color: rgba(0, 0, 0, 0); 
     border-top-color: #000; 
     border-width: 12px; 
     left: 50%; 
     margin-left: -12px;
 }
-div.input label:before, div.input.radio fieldset legend:before { 
+div.input label:before, div.input.radio fieldset legend:before, div.control-group label:before { 
     border-color: rgba(204, 204, 204, 0); 
     border-top-color: #CCC; 
     border-width: 15px; 
     left: 50%; 
     margin-left: -15px; 
 }
-div.input input[type=text],div.input input[type=password], div.input input[type=email]{
+div.input input[type=text],div.input input[type=password], div.input input[type=email], div.control-group input[type=text], div.control-group input[type=password], div.control-group input[type=email]{
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
     border: 1px solid #CED3D8;
     border-radius: 4px 4px 4px 4px;
@@ -79,7 +79,7 @@ div.input input[type=text],div.input input[type=password], div.input input[type=
     text-shadow: 0 1px 0 #FFFFFF;
     width:600px;
 }
-div.input input[type=text]:focus,div.input input[type=password]:focus, div.input input[type=email]:focus{
+div.input input[type=text]:focus,div.input input[type=password]:focus, div.input input[type=email]:focus, div.control-group input[type=text]:focus, div.control-group input[type=password]:focus, div.control-group input[type=email]:focus{
      border: 1px solid rgba(255,153,0,1);
      background-color:#FFF;
      box-shadow: 1px 1px 3px 2px rgba(255, 153, 0, .78); 
