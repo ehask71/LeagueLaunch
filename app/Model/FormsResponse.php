@@ -48,10 +48,10 @@ class FormsResponse extends AppModel {
      *
      * @param <type> $practice_test_id
      */
-    public function getResponseList($survey_id=null) {
+    public function getResponseList($form_id=null) {
         $responseList = $this->find('list', array(
                     'order'=>array('FormsResponse.created'=>'ASC'),
-                    'conditions' => array('FormsResponse.survey_id' => $survey_id,'FormsResponse.site_id' => Configure::read('Settings.site_id'))
+                    'conditions' => array('FormsResponse.survey_id' => $form_id,'FormsResponse.site_id' => Configure::read('Settings.site_id'))
                 ));
         $res = null;
         $i=0;
