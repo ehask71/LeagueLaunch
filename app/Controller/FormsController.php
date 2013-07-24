@@ -9,7 +9,7 @@ App::uses('Sanitize', 'Utility');
 require_once(APP . 'Vendor' . DS . 'Formbuilder/Formbuilder.php');
 
 class FormsController extends AppController {
-
+    public $name = 'Forms';
     public $uses = array('Forms','FormsResponse');
     public $components = array('MathCaptcha','RequestHandler', 'Cookie');
 
