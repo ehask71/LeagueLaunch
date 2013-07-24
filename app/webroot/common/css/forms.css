@@ -223,7 +223,7 @@ div.submit input[type=submit]:active, div.control-group input[type=submit]:activ
        color: #FF00AA;
         font: 400 20px/20px "Helvetica Neue","Helvetica","Arial",sans-serif;
    }
-   div#survey-captcha input[type=text]{
+   div#survey-captcha input[type=number]{
         background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
         border: 1px solid #CED3D8;
         border-radius: 4px 4px 4px 4px;
