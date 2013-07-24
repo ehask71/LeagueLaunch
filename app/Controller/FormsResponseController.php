@@ -69,6 +69,8 @@ class FormsResponseController extends FormsController {
                         elseif (isset($forms['Forms']['thankyou_content']) && !empty($forms['Forms']['thankyou_content'])):
                             $this->Session->write('FormsThankyouMessage', $forms['Forms']['thankyou_content']);
                             $this->redirect(array('controller' => 'forms', 'action' => 'thankyou'));
+                       /* else:
+                            $this->redirect(array('controller' => 'home', 'action' => 'index')); */
                         endif;
                     }
                 }
