@@ -4,7 +4,7 @@
     /**
      * Load captcha
      */
-    $('#surveyCaptcha').load('".$this->Html->url('/survey/surveys/captcha?')."'+Math.random(), function(){
+    $('#surveyCaptcha').load('".$this->Html->url('/forms/captcha?')."'+Math.random(), function(){
         $('#survey-captcha').unbind('hover');
     });
 });
