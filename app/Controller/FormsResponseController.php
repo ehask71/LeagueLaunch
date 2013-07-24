@@ -43,6 +43,7 @@ class FormsResponseController extends FormsController {
                 if ($results['success'] == 1) {
                     $this->request->data['FormsResponse']['survey_id'] = $id;
                     $this->request->data['FormsResponse']['content'] = serialize($results['results']);
+                    print_r($this->request->data);
                     if ($this->FormsResponse->save($this->request->data['FormsResponse'])) {
                         Cache::delete('form_responses_' . $id);
                         if (!empty($survey['Forms']['send_responses_email'])) {
