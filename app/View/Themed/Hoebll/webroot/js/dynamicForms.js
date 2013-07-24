@@ -234,7 +234,7 @@ $(function() {
                 $secureForm.addClass('error');
                 $obj.button('reset');
            }else{
-                $.get(BASE_URL+'/survey/surveys/captcha/'+$captcha, function(response){
+                $.get(BASE_URL+'/forms/captcha/'+$captcha, function(response){
                     if(response == 1){
                         $('#surveyForm').submit();
                     }else{
