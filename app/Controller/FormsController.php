@@ -152,7 +152,7 @@ class FormsController extends AppController {
 		$form = new Formbuilder($params);
 		$form->setMessage($msg);
 		//$form->setControlPerPage($survey['Forms']['controls_per_page']);
-		$this->set('renderForm', $form->render_html('save_form', $forms, $results));
+		$this->set('renderForm', $form->render_html('/formsresponse/save_response/', $forms, $results));
 	    } else {
 		if (isset($this->request->data['Forms']['design']) && !empty($this->request->data['Forms']['design'])) {
 		    $params = json_decode($this->request->data['Forms']['design'], true);
@@ -171,7 +171,7 @@ class FormsController extends AppController {
 		$form = new Formbuilder($formStructure);
 		$form->setMessage($msg);
 		//$form->setControlPerPage($forms['Forms']['controls_per_page']);
-		$this->set('renderForm', $form->render_html(FULL_BASE_URL . $this->base . '/survey/survey_responses/save_response/' . $id, $forms, $results));
+		$this->set('renderForm', $form->render_html(FULL_BASE_URL . $this->base . '/formsresponse/save_response/' . $id, $forms, $results));
 	    } else {
 		$this->set('renderForm', null);
 	    }
