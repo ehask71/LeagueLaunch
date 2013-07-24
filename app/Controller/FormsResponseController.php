@@ -12,6 +12,7 @@ App::import('Vendor', 'Formbuilder', array('file' => 'php-excel.class.php'));
 class FormsResponseController extends FormsController {
 
     public $name = 'FormsResponses';
+    public $uses = array('FormsResponse');
 
     public function beforeFilter() {
         parent::beforeFilter();
