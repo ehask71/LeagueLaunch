@@ -215,7 +215,7 @@ $(function() {
     /**
      * Load captcha
      */
-    $('#surveyCaptcha').load(BASE_URL+'/survey/surveys/captcha?'+Math.random(), function(){
+    $('#surveyCaptcha').load(BASE_URL+'/forms/captcha?'+Math.random(), function(){
         $('#survey-captcha').unbind('hover');
     });
     /*
