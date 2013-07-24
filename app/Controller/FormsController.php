@@ -15,7 +15,7 @@ class FormsController extends AppController {
 
     public function beforeFilter() {
 	parent::beforeFilter();
-	$this->Auth->allow('view','preview');
+	$this->Auth->allow('view','preview','captcha');
     }
 
     public function index() {
@@ -230,6 +230,15 @@ class FormsController extends AppController {
 		$this->set('renderForm', null);
 	    }
 	}
+    }
+    
+    public function captcha($checkValue=false){
+        $this->autoRender = false;
+        if(!$checkValue){
+            return $this->MathCaptcha->generateEquation();
+        }else{
+            return $this->MathCaptcha->validates($checkValue);
+        }
     }
 
 }
