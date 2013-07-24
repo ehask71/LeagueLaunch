@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 App::import('Vendor', 'Formbuilder', array('file' => 'formbuilder.php'));
 App::import('Vendor', 'Formbuilder', array('file' => 'php-excel.class.php'));
 
-class FormsResponsesController extends AppController {
+class FormsResponseController extends AppController {
 
     public $name = 'FormsResponses';
 
