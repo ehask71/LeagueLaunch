@@ -4,11 +4,12 @@
  * CakePHP FormsResponsesController
  * @author Eric
  */
-App::uses('AppController', 'Controller');
+//App::uses('AppController', 'Controller');
+App::import('Controller', 'FormsController');
 App::import('Vendor', 'Formbuilder', array('file' => 'formbuilder.php'));
 App::import('Vendor', 'Formbuilder', array('file' => 'php-excel.class.php'));
 
-class FormsResponseController extends AppController {
+class FormsResponseController extends FormsController {
 
     public $name = 'FormsResponses';
 
