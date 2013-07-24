@@ -41,7 +41,8 @@ class FormsResponseController extends FormsController {
                 $form = new Formbuilder(unserialize($form_structure));
                 $results = $form->process($this->request->data);
                 if ($results['success'] == 1) {
-                    $this->request->data['FormsResponse']['survey_id'] = $id;
+                    $this->request->data['FormsResponse']['site_id'] = Configure::read('Settings.site_id');
+                    $this->request->data['FormsResponse']['form_id'] = $id;
                     $this->request->data['FormsResponse']['content'] = serialize($results['results']);
                     print_r($this->request->data);
                     if ($this->FormsResponse->save($this->request->data['FormsResponse'])) {
