@@ -5,7 +5,7 @@
  * @author Eric
  */
 //App::uses('AppController', 'Controller');
-App::import('Controller', 'Forms');
+App::uses('FormsController', 'Controller');
 App::import('Vendor', 'Formbuilder', array('file' => 'formbuilder.php'));
 App::import('Vendor', 'Formbuilder', array('file' => 'php-excel.class.php'));
 
