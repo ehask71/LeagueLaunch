@@ -14,6 +14,7 @@ class FormsResponseController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Auth->allow('save_response');
     }
 
     public function index() {
