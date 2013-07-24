@@ -44,8 +44,8 @@ class FormsResponseController extends FormsController {
                     $this->request->data['FormsResponse']['site_id'] = Configure::read('Settings.site_id');
                     $this->request->data['FormsResponse']['form_id'] = $id;
                     $this->request->data['FormsResponse']['content'] = serialize($results['results']);
-                    print_r($this->request->data);
                     if ($this->FormsResponse->save($this->request->data['FormsResponse'])) {
+                        print_r($this->request->data['FormsResponse']);
                         Cache::delete('form_responses_' . $id);
                         if (!empty($survey['Forms']['send_responses_email'])) {
                             $Email = new CakeEmail();
