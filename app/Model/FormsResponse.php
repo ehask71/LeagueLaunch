@@ -6,6 +6,7 @@
 App::uses('AppModel', 'Model');
 
 class FormsResponse extends AppModel {
+    public $useTable = 'formresponse';
     public $primaryKey = 'id';
     public $belongsTo = array(
         'Forms' => array(
