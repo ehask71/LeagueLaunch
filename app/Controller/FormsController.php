@@ -162,7 +162,7 @@ class FormsController extends AppController {
 		    $form->setMessage($msg);
 		    //$form->setControlPerPage($forms['Forms']['controls_per_page']);
 		    $form->setPreviewState(true);
-		    $this->set('renderForm', $form->render_html('/surveys/save_response/' . $id, $forms, $results));
+		    $this->set('renderForm', $form->render_html('/formsresponse/save_response/' . $id, $forms, $results));
 		}
 	    }
 	} else {
