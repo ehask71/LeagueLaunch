@@ -45,6 +45,10 @@ class FormsController extends AppController {
 	$this->render('preview');
     }
 
+    public function thankyou($survey=null){
+        //$this->layout = 'Survey.survey';
+    }
+    
     public function admin_index() {
 	$this->paginate = array(
 	    'conditions' => array(
