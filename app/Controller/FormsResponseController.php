@@ -85,6 +85,29 @@ class FormsResponseController extends FormsController {
             $this->redirect(array('action' => 'response', $id));
         }
     }
+    
+    function admin_view($id=null,$form_id=null){
+        $response = $this->FormsResponse->getResponseById($id, $form_id);
+        $responseList = null;
+        $FormStructure = null;
+        $FormLabel = null;
+        if(!empty($response)){
+            $id = $response['SurveyResponse']['id'];
+            $responseList = $this->FormsResponse->getResponseList($response['FormsResponse']['form_id']);
+            $formStructure = $response['Forms']['form_structure'];
+            list($FormStructure, $FormLabel) = $this->__unserializeFormStructure($formStructure);
 
+        }
+        $this->set('form_structure', $FormStructure);
+        $this->set('form_label', $FormLabel);
+        $this->set('response', $response);
+        $this->set('responseList', $responseList);
+        $this->set('current_id', $id);
+        $this->set('survey_id', $survey_id);
+    }
+    
+    function admin_responses($id) {
+      
+    }
 }
 
