@@ -6,7 +6,7 @@
         Normalize all forms
 */
 
-div.input, div.submit, div.control-group, div.btn-group{
+div.input, div.submit, div.control-group, div.btn-group, div#survey-captcha{
     display: block;
     margin: 0px 8px 8px 12px;
     position: relative;
@@ -219,6 +219,26 @@ div.submit input[type=submit]:active, div.control-group input[type=submit]:activ
    background: #32b560;
    }
     
+   div#survey-captcha span{
+       color: #FF00AA;
+        font: 400 20px/20px "Helvetica Neue","Helvetica","Arial",sans-serif;
+   }
+   div#survey-captcha input[type=number]{
+        background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
+        border: 1px solid #CED3D8;
+        border-radius: 4px 4px 4px 4px;
+        box-shadow: 0 2px 6px rgba(133, 133, 147, 0.22) inset;
+        clear: both;
+        color: #92969B;
+        font: 400 20px/20px "Helvetica Neue","Helvetica","Arial",sans-serif;
+        height: 35px;
+        margin: 0 0 19px;
+        padding: 5px 8px 2px;
+        resize: none;
+        text-shadow: 0 1px 0 #FFFFFF;
+        max-width:600px;
+        width:50%;
+   }
 div.error-message, span.help-inline.tmp-check-required{
     display:block;
     border: 1px solid #FF0000;
