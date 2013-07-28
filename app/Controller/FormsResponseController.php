@@ -48,7 +48,7 @@ class FormsResponseController extends FormsController {
                     if ($this->FormsResponse->save($this->request->data['FormsResponse'])) {
                         print_r($this->request->data['FormsResponse']);
                         Cache::delete('form_responses_' . $id);
-                        if (!empty($survey['Forms']['send_responses_email'])) {
+                        if (!empty($forms['Forms']['send_responses_email'])) {
                             $Email = new CakeEmail();
                             $Email->viewVars(compact('forms'));
                             $contents = $results['results'];
@@ -59,7 +59,7 @@ class FormsResponseController extends FormsController {
                             $Email->template('Survey.notify_new_respose');
                             $Email->emailFormat('html');
                             $Email->from(array('support@yoursite.com' => 'Your Site'));
-                            $Email->to($survey['Forms']['send_responses_email']);
+                            $Email->to($forms['Forms']['send_responses_email']);
                             $Email->subject(__('New Survey Response'));
                             $Email->send();
                         }
@@ -106,8 +106,49 @@ class FormsResponseController extends FormsController {
         $this->set('survey_id', $survey_id);
     }
     
-    function admin_responses($id) {
-      
+    function admin_index($id) {
+        if (!$id) {
+            return false;
+        }
+
+        $this->set(compact('id'));
+
+
+        if (($forms = Cache::read('get_forms_by_id_'.$id)) === false) {
+            $forms = $this->FormsResponse->Forms->find('first', array('conditions'=>array('Forms.id'=>$id), 'fields'=>array('Forms.name', 'Forms.form_structure', 'Forms.survey_response_count')));
+            Cache::write('get_forms_by_id_'.$id, $survey);
+        }
+
+        if(empty($forms)){
+            return false;
+        }
+
+        if(!empty($forms)){
+            $formStructure = $forms['Forms']['form_structure'];
+            list($FormStructure, $FormLabel) = $this->__unserializeFormStructure($formStructure);
+        }
+        $this->set('form_structure', $FormStructure);
+        $this->set('form_label', $FormLabel);
+        $this->set('form', $forms);
+
+        if (($forms_responses = Cache::read('forms_responses_'.$id)) === false) {
+            $this->FormsResponse->unbindModel(array('belongsTo'=>array('Forms')), false);
+            $forms_responses = $this->SurveyResponse->find('all', array('conditions'=>array('FormsResponse.survey_id'=>$id), 'order'=>array('FormsResponse.created'=> 'DESC'), 'fields'=>array()));
+            $arrResponses = null;
+            foreach($forms_responses as $forms_response):
+                $responses = unserialize($forms_response['FormsResponse']['content']);
+
+                $i=0;
+                foreach($responses as $field => $value):
+                    $label = (isset($FormLabel[$i]) && !empty($FormLabel[$i])) ? $FormLabel[$i] : sprintf(__('Undefined %s', true), ($i+1));
+                    $arrResponses[$label][$forms_response['FormsResponse']['id']] = $value;
+                    $i++;
+                endforeach;
+            endforeach;
+            $forms_responses = $arrResponses;
+            Cache::write('forms_responses_'.$id, $forms_responses);
+        }
+        $this->set('forms_responses', $forms_responses);
     }
 }
 
