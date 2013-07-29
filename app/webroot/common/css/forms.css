@@ -96,3 +96,48 @@ div.btn-group input[type=text]:focus{
      box-shadow: 1px 1px 3px 2px rgba(255, 153, 0, .78); 
 }
 
+/* handle fieldset checkbox & radio */
+div.input.radio fieldset label, div.control-group label.checkbox {
+    width: auto;
+    height: 35px;
+    color: inherit;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    background: none;
+    text-shadow: none;
+    display: inline-block;
+    padding: 12px 14px 4px;
+    letter-spacing: .08em;
+    position: relative; 
+    border: 1px solid #CCC; 
+    margin-bottom:15px;
+    margin-right:12px;
+    margin-left: 13px;
+    border-radius: 4px;
+}
+div.input.radio fieldset label:after, div.input.radio fieldset label:before, div.control-group label.checkbox:before, div.control-group label.checkbox:after {
+	right: 100%;
+        left:-12px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+div.input.radio fieldset label:after, div.control-group label.checkbox:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-right-color: #ffffff;
+	border-width: 12px;
+	top: 50%;
+	margin-top: -12px;
+}
+div.input.radio fieldset label:before, div.control-group label.checkbox:before {
+	border-color: rgba(204, 204, 204, 0);
+	border-right-color: #CCC;
+	border-width: 13px;
+	top: 50%;
+	margin-top: -13px;
+}
+
