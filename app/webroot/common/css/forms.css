@@ -67,3 +67,32 @@ div.input label:before, div.input.radio fieldset legend:before, div.control-grou
     left: 50%; 
     margin-left: -15px; 
 }
+div.input select, div.input textarea, div.input input[type=text],div.input input[type=password], div.input input[type=email], 
+div.control-group input[type=text], div.control-group input[type=password], div.control-group input[type=email], 
+div.control-group textarea, div.control-group select,
+div.btn-group input[type=text]{
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
+    border: 1px solid #CED3D8;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 2px 6px rgba(133, 133, 147, 0.22) inset;
+    clear: both;
+    color: #92969B;
+    font: 400 20px/20px "Arial",sans-serif;
+    height: 35px;
+    margin: 0 0 19px;
+    padding: 5px 8px 2px;
+    resize: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+    max-width:600px;
+    width:100%;
+}
+div.input input[type=text]:focus,div.input input[type=password]:focus, div.input input[type=email]:focus, 
+div.control-group input[type=text]:focus, 
+div.control-group input[type=password]:focus, 
+div.control-group input[type=email]:focus,
+div.btn-group input[type=text]:focus{
+     border: 1px solid rgba(255,153,0,1);
+     background-color:#FFF;
+     box-shadow: 1px 1px 3px 2px rgba(255, 153, 0, .78); 
+}
+
