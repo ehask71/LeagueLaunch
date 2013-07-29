@@ -161,3 +161,29 @@ div.control-group label.checkbox input[type=checkbox]{
     position: relative;
 }
 /* end special */
+div.input.checkbox input[type=checkbox]+label:after, div.input.checkbox input[type=checkbox]+label:before {
+	right: 100%;
+        left:-15px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+div.input.checkbox input[type=checkbox]+label:after {
+	border-color: rgba(0, 0, 0, 0);
+	border-right-color: #000;
+	border-width: 12px;
+	top: 50%;
+	margin-top: -12px;
+}
+div.input.checkbox input[type=checkbox]+label:before {
+	border-color: rgba(204, 204, 204, 0);
+	border-right-color: #CCC;
+	border-width: 15px;
+	top: 50%;
+	margin-top: -15px;
+}
+
