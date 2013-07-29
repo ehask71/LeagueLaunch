@@ -44,3 +44,26 @@ div.input label a, div.input.radio fieldset legend a, div.control-group label a{
     text-decoration: underline;
     font-variant: small-caps;
 }
+div.input label:before, div.input label:after, div.input.radio fieldset legend:before, div.input.radio fieldset legend:after, div.control-group label:before, div.control-group label:after{
+    top: 100%; 
+    border: solid transparent; 
+    content: " "; 
+    height: 0; 
+    width: 0; 
+    position: absolute; 
+    pointer-events: none; 
+}
+div.input label:after, div.input.radio fieldset legend:after, div.control-group label:after{
+    border-color: rgba(0, 0, 0, 0); 
+    border-top-color: #000; 
+    border-width: 12px; 
+    left: 50%; 
+    margin-left: -12px;
+}
+div.input label:before, div.input.radio fieldset legend:before, div.control-group label:before { 
+    border-color: rgba(204, 204, 204, 0); 
+    border-top-color: #CCC; 
+    border-width: 15px; 
+    left: 50%; 
+    margin-left: -15px; 
+}
