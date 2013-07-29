@@ -96,6 +96,11 @@ div.btn-group input[type=text]:focus{
      box-shadow: 1px 1px 3px 2px rgba(255, 153, 0, .78); 
 }
 
+div.input textarea{
+    min-height: 140px;
+    height: auto;
+}
+
 /* handle fieldset checkbox & radio */
 div.input.radio fieldset label, div.control-group label.checkbox {
     width: auto;
