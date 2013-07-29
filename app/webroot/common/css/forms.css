@@ -141,3 +141,23 @@ div.input.radio fieldset label:before, div.control-group label.checkbox:before {
 	margin-top: -13px;
 }
 
+div.input.checkbox input[type=checkbox]+label{
+    width:50%;
+    display: inline-block;
+    margin-left:16px;
+}
+
+/*special rule for dynamic forms */
+div.control-group div.controls{
+    padding-left:12px;
+    width:100%;
+    max-width: 600px;
+}
+div.control-group div.controls label{
+    margin-left: 22px;
+}
+div.control-group label.checkbox input[type=checkbox]{
+    left: -50px;
+    position: relative;
+}
+/* end special */
