@@ -187,5 +187,35 @@ div.input.checkbox input[type=checkbox]+label:before {
 	margin-top: -15px;
 }
 
-
+div.submit input[type=submit], div.btn-group input[type=submit] {
+    border-top: 1px solid #97f7c4;
+   background: #40a152;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65c45c), to(#40a152));
+   background: -webkit-linear-gradient(top, #65c45c, #40a152);
+   background: -moz-linear-gradient(top, #65c45c, #40a152);
+   background: -ms-linear-gradient(top, #65c45c, #40a152);
+   background: -o-linear-gradient(top, #65c45c, #40a152);
+   padding: 5.5px 11px;
+   -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   border-radius: 7px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 12px;
+   font-family: Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+div.submit input[type=submit]:hover, div.btn-group input[type=submit]:hover {
+   border-top-color: #329c46;
+   background: #329c46;
+   color: #ccc;
+   }
+div.submit input[type=submit]:active, div.control-group input[type=submit]:active {
+    border-top-color: #32b560;
+   background: #32b560;
+   }
   
