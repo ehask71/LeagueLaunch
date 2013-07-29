@@ -96,7 +96,7 @@ div.btn-group input[type=text]:focus{
      box-shadow: 1px 1px 3px 2px rgba(255, 153, 0, .78); 
 }
 
-div.input textarea{
+div.input textarea, div.controls textarea{
     min-height: 140px;
     height: auto;
 }
@@ -148,6 +148,7 @@ div.input.radio fieldset label:before, div.control-group label.checkbox:before {
 
 div.input.checkbox input[type=checkbox]+label{
     min-width:50%;
+    max-width: 70%;
     display: inline-block;
     margin-left:16px;
 }
