@@ -142,7 +142,7 @@ div.input.radio fieldset label:before, div.control-group label.checkbox:before {
 }
 
 div.input.checkbox input[type=checkbox]+label{
-    width:50%;
+    min-width:50%;
     display: inline-block;
     margin-left:16px;
 }
