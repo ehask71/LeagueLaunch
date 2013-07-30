@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class AccountController extends AppController {
 
     
-    public $uses = array('Account', 'RoleUser');
+    public $uses = array('Account', 'RoleUser','Country');
     public $components = array('Email');
 
     public function beforeFilter() {
@@ -55,6 +55,7 @@ class AccountController extends AppController {
 		}
 	    }
 	}
+	$this->set('countries',  Country::getCountries());
     }
 
     public function forgetpwd() {
