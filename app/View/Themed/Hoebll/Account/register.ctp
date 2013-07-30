@@ -17,7 +17,7 @@ echo $this->Form->input('gender',array('type'=>'radio','options'=>array('m','f')
 echo $this->Form->input('email');
 echo $this->Form->input('password');
 echo $this->Form->input('confirm_password');
-echo $this->Form->input('agever',array('type'=>'checkbox','value'=>'yes','label' =>'Are you over the age of 13'));
-echo $this->Form->input('agreeterms',array('type'=>'checkbox','value'=>'yes','label' => 'I agree to the <a href="/terms" target="_blank">Terms & Conditions</a>'));
+echo $this->Form->input('agever',array('type'=>'checkbox','value'=>1,'label' =>'Are you over the age of 13'));
+echo $this->Form->input('agreeterms',array('type'=>'checkbox','value'=>1,'label' => 'I agree to the <a href="/terms" target="_blank">Terms & Conditions</a>'));
 echo $this->Form->end('Register');
 ?>
