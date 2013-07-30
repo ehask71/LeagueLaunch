@@ -13,6 +13,8 @@ class Country extends AppModel {
     public function getCountries() {
 	$ctry = array(
 	    '' => 'Please select a country',
+	    'US' => 'United States',
+	    'CA' => 'Canada',
 	    'AF' => 'Afganistan',
 	    'AL' => 'Albania',
 	    'DZ' => 'Algeria',
@@ -50,7 +52,6 @@ class Country extends AppModel {
 	    'BI' => 'Burundi',
 	    'KH' => 'Cambodia',
 	    'CM' => 'Cameroon',
-	    'CA' => 'Canada',
 	    'CV' => 'Cape Verde',
 	    'KY' => 'Cayman Islands',
 	    'CF' => 'Central African Republic',
@@ -237,7 +238,6 @@ class Country extends AppModel {
 	    'UA' => 'Ukraine',
 	    'AE' => 'United Arab Emirates',
 	    'GB' => 'United Kingdom',
-	    'US' => 'United States',
 	    'UM' => 'United States Minor Outlying Islands',
 	    'UY' => 'Uruguay',
 	    'UZ' => 'Uzbekistan',
