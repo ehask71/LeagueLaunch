@@ -1,12 +1,18 @@
 <h2>Register</h2> 
 <?php
+$this->Html->scriptStart(array('block' => 'scriptBottom'));
+    echo "$(function() {
+	$( '.datepicker' ).datepicker({ dateFormat: 'yy-mm-dd' });
+    });";
+$this->Html->scriptEnd();
+    
 echo $this->Form->create();
 echo $this->Form->input('site_id',array('type'=>'hidden','value'=>$site_id));
 echo $this->Form->input('firstname');
 echo $this->Form->input('lastname');
 echo $this->Form->input('zip');
-echo $this->Form->input('country');
-echo $this->Form->input('birthdate');
+echo $this->Form->input('country',array('type'=>'select','options'=>$countries,'style'=>'chzn-select'));
+echo $this->Form->input('birthdate',array('style'=>'datepicker'));
 echo $this->Form->input('gender',array('type'=>'radio','options'=>array('m','f')));
 echo $this->Form->input('email');
 echo $this->Form->input('password');
