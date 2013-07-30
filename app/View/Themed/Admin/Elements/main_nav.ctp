@@ -1,5 +1,10 @@
 <ul id="menu">
-    <li><a href="/admin/home">Dashboard<span class="icon1"></span></a></li>
+    <li><a href="/admin/home">Dashboard<span class="icon1"></span></a>
+	<ul>
+	    <li><?php echo $this->html->link(__('Account'), array('prefix' => 'admin', 'controller' => 'sites', 'action' => 'account')); ?></li>
+	    <li><?php echo $this->html->link(__('Settings'), array('prefix' => 'admin', 'controller' => 'sites', 'action' => 'settings')); ?></li>
+	</ul>
+    </li>
     <li><a href="#">Plugins<span class="icon6"></span></a>
 	<ul>	 
 	    <li><?php echo $this->html->link(__('Fundraisers'), array('prefix' => 'admin', 'controller' => 'fundraising')); ?></li>
