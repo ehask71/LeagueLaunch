@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class AccountController extends AppController {
 
     
-    public $uses = array('Account', 'RoleUser');
+    public $uses = array('Account', 'RoleUser','Country');
     public $components = array('Email');
 
     public function beforeFilter() {
@@ -49,12 +49,13 @@ class AccountController extends AppController {
 		    $this->RoleUser->addUserSite($userid);
 
 		    $this->Session->setFlash('The user has been saved');
-		    $this->redirect(array('action' => 'index'));
+		    $this->redirect(array('controller'=>'home','action' => 'index'));
 		} else {
 		    $this->Session->setFlash('The user could not be saved. Please, try again.');
 		}
 	    }
 	}
+	$this->set('countries',  $this->Country->getCountries());
     }
 
     public function forgetpwd() {
