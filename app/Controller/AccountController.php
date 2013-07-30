@@ -55,7 +55,7 @@ class AccountController extends AppController {
 		}
 	    }
 	}
-	$this->set('countries',  Country::getCountries());
+	$this->set('countries',  $this->Country->getCountries());
     }
 
     public function forgetpwd() {
