@@ -130,7 +130,7 @@ class Account extends AppModel {
 		    'message' => 'Please Confirm Password'
 		)
 	    ),
-	   /* 'agever' => array(
+	   'agever' => array(
 		'notEmpty' => array(
 		    'rule' => array('comparison', '!=', 0),
 		    'required' => true,
@@ -143,7 +143,7 @@ class Account extends AppModel {
 		    'required' => true,
 		    'message' => 'Please Agree to the Terms if you want to proceed.'
 		)
-	    ),*/
+	    ),
 	);
 	
 	$this->validate = $validate1;
