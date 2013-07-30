@@ -67,34 +67,7 @@
                                 <div class="clear"></div>
                             </section>
                             <div>
-                                <ul id="menu">
-                                    <li><a href="/admin/home">Dashboard<span class="icon1"></span></a></li>
-                                    <li><a href="#">Plugins<span class="icon6"></span></a>
-                                        <ul>	 
-                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
-                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
-                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
-                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
-                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
-                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
-                                            <li><?php echo $this->html->link(__('Fundraisers'),array('prefix'=>'admin','controller'=>'fundraising'));?></li>
-                                        </ul>
-                                    </li>
-                                    <li><?php echo $this->html->link(__('Accounts').'<span class="icon2"></span>',array('prefix'=>'admin','controller'=>'account'),array('escape' => FALSE));?>
-                                        <ul>
-                                            <li><a href="forms.html">Basic forms</a></li>
-                                            <li><a href="forms_validation.html">Forms validation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/admin/news"><?=__('News');?><span class="icon7"></span></a>
-                                        <ul>
-                                            <li><a href="/admin/news"><?=__('Add New');?></a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="gallery.html">Image gallery<span class="icon3"></span></a></li>
-                                    <li><a href="grid.html">Grid<span class="icon8"></span></a></li>
-                                    <li><a href="typography.html">Typography<span class="icon10"></span></a></li>
-                                </ul><!--End of #menu-->
+                                <?php echo $this->element('main_nav');?>
                             </div>
                             <div class="clear"></div>
                             <div class="position_search">
