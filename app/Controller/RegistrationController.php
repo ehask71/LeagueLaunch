@@ -17,5 +17,12 @@ class RegistrationController extends AppController {
         
     }
     
+    public function step2(){
+        
+    }
+    
+    public function step3(){
+        
+    }
 }
 
