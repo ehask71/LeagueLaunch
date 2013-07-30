@@ -132,14 +132,14 @@ class Account extends AppModel {
 	    ),
 	   'agever' => array(
 		'notEmpty' => array(
-		    'rule' => array('comparison', '!=', 0),
+		    'rule' => array('equalTo', 'yes'),
 		    'required' => true,
 		    'message' => 'We require you to be over 13 to register without a Parent.'
 		)
 	    ),
 	    'agreeterms' => array(
 		'notEmpty' => array(
-		    'rule' => array('comparison', '!=', 0),
+		    'rule' => array('equalTo', 'yes'),
 		    'required' => true,
 		    'message' => 'Please Agree to the Terms if you want to proceed.'
 		)
