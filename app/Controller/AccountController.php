@@ -49,7 +49,7 @@ class AccountController extends AppController {
 		    $this->RoleUser->addUserSite($userid);
 
 		    $this->Session->setFlash('The user has been saved');
-		    $this->redirect(array('action' => 'index'));
+		    $this->redirect(array('controller'=>'home','action' => 'index'));
 		} else {
 		    $this->Session->setFlash('The user could not be saved. Please, try again.');
 		}
