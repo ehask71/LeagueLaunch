@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
 
 class RegistrationController extends AppController {
     
-    public $name = 'RegistrationController';
+    public $name = 'Registration';
     
     public function beforeFilter() {
 	parent::beforeFilter();
