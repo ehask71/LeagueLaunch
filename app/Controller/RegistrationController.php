@@ -22,6 +22,14 @@ class RegistrationController extends AppController {
         
     }
     
+    public function step1(){
+        $registrations = $this->Products->getRegistrationProducts();
+	
+	$this->set(compact('registrations'));
+    }
+    /*
+     *    Show Registrations Available
+     */
     public function step2(){
         
     }
