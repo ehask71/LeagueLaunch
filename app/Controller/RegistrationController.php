@@ -4,10 +4,14 @@
  * @author Eric
  */
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 
 class RegistrationController extends AppController {
     
     public $name = 'Registration';
+    
+    public $uses = array('Products','Forms');
+    
     
     public function beforeFilter() {
 	parent::beforeFilter();
