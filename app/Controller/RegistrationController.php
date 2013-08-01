@@ -10,7 +10,7 @@ class RegistrationController extends AppController {
     
     public $name = 'Registration';
     
-    public $uses = array('Products','Forms','Players','Registrations');
+    public $uses = array('Products','Forms','Players','Registration');
     
     public $components = array('MathCaptcha','RequestHandler', 'Cookie');
     
