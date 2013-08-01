@@ -27,6 +27,24 @@ class Products extends AppModel {
                         'Products.category_id' => 1 
                         )));
     }
+    
+    public function getRegistrationDropDown(){
+        $products = $this->find('all', array(
+                    'order' => 'Products.id DESC',
+                    'conditions' => array(
+                        'Products.site_id' => Configure::read('Settings.site_id'),
+                        'Products.active' => 1,
+                        'Products.category_id' => 1 
+                        )));
+        $opts = array();
+        if(count($products['Products'])>0){
+            foreach($products['Products'] AS $prod){
+                $opts[$prod['id']] = $prod['name'].' ($'.$prod['price'].')';
+            }
+            return $opts;
+        }
+        return false;
+    }
 
 }
 
