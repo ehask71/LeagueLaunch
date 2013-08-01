@@ -6,7 +6,32 @@
         Commonly used display elements
 */
 
-.ll-alert-success{
-    display: block;
+
+.ll-alert-info, .ll-alert-success, .ll-alert-warning, .ll-alert-error, .ll-alert-validation {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.ll-alert-info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url(../images/icons/elements/ll-alert-info-24.png);
+}
+.ll-alert-success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image: url(../images/icons/elements/ll-alert-success-24.png);
+}
+.ll-alert-warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url(../images/icons/elements/ll-alert-warning-24.png);
+}
+.ll-alert-error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url(../images/icons/elements/ll-alert-errro-24.png);
 }
 
