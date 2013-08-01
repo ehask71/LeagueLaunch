@@ -16,7 +16,7 @@
             </div>
             <?php
         }
-        if (count($players['Players']) > 0) {
+        if (count($players) == 0) {
             // No players
             ?>
             <div id="ajaxPlayers"></div>
