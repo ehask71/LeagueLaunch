@@ -1,5 +1,7 @@
 <div class="grid_12" id="body-content">
     <?php
+    print_r($players);
+    print_r($registration_options);
     if (count($players['Players']) > 0 && is_array($registration_options)):
         // We Have Players && Registration 
         echo $this->Form->create(FALSE, array('type' => 'file', 'action' => '/registration/step2'));
