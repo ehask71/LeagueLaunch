@@ -36,6 +36,7 @@
                             )
                     )
             );
+            echo $this->Js->writeBuffer();
             echo $this->Form->create('Players', array('action' => 'save', 'id' => 'playerForm', 'default' => false));
             echo $this->Form->input('firstname');
             echo $this->Form->input('lastname');
