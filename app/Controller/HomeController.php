@@ -15,7 +15,7 @@ class HomeController extends AppController {
     }
     
     public function index(){
-	$this->Session->setFlash('Hey Rob its a Message!!');
+	$this->Session->setFlash('Hey Rob its a Message!!','alerts/info');
     }
     
     public function admin_index(){

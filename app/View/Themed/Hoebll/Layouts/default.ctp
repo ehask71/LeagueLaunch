@@ -88,8 +88,10 @@
             <section class="grid_16">
                 <div class="grid_16_nospace" id="carousel-container"></div>
                 <!-- Begin Body -->
-		<?php echo $this->Session->flash(); ?>
-		<?php echo $this->Session->flash('auth'); ?>
+		<div class="grid_16_nospace">
+		    <?php echo $this->Session->flash(); ?>
+		    <?php echo $this->Session->flash('auth'); ?>
+		</div>
 		<?php echo $this->fetch('content'); ?>  
 		<div class="clear"></div>
 	    </section>

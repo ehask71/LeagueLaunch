@@ -23,6 +23,8 @@ class RegistrationController extends AppController {
         
     }
     
+    // Show Players & Assign Registrations
+    // Allow Players to be Added
     public function step1(){
         $user = $this->Auth->user();
         $registration_options = $this->Products->getRegistrationDropDown();
@@ -30,9 +32,8 @@ class RegistrationController extends AppController {
 	$this->set(compact('registration_options'));
         $this->set(compact('players'));
     }
-    /*
-     *    Show Registrations Available
-     */
+    
+    // Add to Cart the Items 
     public function step2(){
         $this->set('form',$this->request->data);
     }

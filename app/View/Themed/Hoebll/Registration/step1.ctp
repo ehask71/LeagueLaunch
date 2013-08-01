@@ -6,7 +6,7 @@
         echo '<h2>Players</h2>';
         echo $this->Form->create(FALSE, array('type' => 'file', 'action' => 'step2'));
         foreach ($players as $key => $value) {
-            echo $this->Form->input($value['Players']['player_id'], array('label' => $value['Players']['firstname'] . ' ' . $value['Players']['lastname'], 'type' => 'select', 'class' => 'chzn-select', 'options' => $registration_options));
+            echo $this->Form->input('Players.'.$value['Players']['player_id'], array('label' => $value['Players']['firstname'] . ' ' . $value['Players']['lastname'], 'type' => 'select', 'class' => 'chzn-select', 'options' => $registration_options));
         }
         echo $this->Form->end('Proceed To Next Step');
         echo "</div>";
