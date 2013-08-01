@@ -1,3 +1,11 @@
+<?php
+$this->Html->scriptStart(array('block' => 'scriptBottom'));
+echo "$(function() {
+	$( '#startDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+	$( '#endDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+    });";
+$this->Html->scriptEnd();
+?>
 <div class="grid_12">
     <div class="box">
         <h2>
@@ -17,14 +25,14 @@
                         'after' => '</div></div><div class="clear"></div></section>'
                         )));
                 echo $this->Form->input('name');
-                echo $this->Form->input('startdate',array('id'=>'startDate'));
-                echo $this->Form->input('enddate',array('id'=>'endDate'));
-                echo $this->Form->input('active',array(
+                echo $this->Form->input('startdate', array('id' => 'startDate', 'class' => 'input200'));
+                echo $this->Form->input('enddate', array('id' => 'endDate', 'class' => 'input200',));
+                echo $this->Form->input('active', array(
                     'type' => 'select',
                     'class' => 'chzn-select',
-                    'options' => array(1=>'Yes',0=>'No')
+                    'options' => array(1 => 'Yes', 0 => 'No')
                 ));
-                echo $this->Form->input('site_id',array('type'=>'hidden','value'=>  Configure::read('Settings.site_id')));
+                echo $this->Form->input('site_id', array('type' => 'hidden', 'value' => Configure::read('Settings.site_id')));
                 echo $this->Form->end('Save Event');
                 ?>
             </div>
