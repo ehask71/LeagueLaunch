@@ -27,7 +27,7 @@
             $data = $this->Js->get('#playerForm')->serializeForm(array('isForm' => true, 'inline' => true));
             $this->Js->get('#playerForm')->event(
                     'submit', $this->Js->request(
-                            array('controller'=>'registration','action' => 'save'), array(
+                            array('controller'=>'registration','action' => 'saveplayer'), array(
                         'update' => '#ajaxPlayers',
                         'data' => $data,
                         'async' => true,
