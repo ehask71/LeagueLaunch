@@ -33,7 +33,7 @@
                         'async' => true,
                         'dataExpression' => true,
                         'method' => 'POST',
-                        'complete' => '$("#playerForm").reset()'
+                        'complete' => '$("#playerForm").each (function(){this.reset();});'
                             )
                     )
             );
