@@ -18,7 +18,7 @@ if(!$loggedIn){
         with your account. If you haven't set up any player profiles yet don't worry you will be able to do so from the next page.  
     </p>
     <p>
-        <?php echo $this->Html->link(__('Click Here to Proceed with Registration'), array('action'=>'step2'));?>
+        <?php echo $this->Html->link(__('Click Here to Proceed with Registration'), array('action'=>'step1'));?>
     </p>
 </div>
 <?php
