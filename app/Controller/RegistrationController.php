@@ -42,6 +42,7 @@ class RegistrationController extends AppController {
     }
     
     public function saveplayer(){
+        $this->autoRender = false;
         if($this->RequestHandler->isAjax()){
             if($this->Players->save($this->request->data)){
                 echo $this->request->data['Players']['firstname'].' '.$this->request->data['Players']['lastname'].' Added!';
