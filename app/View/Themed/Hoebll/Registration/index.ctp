@@ -14,7 +14,7 @@
             <p>
                 Hello <?php echo $userinfo['firstname']; ?>,
 
-                Welcome to <?php echo Configure::read('Settings.sitename'); ?> Online Registration. We will guide you thru the process of registering you or your family member for our League. On the next page you will see the players you have associated 
+                Welcome to <?php echo Configure::read('Settings.leaguename'); ?> Online Registration. We will guide you thru the process of registering you or your family member for our League. On the next page you will see the players you have associated 
                 with your account. If you haven't set up any player profiles yet don't worry you will be able to do so from the next page.  
             </p>
             <p>
