@@ -13,6 +13,9 @@
     padding:15px 10px 15px 50px;
     background-repeat: no-repeat;
     background-position: 10px center;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
 }
 .grid_16_nospace .ll-alert-info, .grid_16_nospace .ll-alert-success, .grid_16_nospace .ll-alert-warning, .grid_16_nospace .ll-alert-error, .grid_16_nospace .ll-alert-validation {
     max-width: 550px;
