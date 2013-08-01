@@ -30,6 +30,7 @@ class Products extends AppModel {
     
     public function getRegistrationDropDown(){
         $products = $this->find('all', array(
+                    'recursive' => -1,
                     'order' => 'Products.id DESC',
                     'conditions' => array(
                         'Products.site_id' => Configure::read('Settings.site_id'),
