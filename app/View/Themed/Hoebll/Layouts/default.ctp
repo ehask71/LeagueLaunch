@@ -15,6 +15,7 @@
 	<?php
 	echo $this->CloudFlare->css('/common/css/reset.css');
 	echo $this->Html->css('/common/css/960.css');
+        echo $this->Html->css('/common/css/elements.css');
 	echo $this->Html->css('/common/css/social.css');
         echo $this->Html->css('/common/css/forms.css');
 	echo $this->Html->css('style');
