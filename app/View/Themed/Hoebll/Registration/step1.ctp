@@ -33,7 +33,7 @@
                         'async' => true,
                         'dataExpression' => true,
                         'method' => 'POST',
-                        'complete' => 'document.playerForm.reset()'
+                        'complete' => '$("#playerForm").reset()'
                             )
                     )
             );
