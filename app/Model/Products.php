@@ -37,6 +37,7 @@ class Products extends AppModel {
                         'Products.active' => 1,
                         'Products.category_id' => 1 
                         )));
+        echo "<pre>";
         print_r($products);
         $opts = array();
         if(count($products['Products'])>0){
