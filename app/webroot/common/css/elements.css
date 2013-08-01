@@ -1,0 +1,12 @@
+/* 
+    Document   : elements
+    Created on : Aug 1, 2013, 11:11:29 AM
+    Author     : Rob
+    Description:
+        Commonly used display elements
+*/
+
+.ll-alert-success{
+    display: block;
+}
+
