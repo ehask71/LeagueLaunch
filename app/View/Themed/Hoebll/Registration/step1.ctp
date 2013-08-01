@@ -1,12 +1,10 @@
 <div class="grid_12" id="body-content">
     <?php
-    print_r($players);
-    print_r($registration_options);
-    if (count($players['Players']) > 0 && is_array($registration_options)):
+    if (count($players) > 0 && is_array($registration_options)):
         // We Have Players && Registration 
         echo $this->Form->create(FALSE, array('type' => 'file', 'action' => '/registration/step2'));
-        foreach ($players['Players'] as $key => $value) {
-            echo $this->Form->input($value, array('label' => $value['firstname'] . ' ' . $value['lastname'], 'type' => 'select', 'class' => 'chzn-select', 'options' => $registration_options));
+        foreach ($players as $key => $value) {
+            echo $this->Form->input($value['Players']['id'], array('label' => $value['Players']['firstname'] . ' ' . $value['Players']['lastname'], 'type' => 'select', 'class' => 'chzn-select', 'options' => $registration_options));
         }
         echo $this->Form->end('Proceed To Next Step');
     else:
