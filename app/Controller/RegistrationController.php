@@ -10,13 +10,26 @@ class RegistrationController extends AppController {
     
     public $name = 'Registration';
     
-    public $uses = array('Products','Forms','Players');
+    public $uses = array('Products','Forms','Players','Registrations');
     
     public $components = array('MathCaptcha','RequestHandler', 'Cookie');
     
     public function beforeFilter() {
 	parent::beforeFilter();
 	$this->Auth->allow('index');
+    }
+    
+    // Admin 
+    public function admin_index(){
+	$registrations = $this->Registrations->find('all',array(
+	    'conditions' => array('Registrations.site_id'=> Configure::read('Settings.site_id'))
+	));
+	
+	$this->set(compact('registrations'));
+    }
+    
+    public function admin_new(){
+	
     }
     
     public function index(){
