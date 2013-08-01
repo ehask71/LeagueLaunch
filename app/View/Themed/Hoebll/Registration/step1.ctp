@@ -45,6 +45,7 @@
             echo $this->Form->input('birthday', array('id' => 'birthday'));
             echo $this->Form->input('site_id', array('type'=>'hidden','value'=> Configure::read('Settings.site_id')));
             echo $this->Form->input('user_id', array('type'=>'hidden','value'=> $userinfo['id']));
+            echo $this->Form->input('active',array('type'=>'hidden','value'=>1));
             echo $this->Form->end(__('Submit'));
         }
     endif;
