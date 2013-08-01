@@ -12,6 +12,7 @@ class RegistrationController extends AppController {
     
     public $uses = array('Products','Forms','Players');
     
+    public $components = array('MathCaptcha','RequestHandler', 'Cookie');
     
     public function beforeFilter() {
 	parent::beforeFilter();
@@ -38,6 +39,15 @@ class RegistrationController extends AppController {
     
     public function step3(){
         
+    }
+    
+    public function saveplayer(){
+        if($this->RequestHandler->isAjax()){
+            if($this->Players->save($this->request->data)){
+                echo $this->request->data['Players']['firstname'].' '.$this->request->data['Players']['lastname'].' Added!';
+            }
+            return false;
+        }
     }
 }
 
