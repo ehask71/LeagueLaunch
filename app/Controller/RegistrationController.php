@@ -22,7 +22,7 @@ class RegistrationController extends AppController {
     // Admin 
     public function admin_index(){
 	$registrations = $this->Registration->find('all',array(
-	    'conditions' => array('Registrations.site_id'=> Configure::read('Settings.site_id'))
+	    'conditions' => array('Registration.site_id'=> Configure::read('Settings.site_id'))
 	));
 	
 	$this->set(compact('registrations'));
