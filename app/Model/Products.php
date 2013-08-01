@@ -37,12 +37,10 @@ class Products extends AppModel {
                         'Products.active' => 1,
                         'Products.category_id' => 1 
                         )));
-        echo "<pre>";
-        print_r($products);
         $opts = array();
-        if(count($products['Products'])>0){
-            foreach($products['Products'] AS $prod){
-                $opts[$prod['id']] = $prod['name'].' ($'.$prod['price'].')';
+        if(count($products)>0){
+            foreach($products AS $prod){
+                $opts[$prod['Products']['id']] = $prod['Products']['name'].' ($'.$prod['Products']['price'].')';
             }
             return $opts;
         }
