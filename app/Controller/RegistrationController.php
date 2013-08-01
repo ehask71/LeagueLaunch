@@ -34,7 +34,7 @@ class RegistrationController extends AppController {
      *    Show Registrations Available
      */
     public function step2(){
-        
+        $this->set('form',$this->request->data);
     }
     
     public function step3(){
