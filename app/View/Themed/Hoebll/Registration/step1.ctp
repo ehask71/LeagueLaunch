@@ -27,7 +27,7 @@
             $data = $this->Js->get('#playerForm')->serializeForm(array('isForm' => true, 'inline' => true));
             $this->Js->get('#playerForm')->event(
                     'submit', $this->Js->request(
-                            array('action' => 'save'), array(
+                            array('controller'=>'registration','action' => 'save'), array(
                         'update' => '#ajaxPlayers',
                         'data' => $data,
                         'async' => true,
@@ -37,7 +37,7 @@
                     )
             );
             echo $this->Js->writeBuffer();
-            echo $this->Form->create('Players', array('action' => 'save', 'id' => 'playerForm', 'default' => false));
+            echo $this->Form->create('Players', array('controller'=>'registration','action' => 'saveplayer', 'id' => 'playerForm', 'default' => false));
             echo $this->Form->input('firstname');
             echo $this->Form->input('lastname');
             echo $this->Form->input('nickname');
