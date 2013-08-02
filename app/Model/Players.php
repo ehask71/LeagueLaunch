@@ -16,6 +16,14 @@ class Players extends AppModel {
 		    'conditions' => $conditions 
             ));
     }
+    
+    public function getPlayerById($id,$site_id=FALSE){
+	return $this->find('first',array(
+	    'conditions' => array(
+		'Players.id' => (int)$id
+	    )
+	));
+    }
 }
 
 ?>
