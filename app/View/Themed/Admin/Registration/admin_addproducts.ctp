@@ -50,7 +50,7 @@
                         'between' => '</div><div class="grid_10"><div class="block_content">',
                         'after' => '</div></div><div class="clear"></div></section>'
                         )));
-                echo $this->Form->input('reg_id', array('type' => 'hidden', 'value' => $regid));
+                echo $this->Form->input('regid', array('type' => 'hidden', 'value' => $regid));
                 echo $this->Form->input('category_id', array('type' => 'hidden', 'value' => 1));
                 echo $this->Form->input('name');
                 echo $this->Form->input('description', array('type' => 'textarea'));
