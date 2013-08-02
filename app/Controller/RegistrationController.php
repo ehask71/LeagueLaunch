@@ -118,7 +118,7 @@ class RegistrationController extends AppController {
                 $this->Session->write('Player.' . $k, $v);
                 $i++;
             }
-            $this->set('upsells', $this->ProductsToRegistrations->getUpSells($regs));
+            $this->set('upsells', $this->ProductsToRegistrations->getUpSells($this->Session->read('Registration.id')));
         } else {
             $this->Session->setFlash(__('No Players Selected'), 'alerts/error');
             $this->redirect('/registration/step1');
