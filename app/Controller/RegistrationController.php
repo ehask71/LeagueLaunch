@@ -68,7 +68,7 @@ class RegistrationController extends AppController {
         }
         $products = $this->ProductsToRegistrations->find('all', array(
             'conditions' => array(
-                'ProductsToRegistrations.id' => $id
+                'ProductsToRegistrations.regid' => $id
             ),
             'joins' => array(
                 array('table' => 'products', 'alias' => 'Product', 'type' => 'INNER', 'conditions' => array(
