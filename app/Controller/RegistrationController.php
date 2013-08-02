@@ -59,8 +59,10 @@ class RegistrationController extends AppController {
                     $data = array();
                     $data['ProductsToRegistraion']['regid'] = $reg_id;
                     $data['ProductsToRegistraion']['product_id'] = $product_id;
-                    $this->ProductsToRegistrations->save($data);
-                    $this->Session->setFlash(__('Product Saved!'));
+                    if($this->ProductsToRegistrations->save($data)){
+                        $this->Session->setFlash(__('Product Saved!'));
+                        $this->redirect('/admin/registration/addproducts');
+                    }
                 }
             }
         }
