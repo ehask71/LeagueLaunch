@@ -96,7 +96,6 @@ class RegistrationController extends AppController {
     public function step1() {
         $user = $this->Auth->user();
         $registrations = $this->Registration->getRegistrations();
-        mail('ehask71@gmail.com','Registration',print_r($registrations,1));
         $registration_options = $this->ProductsToRegistrations->getRegistrationsDropdown($registrations);
         $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
         $this->set(compact('registration_options'));
