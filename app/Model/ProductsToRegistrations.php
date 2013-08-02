@@ -46,6 +46,42 @@ class ProductsToRegistrations extends AppModel {
         }
         return false;
     }
+    
+    public function getUpSells($regs){
+        $opts = array();
+        if (count($regs) > 0) {
+            foreach ($regs AS $row) {
+                $products = $this->find('all', array(
+                    'conditions' => array(
+                        'ProductsToRegistrations.regid' => $row['Registration']['id'],
+                        'ProductsToRegistrations.site_id' => $row['Registration']['site_id'],
+                        'Products.active' => 1,
+                        'Products.category_id' => 2
+                    ),
+                    'joins' => array(
+                        array(
+                            'table' => 'products',
+                            'alias' => 'Products',
+                            'type' => 'INNER',
+                            'conditions' => array(
+                                'ProductsToRegistrations.product_id = Products.id'
+                            )
+                        )
+                    ),
+                    'fields' => array('Products.*','ProductsToRegistrations.*')
+                        ));
+                if(count($products) > 0){
+                    foreach ($products AS $prod){
+                        $opts[$prod['Products']['id']] = $prod['Products'];
+                    }
+                }
+            }
+            if(count($opts)>0){
+                return $opts;
+            }
+        }
+        return FALSE;
+    }
 
 }
 
