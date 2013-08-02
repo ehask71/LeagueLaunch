@@ -10,7 +10,7 @@ App::uses('CakeEmail', 'Network/Email');
 class RegistrationController extends AppController {
 
     public $name = 'Registration';
-    public $uses = array('Products', 'Forms', 'Players', 'Registration');
+    public $uses = array('Products', 'Forms', 'Players', 'Registration','ProductsToRegistrations');
     public $components = array('MathCaptcha', 'RequestHandler', 'Cookie');
 
     public function beforeFilter() {
@@ -40,7 +40,17 @@ class RegistrationController extends AppController {
     }
 
     public function admin_addproducts($id){
-        
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if($this->Products->validateRegProduct()){
+                $reg_id = $this->request->data['Products']['reg_id'];
+                unset($this->request->data['Products']['reg_id']);
+                if($this->Products->save($this->request->data())){
+                    // Add to the pivot table
+                    
+                }
+            }
+        }
+        $this->set('regid',$id);
     }
     
     public function index() {
