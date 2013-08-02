@@ -32,6 +32,17 @@ class Registration extends AppModel {
         $this->validate = $validate1;
         return $this->validates();
     }
+    
+    public function getRegistrations(){
+        return $this->find('all',array(
+            'conditions'=>array(
+                'Registrations.site_id' => Configure::read('Settings.site_id'),
+                'Registrations.active' => 1,
+                'and' => array(
+                    array('Registrations.startdate <= ' => date('Y-m-d'),'Registrations.enddate >= ' => date('Y-m-d'))
+                )
+        )));
+    }
 
 }
 
