@@ -54,9 +54,7 @@ class RegistrationController extends AppController {
                 $reg_id = $this->request->data['Products']['regid'];
                 $this->request->data['site_id'] = $site_id;
                 unset($this->request->data['Products']['regid']);
-                echo "<pre>";
-                print_r($this->request->data);
-                echo "</pre>";
+
                 if ($this->Products->save($this->request->data)) {
                     $product_id = $this->Products->getLastInsertID();
                     // Add to the pivot table
