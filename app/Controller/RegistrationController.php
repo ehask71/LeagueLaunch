@@ -190,7 +190,13 @@ class RegistrationController extends AppController {
         $this->set(compact('shop'));
 	$this->set('players',$this->Session->read('Player'));
     }
-
+    
+    public function clear(){
+        $this->Cart->clear();
+	$this->Session->setFlash('All item(s) removed from your shopping cart', 'flash_error');
+	$this->redirect('/registration');
+    }
+    
     public function saveplayer() {
         $this->autoRender = false;
         if ($this->RequestHandler->isAjax()) {
