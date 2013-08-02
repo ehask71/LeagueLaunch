@@ -71,7 +71,8 @@ class RegistrationController extends AppController {
         }
         $products = $this->ProductsToRegistrations->find('all', array(
             'conditions' => array(
-                'ProductsToRegistrations.regid' => $id
+                'ProductsToRegistrations.regid' => $id,
+                'Product.category_id' => 1
             ),
             'joins' => array(
                 array('table' => 'products', 'alias' => 'Product', 'type' => 'INNER', 'conditions' => array(
@@ -79,7 +80,7 @@ class RegistrationController extends AppController {
                 ))
             ),
             'fields' => array(
-                'Product.name', 'Product.price', 'Product.created', 'ProductsToRegistrations.regid', 'Product.id'
+                'Product.*', 'ProductsToRegistrations.*'
             )
                 ));
         $this->set(compact('products'));
