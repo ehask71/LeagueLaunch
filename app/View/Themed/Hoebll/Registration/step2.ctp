@@ -3,8 +3,8 @@
     <?php 
 	echo $this->Form->create(FALSE, array('type' => 'file', 'action' => 'step3'));
 	foreach ($upsells as $key => $value) {
-	    echo $this->Form->input('Upsell.'.$key, array('label'=>$var['name'],'type'=>'select','options'=>array('no'=>'No','yes'=>'Yes')));
-	    echo '<div class="upsellDesc">'.__($var['description']).'</div>';
+	    echo $this->Form->input('Upsell.'.$key, array('label'=>$value['name'],'type'=>'select','options'=>array('no'=>'No','yes'=>'Yes')));
+	    echo '<div class="upsellDesc">'.__($value['description']).'</div>';
 	}
 	echo $this->Form->end('Proceed to Review');
     ?>
