@@ -104,7 +104,17 @@ class RegistrationController extends AppController {
 
     // Add to Cart the Items 
     public function step2() {
-        $this->set('form', $this->request->data);
+        if(count($this->request->data['Players']) > 0){
+            $i=0;
+            foreach ($this->request->data['Players'] AS $k=>$v){
+                $this->Cart->add($v,1);
+                $this->Session->write('Player.'.$k,$v);
+                $i++;
+            }
+        } else {
+            $this->Session->setFlash(__('No Players Selected'), 'alerts/error');
+            $this->redirect('/registration/step1');
+        }
     }
 
     public function step3() {
