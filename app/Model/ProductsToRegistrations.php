@@ -19,7 +19,8 @@ class ProductsToRegistrations extends AppModel {
                     'conditions' => array(
                         'ProductsToRegistrations.regid' => $row['Registration']['id'],
                         'ProductsToRegistrations.site_id' => $row['Registration']['site_id'],
-                        'Products.active' => 1
+                        'Products.active' => 1,
+                        'Products.category_id' => 1
                     ),
                     'joins' => array(
                         array(
