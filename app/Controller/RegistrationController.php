@@ -64,6 +64,17 @@ class RegistrationController extends AppController {
                 }
             }
         }
+        $products = $this->ProductsToRegistrations->find('all', array(
+            'conditions' => array(
+                'ProductsToRegistration.id' => $id
+            ),
+            'joins' => array(
+                array('table' => 'products', 'alias' => 'product', 'type' => 'INNER', 'conditions' => array(
+                        'products_to_registration.product_id = product.id'
+                ))
+            )
+        ));
+        $this->set(compact('products'));
         $this->set('regid', $id);
     }
 
