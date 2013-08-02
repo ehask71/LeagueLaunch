@@ -1,3 +1,3 @@
 <?php
-echo "<pre>";
-print_r($form);
+
+print_r($upsells);
