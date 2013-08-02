@@ -7,6 +7,7 @@
 	    echo '<div class="upsellDesc">'.__($value['description']).'</div>';
 	}
 	echo $this->Form->end('Proceed to Review');
+	echo $shop['Order']['subtotal'];
     ?>
 </div>
 <div class="grid_5" id="side-bar-right">
