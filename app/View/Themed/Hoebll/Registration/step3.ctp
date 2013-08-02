@@ -18,6 +18,15 @@
 		    echo '<td>' . $item['quantity'] . '</td>';
 		    echo '<td>' . $item['price'] . '</td>';
 		    echo '</tr>';
+		    if(count($players)> 0){
+			foreach ($players AS $play){
+			    if($item['product_id'] == $play['product']){
+				echo "<tr>";
+				echo '<td colspan="3"> ---> Player: '.$play['player'].'</td>';
+				echo '</tr>';
+			    }
+			}
+		    }
 		}
 	    }
 	    ?>
