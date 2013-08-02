@@ -28,6 +28,7 @@ $this->Html->scriptEnd();
                 echo $this->Form->input('startdate', array('type' => 'text','label'=>'Start Date','id' => 'startDate', 'class' => 'input200'));
                 echo $this->Form->input('enddate', array('type' => 'text','label'=>'End Date','id' => 'endDate', 'class' => 'input200'));
                 echo $this->Form->input('active', array(
+                    'label' => 'Active',
                     'type' => 'select',
                     'class' => 'chzn-select',
                     'style' => 'width:350px',
