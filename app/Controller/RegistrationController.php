@@ -175,6 +175,14 @@ class RegistrationController extends AppController {
     }
 
     public function step3() {
+	if(count($this->request->data['Upsell'])){
+	    foreach ($this->request->data['Upsell'] AS $k => $v) {
+		if($v == 'yes'){
+		    $this->Cart->add($k, 1);
+		    $i++;
+		}
+            }
+	}
         $this->set('data',$this->request->data);
 	$shop = $this->Session->read('Shop');
         $this->set(compact('shop'));
