@@ -10,6 +10,8 @@ class ProductsToRegistrations extends AppModel {
     
     public $useTable = 'products_to_registrations';
     
-    
+    public function getRegistrationsDropdown($regs){
+        
+    }
 }
 
