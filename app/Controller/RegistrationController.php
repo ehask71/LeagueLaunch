@@ -76,7 +76,7 @@ class RegistrationController extends AppController {
                 ))
             ),
             'fields' => array(
-                'Product.name','Product.price','Product.created','ProductsToRegistrations.regid','ProductsToRegistrations.product_id'
+                'Product.name','Product.price','Product.created','ProductsToRegistrations.regid','Product.product_id'
             )
         ));
         print_r($products);
