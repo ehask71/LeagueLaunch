@@ -16,6 +16,11 @@
 	    <li><?php echo $this->html->link(__('Add New'), array('prefix' => 'admin', 'controller' => 'news','action' => 'new'), array('escape' => FALSE)); ?></li>
 	</ul>
     </li>
+    <li><?php echo $this->html->link(__('Registration') . '<span class="icon8"></span>', array('prefix' => 'admin', 'controller' => 'registration'), array('escape' => FALSE)); ?>
+	<ul>
+	    <li><?php echo $this->html->link(__('Add New'), array('prefix' => 'admin', 'controller' => 'registration','action' => 'new'), array('escape' => FALSE)); ?></li>
+	</ul>
+    </li>
     <li><?php echo $this->html->link(__('Forms') . '<span class="icon2"></span>', array('prefix' => 'admin', 'controller' => 'forms'), array('escape' => FALSE)); ?>
 	<ul>
 	    <li><?php echo $this->html->link(__('Add New'), array('prefix' => 'admin', 'controller' => 'forms','action' => 'new'), array('escape' => FALSE)); ?></li>
