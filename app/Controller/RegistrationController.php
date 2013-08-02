@@ -11,7 +11,7 @@ class RegistrationController extends AppController {
 
     public $name = 'Registration';
     public $uses = array('Products', 'Forms', 'Players', 'Registration', 'ProductsToRegistrations');
-    public $components = array('MathCaptcha', 'RequestHandler', 'Cookie','Cart');
+    public $components = array('MathCaptcha', 'RequestHandler', 'Cookie', 'Cart');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -94,16 +94,16 @@ class RegistrationController extends AppController {
 
     // Show Players & Assign Registrations
     // Allow Players to be Added
-    public function step1() {
+    public function step1($id) {
         if ($this->request->is('post') || $this->request->is('put')) {
-        $user = $this->Auth->user();
-        $registrations = $this->Registration->getRegistrations();
-        $registration_options = $this->ProductsToRegistrations->getRegistrationsDropdown($registrations);
-        $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
-        $this->set(compact('registration_options'));
-        $this->set(compact('players'));
+            $this->Session->write('Registration.id', $id);
+            $user = $this->Auth->user();
+            $registration_options = $this->ProductsToRegistrations->getRegistrationsDropdown($id);
+            $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
+            $this->set(compact('registration_options'));
+            $this->set(compact('players'));
         } else {
-            $this->Session->setFlash(__('Please Select A Registration First'),'alerts/info');
+            $this->Session->setFlash(__('Please Select A Registration First'), 'alerts/info');
             $this->redirect('/registration');
         }
     }
@@ -111,15 +111,14 @@ class RegistrationController extends AppController {
     // Add to Cart the Items 
     // Display Upsells and Requirements
     public function step2() {
-        if(count($this->request->data['Players']) > 0){
-            $i=0;
-            foreach ($this->request->data['Players'] AS $k=>$v){
-                $this->Cart->add($v,1);
-                $this->Session->write('Player.'.$k,$v);
+        if (count($this->request->data['Players']) > 0) {
+            $i = 0;
+            foreach ($this->request->data['Players'] AS $k => $v) {
+                $this->Cart->add($v, 1);
+                $this->Session->write('Player.' . $k, $v);
                 $i++;
             }
-            $this->set('upsells',$this->ProductsToRegistrations->getUpSells($regs));
-            
+            $this->set('upsells', $this->ProductsToRegistrations->getUpSells($regs));
         } else {
             $this->Session->setFlash(__('No Players Selected'), 'alerts/error');
             $this->redirect('/registration/step1');
