@@ -20,7 +20,7 @@ class Players extends AppModel {
     public function getPlayerById($id,$site_id=FALSE){
 	return $this->find('first',array(
 	    'conditions' => array(
-		'Players.id' => (int)$id
+		'Players.player_id' => (int)$id
 	    )
 	));
     }
