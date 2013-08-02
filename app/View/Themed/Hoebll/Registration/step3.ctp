@@ -38,10 +38,10 @@
 	    </tr>
 	</table>
 	<?php
-	echo "<pre>";
+	/*echo "<pre>";
 	print_r($players);
 	print_r($data);
-	print_r($shop);
+	print_r($shop);*/
 	?>
     </div>
 </div>
