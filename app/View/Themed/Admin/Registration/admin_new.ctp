@@ -25,11 +25,12 @@ $this->Html->scriptEnd();
                         'after' => '</div></div><div class="clear"></div></section>'
                         )));
                 echo $this->Form->input('name');
-                echo $this->Form->input('startdate', array('id' => 'startDate', 'class' => 'input200'));
-                echo $this->Form->input('enddate', array('id' => 'endDate', 'class' => 'input200',));
+                echo $this->Form->input('startdate', array('type' => 'text','label'=>'Start Date','id' => 'startDate', 'class' => 'input200'));
+                echo $this->Form->input('enddate', array('type' => 'text','label'=>'End Date','id' => 'endDate', 'class' => 'input200'));
                 echo $this->Form->input('active', array(
                     'type' => 'select',
                     'class' => 'chzn-select',
+                    'style' => 'width:350px',
                     'options' => array(1 => 'Yes', 0 => 'No')
                 ));
                 echo $this->Form->input('site_id', array('type' => 'hidden', 'value' => Configure::read('Settings.site_id')));
