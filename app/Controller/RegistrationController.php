@@ -165,7 +165,7 @@ class RegistrationController extends AppController {
 		$player = $this->Players->getPlayerById($k);
 		mail('ehask71@gmail.com','Player',print_r($player,1));
                 $this->Session->write('Player.' . $k.'.product', $v);
-		//$this->Session->write('Player.' . $k.'.player', $v);
+		$this->Session->write('Player.' . $k.'.player', $player['Players']['firstname'].' '.$player['Players']['lastname']);
                 $i++;
             }
             $this->set('upsells', $this->ProductsToRegistrations->getUpSells($this->Session->read('Registration.id')));
