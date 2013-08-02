@@ -44,6 +44,9 @@
 	print_r($shop);*/
 	?>
     </div>
+    <div>
+	<h2><?php echo __('Payment Methods');?></h2>
+    </div>
 </div>
 <div class="grid_5" id="side-bar-right">
     <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
