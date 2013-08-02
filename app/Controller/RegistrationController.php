@@ -82,9 +82,38 @@ class RegistrationController extends AppController {
                 'Product.name', 'Product.price', 'Product.created', 'ProductsToRegistrations.regid', 'Product.id'
             )
                 ));
-        print_r($products);
         $this->set(compact('products'));
         $this->set('regid', $id);
+    }
+    
+    public function admin_addupsells(){
+        $site_id = Configure::read('Settings.site_id');
+        $id = $this->Session->read('NewRegistration.regid');
+
+        if (!$id) {
+            $this->Session->setFlash(__('Missing Registration Id!'));
+            $this->redirect('/admin/registration/');
+        }
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            
+        }
+        $products = $this->ProductsToRegistrations->find('all', array(
+            'conditions' => array(
+                'ProductsToRegistrations.regid' => $id,
+                'Product.category_id' => 2
+            ),
+            'joins' => array(
+                array('table' => 'products', 'alias' => 'Product', 'type' => 'INNER', 'conditions' => array(
+                        'ProductsToRegistrations.product_id = Product.id'
+                ))
+            ),
+            'fields' => array(
+                'Product.*', 'ProductsToRegistrations.*'
+            )
+                ));
+        $this->set(compact('products'));
+        $this->set('regid', $id);   
     }
 
     public function index() {
