@@ -163,11 +163,11 @@ class RegistrationController extends AppController {
             foreach ($this->request->data['Players'] AS $k => $v) {
                 $this->Cart->add($v, 1);
 		$player = $this->Players->getPlayerById($k);
-		mail('ehask71@gmail.com','Player',print_r($player,1));
                 $this->Session->write('Player.' . $k.'.product', $v);
 		$this->Session->write('Player.' . $k.'.player', $player['Players']['firstname'].' '.$player['Players']['lastname']);
                 $i++;
             }
+            unset($this->request->data['Players']);
             $this->set('upsells', $this->ProductsToRegistrations->getUpSells($this->Session->read('Registration.id')));
             $shop = $this->Session->read('Shop');
             $this->set(compact('shop'));
@@ -178,12 +178,13 @@ class RegistrationController extends AppController {
     }
 
     public function step3() {
-	if(count($this->request->data['Upsell'])){
+	if(count(@$this->request->data['Upsell'])>0){
 	    foreach ($this->request->data['Upsell'] AS $k => $v) {
 		if($v == 'yes'){
 		    $this->Cart->add($k, 1);
 		}
             }
+            unset($this->request->data['Upsell']);
 	}
         $this->set('data',$this->request->data);
 	$shop = $this->Session->read('Shop');
