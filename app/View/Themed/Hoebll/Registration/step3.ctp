@@ -1,10 +1,32 @@
 <div class="grid_12" id="body-content">
-    <h2><?php echo __('Step 3: Review and Pay');?></h2>
+    <h2><?php echo __('Step 3: Review and Pay'); ?></h2>
     <div>
+	Items:
+	<table>
+	    <thead>
+		<tr>
+		    <th>Product</th>
+		    <th>Qty</th>
+		    <th>Price</th>
+		</tr>
+	    </thead>
+	    <?php
+	    if (count($shop['OrderItem']) > 0) {
+		foreach ($shop['OrderItem'] AS $item) {
+		    echo '<tr>';
+		    echo '<td>' . $item['name'] . '</td>';
+		    echo '<td>' . $item['quantity'] . '</td>';
+		    echo '<td>' . $item['price'] . '</td>';
+		    echo '</tr>';
+		}
+	    }
+	    ?>
+	</table>
 	<?php
-	    echo "<pre>";
-	    print_r($data);
-	    print_r($shop);
+	echo "<pre>";
+	print_r($players);
+	print_r($data);
+	print_r($shop);
 	?>
     </div>
 </div>
