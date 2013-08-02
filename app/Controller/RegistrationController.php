@@ -76,6 +76,7 @@ class RegistrationController extends AppController {
                 ))
             )
         ));
+        print_r($products);
         $this->set(compact('products'));
         $this->set('regid', $id);
     }
