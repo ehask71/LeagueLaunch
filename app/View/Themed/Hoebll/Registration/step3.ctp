@@ -37,7 +37,7 @@
 		<td colspan="2" align="right">Total:</td><td>$<?php echo $shop['Order']['total'];?></td>
 	    </tr>
 	</table>
-        <?php echo $this->Form->postButton('Start Over', '/registration');?>
+        <?php echo $this->Form->postButton('Start Over', '/registration/clear');?>
 	<?php
 	/*echo "<pre>";
 	print_r($players);
