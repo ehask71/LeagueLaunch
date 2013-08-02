@@ -24,27 +24,49 @@ class Products extends AppModel {
                     'conditions' => array(
                         'Products.site_id' => Configure::read('Settings.site_id'),
                         'Products.active' => 1,
-                        'Products.category_id' => 1 
+                        'Products.category_id' => 1
                         )));
     }
-    
-    public function getRegistrationDropDown(){
+
+    public function getRegistrationDropDown() {
         $products = $this->find('all', array(
-                    'recursive' => -1,
-                    'order' => 'Products.id DESC',
-                    'conditions' => array(
-                        'Products.site_id' => Configure::read('Settings.site_id'),
-                        'Products.active' => 1,
-                        'Products.category_id' => 1 
-                        )));
+            'recursive' => -1,
+            'order' => 'Products.id DESC',
+            'conditions' => array(
+                'Products.site_id' => Configure::read('Settings.site_id'),
+                'Products.active' => 1,
+                'Products.category_id' => 1
+                )));
         $opts = array();
-        if(count($products)>0){
-            foreach($products AS $prod){
-                $opts[$prod['Products']['id']] = $prod['Products']['name'].' ($'.$prod['Products']['price'].')';
+        if (count($products) > 0) {
+            foreach ($products AS $prod) {
+                $opts[$prod['Products']['id']] = $prod['Products']['name'] . ' ($' . $prod['Products']['price'] . ')';
             }
             return $opts;
         }
         return false;
+    }
+
+    public function validateRegProduct() {
+        $validate1 = array(
+            'name' => array(
+                'mustNotEmpty' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'Please enter a Name')
+            ),
+            'price' => array(
+                'mustNotEmpty' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'Please enter a Price (9.99)')
+            ),
+            'description' => array(
+                'mustNotEmpty' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'Please enter a Description')
+            )
+        );
+        $this->validate = $validate1;
+        return $this->validates();
     }
 
 }
