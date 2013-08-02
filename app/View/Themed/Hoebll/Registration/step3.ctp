@@ -30,6 +30,12 @@
 		}
 	    }
 	    ?>
+	    <tr>
+		<td colspan="2" align="right">SubTotal:</td><td>$<?php echo $shop['Order']['subtotal'];?></td>
+	    </tr>
+	    <tr>
+		<td colspan="2" align="right">Total:</td><td>$<?php echo $shop['Order']['total'];?></td>
+	    </tr>
 	</table>
 	<?php
 	echo "<pre>";
