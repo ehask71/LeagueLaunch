@@ -36,10 +36,10 @@ class Registration extends AppModel {
     public function getRegistrations(){
         return $this->find('all',array(
             'conditions'=>array(
-                'Registrations.site_id' => Configure::read('Settings.site_id'),
-                'Registrations.active' => 1,
+                'Registration.site_id' => Configure::read('Settings.site_id'),
+                'Registration.active' => 1,
                 'and' => array(
-                    array('Registrations.startdate <= ' => date('Y-m-d'),'Registrations.enddate >= ' => date('Y-m-d'))
+                    array('Registration.startdate <= ' => date('Y-m-d'),'Registration.enddate >= ' => date('Y-m-d'))
                 )
         )));
     }
