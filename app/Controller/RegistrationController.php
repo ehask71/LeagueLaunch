@@ -97,7 +97,24 @@ class RegistrationController extends AppController {
         }
 
         if ($this->request->is('post') || $this->request->is('put')) {
-            
+            if ($this->Products->validateRegProduct()) {
+                $reg_id = $this->request->data['Products']['regid'];
+                $this->request->data['site_id'] = $site_id;
+                unset($this->request->data['Products']['regid']);
+
+                if ($this->Products->save($this->request->data)) {
+                    $product_id = $this->Products->getLastInsertID();
+                    // Add to the pivot table
+                    $data = array();
+                    $data['regid'] = $reg_id;
+                    $data['product_id'] = $product_id;
+                    $data['site_id'] = $site_id;
+                    if ($this->ProductsToRegistrations->save($data)) {
+                        $this->Session->setFlash(__('Upsell Saved!'));
+                        $this->redirect('/admin/registration/addupsells/');
+                    }
+                }
+            }
         }
         $products = $this->ProductsToRegistrations->find('all', array(
             'conditions' => array(
