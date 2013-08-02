@@ -52,15 +52,15 @@
                         )));
                 echo $this->Form->input('regid', array('type' => 'hidden', 'value' => $regid));
                 echo $this->Form->input('category_id', array('type' => 'hidden', 'value' => 1));
-                echo $this->Form->input('name',array('label'=>'Product Name'));
-                echo $this->Form->input('description', array('label'=>'Product Description','type' => 'textarea'));
-                echo $this->Form->input('price',array('label'=>'Product Price'));
-                echo $this->Form->input('active', array('type' => 'select', 'class' => 'chzn-select', 'options' => array(
+                echo $this->Form->input('name', array('label' => 'Product Name'));
+                echo $this->Form->input('description', array('label' => 'Product Description', 'type' => 'textarea'));
+                echo $this->Form->input('price', array('label' => 'Product Price'));
+                echo $this->Form->input('active', array('label' => 'Active', 'type' => 'select', 'style' => 'width:350px', 'class' => 'chzn-select', 'options' => array(
                         1 => 'Yes',
                         0 => 'No')));
                 echo $this->Form->end('Add Product');
                 ?>
-                
+
             </div>
         </div>
     </div>
