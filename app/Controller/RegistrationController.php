@@ -74,6 +74,9 @@ class RegistrationController extends AppController {
                 array('table' => 'products', 'alias' => 'Product', 'type' => 'INNER', 'conditions' => array(
                         'ProductsToRegistration.product_id = Product.id'
                 ))
+            ),
+            'fields' => array(
+                'Product.name','Product.price','Product.created','ProductsToRegistration.regid','ProductsToRegistration.product_id'
             )
         ));
         print_r($products);
