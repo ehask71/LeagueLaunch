@@ -61,9 +61,9 @@ class RegistrationController extends AppController {
                     $product_id = $this->Products->getLastInsertID();
                     // Add to the pivot table
                     $data = array();
-                    $data['ProductsToRegistraion']['regid'] = $reg_id;
-                    $data['ProductsToRegistraion']['product_id'] = $product_id;
-                    $data['ProductsToRegistraion']['site_id'] = $site_id;
+                    $data['regid'] = $reg_id;
+                    $data['product_id'] = $product_id;
+                    $data['site_id'] = $site_id;
                     if ($this->ProductsToRegistrations->save($data)) {
                         $this->Session->setFlash(__('Product Saved!'));
                         $this->redirect('/admin/registration/addproducts/');
