@@ -95,7 +95,9 @@ class RegistrationController extends AppController {
     // Allow Players to be Added
     public function step1() {
         $user = $this->Auth->user();
-        $registration_options = $this->Products->getRegistrationDropDown();
+        $registrations = $this->Registration->getRegistrations();
+        mail('ehask71@gmail.com','Registration',print_r($registrations,1));
+        $registration_options = $this->ProductsToRegistrations->getRegistrationDropDown($registrations);
         $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
         $this->set(compact('registration_options'));
         $this->set(compact('players'));
