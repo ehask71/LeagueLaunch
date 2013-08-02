@@ -58,7 +58,9 @@
                 echo $this->Form->input('active', array('type' => 'select', 'class' => 'chzn-select', 'options' => array(
                         1 => 'Yes',
                         0 => 'No')));
+                echo $this->Form->end('Add Product');
                 ?>
+                
             </div>
         </div>
     </div>
