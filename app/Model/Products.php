@@ -36,6 +36,11 @@ class Products extends AppModel {
                 'Products.site_id' => Configure::read('Settings.site_id'),
                 'Products.active' => 1,
                 'Products.category_id' => 1
+            ),
+            'joins' => array(
+                array('table' => 'products_to_registrations', 'alias' => 'ProductsToRegistrations', 'type' => 'INNER', 'conditions' => array(
+                        'Products.id = ProductsToRegistrations.product_id'
+                ))
                 )));
         $opts = array();
         if (count($products) > 0) {
