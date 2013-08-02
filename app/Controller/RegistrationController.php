@@ -50,8 +50,8 @@ class RegistrationController extends AppController {
 
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Products->validateRegProduct()) {
-               // $reg_id = $this->request->data['Products']['regid'];
-                //unset($this->request->data['Products']['regid']);
+                $reg_id = $this->request->data['Products']['regid'];
+                unset($this->request->data['Products']['regid']);
                 echo "<pre>";
                 print_r($this->request->data);
                 echo "</pre>";
