@@ -24,7 +24,7 @@ $this->Html->scriptEnd();
                         'between' => '</div><div class="grid_10"><div class="block_content">',
                         'after' => '</div></div><div class="clear"></div></section>'
                         )));
-                echo $this->Form->input('name');
+                echo $this->Form->input('name',array('type' => 'text'));
                 echo $this->Form->input('startdate', array('type' => 'text','label'=>'Start Date','id' => 'startDate', 'class' => 'input200'));
                 echo $this->Form->input('enddate', array('type' => 'text','label'=>'End Date','id' => 'endDate', 'class' => 'input200'));
                 echo $this->Form->input('active', array(
