@@ -40,15 +40,14 @@ class RegistrationController extends AppController {
         }
     }
 
-    public function admin_addproducts($id = FALSE) {
-        if (!$id) {
-            $id = $this->Session->read('NewRegistration.regid');
+    public function admin_addproducts() {
+        $id = $this->Session->read('NewRegistration.regid');
 
-            if (!$id) {
-                $this->Session->setFlash(__('Missing Registration Id!'));
-                $this->redirect('/admin/registration/');
-            }
+        if (!$id) {
+            $this->Session->setFlash(__('Missing Registration Id!'));
+            $this->redirect('/admin/registration/');
         }
+
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Products->validateRegProduct()) {
                 $reg_id = $this->request->data['Products']['regid'];
@@ -59,9 +58,9 @@ class RegistrationController extends AppController {
                     $data = array();
                     $data['ProductsToRegistraion']['regid'] = $reg_id;
                     $data['ProductsToRegistraion']['product_id'] = $product_id;
-                    if($this->ProductsToRegistrations->save($data)){
+                    if ($this->ProductsToRegistrations->save($data)) {
                         $this->Session->setFlash(__('Product Saved!'));
-                        $this->redirect('/admin/registration/addproducts');
+                        $this->redirect('/admin/registration/addproducts/');
                     }
                 }
             }
@@ -76,9 +75,9 @@ class RegistrationController extends AppController {
                 ))
             ),
             'fields' => array(
-                'Product.name','Product.price','Product.created','ProductsToRegistrations.regid','Product.id'
+                'Product.name', 'Product.price', 'Product.created', 'ProductsToRegistrations.regid', 'Product.id'
             )
-        ));
+                ));
         print_r($products);
         $this->set(compact('products'));
         $this->set('regid', $id);
