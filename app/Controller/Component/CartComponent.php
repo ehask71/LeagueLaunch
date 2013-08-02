@@ -56,7 +56,7 @@ class CartComponent extends Component {
 		if(count($cartitems['OrderItem'])>0){
 		    foreach ($cartitems['OrderItem'] AS $item){
 			if($item['product_id'] == $id){
-			    $quantity = (int)$item['quantity']+1;
+			    $quantity = (int)$quantity+1;
 			}
 		    }
 		}
