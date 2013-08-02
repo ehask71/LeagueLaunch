@@ -41,6 +41,7 @@ class RegistrationController extends AppController {
     }
 
     public function admin_addproducts() {
+        $site_id = Configure::read('Settings.site_id');
         $id = $this->Session->read('NewRegistration.regid');
 
         if (!$id) {
@@ -51,6 +52,7 @@ class RegistrationController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Products->validateRegProduct()) {
                 $reg_id = $this->request->data['Products']['regid'];
+                $this->request->data['site_id'] = $site_id;
                 unset($this->request->data['Products']['regid']);
                 echo "<pre>";
                 print_r($this->request->data);
@@ -61,6 +63,7 @@ class RegistrationController extends AppController {
                     $data = array();
                     $data['ProductsToRegistraion']['regid'] = $reg_id;
                     $data['ProductsToRegistraion']['product_id'] = $product_id;
+                    $data['ProductsToRegistraion']['site_id'] = $site_id;
                     if ($this->ProductsToRegistrations->save($data)) {
                         $this->Session->setFlash(__('Product Saved!'));
                         $this->redirect('/admin/registration/addproducts/');
