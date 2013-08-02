@@ -182,7 +182,6 @@ class RegistrationController extends AppController {
 	    foreach ($this->request->data['Upsell'] AS $k => $v) {
 		if($v == 'yes'){
 		    $this->Cart->add($k, 1);
-		    $i++;
 		}
             }
 	}
