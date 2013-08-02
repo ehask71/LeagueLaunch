@@ -175,7 +175,9 @@ class RegistrationController extends AppController {
     }
 
     public function step3() {
-        
+        $this->set('data',$this->request->data);
+	$shop = $this->Session->read('Shop');
+        $this->set(compact('shop'));
     }
 
     public function saveplayer() {
