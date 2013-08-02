@@ -162,7 +162,10 @@ class RegistrationController extends AppController {
             $i = 0;
             foreach ($this->request->data['Players'] AS $k => $v) {
                 $this->Cart->add($v, 1);
-                $this->Session->write('Player.' . $k, $v);
+		$player = $this->Players->getPlayerById($k);
+		mail('ehask71@gmail.com','Player',print_r($player,1));
+                $this->Session->write('Player.' . $k.'.product', $v);
+		//$this->Session->write('Player.' . $k.'.player', $v);
                 $i++;
             }
             $this->set('upsells', $this->ProductsToRegistrations->getUpSells($this->Session->read('Registration.id')));
