@@ -18,7 +18,35 @@
                 with your account. If you haven't set up any player profiles yet don't worry you will be able to do so from the next page.  
             </p>
             <p>
-                <?php echo $this->Html->link(__('Click Here to Proceed with Registration'), array('action' => 'step1')); ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Available Registrations. Please Click On One</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if(count($registrations) > 0){
+                        foreach ($registrations AS $reg){
+                            ?>
+                    <tr>
+                        <td>
+                            <?php echo $this->Form->postLink(__($reg['Registration']['name']),array('action'=>'step1',$reg['Registration']['id']));?>
+                        </td>
+                    </tr>
+                            <?php
+                        }
+                    } else {
+                        ?>
+                    <tr>
+                        <td colspan="1">We're Sorry There Are No Active Registrations At This Time</td>
+                    </tr>
+                        <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+                <?php //echo $this->Html->link(__('Click Here to Proceed with Registration'), array('action' => 'step1')); ?>
             </p>
         <?php
     }
