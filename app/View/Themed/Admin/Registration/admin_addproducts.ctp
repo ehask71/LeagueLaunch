@@ -22,9 +22,9 @@
                             foreach ($products AS $prod) {
                                 ?>
                                 <tr>
-                                    <td><?php echo $prod['Products']['name']; ?></td>
-                                    <td><?php echo $prod['Products']['price']; ?></td>
-                                    <td><?php echo $prod['Products']['created']; ?></td>
+                                    <td><?php echo $prod['Product']['name']; ?></td>
+                                    <td><?php echo $prod['Product']['price']; ?></td>
+                                    <td><?php echo $prod['Product']['created']; ?></td>
                                     <td>
 
                                     </td>
