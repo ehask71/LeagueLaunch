@@ -186,6 +186,7 @@ class RegistrationController extends AppController {
         $this->set('data',$this->request->data);
 	$shop = $this->Session->read('Shop');
         $this->set(compact('shop'));
+	$this->set('players',$this->Session->read('Player'));
     }
 
     public function saveplayer() {
