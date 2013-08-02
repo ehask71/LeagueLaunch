@@ -23,14 +23,14 @@
 			    foreach ($registrations AS $row) {
 				?>
 				<tr>
-				    <td><?php echo $row['Registrations']['name']; ?></td>
-				    <td><?php echo $row['Registrations']['startdate']; ?></td>
-				    <td><?php echo $row['Registrations']['enddate']; ?></td>
-				    <td><?php echo $row['Registrations']['created']; ?></td>
+				    <td><?php echo $row['Registration']['name']; ?></td>
+				    <td><?php echo $row['Registration']['startdate']; ?></td>
+				    <td><?php echo $row['Registration']['enddate']; ?></td>
+				    <td><?php echo $row['Registration']['created']; ?></td>
 				    <td>
-					<a href="/admin/forms/edit/<?=$row['Registrations']['id'];?>" class="button blue">Edit</a> 
+					<a href="/admin/forms/edit/<?=$row['Registration']['id'];?>" class="button blue">Edit</a> 
 					<?php echo $this->Form->postLink('Delete', 
-					    array('action' => 'delete', $row['Registrations']['id']),
+					    array('action' => 'delete', $row['Registration']['id']),
 					    array('class'=>'button red', 'confirm' => 'Are you sure?'));?>
 				    </td>
 				</tr>
