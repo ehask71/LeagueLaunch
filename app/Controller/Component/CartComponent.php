@@ -52,14 +52,14 @@ class CartComponent extends Component {
 			)
 		));
 		
-		$cartitems = $this->cart();
+		/*$cartitems = $this->cart();
 		if(count($cartitems['OrderItem'])>0){
 		    foreach ($cartitems['OrderItem'] AS $item){
 			if($item['product_id'] == $id){
 			    $quantity = (int)$quantity+1;
 			}
 		    }
-		}
+		}*/
 		
 		if(empty($product)) {
 			return false;
