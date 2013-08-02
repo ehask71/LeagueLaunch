@@ -69,8 +69,8 @@ class RegistrationController extends AppController {
                 'ProductsToRegistrations.id' => $id
             ),
             'joins' => array(
-                array('table' => 'products', 'alias' => 'product', 'type' => 'INNER', 'conditions' => array(
-                        'products_to_registrations.product_id = product.id'
+                array('table' => 'products', 'alias' => 'Product', 'type' => 'INNER', 'conditions' => array(
+                        'ProductsToRegistrations.product_id = Product.id'
                 ))
             )
         ));
