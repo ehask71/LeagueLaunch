@@ -51,6 +51,16 @@ class CartComponent extends Component {
 				'Products.id' => $id
 			)
 		));
+		
+		$cartitems = $this->cart();
+		if(count($cartitems['OrderItem'])>0){
+		    foreach ($cartitems['OrderItem'] AS $item){
+			if($item['product_id'] == $id){
+			    $quantity = (int)$item['quantity']+1;
+			}
+		    }
+		}
+		
 		if(empty($product)) {
 			return false;
 		}
