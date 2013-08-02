@@ -34,7 +34,7 @@
                         } else {
                             ?>
                             <tr>
-                                <td colspan="4">No Products Assigned To This Registration</td>
+                                <td colspan="4">No Upsells Assigned To This Registration</td>
                             </tr>
                             <?php
                         }
