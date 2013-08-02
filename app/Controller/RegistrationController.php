@@ -33,19 +33,34 @@ class RegistrationController extends AppController {
                 $this->request->data['Registration']['created'] = DboSource::expression('NOW()');
                 if ($this->Registration->save($this->request->data)) {
                     $id = $this->Registration->getLastInsertID();
+                    $this->Session->write('NewRegistration.regid',$id);
                     $this->redirect('/admin/registration/addproducts/'.$id);
                 }
             }
         }
     }
 
-    public function admin_addproducts($id){
+    public function admin_addproducts($id=FALSE){
+        if(!$id){
+            if($id = $this->Session->read('NewRegistration.regid')){
+                
+            } else {
+                $this->Session->setFlash(__('Missing Registration Id!'));
+                $this->redirect('/admin/registration/');
+            }
+        }
         if ($this->request->is('post') || $this->request->is('put')) {
             if($this->Products->validateRegProduct()){
-                $reg_id = $this->request->data['Products']['reg_id'];
-                unset($this->request->data['Products']['reg_id']);
+                $reg_id = $this->request->data['Products']['regid'];
+                unset($this->request->data['Products']['regid']);
                 if($this->Products->save($this->request->data())){
+                    $product_id = $this->Products->getLastInsertID();
                     // Add to the pivot table
+                    $data = array();
+                    $data['ProductsToRegistraion']['regid'] = $reg_id;
+                    $data['ProductsToRegistraion']['product_id'] = $product_id;
+                    $this->ProductsToRegistrations->save($data);
+                    $this->Session->setFlash(__('Product Saved!'));
                     
                 }
             }
