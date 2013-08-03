@@ -237,7 +237,7 @@ class RegistrationController extends AppController {
             if ($this->Order->validates()) {
                 $order = $shop;
                 $order['Order']['status'] = 1;
-
+                $order['Order']['site_id'] = Configure::read('Settings.site_id');
 
                 $save = $this->Order->saveAll($order, array('validate' => 'first'));
 
