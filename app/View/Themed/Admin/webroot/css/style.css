@@ -706,8 +706,10 @@ margin-top:5px;
 margin-bottom: 0;
 height: 50px;
 width: 200px;
-background: url(http://cdn.leaguelaunch.com/theme/admin/images/logo.png) no-repeat 0 0 scroll;
+/* background: url(http://cdn.leaguelaunch.com/theme/admin/images/logo.png) no-repeat 0 0 scroll; */
 outline: none;
+font-size: 3em;
+    content: 'Dashboard';
 }
 
 .user_info {
