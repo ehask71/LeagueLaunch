@@ -271,4 +271,19 @@ div.error-message, span.help-inline.tmp-check-required{
 div.input.error{
     max-width:600px;
     padding: 12px 20px 0px 0px;
+    
+}
+
+/* checkout tables */
+table{
+    margin: 8px 12px 12px 12px;
+    display: table;
+}
+table>thead{
+    background-color: #CED3D8;
+}
+table>thead>tr>th{
+    padding: 4px;
+    font-weight: bold;
+    text-align: center;
 }
