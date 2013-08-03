@@ -5,7 +5,7 @@
  */
 App::uses('AppController', 'Controller');
 
-class JsController extends AppController {
+class JsbController extends AppController {
     
     public $name = 'Js';
     
