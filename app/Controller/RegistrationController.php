@@ -283,7 +283,6 @@ class RegistrationController extends AppController {
     }
 
     public function paypal() {
-        $this->autoRender = false;
         $shop = $this->Session->read('Shop');
         $this->set(compact('shop'));
         $this->render('paypal');
