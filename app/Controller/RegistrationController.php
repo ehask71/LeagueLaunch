@@ -139,6 +139,7 @@ class RegistrationController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->request->data['Registration']['id'] != '') {
                 $this->Session->write('Registration.id', $this->request->data['Registration']['id']);
+                $this->Session->write('Registration.season_id', $this->request->data['Registration']['season_id']);
                 $this->redirect(array('action' => 'step1'));
             } else {
                 $this->Session->setFlash(__('Missing Registration Id. Try Again'), 'alerts/error');
@@ -161,6 +162,8 @@ class RegistrationController extends AppController {
                     $player = $this->Players->getPlayerById($k);
                     $this->Session->write('Player.' . $k . '.product', $v);
                     $this->Session->write('Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
+                    $this->Session->write('Shop.Order.Player.'.$k.'.product',$v);
+                    $this->Session->write('Shop.Order.Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
                 }
                 $this->redirect(array('action' => 'step2'));
             }
@@ -253,6 +256,10 @@ class RegistrationController extends AppController {
                     $this->Session->write('Shop.Order.regid', $shop['Order']['regid']);
                     
                     // Do the insert for Player_to_Registrations
+                    $this->loadModel('PlayersToSeasons');
+                    foreach ($shop['Order']['Player'] AS $k=>$v){
+                        $this->PlayersToSeasons->addPlayer($shop['Order']['regid'],$shop['Order']['season_id'],$k);
+                    }
                     
                     if ((Configure::read('Settings.paypal_enabled') == 'true') && $shop['Order']['order_type'] == 'paypal') {
                         $this->redirect(array('action' => 'paypal'));
