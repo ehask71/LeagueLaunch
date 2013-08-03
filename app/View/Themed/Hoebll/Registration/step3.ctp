@@ -82,7 +82,7 @@ $this->Html->scriptEnd();
             <br />
             <br />
         </div>
-            <?php echo $this->Form->input('order_type', array('class' => 'chzn-select','type'=>'select','options'=>$payment_types)); ?>
+            <?php echo $this->Form->input('order_type', array('label'=>'Payment Method','class' => 'chzn-select','type'=>'select','options'=>$payment_types)); ?>
     </div>
 
     <br />
