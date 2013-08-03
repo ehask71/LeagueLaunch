@@ -219,7 +219,7 @@ class RegistrationController extends AppController {
                 }*/
                 $this->redirect(array('action' => 'review'));
             } else {
-                $this->Session->setFlash('The form could not be saved. Please, try again.', 'flash_error');
+                $this->Session->setFlash('The form could not be saved. Please, try again.', 'alerts/error');
             }
         }
 
