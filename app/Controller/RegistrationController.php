@@ -162,7 +162,7 @@ class RegistrationController extends AppController {
                     $player = $this->Players->getPlayerById($k);
                     $this->Session->write('Player.' . $k . '.product', $v);
                     $this->Session->write('Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
-                    $this->Session->write('Shop.Order.Player.'.$k.'.product',$v);
+                    $this->Session->write('Shop.Order.Player.' . $k . '.product', $v);
                     $this->Session->write('Shop.Order.Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
                 }
                 $this->redirect(array('action' => 'step2'));
@@ -256,14 +256,13 @@ class RegistrationController extends AppController {
                     $shop['Order']['season_id'] = $this->Session->read('Registration.season_id');
                     $this->Session->write('Shop.Order.regid', $shop['Order']['regid']);
                     $this->Session->write('Shop.Order.season_id', $shop['Order']['season_id']);
-                    
+
                     // Do the insert for Player_to_Registrations
                     $this->loadModel('PlayersToSeasons');
-                    foreach ($shop['Order']['Player'] AS $k=>$v){
-                        $sid = $this->PlayersToSeasons->saveAll($this->PlayersToSeasons->addPlayer($shop['Order']['regid'],$shop['Order']['season_id'],$k,$v['product']));
-                        mail('ehask71@gmail.com', 'Add Players',' player_to_season_id:'.$this->PlayersToSeasons->getLastInsertID());
+                    foreach ($shop['Order']['Player'] AS $k => $v) {
+                        $sid = $this->PlayersToSeasons->saveAll($this->PlayersToSeasons->addPlayer($shop['Order']['regid'], $shop['Order']['season_id'], $k, $v['product']));
                     }
-                    
+
                     if ((Configure::read('Settings.paypal_enabled') == 'true') && $shop['Order']['order_type'] == 'paypal') {
                         $this->redirect(array('action' => 'paypal'));
                     }
@@ -273,20 +272,6 @@ class RegistrationController extends AppController {
                     }
 
                     if ($shop['Order']['order_type'] == 'payatfield') {
-                        $this->set(compact('shop'));
-                        App::uses('CakeEmail', 'Network/Email');
-                        $email = new CakeEmail();
-                        $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
-                                ->sender(Configure::read('Settings.admin_email'))
-                                ->replyTo(Configure::read('Settings.admin_email'))
-                                ->cc(Configure::read('Settings.admin_email'))
-                                ->to($shop['Order']['email'])
-                                ->subject(Configure::read('Settings.leaguename') . ' Order')
-                                ->template('registrationcod')
-                                ->theme(Configure::read('Settings.theme'))
-                                ->emailFormat('text')
-                                ->viewVars(array('shop' => $shop))
-                                ->send();
                         $this->redirect(array('action' => 'success'));
                     }
                 } else {
@@ -312,6 +297,21 @@ class RegistrationController extends AppController {
 
     public function success() {
         $shop = $this->Session->read('Shop');
+
+        App::uses('CakeEmail', 'Network/Email');
+        $email = new CakeEmail();
+        $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
+                ->sender(Configure::read('Settings.admin_email'))
+                ->replyTo(Configure::read('Settings.admin_email'))
+                ->cc(Configure::read('Settings.admin_email'))
+                ->to($shop['Order']['email'])
+                ->subject(Configure::read('Settings.leaguename') . ' Order')
+                ->template('registrationcod')
+                ->theme(Configure::read('Settings.theme'))
+                ->emailFormat('text')
+                ->viewVars(array('shop' => $shop))
+                ->send();
+        
         $this->Cart->clear();
         if (empty($shop)) {
             $this->redirect('/');
