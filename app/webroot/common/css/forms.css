@@ -298,6 +298,9 @@ table>thead>tr>th{
     font-weight: bold;
     text-align: center;
 }
+table>thead>tr>th:last-of-type{
+    border-right: 1px solid #CCC;
+}
 table>tbody>tr{
     border-bottom: 1px solid #CCC;
 }
