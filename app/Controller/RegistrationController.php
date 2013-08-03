@@ -246,11 +246,11 @@ class RegistrationController extends AppController {
                     $shop['Order']['order_id'] = $orderid;
                     $this->Session->write('Shop.Order.order_id',$orderid);
                     if ((Configure::read('Settings.paypal_enabled') == 'true') && $shop['Order']['order_type'] == 'paypal') {
-                        $this->redirect(array('action' => '/registration/paypal'));
+                        $this->redirect(array('action' => 'paypal'));
                     }
 
                     if ((Configure::read('Settings.authorize_net_enabled') == 'true') && $shop['Order']['order_type'] == 'authnet') {
-                        $this->redirect(array('action' => '/registration/cc'));
+                        $this->redirect(array('action' => 'cc'));
                     }
 
                     if ($shop['Order']['order_type'] == 'payatfield') {
