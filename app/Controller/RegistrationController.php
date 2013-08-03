@@ -86,8 +86,8 @@ class RegistrationController extends AppController {
         $this->set(compact('products'));
         $this->set('regid', $id);
     }
-    
-    public function admin_addupsells(){
+
+    public function admin_addupsells() {
         $site_id = Configure::read('Settings.site_id');
         $id = $this->Session->read('NewRegistration.regid');
 
@@ -131,7 +131,7 @@ class RegistrationController extends AppController {
             )
                 ));
         $this->set(compact('products'));
-        $this->set('regid', $id);   
+        $this->set('regid', $id);
     }
 
     public function index() {
@@ -162,9 +162,9 @@ class RegistrationController extends AppController {
             $i = 0;
             foreach ($this->request->data['Players'] AS $k => $v) {
                 $this->Cart->add($v, 1);
-		$player = $this->Players->getPlayerById($k);
-                $this->Session->write('Player.' . $k.'.product', $v);
-		$this->Session->write('Player.' . $k.'.player', $player['Players']['firstname'].' '.$player['Players']['lastname']);
+                $player = $this->Players->getPlayerById($k);
+                $this->Session->write('Player.' . $k . '.product', $v);
+                $this->Session->write('Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
                 $i++;
             }
             unset($this->request->data['Players']);
@@ -178,26 +178,26 @@ class RegistrationController extends AppController {
     }
 
     public function step3() {
-	if(count(@$this->request->data['Upsell'])>0){
-	    foreach ($this->request->data['Upsell'] AS $k => $v) {
-		if($v == 'yes'){
-		    $this->Cart->add($k, 1);
-		}
+        if (count(@$this->request->data['Upsell']) > 0) {
+            foreach ($this->request->data['Upsell'] AS $k => $v) {
+                if ($v == 'yes') {
+                    $this->Cart->add($k, 1);
+                }
             }
             unset($this->request->data['Upsell']);
-	}
-        $this->set('data',$this->request->data);
-	$shop = $this->Session->read('Shop');
+        }
+        $this->set('data', $this->request->data);
+        $shop = $this->Session->read('Shop');
         $this->set(compact('shop'));
-	$this->set('players',$this->Session->read('Player'));
+        $this->set('players', $this->Session->read('Player'));
     }
-    
-    public function clear(){
+
+    public function clear() {
         $this->Cart->clear();
-	$this->Session->setFlash('All item(s) removed from your shopping cart', 'alerts/info');
-	$this->redirect('/registration');
+        $this->Session->setFlash('All item(s) removed from your shopping cart', 'alerts/info');
+        $this->redirect('/registration');
     }
-    
+
     public function saveplayer() {
         $this->autoRender = false;
         if ($this->RequestHandler->isAjax()) {
