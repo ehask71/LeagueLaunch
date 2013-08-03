@@ -13,6 +13,7 @@ class PlayersToSeasons extends AppModel {
     public function addPlayer($regid,$season_id,$player,$product_id,$opts=array()){
         $data['PlayersToSeasons'] = array();
         $data['PlayersToSeasons']['regid'] = (int)$regid;
+        $data['PlayersToSeasons']['season_id'] = (int)$season_id;
         $data['PlayersToSeasons']['site_id'] = Configure::read('Settings.site_id');
         $data['PlayersToSeasons']['player_id'] = (int)$player;
         $data['PlayersToSeasons']['product_id'] = $product_id;
