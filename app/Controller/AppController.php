@@ -61,20 +61,20 @@ class AppController extends Controller {
                 // Set Needed Data (meta, domain, etc)
                 $this->set('meta_keywords', (@$settings['meta_keywords'] != '') ? @$settings['meta_keywords'] : 'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
                 $this->set('meta_description', (@$settings['meta_description'] != '') ? @$settings['meta_description'] : 'LeagueLaunch.com :: League Management Made Easy');
-                $this->set('meta_abstract','');
-		$this->set('domain', $domain);
+                $this->set('meta_abstract', '');
+                $this->set('domain', $domain);
                 $this->set('settings', $settings);
                 $this->set('site_id', $result['Sites']['site_id']);
             } else {
                 $this->set('meta_keywords', 'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
                 $this->set('meta_description', 'LeagueLaunch.com :: League Management Made Easy');
-		$this->set('meta_abstract','');
+                $this->set('meta_abstract', '');
                 throw new NotFoundException($domain . ' Was not found or is misconfigured');
             }
         } else {
             $this->set('meta_keywords', 'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
             $this->set('meta_description', 'LeagueLaunch.com :: League Management Made Easy');
-	    $this->set('meta_abstract','');
+            $this->set('meta_abstract', '');
             throw new NotFoundException($domain . ' Was not found or is misconfigured');
         }
     }
@@ -119,6 +119,34 @@ class AppController extends Controller {
         }
 
         return array($FormStructure, $FormLabel);
+    }
+
+    function afterPaypalNotification($txnId) {
+        //Here is where you can implement code to apply the transaction to your app.
+        //for example, you could now mark an order as paid, a subscription, or give the user premium access.
+        //retrieve the transaction using the txnId passed and apply whatever logic your site needs.
+        $IPN = ClassRegistry::init('PaypalIpn.InstantPaymentNotification');
+        $transaction = $IPN->findById($txnId);
+        $this->log($transaction['InstantPaymentNotification']['id'], 'paypal');
+
+        //Tip: be sure to check the payment_status is complete because failure
+        //     are also saved to your database for review.
+
+        if ($transaction['InstantPaymentNotification']['payment_status'] == 'Completed') {
+            //Yay!  We have monies!
+            $this->loadModel('Order');
+            
+            $IPN->email(array(
+                'id' => $txnId,
+                'message' => 'Thank you for your payment'
+            ));
+        } else {
+            //Oh no, better look at this transaction to determine what to do; like email a decline letter.
+            $IPN->email(array(
+                'id' => $txnId,
+                'message' => 'Your transaction was declined.'
+            ));
+        }
     }
 
 }
