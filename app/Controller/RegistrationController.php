@@ -244,7 +244,7 @@ class RegistrationController extends AppController {
                 if ($save) {
                     $orderid = $this->Order->getLastInsertID();
                     $shop['Order']['order_id'] = $orderid;
-                    $this->Session->write('Shop.Order.order_id',$orderid);
+                    $this->Session->write('Shop.Order.order_id', $orderid);
                     if ((Configure::read('Settings.paypal_enabled') == 'true') && $shop['Order']['order_type'] == 'paypal') {
                         $this->redirect(array('action' => 'paypal'));
                     }
@@ -285,18 +285,52 @@ class RegistrationController extends AppController {
         $this->render('paypal');
     }
 
+    public function paypalstep2() {
+        $token = $this->request->query['token'];
+        $paypal = $this->Paypal->GetShippingDetails($token);
+
+        $ack = strtoupper($paypal["ACK"]);
+        if ($ack == "SUCCESS" || $ack == "SUCESSWITHWARNING") {
+            $this->Session->write('Shop.Paypal.Details', $paypal);
+            $this->redirect(array('action' => 'review'));
+        } else {
+            $ErrorCode = urldecode($paypal["L_ERRORCODE0"]);
+            $ErrorShortMsg = urldecode($paypal["L_SHORTMESSAGE0"]);
+            $ErrorLongMsg = urldecode($paypal["L_LONGMESSAGE0"]);
+            $ErrorSeverityCode = urldecode($paypal["L_SEVERITYCODE0"]);
+            echo "GetExpressCheckoutDetails API call failed. ";
+            echo "Detailed Error Message: " . $ErrorLongMsg;
+            echo "Short Error Message: " . $ErrorShortMsg;
+            echo "Error Code: " . $ErrorCode;
+            echo "Error Severity Code: " . $ErrorSeverityCode;
+            die();
+        }
+    }
+
+    public function paypalstep1() {
+        $paymentAmount = $this->Session->read('Shop.Order.total');
+        if (!$paymentAmount) {
+            $this->redirect('/registration');
+        }
+        $this->Session->write('Shop.Order.order_type', 'paypal');
+        $this->Paypal->step1($paymentAmount);
+    }
+
     public function cc() {
         
     }
 
     public function success() {
-       /* $shop = $this->Session->read('Shop');
-        $this->Cart->clear();
-        if (empty($shop)) {
-            $this->redirect('/');
+        if ($this->request->is('post') || $this->request->is('put')) {
+            // Return From CC or Paypal
         }
-        * 
-        */
+        /* $shop = $this->Session->read('Shop');
+          $this->Cart->clear();
+          if (empty($shop)) {
+          $this->redirect('/');
+          }
+         * 
+         */
         $this->set(compact('shop'));
     }
 
