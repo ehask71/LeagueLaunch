@@ -1,53 +1,94 @@
-<div class="grid_12" id="body-content">
-    <h2><?php echo __('Step 3: Review and Pay'); ?></h2>
-    <div>
-	Items:
-	<table>
-	    <thead>
-		<tr>
-		    <th>Product</th>
-		    <th>Qty</th>
-		    <th>Price</th>
-		</tr>
-	    </thead>
-	    <?php
-	    if (count($shop['OrderItem']) > 0) {
-		foreach ($shop['OrderItem'] AS $item) {
-		    echo '<tr>';
-		    echo '<td>' . $item['name'] . '</td>';
-		    echo '<td>' . $item['quantity'] . '</td>';
-		    echo '<td>' . $item['price'] . '</td>';
-		    echo '</tr>';
-		    if(count($players)> 0){
-			foreach ($players AS $play){
-			    if($item['product_id'] == $play['product']){
-				echo "<tr>";
-				echo '<td colspan="3"> ---> Player: '.$play['player'].'</td>';
-				echo '</tr>';
-			    }
-			}
-		    }
+<?php
+$this->Html->scriptStart(array('block' => 'scriptBottom'));
+echo "$(document).ready(function(){
+
+	$('#OrderSameaddress').click(function(){
+
+		if($('#OrderSameaddress').attr('checked', 'checked')) {
+
+			$('#OrderShippingAddress').val($('#OrderBillingAddress').val());
+			$('#OrderShippingAddress2').val($('#OrderBillingAddress2').val());
+			$('#OrderShippingCity').val($('#OrderBillingCity').val());
+			$('#OrderShippingState').val($('#OrderBillingState').val());
+			$('#OrderShippingZip').val($('#OrderBillingZip').val());
+			$('#OrderShippingCountry').val($('#OrderBillingCountry').val());
+
+		} else {
+
+			$('#OrderShippingAddress').val('');
+			$('#OrderShippingAddress2').val('');
+			$('#OrderShippingCity').val('');
+			$('#OrderShippingState').val('');
+			$('#OrderShippingZip').val('');
+			$('#OrderShippingCountry').val('');
+
 		}
-	    }
-	    ?>
-	    <tr>
-		<td colspan="2" align="right">SubTotal:</td><td>$<?php echo $shop['Order']['subtotal'];?></td>
-	    </tr>
-	    <tr>
-		<td colspan="2" align="right">Total:</td><td>$<?php echo $shop['Order']['total'];?></td>
-	    </tr>
-	</table>
-        <?php echo $this->Form->postButton('Start Over', '/registration/clear');?>
-	<?php
-	/*echo "<pre>";
-	print_r($players);
-	print_r($data);
-	print_r($shop);*/
-	?>
+
+	});
+
+});";
+$this->Html->scriptEnd();
+?>
+<div class="grid_12" id="body-content">
+    <h2>Address</h2>
+    <?php echo $this->Form->create('Order'); ?>
+    <hr>
+    <div class="row">
+        <div class="col-lg-4">
+
+            <?php echo $this->Form->input('first_name', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('last_name', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('email', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('phone', array('class' => 'form-control')); ?>
+            <br />
+            <br />
+
+        </div>
+        <div class="col-lg-4">
+
+            <?php echo $this->Form->input('billing_address', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('billing_address2', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('billing_city', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('billing_state', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('billing_zip', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('billing_country', array('class' => 'form-control')); ?>
+            <br />
+            <br />
+
+            <?php echo $this->Form->input('sameaddress', array('type' => 'checkbox', 'label' => 'Copy Billing Address to Shipping')); ?>
+
+        </div>
+        <div class="col-lg-4">
+
+            <?php echo $this->Form->input('shipping_address', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('shipping_address2', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('shipping_city', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('shipping_state', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('shipping_zip', array('class' => 'form-control')); ?>
+            <br />
+            <?php echo $this->Form->input('shipping_country', array('class' => 'form-control')); ?>
+            <br />
+            <br />
+
+        </div>
     </div>
-    <div>
-	<h2><?php echo __('Payment Methods');?></h2>
-    </div>
+
+    <br />
+
+    <?php echo $this->Form->button('Continue', array('class' => 'btn btn-default btn-primary')); ?>
+    <?php echo $this->Form->end(); ?>
 </div>
 <div class="grid_5" id="side-bar-right">
     <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
