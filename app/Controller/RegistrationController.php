@@ -253,7 +253,9 @@ class RegistrationController extends AppController {
                     $shop['Order']['order_id'] = $orderid;
                     $this->Session->write('Shop.Order.order_id', $orderid);
                     $shop['Order']['regid'] = $this->Session->read('Registration.id');
+                    $shop['Order']['season_id'] = $this->Session->read('Registration.season_id');
                     $this->Session->write('Shop.Order.regid', $shop['Order']['regid']);
+                    $this->Session->write('Shop.Order.season_id', $shop['Order']['season_id']);
                     
                     // Do the insert for Player_to_Registrations
                     $this->loadModel('PlayersToSeasons');
