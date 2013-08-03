@@ -19,4 +19,4 @@
 ?>
 <?php echo $this->fetch('content'); ?>
 
-This email was sent using the CakePHP Framework, http://cakephp.org.
+This email was sent from <a href="http://leaguelaunch.com">League Launch Sports Team Management</a>.
