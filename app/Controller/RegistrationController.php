@@ -135,6 +135,15 @@ class RegistrationController extends AppController {
     }
 
     public function index() {
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->request->data['Registration']['id'] != '') {
+                $this->Session->write('Registration.id', $this->request->data['Registration']['id']);
+                $this->redirect(array('action' => 'step1'));
+            } else {
+                $this->Session->setFlash(__('Missing Registration Id. Try Again'), 'alerts/error');
+                $this->redirect('/registration');
+            }
+        }
         $registrations = $this->Registration->getRegistrations();
         $this->set(compact('registrations'));
     }
@@ -142,8 +151,20 @@ class RegistrationController extends AppController {
     // Show Players & Assign Registrations
     // Allow Players to be Added
     public function step1($id) {
+        $id = $this->Session->read('Registration.id');
+        // Store Results in Sessions
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->Session->write('Registration.id', $id);
+            if (count($this->request->data['Players']) > 0) {
+                foreach ($this->request->data['Players'] AS $k => $v) {
+                    $this->Cart->add($v, 1);
+                    $player = $this->Players->getPlayerById($k);
+                    $this->Session->write('Player.' . $k . '.product', $v);
+                    $this->Session->write('Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
+                }
+                $this->redirect(array('action' => 'step2'));
+            }
+        }
+        if ($id) {
             $user = $this->Auth->user();
             $registration_options = $this->ProductsToRegistrations->getRegistrationsDropdown($id);
             $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
@@ -158,16 +179,17 @@ class RegistrationController extends AppController {
     // Add to Cart the Items 
     // Display Upsells and Requirements
     public function step2() {
-        if (count($this->request->data['Players']) > 0) {
-            $i = 0;
-            foreach ($this->request->data['Players'] AS $k => $v) {
-                $this->Cart->add($v, 1);
-                $player = $this->Players->getPlayerById($k);
-                $this->Session->write('Player.' . $k . '.product', $v);
-                $this->Session->write('Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
-                $i++;
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if (count(@$this->request->data['Upsell']) > 0) {
+                foreach ($this->request->data['Upsell'] AS $k => $v) {
+                    if ($v == 'yes') {
+                        $this->Cart->add($k, 1);
+                    }
+                }
+                $this->redirect(array('action' => 'step3'));
             }
-            unset($this->request->data['Players']);
+        }
+        if (count($this->Session->read('Player')) > 0 && isset($this->Session->read('Registration.id'))) {
             $this->set('upsells', $this->ProductsToRegistrations->getUpSells($this->Session->read('Registration.id')));
             $shop = $this->Session->read('Shop');
             $this->set(compact('shop'));
@@ -177,19 +199,35 @@ class RegistrationController extends AppController {
         }
     }
 
+    //   Address
     public function step3() {
-        if (count(@$this->request->data['Upsell']) > 0) {
-            foreach ($this->request->data['Upsell'] AS $k => $v) {
-                if ($v == 'yes') {
-                    $this->Cart->add($k, 1);
-                }
-            }
-            unset($this->request->data['Upsell']);
+        $shop = $this->Session->read('Shop');
+        if (!$shop['Order']['total']) {
+            $this->Session->setFlash(__('No Registration Items!','alerts/error'));
+            $this->redirect('/registration');
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+            
         }
         $this->set('data', $this->request->data);
         $shop = $this->Session->read('Shop');
         $this->set(compact('shop'));
         $this->set('players', $this->Session->read('Player'));
+    }
+
+    public function review() {
+        $this->set('data', $this->request->data);
+        $shop = $this->Session->read('Shop');
+        $this->set(compact('shop'));
+        $this->set('players', $this->Session->read('Player'));
+    }
+
+    public function paypal() {
+        
+    }
+
+    public function authnet() {
+        
     }
 
     public function clear() {
