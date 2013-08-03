@@ -148,7 +148,8 @@
  * for instance. Each version can then have its own view cache namespace.
  * Note: The final cache file name will then be `prefix_cachefilename`.
  */
-	Configure::write('Cache.viewPrefix', $_SERVER['SERVER_NAME']);
+	//Configure::write('Cache.viewPrefix', $_SERVER['SERVER_NAME']);
+        Configure::write('Cache.viewPrefix', 'hocake');
 
 /**
  * Session configuration.
@@ -321,7 +322,8 @@ if (Configure::read('debug') > 0) {
 }
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
-$prefix = $_SERVER['SERVER_NAME'].'_';
+//$prefix = $_SERVER['SERVER_NAME'].'_';
+$prefix = 'hocake_';
 
 /**
  * Configure the cache used for general framework caching. Path information,
