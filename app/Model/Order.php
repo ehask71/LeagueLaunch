@@ -146,16 +146,16 @@ class Order extends AppModel {
         
         public function getAcceptedPayment(){
             $opts = array();
-            if(Configure::read('Settings.authorize_net_enabled') == 'true'){
-                $opts['authnet'] = 'Credit Card';
-            }
             if(Configure::read('Settings.paypal_enabled') == 'true'){
                 $opts['paypal'] = 'PayPal';
             }
             if(Configure::read('Settings.pay_at_field') == 'true'){
                 $opts['payatfield'] = 'Pay At The Field';
             }
-            mail('ehask71@gmail.com','Settings',print_r(Configure::read('Settings'),1));
+            if(Configure::read('Settings.authorize_net_enabled') == 'true'){
+                $opts['authnet'] = 'Credit Card';
+            }
+            
             return $opts;
         }
 
