@@ -261,10 +261,12 @@ class RegistrationController extends AppController {
                         $this->set(compact('shop'));
                         App::uses('CakeEmail', 'Network/Email');
                         $email = new CakeEmail();
-                        $email->from(Configure::read('Settings.admin_email'))
+                        $email->from(array('do-not-reply@leaguelaunch.com',Configure::read('Settings.leaguename')))
+                                ->sender(Configure::read('Settings.admin_email'))
+                                ->replyTo(Configure::read('Settings.admin_email'))
                                 ->cc(Configure::read('Settings.admin_email'))
                                 ->to($shop['Order']['email'])
-                                ->subject('Shop Order')
+                                ->subject(Configure::read('Settings.leaguename').' Order')
                                 ->template('registrationcod')
                                 ->theme(Configure::read('Settings.theme'))
                                 ->emailFormat('text')
