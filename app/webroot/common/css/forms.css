@@ -282,7 +282,14 @@ div.row{
 div.row .col-lg-4{
     width: 30%;
     float:left;
-    margin: 8px 6px 12px 6px;
+    margin: 8px 2px 12px 2px;
+    font-size: .92em;
+    min-height:125px;
+    padding: 0px 4px 0px 4px;
+    border-right: 1px solid #CCC;
+}
+div.row .col-lg-4:last-of-type{
+    border-right: none;
 }
 table{
     margin: 8px 12px 12px 12px;
@@ -312,4 +319,8 @@ table>tbody>tr td{
 table>tbody>tr td:last-of-type{
     border-right: 1px solid #CCC;
     text-align: right;
+}
+table>tbody>tr td.player-name{
+    text-align: left;
+    font-weight: bold;
 }
