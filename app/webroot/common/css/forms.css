@@ -308,4 +308,5 @@ table>tbody>tr td{
 }
 table>tbody>tr td:last-of-type{
     border-right: 1px solid #CCC;
+    text-align: right;
 }
