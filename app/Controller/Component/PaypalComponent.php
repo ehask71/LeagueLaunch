@@ -30,7 +30,7 @@ class PaypalComponent extends Component {
 		$this->API_Password = Configure::read('Settings.paypal_api_password');
 		$this->API_Signature = Configure::read('Settings.paypal_api_signature');
 		$this->version = 64;
-		$this->SandboxFlag = true;
+		$this->SandboxFlag = FALSE;
 		$this->returnURL = $_SERVER["SERVER_NAME"] . '/registration/paypalstep2';
 		$this->cancelURL = $_SERVER["SERVER_NAME"] . '/registration/clear';
 		$this->paymentType = 'Sale';
