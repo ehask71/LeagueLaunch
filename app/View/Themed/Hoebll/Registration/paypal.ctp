@@ -7,7 +7,7 @@ $this->Html->scriptEnd();
 ?>
 <div class="grid_12" id="body-content">
     <p>Please Click the button below to be redircted to Paypal</p>
-    <?php echo $paypal->button('Pay Now', array('amount' => $shop['Order']['total'], 
+    <?php echo $this->paypal->button('Pay Now', array('amount' => $shop['Order']['total'], 
         'item_name' => Configure::read('Settings.leaguename').' Online Registration '.Configure::read('Registration.id'),
         'business' => Configure::read('Settings.paypal_email'),
         'notify_url' => $_SERVER['SERVER_NAME'].'/paypal_ipn/process/',
