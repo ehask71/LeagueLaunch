@@ -81,7 +81,7 @@
             <a href="#" onclick="return showDialog()">Click Here For Secure Pay Form</a>
         <?php endif; ?>
     </div>
-    <div id="paydialog"></div>
+    <div id="paydialog" title="LeagueLaunch Secure Payment"></div>
     <script type="text/javascript">
         function showDialog(){
             $("#paydialog").html('<iframe id="modalIframeId" width="100%" height="100%" marginWidth="0" marginHeight="0" frameBorder="0" scrolling="auto" />').dialog("open");
