@@ -86,7 +86,7 @@ class PaypalComponent extends Component {
 ////////////////////////////////////////////////////////////
 
 	public function ConfirmPayment($FinalPaymentAmt) {
-		$paypal = $this->Session->read('Shop.Paypal');
+		$paypal = $this->Session->read('Settings.Paypal');
 		$token = urlencode($paypal['TOKEN']);
 		$paymentType = urlencode($paypal['PaymentType']);
 		$currencyCodeType = urlencode($paypal['currencyCodeType']);
