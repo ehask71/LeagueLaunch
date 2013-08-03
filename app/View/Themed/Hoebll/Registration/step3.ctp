@@ -81,8 +81,8 @@ $this->Html->scriptEnd();
             <?php echo $this->Form->input('shipping_country', array('class' => 'form-control')); ?>
             <br />
             <br />
-
         </div>
+            <?php echo $this->Form->input('order_type', array('class' => 'chzn-select','type'=>'select','options'=>$payment_types)); ?>
     </div>
 
     <br />
