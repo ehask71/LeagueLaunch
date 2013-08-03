@@ -10,6 +10,7 @@ $this->Html->scriptEnd();
         <input type="hidden" name="business" value="<?php echo Configure::read('Settings.paypal_email'); ?>">
         <input type="hidden" name="cmd" value="_xclick">
         <input type="hidden" name="rm" value="2">
+        <input type="hidden" name="invoice" value="<?php echo $shop['Order']['order_id'] ?>">
         <input type="hidden" name="amount" value="<?php echo $shop['Order']['total'] ?>">
         <input type="hidden" name="return" value="<?php echo $_SERVER["SERVER_NAME"]; ?>/registration/success">
         <input type="hidden" name="cancel_return" value="<?php echo $_SERVER["SERVER_NAME"]; ?>/registration/oops">
