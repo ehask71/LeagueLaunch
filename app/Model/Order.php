@@ -143,6 +143,20 @@ class Order extends AppModel {
 			'counterQuery' => '',
 		)
 	);
+        
+        public function getAcceptedPayment(){
+            $opts = array();
+            if(Configure::read('authorize_net_enabled') == 'true'){
+                $opts['authnet'] = 'Credit Card';
+            }
+            if(Configure::read('paypal_enabled') == 'true'){
+                $opts['paypal'] = 'PayPal';
+            }
+            if(Configure::read('pay_at_field') == 'true'){
+                $opts['payatfield'] = 'Pay At The Field';
+            }
+            return $opts;
+        }
 
 }
 
