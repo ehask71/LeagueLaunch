@@ -1,0 +1,25 @@
+<?php
+/**
+ * CakePHP PlayersToSeasons
+ * @author Eric
+ */
+App::uses('AppModel', 'Model');
+
+class PlayersToSeasons extends AppModel {
+    
+    public $primaryKey = 'id';
+    public $useTable = 'players_to_seasons';
+    
+    public function addPlayer($regid,$season_id,$player,$opts=array()){
+        $data['PlayersToSeasons'] = array();
+        $data['PlayersToSeasons']['regid'] = (int)$regid;
+        $data['PlayersToSeasons']['site_id'] = Configure::read('Settings.site_id');
+        $data['PlayersToSeasons']['player_id'] = (int)$player;
+        $data['PlayersToSeasons']['haspaid'] = (isset($opts['haspaid']))?$opts['haspaid']:0;
+        $data['PlayersToSeasons']['formcomplete'] = (isset($opts['haspaid']))?$opts['haspaid']:0;
+        $data['PlayersToSeasons']['verifydocs'] = (isset($opts['haspaid']))?$opts['haspaid']:0;
+        
+        $this->save($data);
+    }
+}
+
