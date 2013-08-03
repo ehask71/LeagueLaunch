@@ -12,6 +12,7 @@ class RegistrationController extends AppController {
     public $name = 'Registration';
     public $uses = array('Products', 'Forms', 'Players', 'Registration', 'ProductsToRegistrations');
     public $components = array('MathCaptcha', 'RequestHandler', 'Cookie', 'Cart', 'Paypal');
+    public $helpers = array('PaypalIpn.Paypal');
 
     public function beforeFilter() {
         parent::beforeFilter();
