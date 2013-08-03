@@ -206,8 +206,8 @@ class RegistrationController extends AppController {
             $this->Session->setFlash(__('No Registration Items!', 'alerts/error'));
             $this->redirect('/registration');
         }
+        $this->loadModel('Order');
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->loadModel('Order');
             $this->Order->set($this->request->data);
             if ($this->Order->validates()) {
                 $order = $this->request->data['Order'];
@@ -218,10 +218,11 @@ class RegistrationController extends AppController {
                 $this->Session->setFlash('The form could not be saved. Please, try again.', 'flash_error');
             }
         }
-        $this->set('data', $this->request->data);
+
         $shop = $this->Session->read('Shop');
         $this->set(compact('shop'));
         $this->set('players', $this->Session->read('Player'));
+        $this->set('payment_types',$this->Order->getAcceptedPayment());
     }
 
     public function review() {
