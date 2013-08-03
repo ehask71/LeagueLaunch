@@ -284,6 +284,17 @@ class RegistrationController extends AppController {
         
     }
 
+    public function success() {
+       /* $shop = $this->Session->read('Shop');
+        $this->Cart->clear();
+        if (empty($shop)) {
+            $this->redirect('/');
+        }
+        * 
+        */
+        $this->set(compact('shop'));
+    }
+
     public function clear() {
         $this->Cart->clear();
         $this->Session->setFlash('All item(s) removed from your shopping cart', 'alerts/info');
