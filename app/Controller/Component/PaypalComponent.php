@@ -48,7 +48,6 @@ class PaypalComponent extends Component {
 	public function step1($paymentAmount = 0) {
 		$resArray = $this->CallShortcutExpressCheckout($paymentAmount);
 		$ack = strtoupper($resArray['ACK']);
-                mail('ehask71@gmail.com','Paypal',print_r($resArray,1));
 		if($ack=='SUCCESS' || $ack=='SUCCESSWITHWARNING') {
 			$this->controller->redirect($this->PAYPAL_URL . $resArray['TOKEN']);
 		}
