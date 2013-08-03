@@ -266,6 +266,7 @@ class RegistrationController extends AppController {
                                 ->to($shop['Order']['email'])
                                 ->subject('Shop Order')
                                 ->template('registrationcod')
+                                ->theme(Configure::read('Settings.theme'))
                                 ->emailFormat('text')
                                 ->viewVars(array('shop' => $shop))
                                 ->send();
