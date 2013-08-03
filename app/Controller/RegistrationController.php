@@ -280,7 +280,7 @@ class RegistrationController extends AppController {
         
     }
 
-    public function authnet() {
+    public function cc() {
         
     }
 
