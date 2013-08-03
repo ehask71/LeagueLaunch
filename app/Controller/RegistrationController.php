@@ -203,11 +203,20 @@ class RegistrationController extends AppController {
     public function step3() {
         $shop = $this->Session->read('Shop');
         if (!$shop['Order']['total']) {
-            $this->Session->setFlash(__('No Registration Items!','alerts/error'));
+            $this->Session->setFlash(__('No Registration Items!', 'alerts/error'));
             $this->redirect('/registration');
         }
         if ($this->request->is('post') || $this->request->is('put')) {
-            
+            $this->loadModel('Order');
+            $this->Order->set($this->request->data);
+            if ($this->Order->validates()) {
+                $order = $this->request->data['Order'];
+                //$order['order_type'] = 'creditcard';
+                $this->Session->write('Shop.Order', $order + $shop['Order']);
+                $this->redirect(array('action' => 'review'));
+            } else {
+                $this->Session->setFlash('The form could not be saved. Please, try again.', 'flash_error');
+            }
         }
         $this->set('data', $this->request->data);
         $shop = $this->Session->read('Shop');
