@@ -31,7 +31,8 @@ Cache::config('default', array(
  		'duration' => 3600, //[optional]
  		'probability' => 100, //[optional]
   		'path' => CACHE, //[optional] use system tmp directory - remember to use absolute path
-  		'prefix' => $_SERVER['SERVER_NAME'].'_', //[optional]  prefix every cache file with this string
+  		//'prefix' => $_SERVER['SERVER_NAME'].'_', //[optional]  prefix every cache file with this string
+                'prefix' => 'hocake_',
   		'lock' => false, //[optional]  use file locking
   		'serialize' => true, //[optional]
  	));
