@@ -31,8 +31,8 @@ class PaypalComponent extends Component {
 		$this->API_Signature = Configure::read('Settings.PAYPAL_API_SIGNATURE');
 		$this->version = 64;
 		$this->SandboxFlag = true;
-		$this->returnURL = Configure::read('Settings.WEBSITE') . '/shop/step2';
-		$this->cancelURL = Configure::read('Settings.WEBSITE') . '/shop/cart';
+		$this->returnURL = $_SERVER["SERVER_NAME"] . '/registration/paypalstep2';
+		$this->cancelURL = $_SERVER["SERVER_NAME"] . '/registration/clear';
 		$this->paymentType = 'Sale';
 		$this->currencyCodeType = 'USD';
 		$this->sBNCode = 'PP-ECWizard';
