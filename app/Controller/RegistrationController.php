@@ -214,9 +214,9 @@ class RegistrationController extends AppController {
                 $order = $this->request->data['Order'];
                 //$order['order_type'] = 'creditcard';
                 $this->Session->write('Shop.Order', $order + $shop['Order']);
-               /* if ($this->request->data['Order']['order_type'] == 'paypal') {
-                    $this->redirect(array('action' => 'paypalstep1'));
-                }*/
+                /* if ($this->request->data['Order']['order_type'] == 'paypal') {
+                  $this->redirect(array('action' => 'paypalstep1'));
+                  } */
                 $this->redirect(array('action' => 'review'));
             } else {
                 $this->Session->setFlash('The form could not be saved. Please, try again.', 'alerts/error');
@@ -261,12 +261,12 @@ class RegistrationController extends AppController {
                         $this->set(compact('shop'));
                         App::uses('CakeEmail', 'Network/Email');
                         $email = new CakeEmail();
-                        $email->from(array('do-not-reply@leaguelaunch.com'=>Configure::read('Settings.leaguename')))
+                        $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
                                 ->sender(Configure::read('Settings.admin_email'))
                                 ->replyTo(Configure::read('Settings.admin_email'))
                                 ->cc(Configure::read('Settings.admin_email'))
                                 ->to($shop['Order']['email'])
-                                ->subject(Configure::read('Settings.leaguename').' Order')
+                                ->subject(Configure::read('Settings.leaguename') . ' Order')
                                 ->template('registrationcod')
                                 ->theme(Configure::read('Settings.theme'))
                                 ->emailFormat('text')
@@ -327,16 +327,11 @@ class RegistrationController extends AppController {
     }
 
     public function success() {
-        if ($this->request->is('post') || $this->request->is('put')) {
-            // Return From CC or Paypal
+        $shop = $this->Session->read('Shop');
+        $this->Cart->clear();
+        if (empty($shop)) {
+            $this->redirect('/');
         }
-        /* $shop = $this->Session->read('Shop');
-          $this->Cart->clear();
-          if (empty($shop)) {
-          $this->redirect('/');
-          }
-         * 
-         */
         $this->set(compact('shop'));
     }
 
