@@ -19,4 +19,4 @@
 ?>
 <?php echo $this->fetch('content'); ?>
 
-This email was sent from <a href="http://leaguelaunch.com">League Launch Sports Team Management</a>.
+This email was sent from http://leaguelaunch.com ~ League Launch Sports Team Management.
