@@ -1,5 +1,6 @@
 <div class="grid_12" id="body-content">
     <p>Please Click the button below to be redirected to PayPal to complete Payment</p>
+    <br/><br/>
     <div class="payment_button">
     <?php echo $this->paypal->button('Pay Now', array('amount' => $shop['Order']['total'], 
         'item_name' => Configure::read('Settings.leaguename').' Online Registration '.Configure::read('Registration.id'),
