@@ -15,7 +15,7 @@ Order Items:
 if (count($shop['OrderItem']) > 0) {
     $i=1;
     foreach ($shop['OrderItem'] AS $item) {
-        echo $i.'     '.$item['name'] . '      Qty:'. $item['quantity'] . ' @  $'. $item['price']."\r\n";
+        echo "#".$i.'     '.$item['name'] . '      Qty:'. $item['quantity'] . ' @  $'. $item['price']."\r\n";
         $players = $this->Session->read('Player');
         if (count($players) > 0) {
             foreach ($players AS $play) {
@@ -30,3 +30,5 @@ if (count($shop['OrderItem']) > 0) {
     echo 'Total: $'.$shop['Order']['total']."\r\n";
 }
 ?>
+
+
