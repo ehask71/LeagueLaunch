@@ -14,7 +14,7 @@ Registration Id: <?php echo Configure::read('Registration.id')."\r\n"; ?>
 <?php
 if (count($shop['OrderItem']) > 0) {
     $i=1;
-    echo 'Item#      Item';
+    echo 'Item#      Item'."\r\n";
     foreach ($shop['OrderItem'] AS $item) {
         echo $i.'  '.$item['name'] . '      Qty:'. $item['quantity'] . ' @  $'. $item['price']."\r\n";
         $players = $this->Session->read('Player');
