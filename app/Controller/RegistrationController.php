@@ -150,7 +150,7 @@ class RegistrationController extends AppController {
 
     // Show Players & Assign Registrations
     // Allow Players to be Added
-    public function step1($id) {
+    public function step1() {
         $id = $this->Session->read('Registration.id');
         // Store Results in Sessions
         if ($this->request->is('post') || $this->request->is('put')) {
