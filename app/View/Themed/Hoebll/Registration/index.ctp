@@ -27,11 +27,17 @@
                 <tbody>
                     <?php
                     if(count($registrations) > 0){
+                        $i=1;
                         foreach ($registrations AS $reg){
                             ?>
                     <tr>
                         <td>
-                            <?php echo $this->Form->postLink(__($reg['Registration']['name']),array('action'=>'step1',$reg['Registration']['id']));?>
+                            <?php
+                            echo '<form action="/registration/index" name="post_'.$i.'" id="post_'.$i.'" method="POST">';
+                            echo '<input type="hidden" name="data[Registration][id]" value="'.$reg['Registration']['id'].'"/></form>';
+                            echo '<a href="#" class="registrationPostLink" onclick="document.post_'.$i.'.submit(); event.returnValue = false; return false;">'.__($reg['Registration']['name']).'</a>';
+                            $i++;
+                            ?>
                         </td>
                     </tr>
                             <?php
