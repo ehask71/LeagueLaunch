@@ -71,7 +71,7 @@ class PaypalHelper extends AppHelper {
         $options = array_merge($defaults, $options);
         $options['type'] = (isset($options['type'])) ? $options['type'] : "paynow";
         $img = (isset($options['image_button'])) ? $options['image_button'] : FALSE;
-
+        unset($options['image_button']);
         switch ($options['type']) {
             case 'subscribe': //Subscribe
                 $options['cmd'] = '_xclick-subscriptions';
