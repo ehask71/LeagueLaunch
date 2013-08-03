@@ -26,9 +26,9 @@ class PaypalComponent extends Component {
 
 	public function initialize(Controller $controller) {
 
-		$this->API_UserName = Configure::read('Settings.PAYPAL_API_USERNAME');
-		$this->API_Password = Configure::read('Settings.PAYPAL_API_PASSWORD');
-		$this->API_Signature = Configure::read('Settings.PAYPAL_API_SIGNATURE');
+		$this->API_UserName = Configure::read('Settings.paypal_api_username');
+		$this->API_Password = Configure::read('Settings.paypal_api_password');
+		$this->API_Signature = Configure::read('Settings.paypal_api_signature');
 		$this->version = 64;
 		$this->SandboxFlag = true;
 		$this->returnURL = $_SERVER["SERVER_NAME"] . '/registration/paypalstep2';
