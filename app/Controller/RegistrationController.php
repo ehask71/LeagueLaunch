@@ -242,7 +242,9 @@ class RegistrationController extends AppController {
                 $save = $this->Order->saveAll($order, array('validate' => 'first'));
 
                 if ($save) {
-
+                    $orderid = $this->Order->getLastInsertID();
+                    $shop['Order']['order_id'] = $orderid;
+                    $this->Session->write('Shop.Order.order_id',$orderid);
                     if ((Configure::read('Settings.paypal_enabled') == 'true') && $shop['Order']['order_type'] == 'paypal') {
                         $this->redirect(array('action' => '/registration/paypal'));
                     }
@@ -277,7 +279,8 @@ class RegistrationController extends AppController {
     }
 
     public function paypal() {
-        
+        $shop = $this->Session->read('Shop');
+        $this->set(compact('shop'));
     }
 
     public function cc() {
