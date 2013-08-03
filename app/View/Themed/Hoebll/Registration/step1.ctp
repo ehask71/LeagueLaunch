@@ -5,7 +5,7 @@
         echo '<div>';
         echo '<h2>'.__('Step 1: Players').'</h2>';
 	echo '<p>'.__('Select the Registration Option for each player. If a Player is not being registered leave them with "Please Select An Option"').'</p>';
-        echo $this->Form->create(FALSE, array('type' => 'file', 'action' => 'step2'));
+        echo $this->Form->create(FALSE, array('type' => 'file', 'action' => 'step1'));
         foreach ($players as $key => $value) {
             echo $this->Form->input('Players.'.$value['Players']['player_id'], array('label' => $value['Players']['firstname'] . ' ' . $value['Players']['lastname'], 'type' => 'select', 'class' => 'chzn-select', 'options' => $registration_options));
         }
