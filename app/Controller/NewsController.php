@@ -57,7 +57,15 @@ class NewsController extends AppController {
 	}
 	
     }
-    
+    public function admin_delete($id){
+	if ($this->request->is('post')) {
+	    if ($this->News->delete($id)) {
+		$this->Session->setFlash(__('The News Article was Deleted!'),'default',array('class'=>'alert succes_msg'));
+		$this->redirect('/admin/news');
+	    }
+	}
+	
+    }
     public function admin_edit($id){
 	$new = $this->News->find('first',array('conditions' => array(
 	    'News.id'=>$id,
