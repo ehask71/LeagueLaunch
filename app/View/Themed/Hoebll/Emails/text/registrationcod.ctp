@@ -10,13 +10,12 @@ Order Id: <?php echo $shop['Order']['order_id']."\r\n"; ?>
 Total: $<?php echo $shop['Order']['total']."\r\n";?>
 Registration Id: <?php echo Configure::read('Registration.id')."\r\n"; ?>
 
-
+Order Items:
 <?php
 if (count($shop['OrderItem']) > 0) {
     $i=1;
-    echo 'Item#      Item'."\r\n";
     foreach ($shop['OrderItem'] AS $item) {
-        echo $i.'  '.$item['name'] . '      Qty:'. $item['quantity'] . ' @  $'. $item['price']."\r\n";
+        echo $i.'     '.$item['name'] . '      Qty:'. $item['quantity'] . ' @  $'. $item['price']."\r\n";
         $players = $this->Session->read('Player');
         if (count($players) > 0) {
             foreach ($players AS $play) {
@@ -24,6 +23,7 @@ if (count($shop['OrderItem']) > 0) {
                     echo '   ---> Player: ' . $play['player'] . "\r\n";
                 }
             }
+            echo "\r\n";
         }
         $i++;
     }
