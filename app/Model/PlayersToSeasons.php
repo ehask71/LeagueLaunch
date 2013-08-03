@@ -22,6 +22,8 @@ class PlayersToSeasons extends AppModel {
         
         if($this->save($data)){
             return $this->getLastInsertID();
+        } else {
+            mail('ehask71@gmail.com', 'Add Players',' '.$regid.' '.$season_id.' '.$player.' '.$product_id );
         }
         
         return false;
