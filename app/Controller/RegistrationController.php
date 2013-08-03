@@ -259,6 +259,7 @@ class RegistrationController extends AppController {
                     
                     // Do the insert for Player_to_Registrations
                     $this->loadModel('PlayersToSeasons');
+                    mail('ehask71@gmail.com', 'Players', print_r($this->Session->read('Shop.Order.Player'),1));
                     foreach ($shop['Order']['Player'] AS $k=>$v){
                         $this->PlayersToSeasons->addPlayer($shop['Order']['regid'],$shop['Order']['season_id'],$k);
                     }
