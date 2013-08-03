@@ -275,9 +275,19 @@ div.input.error{
 }
 
 /* checkout tables */
+div.row{
+    margin: 0px;
+}
+
+div.row .col-lg-4{
+    width: 30%;
+    float:left;
+    margin: 8px 6px 12px 6px;
+}
 table{
     margin: 8px 12px 12px 12px;
     display: table;
+    width:  100%;
 }
 table>thead{
     background-color: #CED3D8;
@@ -286,4 +296,8 @@ table>thead>tr>th{
     padding: 4px;
     font-weight: bold;
     text-align: center;
+}
+table>tbody>tr>td{
+    padding: 6px 4px 6px 4px;
+    text-align: left;
 }
