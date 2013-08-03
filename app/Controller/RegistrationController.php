@@ -213,6 +213,9 @@ class RegistrationController extends AppController {
                 $order = $this->request->data['Order'];
                 //$order['order_type'] = 'creditcard';
                 $this->Session->write('Shop.Order', $order + $shop['Order']);
+                if($this->request->data['Order']['order_type'] == 'paypal'){
+                    $this->redirect(array('action'=>'paypalstep1'));
+                }
                 $this->redirect(array('action' => 'review'));
             } else {
                 $this->Session->setFlash('The form could not be saved. Please, try again.', 'flash_error');
