@@ -1,5 +1,5 @@
 <div class="grid_12" id="body-content">
-    <h2><?php echo __('Step 3: Review and Pay'); ?></h2>
+    <h2><?php echo __('Step 3: Review'); ?></h2>
     <hr>
     <div class="row">
         <div class="col-lg-4">
@@ -77,27 +77,8 @@
     </div>
 
     <div>
-        <?php if ($shop['Order']['order_type'] == 'authnet'): ?>
-            <a href="#" onclick="return showDialog()">Click Here For Secure Pay Form</a>
-        <?php endif; ?>
+        <?php echo $this->Form->postButton('Payment', '/registration/review'); ?>
     </div>
-    <div id="paydialog" title="LeagueLaunch Secure Payment"></div>
-    <script type="text/javascript">
-        function showDialog(){
-            $("#paydialog").html('<iframe id="modalIframeId" width="100%" height="100%" marginWidth="0" marginHeight="0" frameBorder="0" scrolling="auto" />').dialog("open");
-            $("#modalIframeId").attr("src","https://www.leaguelaunch.com");
-            return false;
-        }
- 
-        $(document).ready(function() {
-            $("#paydialog").dialog({
-                autoOpen: false,
-                modal: true,
-                height: 500,
-                width: 500
-            });
-        });
-    </script>
 </div>
 <div class="grid_5" id="side-bar-right">
     <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
