@@ -8,7 +8,8 @@ render payment before your player(s) will become eligible to play in the league.
 Date: <?php echo date('m-d-Y')."\r\n"; ?>
 Order Id: <?php echo $shop['Order']['order_id']."\r\n"; ?>
 Total: $<?php echo $shop['Order']['total']."\r\n";?>
-Registration Id: <?php echo Configure::read('Registration.id')."\r\n"; ?>
+Registration Id: <?php echo $shop['Order']['regid']."\r\n"; ?>
+Season Id: <?php echo $shop['Order']['season_id']."\r\n"; ?>
 
 Order Items:
 <?php
