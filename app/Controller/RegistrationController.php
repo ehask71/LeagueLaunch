@@ -259,10 +259,9 @@ class RegistrationController extends AppController {
                     
                     // Do the insert for Player_to_Registrations
                     $this->loadModel('PlayersToSeasons');
-                    mail('ehask71@gmail.com', 'Players', print_r($this->Session->read('Shop.Order.Player'),1));
                     foreach ($shop['Order']['Player'] AS $k=>$v){
-                        $sid = $this->PlayersToSeasons->addPlayer($shop['Order']['regid'],$shop['Order']['season_id'],$k,$v['product']);
-                        mail('ehask71@gmail.com', 'Add Players',' player_to_season_id:'.$sid);
+                        $sid = $this->PlayersToSeasons->saveAll($this->PlayersToSeasons->addPlayer($shop['Order']['regid'],$shop['Order']['season_id'],$k,$v['product']));
+                        mail('ehask71@gmail.com', 'Add Players',' player_to_season_id:'.$this->PlayersToSeasons->getLastInsertID());
                     }
                     
                     if ((Configure::read('Settings.paypal_enabled') == 'true') && $shop['Order']['order_type'] == 'paypal') {
