@@ -11,7 +11,7 @@
                 <li><a href="/staff/board" title="{SITENAME} Staff: Board Page">Board members</a></li>
             </ul>
         </li>
-        <li><a href="/sponsors" title="{SITENAME} Sponsors Page">Home</a></li>
+        <li><a href="/sponsors" title="{SITENAME} Sponsors Page">Sponsors</a></li>
 
     </ul>
 </div>
