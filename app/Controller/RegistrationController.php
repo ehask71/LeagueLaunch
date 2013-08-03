@@ -222,12 +222,56 @@ class RegistrationController extends AppController {
         $shop = $this->Session->read('Shop');
         $this->set(compact('shop'));
         $this->set('players', $this->Session->read('Player'));
-        $this->set('payment_types',$this->Order->getAcceptedPayment());
+        $this->set('payment_types', $this->Order->getAcceptedPayment());
     }
 
     public function review() {
         $this->set('data', $this->request->data);
         $shop = $this->Session->read('Shop');
+
+        if ($this->request->is('post')) {
+
+            $this->loadModel('Order');
+
+            $this->Order->set($this->request->data);
+            if ($this->Order->validates()) {
+                $order = $shop;
+                $order['Order']['status'] = 1;
+
+
+                $save = $this->Order->saveAll($order, array('validate' => 'first'));
+
+                if ($save) {
+
+                    if ((Configure::read('Settings.paypal_enabled') == 'true') && $shop['Order']['order_type'] == 'paypal') {
+                        $this->redirect(array('action' => '/registration/paypal'));
+                    }
+
+                    if ((Configure::read('Settings.authorize_net_enabled') == 'true') && $shop['Order']['order_type'] == 'authnet') {
+                        $this->redirect(array('action' => '/registration/cc'));
+                    }
+
+                    if ($shop['Order']['order_type'] == 'payatfield') {
+                        $this->set(compact('shop'));
+                        App::uses('CakeEmail', 'Network/Email');
+                        $email = new CakeEmail();
+                        $email->from(Configure::read('Settings.admin_email'))
+                                ->cc(Configure::read('Settings.admin_email'))
+                                ->to($shop['Order']['email'])
+                                ->subject('Shop Order')
+                                ->template('order')
+                                ->emailFormat('text')
+                                ->viewVars(array('shop' => $shop))
+                                ->send();
+                        $this->redirect(array('action' => 'success'));
+                    }
+                } else {
+                    $errors = $this->Order->invalidFields();
+                    $this->set(compact('errors'));
+                }
+            }
+        }
+
         $this->set(compact('shop'));
         $this->set('players', $this->Session->read('Player'));
     }
