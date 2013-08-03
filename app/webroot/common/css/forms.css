@@ -193,7 +193,7 @@ div.input.checkbox input[type=checkbox]+label:before {
 	margin-top: -15px;
 }
 
-div.submit input[type=submit], div.btn-group input[type=submit], input[type=submit] {
+div.submit input[type=submit], div.btn-group input[type=submit], button[type=submit] {
     border-top: 1px solid #97f7c4;
    background: #40a152;
    background: -webkit-gradient(linear, left top, left bottom, from(#65c45c), to(#40a152));
@@ -215,12 +215,12 @@ div.submit input[type=submit], div.btn-group input[type=submit], input[type=subm
    text-decoration: none;
    vertical-align: middle;
    }
-div.submit input[type=submit]:hover, div.btn-group input[type=submit]:hover, input[type=submit]:hover {
+div.submit input[type=submit]:hover, div.btn-group input[type=submit]:hover, button[type=submit]:hover {
    border-top-color: #329c46;
    background: #329c46;
    color: #ccc;
    }
-div.submit input[type=submit]:active, div.control-group input[type=submit]:active, input[type=submit]:active {
+div.submit input[type=submit]:active, div.control-group input[type=submit]:active, button[type=submit]:active {
     border-top-color: #32b560;
    background: #32b560;
    }
@@ -282,7 +282,14 @@ div.row{
 div.row .col-lg-4{
     width: 30%;
     float:left;
-    margin: 8px 6px 12px 6px;
+    margin: 8px 2px 12px 2px;
+    font-size: .92em;
+    min-height:125px;
+    padding: 0px 4px 0px 4px;
+    border-right: 1px solid #CCC;
+}
+div.row .col-lg-4:last-of-type{
+    border-right: none;
 }
 table{
     margin: 8px 12px 12px 12px;
@@ -298,6 +305,9 @@ table>thead>tr>th{
     font-weight: bold;
     text-align: center;
 }
+table>thead>tr>th:last-of-type{
+    border-right: 1px solid #CCC;
+}
 table>tbody>tr{
     border-bottom: 1px solid #CCC;
 }
@@ -308,4 +318,9 @@ table>tbody>tr td{
 }
 table>tbody>tr td:last-of-type{
     border-right: 1px solid #CCC;
+    text-align: right;
+}
+table>tbody>tr td.player-name{
+    text-align: left;
+    font-weight: bold;
 }
