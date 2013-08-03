@@ -77,7 +77,7 @@
     </div>
 
     <div>
-        <?php if ($shop['Order']['order_type'] == 'creditcard'): ?>
+        <?php if ($shop['Order']['order_type'] == 'authnet'): ?>
             <a href="#" onclick="$('#dialog').append($('<iframe />').attr('src', 'https://www.leaguelaunch.com')).dialog({dialogoptions});">Click Here For Secure Pay Form</a>
         <?php endif; ?>
     </div>
