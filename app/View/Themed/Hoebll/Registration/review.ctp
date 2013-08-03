@@ -77,8 +77,11 @@
     </div>
 
     <div>
-        <h2><?php echo __('Payment Methods'); ?></h2>
+        <?php if ($shop['Order']['order_type'] == 'creditcard'): ?>
+            <a href="#" onclick="$('#dialog').append($('<iframe />').attr('src', 'https://www.leaguelaunch.com')).dialog({dialogoptions});">Click Here For Secure Pay Form</a>
+        <?php endif; ?>
     </div>
+    <div id="dialog"></div>
 </div>
 <div class="grid_5" id="side-bar-right">
     <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
