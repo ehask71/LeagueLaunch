@@ -40,6 +40,7 @@ class DivisionsController extends AppController {
 	);
 	$divisions = $this->paginate('Divisions');
 	$this->set(compact('divisions'));
+        $this->set('divdropdown',$this->Divisions->getDivisionsDropdown());
     }
     
     public function admin_delete($id){
