@@ -65,7 +65,7 @@ class Divisions extends AppModel {
         ));
         
         foreach($opts AS $row){
-            $rtn[$row['Division']['division_id']] = $row['Division']['name'] .' ($'.$row['Products']['price'].')';
+            $rtn[$row['Divisions']['division_id']] = $row['Divisions']['name'] .' ($'.$row['Products']['price'].')';
         }
         return $opts;
     }
