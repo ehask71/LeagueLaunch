@@ -38,6 +38,7 @@
 	    <div class="left">
 		Check Back Soon!
 	    </div>
+	    <div class="clear"></div>
 	</li>
     </ul>
 </div>
