@@ -38,11 +38,13 @@ class SeasonController extends AppController {
     }
 
     public function admin_new() {
-        if ($this->Season->seasonValidate()) {
-            $this->request->data['Season']['site_id'] = Configure::read('Settings.site_id');
-            $this->Season->save($this->request->data, false);
-            $this->Season->setFlash(__('The Season was Added!'), 'default', array('class' => 'alert succes_msg'));
-            $this->redirect('/admin/season');
+        if ($this->request->is('post')) {
+            if ($this->Season->seasonValidate()) {
+                $this->request->data['Season']['site_id'] = Configure::read('Settings.site_id');
+                $this->Season->save($this->request->data, false);
+                $this->Session->setFlash(__('The Season was Added!'), 'default', array('class' => 'alert succes_msg'));
+                $this->redirect('/admin/season');
+            }
         }
 
         $this->set('heading', 'New Season');
