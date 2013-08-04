@@ -27,7 +27,7 @@ class HomeController extends AppController {
     }
     
     public function admin_settings(){
-	
+	$this->redirect(array('controller'=>'Sites','action'=>'admin_settings'));
     }
 
     public function notconfigured(){
