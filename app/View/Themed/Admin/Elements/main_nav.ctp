@@ -5,9 +5,18 @@
 	    <li><?php echo $this->html->link(__('Settings'), array('prefix' => 'admin', 'controller' => 'sites', 'action' => 'settings')); ?></li>
 	</ul>
     </li>
+    <li><a href="#">League<span class="icon6"></span></a>
+	<ul>	 
+	    <li><?php echo $this->html->link(__('Seasons'), array('prefix' => 'admin', 'controller' => 'season')); ?></li>
+	    <li><?php echo $this->html->link(__('Divisions'), array('prefix' => 'admin', 'controller' => 'divisions')); ?></li>
+	    <li><?php echo $this->html->link(__('Seasons'), array('prefix' => 'admin', 'controller' => 'teams')); ?></li>
+	</ul>
+    </li>
     <li><a href="#">Plugins<span class="icon6"></span></a>
 	<ul>	 
 	    <li><?php echo $this->html->link(__('Fundraisers'), array('prefix' => 'admin', 'controller' => 'fundraising')); ?></li>
+	    <li><?php echo $this->html->link(__('Scheduler'), array('prefix' => 'admin', 'controller' => 'home')); ?></li>
+	    <li><?php echo $this->html->link(__('Random Teams'), array('prefix' => 'admin', 'controller' => 'home')); ?></li>
 	</ul>
     </li>
     <li><?php echo $this->html->link(__('Accounts') . '<span class="icon2"></span>', array('prefix' => 'admin', 'controller' => 'account'), array('escape' => FALSE)); ?></li>
