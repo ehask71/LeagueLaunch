@@ -58,7 +58,7 @@ class LeagueAgeComponent extends Component {
                         $error = true;
                     }
                 }
-                $row['Players']['registration_options'] = array();
+                $row['Players']['registration_options'] = array('' => 'Please Select An Option');
                 foreach ($options AS $opts) {
                     if (Configure::read('Settings.leagueage.use_leagueage') == 'true') {
                         if (!$error) {
