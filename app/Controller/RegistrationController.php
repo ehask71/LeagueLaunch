@@ -328,7 +328,8 @@ class RegistrationController extends AppController {
     public function saveplayer() {
         $this->autoRender = false;
         if ($this->RequestHandler->isAjax()) {
-            
+            mail('ehask71@gmail.com', 'LeagueAge', $this->LeagueAge->calculateLeagueAge($this->request->data['birthday']).' '.$this->request->data['birthday']);
+            $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['birthday']);
             if ($this->Players->save($this->request->data)) {
                 echo '<b>' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' Added!</b>';
             }
