@@ -58,6 +58,7 @@ class Settings extends AppModel {
 	// Store Our Site_id for use elsewhere
 	Configure::write("Settings.site_id", $site['site_id']);
         Configure::write("Settings.leaguename",$site['leaguename']);
+        Configure::write('Settings.sport',$site['sport']);
 
 	return $settings;
     }
