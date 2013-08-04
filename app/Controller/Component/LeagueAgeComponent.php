@@ -33,19 +33,17 @@ class LeagueAgeComponent extends Component {
     }
 
     public function calculateLeagueAge($birthdate) {
-        $this->birtdate = $birthdate;
+
         $sport = (!isset($this->divisor[$this->Sport])) ? 'baseball' : $this->Sport;
         $now = date('Y-m-d');
         if(function_exists('date_diff')){
-            $diff = date_diff(date_create($this->birthdate), date_create($now));
+            $diff = date_diff(date_create($birthdate), date_create($now));
         } else {
-            $diff = $this->date_diff($this->birthdate, $now);
+            $diff = $this->date_diff($birthdate, $now);
             mail('ehask71@gmail.com', 'LeagueAge',$birthdate.' '.$now.' '.$diff);
         }
 
-        $this->leagueAge = $diff / $this->divisor[$sport];
-
-        return $this->leagueAge;
+        return $diff / $this->divisor[$sport];
     }
 
     public function date_diff($date1, $date2) {
