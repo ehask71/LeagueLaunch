@@ -10,7 +10,7 @@ App::uses('CakeEmail', 'Network/Email');
 class RegistrationController extends AppController {
 
     public $name = 'Registration';
-    public $uses = array('Products', 'Forms', 'Players', 'Registration','Division', 'Season', 'ProductsToRegistrations');
+    public $uses = array('Products', 'Forms', 'Players', 'Registration','Divisions', 'Season', 'ProductsToRegistrations');
     public $components = array('MathCaptcha', 'RequestHandler', 'Cookie', 'Cart', 'LeagueAge');
     public $helpers = array('PaypalIpn.Paypal');
 
@@ -174,7 +174,7 @@ class RegistrationController extends AppController {
         if ($id) {
             $user = $this->Auth->user();
             //$registration_options = $this->ProductsToRegistrations->getRegistrationsDropdown($id);
-            $registration_options = $this->Division->getParentDivisionsWproduct();
+            $registration_options = $this->Divisions->getParentDivisionsWproduct();
             $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
             $this->set(compact('registration_options'));
             $this->set(compact('players'));
