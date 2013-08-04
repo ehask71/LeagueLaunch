@@ -36,7 +36,7 @@
                             echo '<form action="/registration/index" name="post_'.$i.'" id="post_'.$i.'" method="POST">';
                             echo '<input type="hidden" name="data[Season][id]" value="'.$reg['Season']['id'].'"/>';
                             echo '</form>';
-                            echo '<a href="#" class="registrationPostLink" onclick="document.post_'.$i.'.submit(); event.returnValue = false; return false;">'.__($reg['Registration']['name']).'</a>';
+                            echo '<a href="#" class="registrationPostLink" onclick="document.post_'.$i.'.submit(); event.returnValue = false; return false;">'.__($reg['Season']['name']).'</a>';
                             $i++;
                             ?>
                         </td>
