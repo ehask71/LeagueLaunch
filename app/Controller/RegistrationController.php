@@ -10,7 +10,7 @@ App::uses('CakeEmail', 'Network/Email');
 class RegistrationController extends AppController {
 
     public $name = 'Registration';
-    public $uses = array('Products', 'Forms', 'Players', 'Registration','Divisions', 'Season', 'ProductsToRegistrations');
+    public $uses = array('Products', 'Forms', 'Players', 'Registration', 'Divisions', 'Season', 'ProductsToRegistrations');
     public $components = array('MathCaptcha', 'RequestHandler', 'Cookie', 'Cart', 'LeagueAge');
     public $helpers = array('PaypalIpn.Paypal');
 
@@ -161,7 +161,7 @@ class RegistrationController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count($this->request->data['Players']) > 0) {
                 foreach ($this->request->data['Players'] AS $k => $v) {
-                    $product = $this->Products->getProductsByDivision($v,$this->Session->read('Season.id'));
+                    $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
                     $this->Cart->add($product['Products']['id'], 1);
                     $player = $this->Players->getPlayerById($k);
                     $this->Session->write('Player.' . $k . '.product', $product['Products']['id']);
@@ -199,9 +199,14 @@ class RegistrationController extends AppController {
             }
         }
         if (count($this->Session->read('Player')) > 0 && $this->Session->read('Season.id') != '') {
-            $this->set('upsells', $this->Products->getUpSells());
-            $shop = $this->Session->read('Shop');
-            $this->set(compact('shop'));
+            $upSells = $this->Products->getUpSells();
+            if (count($upSells) > 0) {
+                $this->set('upsells', $this->Products->getUpSells());
+                $shop = $this->Session->read('Shop');
+                $this->set(compact('shop'));
+            } else {
+                $this->redirect(array('action' => 'step'));
+            }
         } else {
             $this->Session->setFlash(__('No Players Selected'), 'alerts/error');
             $this->redirect('/registration/step1');
