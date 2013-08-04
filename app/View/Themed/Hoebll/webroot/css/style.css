@@ -20,7 +20,9 @@ a{ text-decoration: none;}
 	padding: 0px;
 	margin:0px;
 }
-
+.grid_16_nospace+ll-alert-info{
+	background-color: #FFF;
+}
 /* header elements */
 header{
 	background: url(http://cdn.leaguelaunch.com/theme/hoebll/images/eastbay-header.jpg) center top scroll transparent no-repeat;
