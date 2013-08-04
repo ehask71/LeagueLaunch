@@ -29,6 +29,13 @@
 				'class' => 'i-format',
 				'label' => 'Add New Division'
 			    ));?>
+                <?=
+                $this->Form->input('age', array(
+                    'class' => 'i-format',
+                    'label' => 'League Ages'
+                ));
+                ?>
+                <small>Comma Seperated ex: 14,15</small>
                    <?=$this->Form->input('parent',array(
 				'class' => 'i-format',
 				'label' => 'Parent Division',
