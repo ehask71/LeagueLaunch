@@ -10,7 +10,7 @@ App::uses('CakeEmail', 'Network/Email');
 class RegistrationController extends AppController {
 
     public $name = 'Registration';
-    public $uses = array('Products', 'Forms', 'Players', 'Registration', 'ProductsToRegistrations');
+    public $uses = array('Products', 'Forms', 'Players', 'Registration','Division', 'Season', 'ProductsToRegistrations');
     public $components = array('MathCaptcha', 'RequestHandler', 'Cookie', 'Cart', 'LeagueAge');
     public $helpers = array('PaypalIpn.Paypal');
 
@@ -21,8 +21,12 @@ class RegistrationController extends AppController {
 
     // Admin 
     public function admin_index() {
-        $registrations = $this->Registration->find('all', array(
-            'conditions' => array('Registration.site_id' => Configure::read('Settings.site_id'))
+        $registrations = $this->Season->find('all', array(
+            'conditions' => array('Season.site_id' => Configure::read('Settings.site_id'),
+                'and' => array(
+                    array('News.start_date <= ' => date('Y-m-d H:i:s'), 'News.end_date >= ' => date('Y-m-d H:i:s'))
+                )
+            )
                 ));
 
         $this->set(compact('registrations'));
@@ -137,23 +141,22 @@ class RegistrationController extends AppController {
 
     public function index() {
         if ($this->request->is('post') || $this->request->is('put')) {
-            if ($this->request->data['Registration']['id'] != '') {
-                $this->Session->write('Registration.id', $this->request->data['Registration']['id']);
-                $this->Session->write('Registration.season_id', $this->request->data['Registration']['season_id']);
+            if ($this->request->data['Season']['id'] != '') {
+                $this->Session->write('Season.id', $this->request->data['Season']['id']);
                 $this->redirect(array('action' => 'step1'));
             } else {
                 $this->Session->setFlash(__('Missing Registration Id. Try Again'), 'alerts/error');
                 $this->redirect('/registration');
             }
         }
-        $registrations = $this->Registration->getRegistrations();
+        $registrations = $this->Season->getOpenSeasons();
         $this->set(compact('registrations'));
     }
 
     // Show Players & Assign Registrations
     // Allow Players to be Added
     public function step1() {
-        $id = $this->Session->read('Registration.id');
+        $id = $this->Session->read('Season.id');
         // Store Results in Sessions
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count($this->request->data['Players']) > 0) {
@@ -170,7 +173,8 @@ class RegistrationController extends AppController {
         }
         if ($id) {
             $user = $this->Auth->user();
-            $registration_options = $this->ProductsToRegistrations->getRegistrationsDropdown($id);
+            //$registration_options = $this->ProductsToRegistrations->getRegistrationsDropdown($id);
+            $registration_options = $this->Division->getParentDivisionsWproduct();
             $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
             $this->set(compact('registration_options'));
             $this->set(compact('players'));
@@ -311,7 +315,7 @@ class RegistrationController extends AppController {
                 ->emailFormat('text')
                 ->viewVars(array('shop' => $shop))
                 ->send();
-        
+
         $this->Cart->clear();
         if (empty($shop)) {
             $this->redirect('/');
