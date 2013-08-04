@@ -33,7 +33,7 @@ class Products extends AppModel {
                             'type' => 'INNER',
                             'conditions' => array(
                                 'ProductsToDivisions.product_id = Products.id',
-                                'ProductsToDivisions.season_id' => Configure::read('Season.id')
+                                'ProductsToDivisions.season_id' => $season
                             )
                         )
                         )));
