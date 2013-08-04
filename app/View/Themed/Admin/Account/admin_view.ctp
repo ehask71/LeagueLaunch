@@ -7,11 +7,12 @@
         </h2>
         <div class="block">
             <div class="block_in">
+		<h3>User</h3>
 		<table>
 		    <tbody>
 		    <tr>
 			<td>Name</td>
-			<td><?php echo $user['Account']['firstname'].' '.$user['Account']['firstname'];?></td>
+			<td><?php echo $user['Account']['firstname'].' '.$user['Account']['lastname'];?></td>
 		    </tr>
 		    <tr>
 			<td>Email</td>
