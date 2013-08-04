@@ -12,20 +12,20 @@
         echo $this->Form->end('Proceed To Next Step');
         echo "</div>";
     else:
-        /*if (!$registration_options) {
-            // No Active Registrations
-            ?>
-            <div class="article">
-                <p>We're Sorry it appears there are not any Registrations open at this time. Please check back soon.</p>
-            </div>
-            <?php
-        }*/
+        /* if (!$registration_options) {
+          // No Active Registrations
+          ?>
+          <div class="article">
+          <p>We're Sorry it appears there are not any Registrations open at this time. Please check back soon.</p>
+          </div>
+          <?php
+          } */
         if (count($prepared_data) == 0) {
             // No players
             ?>
             <div id="ajaxPlayers"></div>
             <div id="ajaxControl" style="display: none;">
-                <button type="button" onclick="window.location='/registration/step1';"><?php echo __('Im Done Adding Players');?></button>
+                <button type="button" onclick="window.location='/registration/step1';"><?php echo __('Im Done Adding Players'); ?></button>
             </div>
             <div class="article">
                 <p>Ok it appears you do not have any Player Profiles set up for this site. We need to add at least one so we can proceed.</p>
@@ -45,6 +45,22 @@
                     )
             );
             $this->Html->scriptStart(array('block' => 'scriptBottom'));
+            echo '$(document).ready(function () {
+            $("#playerForm").bind("submit", function (event) {
+                $.ajax({
+                    async:true, 
+                    complete:function (XMLHttpRequest, textStatus) {
+                        $("#playerForm").each (function(){this.reset();});
+                        $("#ajaxControl").css("display","block");}, 
+                    data:$("#playerForm").serialize(), 
+                    dataType:"html", 
+                    success:function (data, textStatus) {
+                        $("#ajaxPlayers").append(data);}, 
+                    type:"POST", 
+                    url:"\/registration\/saveplayer"});
+                    return false;
+                });
+            });';
             echo "$(function() {
                 $( '#birthday' ).datepicker({ dateFormat: 'yy-mm-dd',changeMonth: true,changeYear: true });
             });";
@@ -55,7 +71,7 @@
             echo $this->Form->input('lastname');
             echo $this->Form->input('nickname');
             echo $this->Form->input('birthday', array('id' => 'birthday', 'type' => 'text'));
-            echo $this->Form->input('gender', array('type' => 'select','options'=>array('m'=>'Male','f'=>'Female'),'class'=>'chzn-select'));
+            echo $this->Form->input('gender', array('type' => 'select', 'options' => array('m' => 'Male', 'f' => 'Female'), 'class' => 'chzn-select'));
             echo $this->Form->input('site_id', array('type' => 'hidden', 'value' => Configure::read('Settings.site_id')));
             echo $this->Form->input('user_id', array('type' => 'hidden', 'value' => $userinfo['id']));
             echo $this->Form->input('active', array('type' => 'hidden', 'value' => 1));
