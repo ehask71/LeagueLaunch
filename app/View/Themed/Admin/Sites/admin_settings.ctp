@@ -48,6 +48,7 @@
 			</div>
 			<div id="tabs-2">
 			    <?=$this->Form->input('leagueage|use_leagueage',array(
+                                'id'=>'leagueage_use_leagueage',
                                 'options' => array('true'=>'True','false'=>'False'),
 				'class' => 'chzn-select',
                                 'style' => 'width: 350px;',
@@ -55,6 +56,7 @@
 				'after' => '<br><small>If you want the system to attempt to use calculated league age</small></div></div><div class="clear"></div></section>'
 			    ));?>
                             <?=$this->Form->input('leagueage|allow_on_error',array(
+                                'id'=>'leagueage_allow_on_error',
                                 'options' => array('true'=>'True','false'=>'False'),
 				'class' => 'chzn-select',
                                 'style' => 'width: 350px;',
