@@ -43,7 +43,7 @@
             );
             $this->Html->scriptStart(array('block' => 'scriptBottom'));
             echo "$(function() {
-                $( '#birthday' ).datepicker({ dateFormat: 'yy-mm-dd' });
+                $( '#birthday' ).datepicker({ dateFormat: 'yy-mm-dd',changeMonth: true,changeYear: true });
             });";
             $this->Html->scriptEnd();
             echo $this->Js->writeBuffer();
