@@ -27,12 +27,14 @@ class Products extends AppModel {
                         'Products.category_id' => 1
                     ),
                     'joins' => array(
-                        'table' => 'products_to_divisions',
-                        'alias' => 'ProductsToDivisions',
-                        'type' => 'INNER',
-                        'conditions' => array(
-                            'ProductsToDivisions.product_id = Products.id',
-                            'ProductsToDivisions.season_id' => Configure::read('Season.id')
+                        array(
+                            'table' => 'products_to_divisions',
+                            'alias' => 'ProductsToDivisions',
+                            'type' => 'INNER',
+                            'conditions' => array(
+                                'ProductsToDivisions.product_id = Products.id',
+                                'ProductsToDivisions.season_id' => Configure::read('Season.id')
+                            )
                         )
                         )));
     }
