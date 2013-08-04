@@ -20,6 +20,7 @@ a{ text-decoration: none;}
 	padding: 0px;
 	margin:0px;
         background-color: #FFF;
+        position: relative;
 }
 
 /* header elements */
