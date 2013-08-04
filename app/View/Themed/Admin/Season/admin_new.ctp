@@ -65,7 +65,7 @@
                     'options' => array(0 => 'No', 1 => 'Yes')
                 ));
                 ?>
-                <?php echo $this->Form->end(__('Edit Season')); ?>
+                <?php echo $this->Form->end(__($heading)); ?>
             </div>
         </div> 
     </div> 
