@@ -709,9 +709,19 @@ width: 200px;
 /* background: url(http://cdn.leaguelaunch.com/theme/admin/images/logo.png) no-repeat 0 0 scroll; */
 outline: none;
 font-size: 3em;
-    content: 'Dashboard';
+position: relative;
+color: #515151;
+    
 }
-
+a.logo:before{
+   content: 'Dashboard';
+   display: inline-block;
+   margin-left:0;
+    margin-top:5px;
+    margin-bottom: 0;
+    height: 50px;
+    width: 200px;
+}
 .user_info {
 position: absolute;
 right: 0;
