@@ -76,6 +76,7 @@ class DivisionsController extends AppController {
 	    if(!empty($div)){
 		$this->request->data = $div;
 	    }
+            $this->set('divdropdown',$this->Divisions->getDivisionsDropdown());
 	}
 	
     }
