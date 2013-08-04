@@ -198,8 +198,8 @@ class RegistrationController extends AppController {
                 $this->redirect(array('action' => 'step3'));
             }
         }
-        if (count($this->Session->read('Player')) > 0 && $this->Session->read('Registration.id') != '') {
-            $this->set('upsells', $this->ProductsToRegistrations->getUpSells($this->Session->read('Registration.id')));
+        if (count($this->Session->read('Player')) > 0 && $this->Session->read('Season.id') != '') {
+            $this->set('upsells', $this->Products->getUpSells());
             $shop = $this->Session->read('Shop');
             $this->set(compact('shop'));
         } else {
