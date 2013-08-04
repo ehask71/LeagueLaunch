@@ -36,7 +36,7 @@
 	</li>-->
 	<li>
 	    <div class="left">
-		Check Back Soon!
+		Check Back Soon!<br>
 	    </div>
 	    <div class="right">
 		&nbsp;
