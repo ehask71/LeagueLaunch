@@ -53,7 +53,7 @@
                 ));
                 ?>
                 <?=
-                $this->Form->input('registration_ends', array(
+                $this->Form->input('registration_end', array(
                     'class' => 'i-format',
                     'label' => 'Registration Ends'
                 ));
