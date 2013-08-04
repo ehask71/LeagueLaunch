@@ -1,26 +1,26 @@
 <div class="grid_12" id="body-content">
     <?php
-    if (count($players) > 0 && is_array($registration_options)):
+    if (count($prepared_data) > 0):
         // We Have Players && Registration 
         echo '<div>';
         echo '<h2>' . __('Step 1: Players') . '</h2>';
         echo '<p>' . __('Select the Registration Option for each player. If a Player is not being registered leave them with "Please Select An Option"') . '</p>';
         echo $this->Form->create(FALSE, array('type' => 'file', 'action' => 'step1'));
-        foreach ($players as $key => $value) {
-            echo $this->Form->input('Players.' . $value['Players']['player_id'], array('label' => $value['Players']['firstname'] . ' ' . $value['Players']['lastname'], 'type' => 'select', 'class' => 'chzn-select', 'options' => $registration_options));
+        foreach ($prepared_data as $key => $value) {
+            echo $this->Form->input('Players.' . $value['Players']['player_id'], array('label' => $value['Players']['firstname'] . ' ' . $value['Players']['lastname'], 'type' => 'select', 'class' => 'chzn-select', 'options' => $value['Players']['registration_options']));
         }
         echo $this->Form->end('Proceed To Next Step');
         echo "</div>";
     else:
-        if (!$registration_options) {
+        /*if (!$registration_options) {
             // No Active Registrations
             ?>
             <div class="article">
                 <p>We're Sorry it appears there are not any Registrations open at this time. Please check back soon.</p>
             </div>
             <?php
-        }
-        if (count($players) == 0) {
+        }*/
+        if (count($prepared_data) == 0) {
             // No players
             ?>
             <div id="ajaxPlayers"></div>
