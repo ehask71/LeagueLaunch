@@ -164,9 +164,12 @@ class RegistrationController extends AppController {
                     $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
                     $this->Cart->add($product['Products']['id'], 1);
                     $player = $this->Players->getPlayerById($k);
+                    // Set Some Stuff
                     $this->Session->write('Player.' . $k . '.product', $product['Products']['id']);
+                    $this->Session->write('Player.' . $k . '.division', $v);
                     $this->Session->write('Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
                     $this->Session->write('Shop.Order.Player.' . $k . '.product', $product['Products']['id']);
+                    $this->Session->write('Shop.Order.Player.' . $k . '.division', $v);
                     $this->Session->write('Shop.Order.Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
                 }
                 $this->redirect(array('action' => 'step2'));
@@ -225,11 +228,7 @@ class RegistrationController extends AppController {
             $this->Order->set($this->request->data);
             if ($this->Order->validates()) {
                 $order = $this->request->data['Order'];
-                //$order['order_type'] = 'creditcard';
                 $this->Session->write('Shop.Order', $order + $shop['Order']);
-                /* if ($this->request->data['Order']['order_type'] == 'paypal') {
-                  $this->redirect(array('action' => 'paypalstep1'));
-                  } */
                 $this->redirect(array('action' => 'review'));
             } else {
                 $this->Session->setFlash('The form could not be saved. Please, try again.', 'alerts/error');
@@ -262,8 +261,7 @@ class RegistrationController extends AppController {
                     $orderid = $this->Order->getLastInsertID();
                     $shop['Order']['order_id'] = $orderid;
                     $this->Session->write('Shop.Order.order_id', $orderid);
-                    $shop['Order']['regid'] = $this->Session->read('Registration.id');
-                    $shop['Order']['season_id'] = $this->Session->read('Registration.season_id');
+                    $shop['Order']['season_id'] = $this->Session->read('Season.id');
                     $this->Session->write('Shop.Order.regid', $shop['Order']['regid']);
                     $this->Session->write('Shop.Order.season_id', $shop['Order']['season_id']);
 
