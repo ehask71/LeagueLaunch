@@ -22,8 +22,8 @@
                     </thead>
                     <tbody>
                         <?php
-                            if(count($divisions)>0){
-                                foreach ($divisions AS $row){
+                            if(count($seasons)>0){
+                                foreach ($seasons AS $row){
                                     ?>
                         <tr>
                             <td><?=$row['Season']['name'];?></td>
@@ -47,7 +47,7 @@
                             } else {
                                 ?>
                         <tr>
-                            <td colspan="5" style="text-align: center;">No Seasons Configured</td>
+                            <td colspan="10" style="text-align: center;">No Seasons Configured</td>
                         </tr>
                                 <?php
                             }
