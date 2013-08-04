@@ -51,13 +51,13 @@
                                 'options' => array('true'=>'True','false'=>'False'),
 				'class' => 'chzn-select',
 				'label' => 'Use League Age',
-				'after' => '<small>If you want the system to attempt to use calculated league age</small></div></div><div class="clear"></div></section>'
+				'after' => '<br><small>If you want the system to attempt to use calculated league age</small></div></div><div class="clear"></div></section>'
 			    ));?>
                             <?=$this->Form->input('leagueage.allow_on_error',array(
                                 'options' => array('true'=>'True','false'=>'False'),
 				'class' => 'chzn-select',
 				'label' => 'Show All on Error',
-				'after' => '<small>If you want the system to show all available divisions if unable to determinr league age.<b>Use League Age must be True</b></small></div></div><div class="clear"></div></section>'
+				'after' => '<br><small>If you want the system to show all available divisions if unable to determinr league age.<b>Use League Age must be True</b></small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
 			<div id="tabs-3">
