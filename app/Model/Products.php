@@ -18,6 +18,25 @@ class Products extends AppModel {
         return $product;
     }
 
+    public function getProductsByDivision($div, $season = FALSE) {
+        return $this->find('first', array(
+                    'order' => 'Products.id DESC',
+                    'conditions' => array(
+                        'Products.site_id' => Configure::read('Settings.site_id'),
+                        'Products.active' => 1,
+                        'Products.category_id' => 1
+                    ),
+                    'joins' => array(
+                        'table' => 'products_to_divisions',
+                        'alias' => 'ProductsToDivisions',
+                        'type' => 'INNER',
+                        'conditions' => array(
+                            'ProductsToDivisions.product_id = Products.id',
+                            'ProductsToDivisions.season_id' => Configure::read('Season.id')
+                        )
+                        )));
+    }
+
     public function getRegistrationProducts() {
         return $this->find('all', array(
                     'order' => 'Products.id DESC',
