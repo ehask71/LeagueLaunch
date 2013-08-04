@@ -46,7 +46,7 @@ class LeagueAgeComponent extends Component {
     }
 
     public function limitAgeBasedOptions($players, $options) {
-        mail('ehask71@gmail.com', 'LeagueAge Player', print_r($players, 1) . print_r($options, 1));
+        
         $play = array();
         if (count($players) > 0) {
             $error = false;
@@ -81,7 +81,7 @@ class LeagueAgeComponent extends Component {
                 $play[] = $row;
             }
         }
-        
+        mail('ehask71@gmail.com', 'LeagueAge Player', print_r($play, 1));
         return $play;
     }
 
