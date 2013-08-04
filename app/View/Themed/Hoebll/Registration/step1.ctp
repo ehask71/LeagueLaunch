@@ -72,7 +72,7 @@
             echo $this->Form->input('firstname');
             echo $this->Form->input('lastname');
             echo $this->Form->input('nickname');
-            echo $this->Form->input('birthday', array('id' => 'birthday', 'type' => 'text'));
+            echo $this->Form->input('birthday', array('id' => 'birthday', 'type' => 'text','placeholder'=>'Ex: 1997-12-13'));
             echo $this->Form->input('gender', array('type' => 'select', 'options' => array('m' => 'Male', 'f' => 'Female'), 'class' => 'chzn-select'));
             echo $this->Form->input('site_id', array('type' => 'hidden', 'value' => Configure::read('Settings.site_id')));
             echo $this->Form->input('user_id', array('type' => 'hidden', 'value' => $userinfo['id']));
