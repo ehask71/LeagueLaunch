@@ -161,6 +161,7 @@ class RegistrationController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count($this->request->data['Players']) > 0) {
                 foreach ($this->request->data['Players'] AS $k => $v) {
+                    $product = $this->find
                     $this->Cart->add($v, 1);
                     $player = $this->Players->getPlayerById($k);
                     $this->Session->write('Player.' . $k . '.product', $v);
