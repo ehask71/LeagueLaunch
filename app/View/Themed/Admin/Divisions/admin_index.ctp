@@ -46,6 +46,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Ages</th>
                             <th>Updated</th>
 			    <th>Options</th>
                         </tr>
@@ -57,6 +58,7 @@
                                     ?>
                         <tr>
                             <td><?=$row['Divisions']['name'];?></td>
+                            <td><?=$row['Divisions']['age'];?></td>
                             <td><?=$row['Divisions']['last_updated'];?></td>
                             <td>
 				<?php echo $this->Form->postLink('Edit', 
