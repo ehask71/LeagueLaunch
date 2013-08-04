@@ -10,5 +10,38 @@ class Season extends AppModel {
     public $name = 'Season';
     public $primaryKey = 'id';
     
+    public function seasonValidate(){
+        $validate1 = array(
+            'name' => array(
+		'mustNotEmpty' => array(
+		    'rule' => 'notEmpty',
+		    'message' => 'Please enter the Name for your Season')
+	    ),
+            'startdate' => array(
+		'mustNotEmpty' => array(
+		    'rule' => 'notEmpty',
+		    'message' => 'Please enter the Season Start Date')
+	    ),
+            'enddate' => array(
+		'mustNotEmpty' => array(
+		    'rule' => 'notEmpty',
+		    'message' => 'Please enter the Season End Date')
+	    ),
+            'registration_start' => array(
+		'mustNotEmpty' => array(
+		    'rule' => 'notEmpty',
+		    'message' => 'Please enter the Registration Start Date')
+	    ),
+            'registration_end' => array(
+		'mustNotEmpty' => array(
+		    'rule' => 'notEmpty',
+		    'message' => 'Please enter the Registration End Date')
+	    )
+        );
+        
+        $this->validate = $validate1;
+        return $this->validates();
+    }
+    
 }
 
