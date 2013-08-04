@@ -40,13 +40,24 @@ class Products extends AppModel {
     }
     
     public function getUpsells(){
-        return $this->find('all', array(
+        $opts = array();
+        $products = $this->find('all', array(
                     'order' => 'Products.id DESC',
                     'conditions' => array(
                         'Products.site_id' => Configure::read('Settings.site_id'),
                         'Products.active' => 1,
                         'Products.category_id' => 2
                         )));
+        if (count($products) > 0) {
+            foreach ($products AS $prod) {
+                $opts[$prod['Products']['id']] = $prod['Products'];
+            }
+        }
+
+        if (count($opts) > 0) {
+            return $opts;
+        }
+        return FALSE;
     }
     
     public function getRegistrationProducts() {
