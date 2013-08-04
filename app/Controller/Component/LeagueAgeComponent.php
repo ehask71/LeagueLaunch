@@ -58,24 +58,31 @@ class LeagueAgeComponent extends Component {
                         $error = true;
                     }
                 }
-
+                $row['Players']['registration_options'] = array();
                 foreach ($options AS $opts) {
-                    if (!$error) {
-                        $ages = explode(",", $opts['Divisions']['age']);
-                        if (count($ages) > 0) {
-                            if (in_array($league_age, $ages)) {
+                    if (Configure::read('Settings.leagueage.use_leagueage') == 'true') {
+                        if (!$error) {
+                            $ages = explode(",", $opts['Divisions']['age']);
+                            if (count($ages) > 0) {
+                                if (in_array($league_age, $ages)) {
+                                    $row['Players']['registration_options'][$opts['Divisions']['division_id']] = $opts['Divisions']['name'] . ' ($' . $opts['Products']['price'] . ')';
+                                }
+                            } else {
                                 $row['Players']['registration_options'][$opts['Divisions']['division_id']] = $opts['Divisions']['name'] . ' ($' . $opts['Products']['price'] . ')';
                             }
                         } else {
-                            $row['Players']['registration_options'][$opts['Divisions']['division_id']] = $opts['Divisions']['name'] . ' ($' . $opts['Products']['price'] . ')';
+                            if (Configure::read('Settings.leagueage.allow_on_error') == 'true') {
+                                $row['Players']['registration_options'][$opts['Divisions']['division_id']] = $opts['Divisions']['name'] . ' ($' . $opts['Products']['price'] . ')';
+                            } else {
+                                $row['Players']['registration_options'][NULL] = 'Unable To Calulate Age';
+                            }
                         }
                     } else {
-                        if(Configure::read('Settings.leagueage.allow_on_error') == 'true'){
-                            $row['Players']['registration_options'][$opts['Divisions']['division_id']] = $opts['Divisions']['name'] . ' ($' . $opts['Products']['price'] . ')';
-                        } else {
-                            $row['Players']['registration_options'][NULL] = 'Unable To Calulate Age';
-                        }
+                        $row['Players']['registration_options'][$opts['Divisions']['division_id']] = $opts['Divisions']['name'] . ' ($' . $opts['Products']['price'] . ')';
                     }
+                }
+                if(count($row['Players']['registration_options']) == 0){
+                    $row['Players']['registration_options'][NULL] = 'No Available Registrations';
                 }
                 $play[] = $row;
             }
