@@ -25,7 +25,7 @@
             ?>
             <div id="ajaxPlayers"></div>
             <div id="ajaxControl" style="display: none;">
-                <button onclick="window.location('/registration/step1')"><?php echo __('Im Done Adding Players');?></button>
+                <button type="button" onclick="window.location='/registration/step1';"><?php echo __('Im Done Adding Players');?></button>
             </div>
             <div class="article">
                 <p>Ok it appears you do not have any Player Profiles set up for this site. We need to add at least one so we can proceed.</p>
