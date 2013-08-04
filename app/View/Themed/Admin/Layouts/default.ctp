@@ -3,13 +3,13 @@
 
     <head>
         <?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $title_for_layout; ?>
-	</title>
+        <title>
+            <?php echo $title_for_layout; ?>
+        </title>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta name="author" content="" />
-        
+
         <!--========= STYLES =========-->
         <?php
         echo $this->CloudFlare->css('reset');
@@ -19,10 +19,10 @@
         echo $this->Html->css('/js/jqueryui/all/themes/base/jquery.ui.all.css');
 
         //echo $this->Html->css('style');
-	echo $this->CloudFlare->css('style');
+        echo $this->CloudFlare->css('style');
         echo $this->CloudFlare->css('config');
         ?>
-        <!--[if gte IE 8]><?php echo $this->CloudFlare->css('ie8');?><![endif]-->
+        <!--[if gte IE 8]><?php echo $this->CloudFlare->css('ie8'); ?><![endif]-->
 
         <!--============ JQUERY =============-->
         <?php
@@ -35,12 +35,12 @@
         echo $this->CloudFlare->script('/js/gvchart/jquery.gvChart-1.0.1.min');
 
         echo $this->CloudFlare->script('head_scripts');
-	echo $this->fetch('scriptTop');
+        echo $this->fetch('scriptTop');
         ?>
-        
+
 
         <!--=== ENABLE HTML5 TAGS FOR IE ===-->
-        <!--[if IE]><?php echo $this->CloudFlare->script('html5');?><![endif]-->
+        <!--[if IE]><?php echo $this->CloudFlare->script('html5'); ?><![endif]-->
 
         <title>Admin theme </title>
     </head>
@@ -67,7 +67,7 @@
                                 <div class="clear"></div>
                             </section>
                             <div>
-                                <?php echo $this->element('main_nav');?>
+                                <?php echo $this->element('main_nav'); ?>
                             </div>
                             <div class="clear"></div>
                             <div class="position_search">
@@ -75,10 +75,10 @@
                                     <a href="index.html"><span>Dashboard</span></a>
                                 </div>
                             </div>
-				
+
                             <?php echo $this->Session->flash(); ?>
-			    <?php echo $this->fetch('content'); ?>    
-                            
+                            <?php echo $this->fetch('content'); ?>    
+
 
                         </section><!-- end of #page_content -->
                     </section><!-- end of #container_12 -->
@@ -86,9 +86,19 @@
             </section><!-- End of .wrapper_layout -->
         </section><!-- End of #main_wrapper -->
         <?php
-	echo $this->CloudFlare->script('scripts');
-	echo $this->CloudFlare->script('ui_calls');
-	echo $this->fetch('scriptBottom');
-	?>
+        echo $this->CloudFlare->script('scripts');
+        echo $this->CloudFlare->script('ui_calls');
+        echo $this->fetch('scriptBottom');
+        ?>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42932858-1', '<?php echo $_SERVER['SERVER_NAME'];?>');
+            ga('send', 'pageview');
+
+        </script>
     </body>
 </html>
