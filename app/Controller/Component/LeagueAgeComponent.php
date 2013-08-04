@@ -39,7 +39,7 @@ class LeagueAgeComponent extends Component {
         if(function_exists('date_diff')){
             $diff = date_diff(date_create($this->birthdate), date_create($now));
         } else {
-            $diff = $this->date_diff(date_create($this->birthdate), date_create($now));
+            $diff = $this->date_diff($this->birthdate, $now);
         }
 
         $this->leagueAge = $diff / $this->divisor[$sport];
