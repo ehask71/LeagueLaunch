@@ -24,6 +24,11 @@ class Account extends AppModel {
 	    'className' => 'RoleUser',
 	    'foreignKey' => 'user_id',
 	    'dependant' => true
+	),
+	'Players' => array(
+	    'className' => 'Players',
+	    'foreignKey' => 'user_id',
+	    'dependant' => true
 	)
     );
 
