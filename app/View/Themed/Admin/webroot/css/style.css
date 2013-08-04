@@ -708,9 +708,9 @@ height: 50px;
 width: 200px;
 /* background: url(http://cdn.leaguelaunch.com/theme/admin/images/logo.png) no-repeat 0 0 scroll; */
 outline: none;
-font-size: 3em;
+font-size: 2em;
 position: relative;
-color: #515151;
+color: #3E577A;
     
 }
 a.logo:before{
