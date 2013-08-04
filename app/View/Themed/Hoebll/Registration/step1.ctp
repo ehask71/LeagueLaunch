@@ -1,9 +1,9 @@
 <div class="grid_12" id="body-content">
+    <div> 
+        <?php echo '<h2>' . __('Step 1: Players') . '</h2>';?>
     <?php
     if (count($prepared_data) > 0):
         // We Have Players && Registration 
-        echo '<div>';
-        echo '<h2>' . __('Step 1: Players') . '</h2>';
         echo '<p>' . __('Select the Registration Option for each player. If a Player is not being registered leave them with "Please Select An Option"') . '</p>';
         echo $this->Form->create(FALSE, array('type' => 'file', 'action' => 'step1'));
         foreach ($prepared_data as $key => $value) {
@@ -33,19 +33,6 @@
                 <p>Ok it appears you do not have any Player Profiles set up for this site. We need to add at least one so we can proceed,use the form below to add all or your players.Once you have successfully added your players. Please click the button that will appear above this text to proceed</p>
             </div>
             <?php
-            $data = $this->Js->get('#playerForm')->serializeForm(array('isForm' => true, 'inline' => true));
-            $this->Js->get('#playerForm')->event(
-                    'submit', $this->Js->request(
-                            array('controller' => 'registration', 'action' => 'saveplayer'), array(
-                        'update' => '#ajaxPlayers',
-                        'data' => $data,
-                        'async' => true,
-                        'dataExpression' => true,
-                        'method' => 'POST',
-                        'complete' => '$("#playerForm").each (function(){this.reset();});$("#ajaxControl").css("display","block");'
-                            )
-                    )
-            );
             $this->Html->scriptStart(array('block' => 'scriptBottom'));
             echo '$(document).ready(function () {
             $("#playerForm").bind("submit", function (event) {
@@ -81,6 +68,7 @@
         }
     endif;
     ?>
+    </div>
 </div>
 <div class="grid_4" id="side-bar-right">
     <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
