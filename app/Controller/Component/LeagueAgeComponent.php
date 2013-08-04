@@ -87,7 +87,7 @@ class LeagueAgeComponent extends Component {
                 $play[] = $row;
             }
         }
-        mail('ehask71@gmail.com', 'LeagueAge Player', print_r($play, 1));
+
         return $play;
     }
 
