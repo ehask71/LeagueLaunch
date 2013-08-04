@@ -46,13 +46,43 @@ class LeagueAgeComponent extends Component {
     }
 
     public function limitAgeBasedOptions($players, $options) {
-        mail('ehask71@gmail.com','LeagueAge Player',  print_r($players,1).print_r($options,1));
+        mail('ehask71@gmail.com', 'LeagueAge Player', print_r($players, 1) . print_r($options, 1));
         $play = array();
         if (count($players) > 0) {
+            $error = false;
             foreach ($players AS $row) {
-                
+                $league_age = $row['Players']['league_age'];
+                if ($league_age == 0) {
+                    if ($row['Players']['birthday'] != '') {
+                        $league_age = $this->calculateLeagueAge($row['Players']['birthday']);
+                    } else {
+                        $error = true;
+                    }
+                }
+
+                foreach ($options AS $opts) {
+                    if (!$error) {
+                        $ages = explode(",", $opts['Divisions']['age']);
+                        if (count($ages) > 0) {
+                            if (in_array($league_age, $ages)) {
+                                $row['Players']['registration_options'][$opts['Divisions']['division_id']] = $opts['Divisions']['name'] . ' ($' . $opts['Products']['price'] . ')';
+                            }
+                        } else {
+                            $row['Players']['registration_options'][$opts['Divisions']['division_id']] = $opts['Divisions']['name'] . ' ($' . $opts['Products']['price'] . ')';
+                        }
+                    } else {
+                        if(Configure::read('Settings.leagueage.allow_on_error') == 'true'){
+                            $row['Players']['registration_options'][$opts['Divisions']['division_id']] = $opts['Divisions']['name'] . ' ($' . $opts['Products']['price'] . ')';
+                        } else {
+                            $row['Players']['registration_options'][NULL] = 'Unable To Calulate Age';
+                        }
+                    }
+                }
+                $play[] = $row;
             }
         }
+        
+        return $play;
     }
 
     public function date_diff($date1, $date2) {
