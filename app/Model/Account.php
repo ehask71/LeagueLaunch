@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP Account
  * @author Eric
@@ -18,7 +19,6 @@ class Account extends AppModel {
 	    'unique' => 'keepExisting'
 	)
     );
-    
     public $hasMany = array(
 	'RoleUser' => array(
 	    'className' => 'RoleUser',
@@ -27,6 +27,9 @@ class Account extends AppModel {
 	),
 	'Players' => array(
 	    'className' => 'Players',
+	    'conditions' => array(
+	    'Players.site_id' => Configure::read('Settings.site_id')
+	    ),
 	    'foreignKey' => 'user_id',
 	    'dependant' => true
 	)
@@ -45,7 +48,7 @@ class Account extends AppModel {
     }
 
     public function beforeFind(array $query) {
-/*$query['joins'] = array(
+/* $query['joins'] = array(
 	  array(
 	  'table' => 'roles_users',
 	  'alias' => 'RolesUser',
@@ -68,7 +71,7 @@ class Account extends AppModel {
  */
 	//echo "<pre>";
 	//print_r($query);
-	
+
 	return $query;
     }
 
@@ -135,7 +138,7 @@ class Account extends AppModel {
 		    'message' => 'Please Confirm Password'
 		)
 	    ),
-	   'agever' => array(
+	    'agever' => array(
 		'notEmpty' => array(
 		    'rule' => array('comparison', '!=', 0),
 		    'required' => true,
@@ -150,9 +153,9 @@ class Account extends AppModel {
 		)
 	    ),
 	);
-	
+
 	$this->validate = $validate1;
-        return $this->validates();
+	return $this->validates();
     }
 
     function checkpasswords() {
@@ -161,4 +164,5 @@ class Account extends AppModel {
 	}
 	return false;
     }
+
 }
