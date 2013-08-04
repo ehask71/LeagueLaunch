@@ -40,6 +40,7 @@ class LeagueAgeComponent extends Component {
             $diff = date_diff(date_create($this->birthdate), date_create($now));
         } else {
             $diff = $this->date_diff($this->birthdate, $now);
+            mail('ehask71@gmail.com', 'LeagueAge',$this->birthdate.' '.$now.' '.$diff);
         }
 
         $this->leagueAge = $diff / $this->divisor[$sport];
