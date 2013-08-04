@@ -46,7 +46,6 @@ class LeagueAgeComponent extends Component {
     }
 
     public function limitAgeBasedOptions($players, $options) {
-        
         $play = array();
         if (count($players) > 0) {
             $error = false;
