@@ -61,7 +61,7 @@
 				'class' => 'chzn-select',
                                 'style' => 'width: 350px;',
 				'label' => 'Show All on Error',
-				'after' => '<br><small>If you want the system to show all available divisions if unable to determinr league age.<b>Use League Age must be True</b></small></div></div><div class="clear"></div></section>'
+				'after' => '<br><small>If you want the system to show all available divisions if unable to determinr league age.<br><b>Use League Age must be True</b></small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
 			<div id="tabs-3">
