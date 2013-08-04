@@ -24,6 +24,9 @@
             // No players
             ?>
             <div id="ajaxPlayers"></div>
+            <div id="ajaxControl" style="display: none;">
+                <button value="Im Done Adding Players" onclick="window.location('/registration/step1')"></button>
+            </div>
             <div class="article">
                 <p>Ok it appears you do not have any Player Profiles set up for this site. We need to add at least one so we can proceed.</p>
             </div>
@@ -37,7 +40,7 @@
                         'async' => true,
                         'dataExpression' => true,
                         'method' => 'POST',
-                        'complete' => '$("#playerForm").each (function(){this.reset();});'
+                        'complete' => '$("#playerForm").each (function(){this.reset();});$("#ajaxControl").css("display","block");'
                             )
                     )
             );
