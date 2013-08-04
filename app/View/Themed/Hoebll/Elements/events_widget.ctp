@@ -26,6 +26,9 @@
 	    <div class="left">
 		No Scheduled Events
 	    </div>
+	    <div class="right">
+		&nbsp;
+	    </div>
 	    <div class="clear"></div>
 	</li>
     </ul>
