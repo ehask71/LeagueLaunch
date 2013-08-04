@@ -268,7 +268,7 @@ class RegistrationController extends AppController {
                     // Do the insert for Player_to_Registrations
                     $this->loadModel('PlayersToSeasons');
                     foreach ($shop['Order']['Player'] AS $k => $v) {
-                        $sid = $this->PlayersToSeasons->saveAll($this->PlayersToSeasons->addPlayer($shop['Order']['regid'], $shop['Order']['season_id'], $k, $v['product']));
+                        $sid = $this->PlayersToSeasons->saveAll($this->PlayersToSeasons->addPlayer($shop['Order']['season_id'], $k,$v['division'], $v['product']));
                     }
 
                     if ((Configure::read('Settings.paypal_enabled') == 'true') && $shop['Order']['order_type'] == 'paypal') {
