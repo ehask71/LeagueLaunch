@@ -338,7 +338,7 @@ class RegistrationController extends AppController {
         if ($this->RequestHandler->isAjax()) {
             $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
             if ($this->Players->save($this->request->data)) {
-                echo '<b>' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' Added!</b>';
+                echo '<div class="ll-alert-success">' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' has been Added!</div>';
             }
             return false;
         }
