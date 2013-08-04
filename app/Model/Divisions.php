@@ -34,6 +34,8 @@ class Divisions extends AppModel {
     }
     
     public function getParentDivisionsWproduct(){
+        
+        $rtn = array();
         $opts = $this->find('all',array(
             'conditions' => array(
                 'Divisions.active'=>1,
@@ -62,6 +64,9 @@ class Divisions extends AppModel {
             'fields'=>array('Divisions.*','ProductsToDivisions.*','Products.*')
         ));
         
+        foreach($opts AS $row){
+            $rtn[$row['Division']['division_id']] = $row['Division']['name'] .' ($'.$row['Products']['price'].')';
+        }
         return $opts;
     }
 
