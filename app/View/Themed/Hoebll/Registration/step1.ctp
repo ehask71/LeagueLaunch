@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="article">
-                <p>Ok it appears you do not have any Player Profiles set up for this site. We need to add at least one so we can proceed.</p>
+                <p>Ok it appears you do not have any Player Profiles set up for this site. We need to add at least one so we can proceed,use the form below to add all or your players.Once you have successfully added your players. Please click the button that will appear above this text to proceed</p>
             </div>
             <?php
             $data = $this->Js->get('#playerForm')->serializeForm(array('isForm' => true, 'inline' => true));
