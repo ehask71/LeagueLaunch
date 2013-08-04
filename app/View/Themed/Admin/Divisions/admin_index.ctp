@@ -28,7 +28,13 @@
 		<?=$this->Form->input('name',array(
 				'class' => 'i-format',
 				'label' => 'Add New Division'
-			    ));?>
+			    ));
+                   $this->Form->input('parent',array(
+				'class' => 'i-format',
+				'label' => 'Parent Division',
+                                'options'=> $divdropdown
+			    ));       
+                           ?>
 		<?php echo $this->Form->end('Add Division'); ?>
                 <table>
                     <thead>
