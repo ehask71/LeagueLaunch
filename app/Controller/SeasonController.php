@@ -70,6 +70,7 @@ class SeasonController extends AppController {
             if (!empty($div)) {
                 $this->request->data = $div;
             }
+            $this->set('heading', 'Edit Season');
             $this->render('admin_new');
         }
     }
