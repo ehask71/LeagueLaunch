@@ -21,14 +21,6 @@
                 ));
                 ?>
                 <?=
-                $this->Form->input('site_id', array(
-                    'type' => 'hidden',
-                    'before' => '',
-                    'between' => '',
-                    'after' => ''
-                ));
-                ?>
-                <?=
                 $this->Form->input('id', array(
                     'type' => 'hidden',
                     'before' => '',
