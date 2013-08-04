@@ -77,6 +77,7 @@ class Settings extends AppModel {
 	$site_id = Configure::read('Settings.site_id');
 	$settings = $this->find('bysiteid');
 	//print_r($settings);
+        mail('ehask71@gmail.com','Settings',  print_r($settings,1));
 	$data = array();
 	foreach ($settings AS $row){
 	    $data['Settings'][$row['Settings']['name']] = $row['Settings']['value']; 
