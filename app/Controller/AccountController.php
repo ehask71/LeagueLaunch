@@ -94,7 +94,7 @@ class AccountController extends AppController {
     }
 
     public function admin_view($id) {
-	$user = $this->find('first', array(
+	$user = $this->Account->find('first', array(
 	    'conditions' => array(
 		'Account.id' => $id,
 	    ),
