@@ -27,9 +27,6 @@ class Account extends AppModel {
 	),
 	'Players' => array(
 	    'className' => 'Players',
-	    'conditions' => array(
-	    'Players.site_id' => Configure::read('Settings.site_id')
-	    ),
 	    'foreignKey' => 'user_id',
 	    'dependant' => true
 	)
@@ -37,6 +34,7 @@ class Account extends AppModel {
 
     function __construct($id = false, $table = null, $ds = null) {
 	$this->hasAndBelongsToMany['Role']['conditions'] = array('RolesUser.site_id' => Configure::read('Settings.site_id'));
+	$this->hasMany['Players']['conditions'] = array('Players.site_id' => Configure::read('Settings.site_id'));
 	parent::__construct($id, $table, $ds);
     }
 
