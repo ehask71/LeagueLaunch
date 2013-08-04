@@ -3,10 +3,10 @@ App::uses('AppController', 'Controller');
 
 class HomeController extends AppController {
     
-    public $helpers = array('Cache');
+    /*public $helpers = array('Cache');
     public $cacheAction = array(
 	'index' => array('callbacks' => true, 'duration' => 48000)
-    );
+    );*/
     public $name = 'Home';
     
     public function beforeFilter() {
@@ -15,7 +15,7 @@ class HomeController extends AppController {
     }
     
     public function index(){
-	$this->Session->setFlash('Hey Rob its a Message!!','alerts/info');
+	//$this->Session->setFlash('Hey Rob its a Message!!','alerts/info');
     }
     
     public function terms(){
