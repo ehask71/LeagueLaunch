@@ -181,7 +181,7 @@ class RegistrationController extends AppController {
             $registration_options = $this->Divisions->getParentDivisionsWproduct();
             $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
             $prepared_data = $this->LeagueAge->limitAgeBasedOptions($players,$registration_options);
-            $this->set(compact('registration_options'));
+            $this->set(compact('prepared_data'));
             $this->set(compact('players'));
         } else {
             $this->Session->setFlash(__('Please Select A Registration First'), 'alerts/info');
