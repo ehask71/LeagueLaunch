@@ -24,7 +24,7 @@
 	</li>-->
 	<li>
 	    <div class="left">
-		No Scheduled Events
+		No Scheduled Events<br>
 	    </div>
 	    <div class="right">
 		&nbsp;
