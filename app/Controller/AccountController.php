@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP AccountController
  * @author Eric
@@ -7,8 +8,7 @@ App::uses('AppController', 'Controller');
 
 class AccountController extends AppController {
 
-    
-    public $uses = array('Account', 'RoleUser','Country');
+    public $uses = array('Account', 'RoleUser', 'Country');
     public $components = array('Email');
 
     public function beforeFilter() {
@@ -49,13 +49,13 @@ class AccountController extends AppController {
 		    $this->RoleUser->addUserSite($userid);
 
 		    $this->Session->setFlash('The user has been saved');
-		    $this->redirect(array('controller'=>'home','action' => 'index'));
+		    $this->redirect(array('controller' => 'home', 'action' => 'index'));
 		} else {
 		    $this->Session->setFlash('The user could not be saved. Please, try again.');
 		}
 	    }
 	}
-	$this->set('countries',  $this->Country->getCountries());
+	$this->set('countries', $this->Country->getCountries());
     }
 
     public function forgetpwd() {
@@ -92,5 +92,26 @@ class AccountController extends AppController {
 	$this->set('title_for_layout', 'Accounts');
 	$this->set(compact('users'));
     }
-    
+
+    public function admin_view($id) {
+	$user = $this->find('first', array(
+	    'conditions' => array(
+		'Account.id' => $id,
+	    ),
+	    'joins' => array(
+		array(
+		    'table' => '(SELECT DISTINCT(user_id),site_id FROM roles_users )',
+		    'alias' => 'RolesUser',
+		    'type' => 'INNER',
+		    'conditions' => array(
+			'Account.id = RolesUser.user_id',
+			'RolesUser.site_id = ' . Configure::read('Settings.site_id')
+		    )
+	    ))));
+	
+	if(count($user)>0){
+	    $this->set(compact('user'));
+	}
+    }
+
 }
