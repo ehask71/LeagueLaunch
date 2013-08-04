@@ -51,12 +51,13 @@ class SeasonController extends AppController {
     public function admin_edit($id) {
         $this->Season->id = $id;
         if (!$this->Season->exists()) {
-            $this->Session->setFlash(__('Division doesn\'t Exist'), 'default', array('class' => 'alert error_msg'));
-            $this->redirect('/admin/divisions');
+            $this->Session->setFlash(__('Season doesn\'t Exist'), 'default', array('class' => 'alert error_msg'));
+            $this->redirect('/admin/season');
         }
         if ($this->request->isPut()) {
             $this->Season->set($this->data);
             if ($this->Season->seasonValidate()) {
+                $this->request->data['Season']['site_id'] = Configure::read('Settings.site_id');
                 $this->Season->save($this->request->data, false);
                 $this->Session->setFlash(__('The Season was Updated!'), 'default', array('class' => 'alert succes_msg'));
                 $this->redirect('/admin/season');
