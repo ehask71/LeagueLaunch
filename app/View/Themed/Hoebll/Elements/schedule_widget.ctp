@@ -1,7 +1,7 @@
 <div class="widget">
     <h2>Schedule</h2>
     <ul>
-	<li>
+	<!--<li>
 	    <div class="left">
 		02/23/2013 6:30pm<br>
 		Giants at Rangers
@@ -33,6 +33,11 @@
 		score: 2-12
 	    </div>
 	    <div class="clear"></div>
+	</li>-->
+	<li>
+	    <div class="left">
+		Check Back Soon!
+	    </div>
 	</li>
     </ul>
 </div>
