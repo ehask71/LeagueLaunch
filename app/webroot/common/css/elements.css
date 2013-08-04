@@ -20,7 +20,7 @@
 .grid_16_nospace .ll-alert-info, .grid_16_nospace .ll-alert-success, .grid_16_nospace .ll-alert-warning, .grid_16_nospace .ll-alert-error, .grid_16_nospace .ll-alert-validation {
     max-width: 550px;
     margin-left: 12px;
-    margin: 0px 0px;
+    margin: 0px 12px;
 }
 .ll-alert-info {
     color: #00529B;
