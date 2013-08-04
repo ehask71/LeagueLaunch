@@ -45,10 +45,9 @@
                 <?=
                 $this->Form->input('age', array(
                     'class' => 'i-format',
-                    'label' => 'League Ages'
+                    'label' => 'League Ages (ex: 14,15)'
                 ));
                 ?>
-                <small>Comma Seperated ex: 14,15</small>
                 <?=
                 $this->Form->input('parent', array(
                     'class' => 'i-format',
