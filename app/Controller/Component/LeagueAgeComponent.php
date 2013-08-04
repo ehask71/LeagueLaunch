@@ -36,14 +36,23 @@ class LeagueAgeComponent extends Component {
 
         $sport = (!isset($this->divisor[$this->Sport])) ? 'baseball' : $this->Sport;
         $now = date('Y-m-d');
-        if(function_exists('date_diff')){
+        if (function_exists('date_diff')) {
             $diff = date_diff(date_create($birthdate), date_create($now));
         } else {
             $diff = $this->date_diff($birthdate, $now);
-            mail('ehask71@gmail.com', 'LeagueAge',$birthdate.' '.$now.' '.$diff);
         }
 
         return $diff / $this->divisor[$sport];
+    }
+
+    public function limitAgeBasedOptions($players, $options) {
+        mail('ehask71@gmail.com','LeagueAge Player',  print_r($players,1).print_r($options,1));
+        $play = array();
+        if (count($players) > 0) {
+            foreach ($players AS $row) {
+                
+            }
+        }
     }
 
     public function date_diff($date1, $date2) {

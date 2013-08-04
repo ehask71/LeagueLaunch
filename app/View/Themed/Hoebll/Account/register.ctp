@@ -1,3 +1,4 @@
+<div class="grid_12" id="body-content">
 <h2>Register</h2> 
 <?php
 $this->Html->scriptStart(array('block' => 'scriptBottom'));
@@ -21,3 +22,9 @@ echo $this->Form->input('agever',array('type'=>'checkbox','value'=>1,'label' =>'
 echo $this->Form->input('agreeterms',array('type'=>'checkbox','value'=>1,'label' => 'I agree to the <a href="/terms" target="_blank">Terms & Conditions</a>'));
 echo $this->Form->end('Register');
 ?>
+</div>
+<div class="grid_5" id="side-bar-right">
+    <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
+    <?php echo $this->element('events_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
+    <?php echo $this->element('sponsors_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
+</div>
