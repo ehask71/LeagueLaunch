@@ -32,6 +32,29 @@ class Divisions extends AppModel {
         
         return $opts;
     }
+    
+    public function getParentDivisionsWproduct(){
+        $opts = $this->find('all',array(
+            'conditions' => array(
+                'Divisions.active'=>1,
+                'Divisions.site_id' => Configure::read('Settings.site_id'),
+                "not" => array ( "ProductsToDivisions.product_id" => null)
+              ),
+            'joins' => array(
+                array(
+                    'table' => 'products_to_divisions',
+                    'alias' => 'ProductsToDivisions',
+                    'type' => 'INNER',
+                    'conditions' => array(
+                        'Divisions.division_id = ProductsToDivisions.division_id'
+                    )
+                )
+            ),
+            'fields'=>array('Divisions.*','ProductsToDivisions.*')
+        ));
+        
+        return $opts;
+    }
 
 }
 
