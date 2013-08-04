@@ -38,7 +38,8 @@ class Divisions extends AppModel {
             'conditions' => array(
                 'Divisions.active'=>1,
                 'Divisions.site_id' => Configure::read('Settings.site_id'),
-                "not" => array ( "ProductsToDivisions.product_id" => null)
+                "not" => array ( "ProductsToDivisions.product_id" => null),
+                'Products.active'=>1
               ),
             'joins' => array(
                 array(
@@ -48,9 +49,17 @@ class Divisions extends AppModel {
                     'conditions' => array(
                         'Divisions.division_id = ProductsToDivisions.division_id'
                     )
+                ),
+                array(
+                    'table' => 'products',
+                    'alias' => 'Products',
+                    'type' => 'INNER',
+                    'conditions' => array(
+                        'Products.id = ProductsToDivisions.product_id'
+                    )
                 )
             ),
-            'fields'=>array('Divisions.*','ProductsToDivisions.*')
+            'fields'=>array('Divisions.*','ProductsToDivisions.*','Products.*')
         ));
         
         return $opts;
