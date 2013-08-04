@@ -38,7 +38,17 @@ class Products extends AppModel {
                         )
                         )));
     }
-
+    
+    public function getUpsells(){
+        return $this->find('all', array(
+                    'order' => 'Products.id DESC',
+                    'conditions' => array(
+                        'Products.site_id' => Configure::read('Settings.site_id'),
+                        'Products.active' => 1,
+                        'Products.category_id' => 2
+                        )));
+    }
+    
     public function getRegistrationProducts() {
         return $this->find('all', array(
                     'order' => 'Products.id DESC',
