@@ -163,6 +163,7 @@ class RegistrationController extends AppController {
                 foreach ($this->request->data['Players'] AS $k => $v) {
                     $product = $this->Products->getProductsByDivision($v);
                     print_r($product);
+                    echo Configure::read('Season.id');
                     $this->Cart->add($product['Products']['id'], 1);
                     $player = $this->Players->getPlayerById($k);
                     $this->Session->write('Player.' . $k . '.product', $product['Products']['id']);
