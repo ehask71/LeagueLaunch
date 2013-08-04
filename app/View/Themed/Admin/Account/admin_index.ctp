@@ -23,7 +23,9 @@
                         <tr>
                             <td><?=$row['Account']['firstname'].' '.$row['Account']['lastname'];?></td>
                             <td><?=$row['Account']['is_active'];?></td>
-                            <td></td>
+                            <td><?php echo $this->Form->postLink('View', 
+                    array('action' => 'view', $row['Account']['id']),
+                    array('class'=>'button blue'));?></td>
                         </tr>
                                     <?php
                                 }
