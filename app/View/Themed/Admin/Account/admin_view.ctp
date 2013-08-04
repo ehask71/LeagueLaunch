@@ -22,7 +22,7 @@
 		    <tr>
 			<td>Phone</td>
 			<td>
-			    <?php echo $user['Account']['phone'];?>
+			    <?php //echo $user['Account']['phone'];?>
 			</td>
 		    </tr>
 		    <tr>
@@ -52,6 +52,7 @@
 		    <th>Birthday</th>
 		    <th>Gender</th>
 		    <th>League Age</th>
+		    <th>Options</th>
 		    </thead>
 		    <tbody>
 			<?php foreach ($user['Players'] AS $player):?>
@@ -68,7 +69,7 @@
 		    </tbody>
 		</table>
 		<pre>
-		    <?php print_r($user);?>
+		    <?php //print_r($user);?>
 		</pre>
 	    </div>
 	</div>
