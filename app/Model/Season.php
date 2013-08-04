@@ -43,5 +43,16 @@ class Season extends AppModel {
         return $this->validates();
     }
     
+    public function getOpenSeasons(){
+        return $this->find('all',array(
+            'conditions'=>array(
+                'Season.site_id' => Configure::read('Settings.site_id'),
+                'Season.active' => 1,
+                'and' => array(
+                    array('Season.registration_start <= ' => date('Y-m-d'),'Season.registration_end >= ' => date('Y-m-d'))
+                )
+        )));
+    }
+    
 }
 
