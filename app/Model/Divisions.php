@@ -63,11 +63,11 @@ class Divisions extends AppModel {
             ),
             'fields'=>array('Divisions.*','ProductsToDivisions.*','Products.*')
         ));
-        
+        $rtn[NULL] = "Please Select A Division"; 
         foreach($opts AS $row){
             $rtn[$row['Divisions']['division_id']] = $row['Divisions']['name'] .' ($'.$row['Products']['price'].')';
         }
-        return $opts;
+        return $rtn;
     }
 
 }
