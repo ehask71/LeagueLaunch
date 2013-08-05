@@ -1,7 +1,7 @@
 <div class="grid_12" id="body-content">
-    <div>
+    <!--<div>
         <?php echo $this->Html->image('/img/baseball/playball_banner.jpg'); ?>
-    </div>
+    </div>-->
     <h2>Success</h2>
     <div style="margin:5px,10px,5px,10px;">
         <p><?= $shop['Order']['first_name']; ?>,<br><br>&nbsp;&nbsp;Now that wasn't so bad was it? We have sent you a receipt via Email 
