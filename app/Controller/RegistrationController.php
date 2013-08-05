@@ -157,16 +157,16 @@ class RegistrationController extends AppController {
     // Allow Players to be Added
     public function step1() {
         $id = $this->Session->read('Season.id');
+        $pcheck = $this->Session->read('Shop.players_added');
+        mail("ehask71@gmail.com", 'Pcheck', $pcheck);
+        if ($pcheck == 'true') {
+            $this->Session->setFlash('Please Don\'t Use The Back Button', 'alerts/info');
+            $this->redirect(array('action' => 'step2'));
+        }
         // Store Results in Sessions
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count($this->request->data['Players']) > 0) {
                 $season = $this->Session->read('Season.id');
-                $pcheck = $this->Session->read('Shop.players_added');
-                mail("ehask71@gmail.com", 'Pcheck', $pcheck);
-                if ($pcheck == 'true') {
-                    $this->Session->setFlash('Please Don\'t Use The Back Button','alerts/info');
-                    $this->redirect(array('action'=>'step2'));
-                }
                 foreach ($this->request->data['Players'] AS $k => $v) {
                     $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
                     $this->Cart->add($product['Products']['id'], 1, $k, $season);
