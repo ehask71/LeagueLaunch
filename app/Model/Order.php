@@ -144,6 +144,17 @@ class Order extends AppModel {
 		)
 	);
         
+        public function updateOrderStatus($order_id,$status){
+            /*
+             * 1 - Pending
+             * 2 - Paid Complete
+             * 3 - Declined
+             */
+            $data = array('id'=>$order_id,'status'=>$status);
+            
+            $this->save($data);
+        }
+        
         public function getAcceptedPayment(){
             $opts = array();
             if(Configure::read('Settings.paypal_enabled') == 'true'){
