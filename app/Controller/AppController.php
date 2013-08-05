@@ -132,7 +132,8 @@ class AppController extends Controller {
             $this->loadModel('Order');
             // Status 2 = Paid :-)
             $status = 2;
-            $this->Order->updateOrderStatus($transaction['InstantPaymentNotification']['invoice'],$status);
+            //$this->Order->updateOrderStatus($transaction['InstantPaymentNotification']['invoice'],$status);
+            $this->Order->save(array('Order'=>array('id'=>$transaction['InstantPaymentNotification']['invoice'],'status'=>$status)));
             mail('ehask71@gmail.com','PayPal IPN',print_r($transaction,1));
             $IPN->email(array(
                 'id' => $txnId,
