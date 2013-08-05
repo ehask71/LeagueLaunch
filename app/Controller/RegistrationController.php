@@ -301,7 +301,18 @@ class RegistrationController extends AppController {
                 }
             }
         }
-        $this->set('paytype',$shop['Order']['order_type']);
+        switch($shop['Order']['order_type']){
+            case "paypal":
+                $paytype = 'PayPal';
+                break;
+            case "payatfield":
+                $paytype = 'Pay At The Field';
+                break;
+            case "authnet":
+                $paytype = 'Visa/MC';
+                break;
+        }
+        $this->set('paytype',$paytype);
         $this->set(compact('shop'));
         $this->set('players', $this->Session->read('Player'));
     }
