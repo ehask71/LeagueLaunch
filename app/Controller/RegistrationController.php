@@ -200,6 +200,11 @@ class RegistrationController extends AppController {
     // Add to Cart the Items 
     // Display Upsells and Requirements
     public function step2() {
+        $backcheck = $this->Session->read('Shop.upsell_added');
+        if ($backcheck == 'true') {
+            $this->Session->setFlash('Please Don\'t Use The Back Button', 'alerts/info');
+            $this->redirect(array('action' => 'step3'));
+        }
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count(@$this->request->data['Upsell']) > 0) {
                 foreach ($this->request->data['Upsell'] AS $k => $v) {
@@ -207,6 +212,7 @@ class RegistrationController extends AppController {
                         $this->Cart->add($k, 1);
                     }
                 }
+                $this->Session->write('Shop.upsell_added', 'true');
                 $this->redirect(array('action' => 'step3'));
             }
         }
