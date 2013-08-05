@@ -135,7 +135,7 @@ class AppController extends Controller {
         if ($transaction['InstantPaymentNotification']['payment_status'] == 'Completed') {
             //Yay!  We have monies!
             $this->loadModel('Order');
-            mail('ehask71@gmail.com','PayPal IPN',print_r($transaction));
+            mail('ehask71@gmail.com','PayPal IPN',print_r($transaction,1));
             $IPN->email(array(
                 'id' => $txnId,
                 'message' => 'Thank you for your payment'
