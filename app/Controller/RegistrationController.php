@@ -159,7 +159,7 @@ class RegistrationController extends AppController {
         $id = $this->Session->read('Season.id');
         $pcheck = $this->Session->read('Shop.players_added');
         if ($pcheck == 'true') {
-            $this->Session->setFlash('Please Don\'t Use The Back Button', 'alerts/info');
+            //$this->Session->setFlash('Please Don\'t Use The Back Button', 'alerts/info');
             $this->redirect(array('action' => 'step2'));
         }
         // Store Results in Sessions
@@ -201,7 +201,7 @@ class RegistrationController extends AppController {
     public function step2() {
         $backcheck = $this->Session->read('Shop.upsell_added');
         if ($backcheck == 'true') {
-            $this->Session->setFlash('Please Don\'t Use The Back Button', 'alerts/info');
+            //$this->Session->setFlash('Please Don\'t Use The Back Button', 'alerts/info');
             $this->redirect(array('action' => 'step3'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
