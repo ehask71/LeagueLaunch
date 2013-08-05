@@ -1,12 +1,6 @@
 <div class="grid_12" id="body-content">
 <h2>Register</h2> 
 <?php
-$this->Html->scriptStart(array('block' => 'scriptBottom'));
-    echo "$(function() {
-	$('#birthDate').datepicker({ dateFormat: 'yy-mm-dd',changeMonth: true, changeYear: true });
-    });";
-$this->Html->scriptEnd();
-    
 echo $this->Form->create();
 echo $this->Form->input('site_id',array('type'=>'hidden','value'=>$site_id));
 echo $this->Form->input('firstname');
