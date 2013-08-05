@@ -160,9 +160,10 @@ class RegistrationController extends AppController {
         // Store Results in Sessions
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count($this->request->data['Players']) > 0) {
+                $season = $this->Session->read('Season.id');
                 foreach ($this->request->data['Players'] AS $k => $v) {
                     $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
-                    $this->Cart->add($product['Products']['id'], 1);
+                    $this->Cart->add($product['Products']['id'], 1,$k,$season);
                     $player = $this->Players->getPlayerById($k);
                     // Set Some Stuff
                     $this->Session->write('Player.' . $k . '.product', $product['Products']['id']);
