@@ -1,5 +1,8 @@
 <div class="grid_12" id="body-content">
-<h2>Register</h2> 
+    <div class="article">
+        <h2>Register</h2>
+        <p>You need to first have an account to access the features of our website. Good news is that it is a pretty painless task please fill out all the items below</p>
+    </div>
 <?php
 echo $this->Form->create();
 echo $this->Form->input('site_id',array('type'=>'hidden','value'=>$site_id));
