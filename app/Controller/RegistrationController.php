@@ -162,7 +162,8 @@ class RegistrationController extends AppController {
             if (count($this->request->data['Players']) > 0) {
                 $season = $this->Session->read('Season.id');
                 foreach ($this->request->data['Players'] AS $k => $v) {
-                    if(isset($this->Session->read('Player.'.$k))){
+                    $pcheck = $this->Session->read('Player.'.$k); 
+                    if(is_array($pcheck)){
                         continue;
                     }
                     $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
