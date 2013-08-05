@@ -301,7 +301,7 @@ class RegistrationController extends AppController {
                 }
             }
         }
-
+        $this->set('paytype',$shop['Order']['order_type']);
         $this->set(compact('shop'));
         $this->set('players', $this->Session->read('Player'));
     }
