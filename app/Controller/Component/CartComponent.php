@@ -51,10 +51,19 @@ class CartComponent extends Component {
 				'Products.id' => $id
 			)
 		));
-		
+                
 		$cartitems = $this->Session->read('Shop.OrderItem');
 		if(count($cartitems)>0){
+                    $pl = array();
 		    foreach ($cartitems AS $item){
+                        if($player & $season){
+                            if(!in_array($player, $pl)){
+                                $pl[] = $player;
+                            } else {
+                                // Duplicate
+                                return false;
+                            }
+                        }
 			if($item['product_id'] == $id){
 			    $quantity = (int)$item['quantity'] + 1;
 			}
