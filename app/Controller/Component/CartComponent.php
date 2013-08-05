@@ -28,7 +28,7 @@ class CartComponent extends Component {
 
 //////////////////////////////////////////////////
 
-	public function add($id, $quantity = 1) {
+	public function add($id, $quantity = 1,$players=FALSE) {
 
 		if(!is_numeric($quantity)) {
 			$quantity = 1;
@@ -73,6 +73,7 @@ class CartComponent extends Component {
 		$data['subtotal'] = sprintf('%01.2f', $product['Products']['price'] * $quantity);
 		$data['totalweight'] = sprintf('%01.2f', $product['Products']['weight'] * $quantity);
 		$data['Product'] = $product['Products'];
+                $data['additional'] = (strlen($players)>0)?$players:'';
 		$this->Session->write('Shop.OrderItem.' . $id, $data);
 		$this->Session->write('Shop.Order.shop', 1);
 
