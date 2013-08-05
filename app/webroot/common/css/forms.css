@@ -88,7 +88,8 @@ div.btn-group input[type=text]{
 }
 /* special for Cake date fields */
 div.input.date select{
-    width: auto;
+    width: 24%;
+    margin: 0px 12px;
 }
 div.input input[type=text]:focus,div.input input[type=password]:focus, div.input input[type=email]:focus, 
 div.control-group input[type=text]:focus, 
