@@ -122,19 +122,17 @@ class AppController extends Controller {
     }
 
     function afterPaypalNotification($txnId) {
-        //Here is where you can implement code to apply the transaction to your app.
-        //for example, you could now mark an order as paid, a subscription, or give the user premium access.
-        //retrieve the transaction using the txnId passed and apply whatever logic your site needs.
+
         $IPN = ClassRegistry::init('PaypalIpn.InstantPaymentNotification');
         $transaction = $IPN->findById($txnId);
         $this->log($transaction['InstantPaymentNotification']['id'], 'paypal');
 
-        //Tip: be sure to check the payment_status is complete because failure
-        //     are also saved to your database for review.
-
         if ($transaction['InstantPaymentNotification']['payment_status'] == 'Completed') {
             //Yay!  We have monies!
             $this->loadModel('Order');
+            // Status 2 = Paid :-)
+            $status = 2;
+            $this->Order->updateOrderStatus($transaction['InstantPaymentNotification']['invoice'],$status);
             mail('ehask71@gmail.com','PayPal IPN',print_r($transaction,1));
             $IPN->email(array(
                 'id' => $txnId,
