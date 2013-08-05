@@ -5,16 +5,16 @@
     if (!$loggedIn) {
         ?>
             <p>
-                To start the registration process you need to have an Account and Login. Please create your account here <?php echo $this->Html->link(__('Click to Register'), array('controller' => 'account', 'action' => 'register')); ?>. If you already 
-                have an account please login <?php echo $this->Html->link(__('Click to Login'), '/login'); ?>.   
+                To start the registration process you need to have an Account and be logged in. If you already have an account please login <?php echo $this->Html->link(__('Click to Login'), '/login'); ?>
+                <br><br>If you don't please create your account here <?php echo $this->Html->link(__('Click to Register'), array('controller' => 'account', 'action' => 'register')); ?>.   
             </p>
         <?php
     } else {
         ?>
             <p>
-                Hello <?php echo $userinfo['firstname']; ?>,
+                Hello <?php echo $userinfo['firstname']; ?>,<br/>
 
-                Welcome to <?php echo Configure::read('Settings.leaguename'); ?> Online Registration. We will guide you thru the process of registering you or your family member for our League. On the next page you will see the players you have associated 
+                Welcome to <?php echo Configure::read('Settings.leaguename'); ?> Online Registration. We will guide you thru the process of registering you or your family member(s) for our League. On the next page you will see the players you have associated 
                 with your account. If you haven't set up any player profiles yet don't worry you will be able to do so from the next page.  
             </p>
             <p>
@@ -31,7 +31,7 @@
                         foreach ($registrations AS $reg){
                             ?>
                     <tr>
-                        <td>
+                        <td><b>
                             <?php
                             echo '<form action="/registration/index" name="post_'.$i.'" id="post_'.$i.'" method="POST">';
                             echo '<input type="hidden" name="data[Season][id]" value="'.$reg['Season']['id'].'"/>';
@@ -39,7 +39,7 @@
                             echo '<a href="#" class="registrationPostLink" onclick="document.post_'.$i.'.submit(); event.returnValue = false; return false;">'.__($reg['Season']['name']).'</a>';
                             $i++;
                             ?>
-                        </td>
+                        </b></td>
                     </tr>
                             <?php
                         }
