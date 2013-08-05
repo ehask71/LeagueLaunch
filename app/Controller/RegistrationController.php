@@ -179,8 +179,8 @@ class RegistrationController extends AppController {
                     $this->Session->write('Shop.Order.Player.' . $k . '.division', $v);
                     $this->Session->write('Shop.Order.Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
                 }
-                $this->redirect(array('action' => 'step2'));
                 $this->Session->write('Shop.players_added', 'true');
+                $this->redirect(array('action' => 'step2'));
             }
         }
         if ($id) {
