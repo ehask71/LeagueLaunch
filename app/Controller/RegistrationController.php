@@ -161,13 +161,14 @@ class RegistrationController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count($this->request->data['Players']) > 0) {
                 $season = $this->Session->read('Season.id');
+                $pcheck = $this->Session->read('Shop.players_added');
+                if (is_array($pcheck)) {
+                    $this->Session->setFlash('Please Don\'t Use The Back Button','alerts/info');
+                    $this->redirect(array('action'=>'step2'));
+                }
                 foreach ($this->request->data['Players'] AS $k => $v) {
-                    $pcheck = $this->Session->read('Player.'.$k); 
-                    if(is_array($pcheck)){
-                        continue;
-                    }
                     $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
-                    $this->Cart->add($product['Products']['id'], 1,$k,$season);
+                    $this->Cart->add($product['Products']['id'], 1, $k, $season);
                     $player = $this->Players->getPlayerById($k);
                     // Set Some Stuff
                     $this->Session->write('Player.' . $k . '.product', $product['Products']['id']);
@@ -178,6 +179,7 @@ class RegistrationController extends AppController {
                     $this->Session->write('Shop.Order.Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
                 }
                 $this->redirect(array('action' => 'step2'));
+                $this->Session->write('Shop.players_added', 'true');
             }
         }
         if ($id) {
@@ -185,7 +187,7 @@ class RegistrationController extends AppController {
             //$registration_options = $this->ProductsToRegistrations->getRegistrationsDropdown($id);
             $registration_options = $this->Divisions->getParentDivisionsWproduct();
             $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
-            $prepared_data = $this->LeagueAge->limitAgeBasedOptions($players,$registration_options);
+            $prepared_data = $this->LeagueAge->limitAgeBasedOptions($players, $registration_options);
             $this->set(compact('prepared_data'));
             $this->set(compact('players'));
         } else {
@@ -273,7 +275,7 @@ class RegistrationController extends AppController {
                     // Do the insert for Player_to_Registrations
                     $this->loadModel('PlayersToSeasons');
                     foreach ($shop['Order']['Player'] AS $k => $v) {
-                        $sid = $this->PlayersToSeasons->saveAll($this->PlayersToSeasons->addPlayer($shop['Order']['season_id'], $k,$v['division'], $v['product']));
+                        $sid = $this->PlayersToSeasons->saveAll($this->PlayersToSeasons->addPlayer($shop['Order']['season_id'], $k, $v['division'], $v['product']));
                     }
 
                     if ((Configure::read('Settings.paypal_enabled') == 'true') && $shop['Order']['order_type'] == 'paypal') {
