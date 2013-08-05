@@ -89,6 +89,21 @@ class Account extends AppModel {
 		    'rule' => 'notEmpty',
 		    'message' => 'Please enter your Last Name')
 	    ),
+            'address' => array(
+		'mustNotEmpty' => array(
+		    'rule' => 'notEmpty',
+		    'message' => 'Please Enter your Address')
+	    ),
+            'city' => array(
+		'mustNotEmpty' => array(
+		    'rule' => 'notEmpty',
+		    'message' => 'Please Enter your City')
+	    ),
+            'state' => array(
+		'mustNotEmpty' => array(
+		    'rule' => 'notEmpty',
+		    'message' => 'Please Enter your State')
+	    ),
 	    'zip' => array(
 		'mustNotEmpty' => array(
 		    'rule' => 'notEmpty',
