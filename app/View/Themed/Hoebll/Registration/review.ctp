@@ -7,7 +7,8 @@
             First Name: <?php echo $shop['Order']['first_name']; ?><br />
             Last Name: <?php echo $shop['Order']['last_name']; ?><br />
             Email: <?php echo $shop['Order']['email']; ?><br />
-            Phone: <?php echo $shop['Order']['phone']; ?><br />
+            Phone: <?php echo $shop['Order']['phone']; ?><br /><br />
+            Payment: <?php echo $paytype;?>
 
             <br />
 
