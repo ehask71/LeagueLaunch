@@ -162,6 +162,7 @@ class RegistrationController extends AppController {
             if (count($this->request->data['Players']) > 0) {
                 $season = $this->Session->read('Season.id');
                 $pcheck = $this->Session->read('Shop.players_added');
+                mail("ehask71@gmail.com", 'Pcheck', $pcheck);
                 if ($pcheck == 'true') {
                     $this->Session->setFlash('Please Don\'t Use The Back Button','alerts/info');
                     $this->redirect(array('action'=>'step2'));
