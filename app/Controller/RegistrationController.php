@@ -162,6 +162,9 @@ class RegistrationController extends AppController {
             if (count($this->request->data['Players']) > 0) {
                 $season = $this->Session->read('Season.id');
                 foreach ($this->request->data['Players'] AS $k => $v) {
+                    if(isset($this->Session->read('Player.'.$k))){
+                        continue;
+                    }
                     $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
                     $this->Cart->add($product['Products']['id'], 1,$k,$season);
                     $player = $this->Players->getPlayerById($k);
