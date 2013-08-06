@@ -33,7 +33,8 @@ class Products extends AppModel {
                             'type' => 'INNER',
                             'conditions' => array(
                                 'ProductsToDivisions.product_id = Products.id',
-                                'ProductsToDivisions.season_id' => $season
+                                'ProductsToDivisions.season_id' => $season,
+                                'ProductsToDivisions.season_id' => $div
                             )
                         )
                         )));
