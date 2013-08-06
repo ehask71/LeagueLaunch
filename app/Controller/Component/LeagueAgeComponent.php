@@ -24,11 +24,11 @@ class LeagueAgeComponent extends Component {
         parent::__construct($collection, array_merge($this->settings, (array) $settings));
     }
 
-    public function initialize($controller) {
+    public function initialize(Controller $controller) {
         $this->Sport = Configure::read('Settings.sport');
     }
 
-    public function startup($controller) {
+    public function startup(Controller $controller) {
         
     }
 
