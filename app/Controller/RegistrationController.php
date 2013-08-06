@@ -140,6 +140,10 @@ class RegistrationController extends AppController {
     }
 
     public function index() {
+        if($_SERVER['REMOTE_ADDR'] != '108.9.106.22'){
+            $this->Session->setFlash('Temporarily Under Going Maintenance', 'alerts/info');
+            $this->redirect('/');
+        }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->request->data['Season']['id'] != '') {
                 $this->Session->write('Season.id', $this->request->data['Season']['id']);
