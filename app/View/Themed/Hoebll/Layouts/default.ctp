@@ -114,6 +114,10 @@
 		<div class="grid_4">
 		    <div class="content">
 			<h3>Navigation</h3>
+                        <ul>
+                            <li><a href="/account">My Account</a></li>
+                            <li><a href="/admin/home">Admin</a></li>
+                        </ul>
 		    </div>
 		</div>
 		<div class="grid_4">
