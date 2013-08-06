@@ -36,11 +36,11 @@ class LeagueAgeComponent extends Component {
 
         $sport = (!isset($this->divisor[$this->Sport])) ? 'baseball' : $this->Sport;
         $now = date('Y-m-d');
-        if (function_exists('date_diff')) {
+        /*if (function_exists('date_diff')) {
             $diff = date_diff(date_create($birthdate), date_create($now));
-        } else {
+        } else {*/
             $diff = $this->date_diff($birthdate, $now);
-        }
+        //}
 	mail('ehask71@gmail.com','League Age',$diff.' '.$now.' '.($diff / $this->divisor[$sport]));
         return $diff / $this->divisor[$sport];
     }
