@@ -6,9 +6,9 @@ class Players extends AppModel {
 
     public $primaryKey = 'player_id';
     public $belongsTo = array(
-        'User' => array(
-            'className' => 'User',
-            'foreignKey' => 'user_id',
+        'Account' => array(
+            'className' => 'Account',
+            'foreignKey' => 'id',
             'conditions' => '',
             'fields' => '',
             'order' => '',
