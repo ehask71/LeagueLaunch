@@ -27,7 +27,17 @@ class AccountController extends AppController {
 	}
 	return true;
     }
-
+    
+    public function index(){
+        $account = $this->find('first',array(
+           'conditions' => array(
+               'Account.id' => $this->Auth->user('id')
+           ) 
+        ));
+        
+        $this->set(compact('account'));
+    }
+    
     public function login() {
 	if ($this->request->is('post')) {
 	    if ($this->Auth->login()) {
