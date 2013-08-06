@@ -141,7 +141,7 @@ class RegistrationController extends AppController {
 
     public function index() {
         if($_SERVER['REMOTE_ADDR'] != '108.9.106.22'){
-            $this->Session->setFlash('Temporarily Under Going Maintenance', 'alerts/info');
+            $this->Session->setFlash('We Are Temporarily Under Going Maintenance. We apologize for any inconvience. <br>Please Try Back Shortly', 'alerts/info');
             $this->redirect('/');
         }
         if ($this->request->is('post') || $this->request->is('put')) {
