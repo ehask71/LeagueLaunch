@@ -222,7 +222,7 @@ class RegistrationController extends AppController {
                 $shop = $this->Session->read('Shop');
                 $this->set(compact('shop'));
             } else {
-                $this->redirect(array('action' => 'step'));
+                $this->redirect(array('action' => 'step3'));
             }
         } else {
             $this->Session->setFlash(__('No Players Selected'), 'alerts/error');
