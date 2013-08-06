@@ -213,7 +213,9 @@ class RegistrationController extends AppController {
                 }
                 $this->Session->write('Shop.upsell_added', 'true');
                 $this->redirect(array('action' => 'step3'));
-            }
+            } else {
+		$this->redirect(array('action' => 'step3'));
+	    }
         }
         if (count($this->Session->read('Player')) > 0 && $this->Session->read('Season.id') != '') {
             $upSells = $this->Products->getUpSells();
