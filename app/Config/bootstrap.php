@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_STRICT & ~E_DEPRECATED);
 /**
  * This file is loaded automatically by the app/webroot/index.php file after core.php
  *
