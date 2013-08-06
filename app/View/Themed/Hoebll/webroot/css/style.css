@@ -232,6 +232,10 @@ img.left{
 	padding-bottom: 15px;
 	border-bottom: 1px dotted #000;
 }
+#body-content>div{
+        margin: 10px;
+	padding-bottom: 15px;
+}
 div.article h2{
 	font-size: 1.6em;
 	text-shadow: 1px 1px 1px rgba(50, 50, 50, .8);
@@ -310,6 +314,9 @@ section#footer .grid_4 .content{
 	margin:10px;
 	padding: 0px 6px 8px 10px;
 	height: 150px;
+}
+section#footer .grid_4 .content a {
+	color: #FFF;
 }
 section#footer .grid_4 .content.first{
 	border-left: none;	
