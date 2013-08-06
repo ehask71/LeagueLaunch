@@ -24,6 +24,10 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+if(!isset($_SERVER['SERVER_NAME'])){
+    $_SERVER['SERVER_NAME'] = 'cli';
+}
+
 // Setup a 'default' cache configuration for use in the application.
 //Cache::config('default', array('engine' => 'File'));
 Cache::config('default', array(
