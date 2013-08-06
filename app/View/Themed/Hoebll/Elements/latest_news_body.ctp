@@ -6,7 +6,7 @@ if (isset($latest_news) && count(@$latest_news) > 0) {
 	<div class = "article">
 	<h2><?php echo $news['News']['title']?></h2>
 	<cite>posted: <?php echo $news['News']['created']?></cite>
-	<img src = "ebll/images/test-image.jpg" class = "right">
+        <image src="/img/baseball/littleleague_100x75.jpg" alt="News"/>
 	<p>
 	    <?php echo $news['News']['content']?>
 	</p>
