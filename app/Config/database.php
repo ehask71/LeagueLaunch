@@ -22,7 +22,7 @@ class DATABASE_CONFIG {
         'persistent' => false,
         'host' => 'localhost',
         'port' => '',
-        'login' => 'demoleag_site',
+        'login' => 'demoleag_newdemo',
         'password' => '070693cory',
         'database' => 'demoleag_league',
         'schema' => '',
