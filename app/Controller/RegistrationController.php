@@ -17,7 +17,7 @@ class RegistrationController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('index');
-        if($_SERVER['REMOTE_ADDR'] != '108.9.106.22'){
+        if($_SERVER['REMOTE_ADDR'] != '108.9.106.23'){
             $this->Session->setFlash('We Are Temporarily Under Going Maintenance. We apologize for any inconvience. <br>Please Try Back Shortly', 'alerts/info');
             $this->redirect('/');
         }
