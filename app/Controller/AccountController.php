@@ -29,7 +29,7 @@ class AccountController extends AppController {
     }
     
     public function index(){
-        $account = $this->find('first',array(
+        $account = $this->Account->find('first',array(
            'conditions' => array(
                'Account.id' => $this->Auth->user('id')
            ) 
