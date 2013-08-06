@@ -1,7 +1,9 @@
 <div class="grid_12" id="body-content"> 
     <div>
+        <h2><?=__('Your Account');?></h2>
+        
         <pre>
-            <?php print_r($account);?>
+            <?php //print_r($account);?>
         </pre>
     </div>
 </div>
