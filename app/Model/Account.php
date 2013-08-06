@@ -45,7 +45,7 @@ class Account extends AppModel {
 	return true;
     }
 
-    public function beforeFind(array $query) {
+    public function beforeFind($query) {
 /* $query['joins'] = array(
 	  array(
 	  'table' => 'roles_users',
