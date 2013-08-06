@@ -9,6 +9,8 @@ class NewsController extends AppController {
 
     public $uses = array('News');
     
+    public $helpers = array('Media.Media');
+    
     public function beforeFilter() {
 	parent::beforeFilter();
         $this->Auth->allow('index');
