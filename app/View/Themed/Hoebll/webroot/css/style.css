@@ -215,22 +215,30 @@ section h2{
 	border: 1px dotted #666;
 	background-color: #FEFEFE;
 	padding: 4px;
-	border-radius: 4px;
+	
 	max-width: 100%;
-	box-shadow: 1px 1px 3px rgba(0,0,0, 0.8);
+	
 }
 img.right{
 	float: right;
 	margin: 8px;
+        border-radius: 4px;
+        box-shadow: 1px 1px 3px rgba(0,0,0, 0.8);
 }
 img.left{
 	float: left;
 	margin: 8px;
+        border-radius: 4px;
+        box-shadow: 1px 1px 3px rgba(0,0,0, 0.8);
 }
 #body-content div.article{
 	margin: 10px;
 	padding-bottom: 15px;
 	border-bottom: 1px dotted #000;
+}
+#body-content>div{
+        margin: 10px;
+	padding-bottom: 15px;
 }
 div.article h2{
 	font-size: 1.6em;
@@ -310,6 +318,9 @@ section#footer .grid_4 .content{
 	margin:10px;
 	padding: 0px 6px 8px 10px;
 	height: 150px;
+}
+section#footer a {
+	color: #FFF;
 }
 section#footer .grid_4 .content.first{
 	border-left: none;	
