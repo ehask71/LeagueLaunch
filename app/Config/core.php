@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SERVER['SERVER_NAME'])){
+    $_SERVER['SERVER_NAME'] = 'cli';
+}
 /**
  * This is core configuration file.
  *
