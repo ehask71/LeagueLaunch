@@ -8,7 +8,7 @@ class Players extends AppModel {
     public $belongsTo = array(
         'Account' => array(
             'className' => 'Account',
-            'foreignKey' => 'id',
+            'foreignKey' => 'user_id',
             'conditions' => '',
             'fields' => '',
             'order' => '',
