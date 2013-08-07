@@ -40,7 +40,8 @@
                     async:true, 
                     complete:function (XMLHttpRequest, textStatus) {
                         $("#playerForm").each (function(){this.reset();});
-                        $("#ajaxControl").css("display","block");}, 
+                        $("#ajaxControl").css("display","block");
+			$("html, body").animate({ scrollTop: 0 }, "slow");}, 
                     data:$("#playerForm").serialize(), 
                     dataType:"html", 
                     success:function (data, textStatus) {
@@ -50,16 +51,13 @@
                     return false;
                 });
             });';
-                echo "$(function() {
-                $( '#birthday' ).datepicker({ dateFormat: 'yy-mm-dd',changeMonth: true,changeYear: true });
-            });";
                 $this->Html->scriptEnd();
                 echo $this->Js->writeBuffer();
                 echo $this->Form->create('Players', array('controller' => 'registration', 'action' => 'saveplayer', 'id' => 'playerForm', 'default' => false));
                 echo $this->Form->input('firstname');
                 echo $this->Form->input('lastname');
                 echo $this->Form->input('nickname');
-                echo $this->Form->input('birthday', array('id' => 'birthday', 'type' => 'text', 'placeholder' => 'Ex: 1997-12-13'));
+                echo $this->Form->input('birthday', array('id' => 'birthday'));
                 echo $this->Form->input('gender', array('type' => 'select', 'options' => array('m' => 'Male', 'f' => 'Female'), 'class' => 'chzn-select'));
                 echo $this->Form->input('site_id', array('type' => 'hidden', 'value' => Configure::read('Settings.site_id')));
                 echo $this->Form->input('user_id', array('type' => 'hidden', 'value' => $userinfo['id']));
