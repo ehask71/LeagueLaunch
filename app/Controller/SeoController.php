@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
 
 class SeoController extends AppController {
     
-    public $name = 'SeoController';
+    public $name = 'Seo';
     
     public function beforeFilter() {
 	parent::beforeFilter();
