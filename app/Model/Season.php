@@ -10,6 +10,12 @@ class Season extends AppModel {
     public $name = 'Season';
     public $primaryKey = 'id';
     
+    public $hasMany = array(
+        'PlayersToSeasons' => array(
+            'className' => 'PlayersToSeasons',
+        )
+    );
+    
     public function seasonValidate(){
         $validate1 = array(
             'name' => array(
