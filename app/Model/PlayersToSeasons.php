@@ -10,6 +10,17 @@ class PlayersToSeasons extends AppModel {
     public $primaryKey = 'id';
     public $useTable = 'players_to_seasons';
     
+    public $hasMany = array(
+      'Players' => array(
+          'className' => 'Players',
+          'foreignKey' => 'player_id'
+      ),
+      'Season' => array(
+          'className' => 'Season',
+          'foreignKey' => 'season_id'
+      )
+    );
+    
     public function addPlayer($season_id,$player,$div,$product_id,$opts=array()){
         $data['PlayersToSeasons'] = array();
         $data['PlayersToSeasons']['season_id'] = (int)$season_id;
