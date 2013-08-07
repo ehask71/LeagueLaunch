@@ -40,7 +40,7 @@ class Products extends AppModel {
           )
           )
           ))); */
-        return $this->query('SELECT p . * 
+        return $this->query('SELECT Products . * 
                         FROM  `products` AS Products
                         INNER JOIN products_to_divisions AS ptd ON Products.id = ptd.product_id
                         WHERE ptd.season_id = '.$season.'
