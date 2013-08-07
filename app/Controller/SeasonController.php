@@ -74,6 +74,17 @@ class SeasonController extends AppController {
             $this->render('admin_new');
         }
     }
+    
+    public function admin_view($id){
+        $season = $this->Season->find('first', array(
+           'conditions' => array(
+               'Season.id' => $id,
+               'Season.site_id'=> Configure::read('Settings.site_id')
+           ) 
+        ));
+        
+        
+    }
 
 }
 
