@@ -177,10 +177,10 @@ class RegistrationController extends AppController {
                     $this->Cart->add($product[0]['Products']['id'], 1, $k, $season);
                     $player = $this->Players->getPlayerById($k);
                     // Set Some Stuff
-                    $this->Session->write('Player.' . $k . '.product', $product['Products']['id']);
+                    $this->Session->write('Player.' . $k . '.product', $product[0]['Products']['id']);
                     $this->Session->write('Player.' . $k . '.division', $v);
                     $this->Session->write('Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
-                    $this->Session->write('Shop.Order.Player.' . $k . '.product', $product['Products']['id']);
+                    $this->Session->write('Shop.Order.Player.' . $k . '.product', $product[0]['Products']['id']);
                     $this->Session->write('Shop.Order.Player.' . $k . '.division', $v);
                     $this->Session->write('Shop.Order.Player.' . $k . '.player', $player['Players']['firstname'] . ' ' . $player['Players']['lastname']);
                 }
