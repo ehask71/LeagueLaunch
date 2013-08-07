@@ -174,7 +174,6 @@ class RegistrationController extends AppController {
                 foreach ($this->request->data['Players'] AS $k => $v) {
                     
                     $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
-                    mail('ehask71@gmail.com','Cart',$k.' '.$v.' '.$this->Session->read('Season.id').' '.print_r($product,1).print_r($logs,1));
                     $this->Cart->add($product[0]['Products']['id'], 1, $k, $season);
                     $player = $this->Players->getPlayerById($k);
                     // Set Some Stuff
