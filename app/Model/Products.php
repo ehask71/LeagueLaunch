@@ -41,8 +41,8 @@ class Products extends AppModel {
           )
           ))); */
         return $this->query('SELECT p . * 
-                        FROM  `products` AS p
-                        INNER JOIN products_to_divisions AS ptd ON p.id = ptd.product_id
+                        FROM  `products` AS Products
+                        INNER JOIN products_to_divisions AS ptd ON Products.id = ptd.product_id
                         WHERE ptd.season_id = '.$season.'
                         AND ptd.division_id = '.$div);
     }
