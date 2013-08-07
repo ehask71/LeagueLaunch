@@ -19,36 +19,43 @@ class Products extends AppModel {
     }
 
     public function getProductsByDivision($div, $season = FALSE) {
-        return $this->find('first', array(
-                    'order' => 'Products.id DESC',
-                    'conditions' => array(
-                        'Products.site_id' => Configure::read('Settings.site_id'),
-                        'Products.active' => 1,
-                        'Products.category_id' => 1
-                    ),
-                    'joins' => array(
-                        array(
-                            'table' => 'products_to_divisions',
-                            'alias' => 'ProductsToDivisions',
-                            'type' => 'INNER',
-                            'conditions' => array(
-                                'ProductsToDivisions.product_id = Products.id',
-                                'ProductsToDivisions.season_id' => $season,
-                                'ProductsToDivisions.season_id' => $div
-                            )
-                        )
-                        )));
+        /* return $this->find('first', array(
+          'order' => 'Products.id DESC',
+          'conditions' => array(
+          'Products.site_id' => Configure::read('Settings.site_id'),
+          'Products.active' => 1,
+          'Products.category_id' => 1,
+          'ProductsToDivisions.season_id' => $season,
+          'ProductsToDivisions.season_id' => $div
+          ),
+          'joins' => array(
+          array(
+          'table' => 'products_to_divisions',
+          'alias' => 'ProductsToDivisions',
+          'type' => 'INNER',
+          'conditions' => array(
+          'ProductsToDivisions.product_id = Products.id',
+          'ProductsToDivisions.season_id' => $season,
+          'ProductsToDivisions.season_id' => $div
+          )
+          )
+          ))); */
+        return $this->query('SELECT p . * 
+                        FROM  `products` AS p
+                        INNER JOIN products_to_divisions AS ptd ON p.id = ptd.product_id
+                        WHERE ptd.season_id = '.$season.'
+                        AND ptd.division_id = '.$div);
     }
-    
-    public function getUpsells(){
+
+    public function getUpsells() {
         $opts = array();
         $products = $this->find('all', array(
-                    'order' => 'Products.id DESC',
-                    'conditions' => array(
-                        'Products.site_id' => Configure::read('Settings.site_id'),
-                        'Products.active' => 1,
-                        'Products.category_id' => 2
-                        )));
+            'order' => 'Products.id DESC',
+            'conditions' => array(
+                'Products.site_id' => Configure::read('Settings.site_id'),
+                'Products.active' => 1,
+                'Products.category_id' => 2
+                )));
         if (count($products) > 0) {
             foreach ($products AS $prod) {
                 $opts[$prod['Products']['id']] = $prod['Products'];
@@ -60,7 +67,7 @@ class Products extends AppModel {
         }
         return FALSE;
     }
-    
+
     public function getRegistrationProducts() {
         return $this->find('all', array(
                     'order' => 'Products.id DESC',
