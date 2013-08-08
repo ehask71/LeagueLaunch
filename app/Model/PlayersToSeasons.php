@@ -42,23 +42,17 @@ class PlayersToSeasons extends AppModel {
     }
     
     public function getPlayersToSeason($id,$active=FALSE){
-	$play = $this->find('all',array(
-	    'recursive' => 1,
-	    'conditions' => array(
-		'PlayersToSeasons.season_id' => $id,
-		'PlayersToSeasons.site_id' => Configure::read('Settings.site_id')
-	    ),
-	    'joins' => array(
-		array(
-		    'table' => 'players',
-		    'alias' => 'Players',
-		    'type' => 'INNER',
-		    'conditions' => array(
-			'PlayersToSeasons.player_id = Players.player_id'
-		    )
-		)
-	    )
-	));
+	$play = $this->query("
+	    SELECT * FROM 
+		`players_to_seasons` AS `PlayersToSeasons` 
+	    INNER JOIN 
+		`players` AS Players 
+	    ON 
+		PlayersToSeasons.player_id = Players.player_id 
+	    WHERE 
+		PlayersToSeasons.site_id = ".Configure::read('Settings.site_id')." 
+	    AND 
+		PlayersToSeasons.season_id = ".$id);
 	
 	return $play;
     }
