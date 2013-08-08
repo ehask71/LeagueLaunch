@@ -12,7 +12,7 @@ class WidgetController extends AppController {
     
     public function beforeFilter() {
 	parent::beforeFilter();
-        $this->Auth->allow('leagueage','index');
+        $this->Auth->allow('la','index');
     }
     
     public function index(){
