@@ -65,13 +65,43 @@
 		<table class="display" id="basictable">
 		    <thead>
 			<th>Player</th>
-			<th></th>
+			<th>Birth Date</th>
+			<th>League Age</th>
+			<th>Division</th>
+			<th>Paid</th>
+			<th>Form Complete</th>
+			<th>Verified Docs</th>
+			<th>Options</th>
 		    </thead>
+		    <tbody>
+			<?php
+			if(count($players)> 0){
+			    foreach($players AS $row):
+				?>
+			<tr>
+			    <td><?php echo $row['Players']['firstname'];?> <?php echo $row['Players']['lastname'];?></td>
+			    <td><?php echo $row['Players']['birthdate'];?></td>
+			    <td><?php echo $row['Players']['league_age'];?></td>
+			    <td><?php echo $row['Divisions']['name'];?></td>
+			    <td><?php echo ($row['Players']['haspaid'] == 1)?'Yes':'No';?></td>
+			    <td><?php echo ($row['Players']['formcomplete'] == 1)?'Yes':'No';?></td>
+			    <td><?php echo ($row['Players']['verifydocs'] == 1)?'Yes':'No';?></td>
+			    <td>
+				
+			    </td>
+			</tr>
+				<?php
+			    endforeach;
+			} else {
+			    ?>
+			<tr>
+			    <td colspan="5">No Players To Display</td>
+			</tr>
+			    <?php
+			}
+			?>
+		    </tbody>
 		</table>
-		<pre>
-		<?php print_r($season);?>
-		<?php print_r($players);?>
-		</pre>
 	    </div>
 	</div>
     </div>
