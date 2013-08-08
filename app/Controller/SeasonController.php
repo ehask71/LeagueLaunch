@@ -77,13 +77,16 @@ class SeasonController extends AppController {
     
     public function admin_view($id){
         $season = $this->Season->find('first', array(
-	   'recursive' => 2,
+	   'recursive' => -1,
            'conditions' => array(
                'Season.id' => $id,
                'Season.site_id'=> Configure::read('Settings.site_id')
            ) 
         ));
-        
+	$this->loadModel('PlayersToSeasons');
+        $players = $this->PlayersToSeasons->getPlayersToSeason($id);
+	
+	$this->set(compact('players'));
         $this->set(compact('season'));
     }
 
