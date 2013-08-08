@@ -16,7 +16,7 @@ class Players extends AppModel {
             'counterScope' => array(),
         )
     );
-
+    
     public function getPlayersByUser($id, $site_id = false) {
         $conditions['Players.active'] = 1;
         $conditions['Players.user_id'] = (int) $id;
@@ -36,6 +36,28 @@ class Players extends AppModel {
                         'Players.player_id' => (int) $id
                     )
                 ));
+    }
+    
+    public function getPlayersToSeason($id,$active=FALSE){
+	$play = $this->find('all',array(
+	    'recursive' => 1,
+	    'conditions' => array(
+		'PlayersToSeasons.season_id' => $id,
+		'PlayersToSeasons.site_id' => Configure::read('Settings.site_id')
+	    ),
+	    'joins' => array(
+		array(
+		    'table' => 'players_to_seasons',
+		    'alias' => 'PlayersToSeasons',
+		    'type' => 'INNER',
+		    'conditions' => array(
+			'PlayersToSeasons.player_id = Players.player_id'
+		    )
+		)
+	    )
+	));
+	
+	return $play;
     }
 
 }
