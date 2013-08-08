@@ -79,8 +79,8 @@
 			    foreach($players AS $row):
 				?>
 			<tr>
-			    <td><?php echo $row['Players']['firstname'];?> <?php echo $row['Players']['lastname'];?></td>
-			    <td><?php echo $row['Players']['birthdate'];?></td>
+			    <td><?php echo ucfirst(strtolower($row['Players']['firstname']));?> <?php echo ucfirst(strtolower($row['Players']['lastname']));?></td>
+			    <td><?php echo $row['Players']['birthday'];?></td>
 			    <td><?php echo $row['Players']['league_age'];?></td>
 			    <td><?php echo $row['Divisions']['name'];?></td>
 			    <td><?php echo ($row['Players']['haspaid'] == 1)?'Yes':'No';?></td>
