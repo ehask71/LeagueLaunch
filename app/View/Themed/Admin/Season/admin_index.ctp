@@ -34,6 +34,9 @@
                             <td><?=$row['Season']['active'];?></td>
                             <td><?=$row['Season']['updated'];?></td>
                             <td>
+				<?php echo $this->Form->postLink('View', 
+                    array('action' => 'view', $row['Season']['id']),
+                    array('class'=>'button green'));?>
 				<?php echo $this->Form->postLink('Edit', 
                     array('action' => 'edit', $row['Season']['id']),
                     array('class'=>'button blue'));?>
