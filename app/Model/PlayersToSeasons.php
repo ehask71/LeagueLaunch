@@ -17,7 +17,7 @@ class PlayersToSeasons extends AppModel {
       ),
       'Season' => array(
           'className' => 'Season',
-          'foreignKey' => 'season_id'
+          'foreignKey' => 'id'
       )
     );
     
