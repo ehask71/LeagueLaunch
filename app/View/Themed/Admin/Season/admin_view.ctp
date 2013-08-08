@@ -62,6 +62,12 @@
         </h2>
         <div class="block">
             <div class="block_in">
+		<table class="display" id="basictable">
+		    <thead>
+			<th>Player</th>
+			<th></th>
+		    </thead>
+		</table>
 		<pre>
 		<?php print_r($season);?>
 		</pre>
