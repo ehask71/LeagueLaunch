@@ -40,5 +40,16 @@ class PlayersToSeasons extends AppModel {
         return $data;
         //return false;
     }
+    
+    public function getPlayersToSeason($id,$active=FALSE){
+	$play = $this->find('all',array(
+	    'conditions' => array(
+		'PlayersToSeasons.season_id' => $id,  
+	    ),
+	    'joins' => array(
+		
+	    )
+	));
+    }
 }
 
