@@ -52,7 +52,7 @@ class PlayersToSeasons extends AppModel {
 	    INNER JOIN
 		`divisions` AS Divisions
 	    ON
-		PlayersToSeasons.division_id = Divsions.division_id
+		PlayersToSeasons.division_id = Divisions.division_id
 	    WHERE 
 		PlayersToSeasons.site_id = ".Configure::read('Settings.site_id')." 
 	    AND 
