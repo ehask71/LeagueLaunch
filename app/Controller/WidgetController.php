@@ -20,6 +20,7 @@ class WidgetController extends AppController {
     }
     
     public function la($bd){
+        $this->autoRender = false;
         if($bd != ''){
             return $this->LeagueAge->calculateLeagueAge($bd);
         }
