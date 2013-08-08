@@ -43,7 +43,7 @@ class PlayersToSeasons extends AppModel {
     
     public function getPlayersToSeason($id,$active=FALSE){
 	$play = $this->find('all',array(
-	    'recursive' => -1,
+	    'recursive' => 1,
 	    'conditions' => array(
 		'PlayersToSeasons.season_id' => $id,
 		'PlayersToSeasons.site_id' => Configure::read('Settings.site_id')
