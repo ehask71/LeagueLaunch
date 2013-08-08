@@ -13,6 +13,7 @@ class Season extends AppModel {
     public $hasMany = array(
         'PlayersToSeasons' => array(
             'className' => 'PlayersToSeasons',
+	    'foreignKey' => 'season_id'
         )
     );
     
