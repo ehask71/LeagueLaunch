@@ -83,7 +83,7 @@ class SeasonController extends AppController {
            ) 
         ));
         
-        
+        $this->set(compact('season'));
     }
 
 }
