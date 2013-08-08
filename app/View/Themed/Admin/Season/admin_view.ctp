@@ -70,6 +70,7 @@
 		</table>
 		<pre>
 		<?php print_r($season);?>
+		<?php print_r($players);?>
 		</pre>
 	    </div>
 	</div>
