@@ -58,6 +58,8 @@ class PlayersToSeasons extends AppModel {
 		)
 	    )
 	));
+	
+	return $play;
     }
 }
 
