@@ -46,9 +46,13 @@ class PlayersToSeasons extends AppModel {
 	    SELECT * FROM 
 		`players_to_seasons` AS `PlayersToSeasons` 
 	    INNER JOIN 
-		`players` AS Players 
+		`players` AS Players
 	    ON 
 		PlayersToSeasons.player_id = Players.player_id 
+	    INNER JOIN
+		`divisions` AS Divisions
+	    ON
+		PlayersToSeasons.division_id = Divsions.id
 	    WHERE 
 		PlayersToSeasons.site_id = ".Configure::read('Settings.site_id')." 
 	    AND 
