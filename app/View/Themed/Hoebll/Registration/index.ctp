@@ -5,7 +5,7 @@
     if (!$loggedIn) {
         ?>
             <p>
-                To start the registration process you need to have an Account and be logged in. If you already have an account please login <?php echo $this->Html->link(__('Click to Login'), '/login'); ?>
+                To start the registration process for your child you as a parent need to have an Account and be logged in. If you already have an account please login <?php echo $this->Html->link(__('Click to Login'), '/login'); ?>
                 <br><br>If you don't please create your account here <?php echo $this->Html->link(__('Click to Register'), array('controller' => 'account', 'action' => 'register')); ?>.   
             </p>
         <?php
