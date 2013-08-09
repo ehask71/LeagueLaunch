@@ -6,8 +6,8 @@
 <?php
 echo $this->Form->create();
 echo $this->Form->input('site_id',array('type'=>'hidden','value'=>$site_id));
-echo $this->Form->input('firstname');
-echo $this->Form->input('lastname');
+echo $this->Form->input('firstname',array('label'=>'Parent First Name'));
+echo $this->Form->input('lastname',array('label'=>'Parent Last Name'));
 echo $this->Form->input('address');
 echo $this->Form->input('address2');
 echo $this->Form->input('city');
