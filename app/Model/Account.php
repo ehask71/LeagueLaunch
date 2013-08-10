@@ -118,7 +118,7 @@ class Account extends AppModel {
             'phone' => array(
 		'mustNotEmpty' => array(
 		    'rule' => 'notEmpty',
-		    'message' => 'Please Select Your Contact Number'
+		    'message' => 'Please enter Your Contact Number'
 		)
 	    ),
 	    'gender' => array(
