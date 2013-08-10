@@ -115,6 +115,12 @@ class Account extends AppModel {
 		    'message' => 'Please Select Your Country'
 		)
 	    ),
+            'phone' => array(
+		'mustNotEmpty' => array(
+		    'rule' => 'notEmpty',
+		    'message' => 'Please Select Your Contact Number'
+		)
+	    ),
 	    'gender' => array(
 		'mustNotEmpty' => array(
 		    'rule' => 'notEmpty',
