@@ -373,23 +373,20 @@ class RegistrationController extends AppController {
                 if ($this->Players->save($this->request->data)) {
                     echo '<div class="ll-alert-success">' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' has been Added!</div>';
                 } else {
-                    print_r($this->Players->validationErrors); 
-                }
-                
-                mail('ehask71@gmail.com','save fail'.rand(0, 9999),  rand(0, 9999));
-            } else {
-                $this->response->statusCode(400);
-                $this->set('message', __('The player could not be created due to these errors:'));
-                $errors = array();
-                foreach ($this->Players->validationErrors as $field) {
-                    foreach ($field as $rule) {
-                        array_push($errors, $rule);
+                    //print_r($this->Players->validationErrors);
+                    $this->response->statusCode(400);
+                    $this->set('message', __('The player could not be created due to these errors:'));
+                    $errors = array();
+                    foreach ($this->Players->validationErrors as $field) {
+                        foreach ($field as $rule) {
+                            array_push($errors, $rule);
+                        }
                     }
+                    $this->set(compact('errors'));
+                    // Render the error_dialog element
+                    echo $this->render('/Elements/error_dialog');
+                    mail('ehask71@gmail.com', 'save fail else' . rand(0, 9999), rand(0, 9999));
                 }
-                $this->set(compact('errors'));
-                // Render the error_dialog element
-                echo $this->render('/Elements/error_dialog');
-                mail('ehask71@gmail.com','save fail else'.rand(0, 9999),  rand(0, 9999));
             }
             //return false;
         }
