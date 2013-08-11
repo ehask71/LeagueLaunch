@@ -373,6 +373,7 @@ class RegistrationController extends AppController {
                 if ($this->Players->save($this->request->data)) {
                     $res['success'] = 1;
                     $res['content'] = '<div class="ll-alert-success">' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' has been Added!</div>';
+                    echo json_encode($res);
                 } else {       
                     $this->set('message', __('The player could not be created due to these errors:'));
                     $errors = array();
@@ -383,10 +384,8 @@ class RegistrationController extends AppController {
                     }
                     array_unique($errors);
                     $this->set(compact('errors'));
-                    // Render the error_dialog element
-                    $res = array('success'=>0,'content'=>$this->View->element('/Elements/error_dialog'));
-                    echo json_encode($res);
                     mail('ehask71@gmail.com', 'save fail else' . rand(0, 9999), rand(0, 9999));
+                    $this-render('/Elements/error_dialog');
                 }
             }
             //return false;
