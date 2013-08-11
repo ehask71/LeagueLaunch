@@ -386,7 +386,7 @@ class RegistrationController extends AppController {
                 // Render the error_dialog element
                 $this->render('/Elements/error_dialog');
             }
-            return false;
+            //return false;
         }
     }
 
