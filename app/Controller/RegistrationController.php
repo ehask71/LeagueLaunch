@@ -384,7 +384,7 @@ class RegistrationController extends AppController {
                     array_unique($errors);
                     $this->set(compact('errors'));
                     // Render the error_dialog element
-                    $res = array('success'=>0,'content'=>$this->element('/Elements/error_dialog'));
+                    $res = array('success'=>0,'content'=>$this->View->element('/Elements/error_dialog'));
                     echo json_encode($res);
                     mail('ehask71@gmail.com', 'save fail else' . rand(0, 9999), rand(0, 9999));
                 }
