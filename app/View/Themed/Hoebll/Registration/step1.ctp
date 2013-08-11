@@ -46,11 +46,12 @@
                     data:$("#playerForm").serialize(), 
                     //dataType:"html", 
                     success:function (data, textStatus) {
+                        console.log(textStatus);
                         var x = jQuery.parseJSON( data );
                         if(x.success == 1){
                             $("#ajaxPlayers").append(x.content);
                         } else {
-                            $("#newplayerErrorDialog").html(jqXHR.responseText);
+                            $("#newplayerErrorDialog").html(x.content);
                             $("#newplayerErrorDialog").dialog({
                                 modal: true,
                                 buttons: {
