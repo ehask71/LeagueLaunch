@@ -371,10 +371,9 @@ class RegistrationController extends AppController {
             $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
             if ($this->Players->validatePlayer()) {
                 if ($this->Players->save($this->request->data)) {
-                    echo '<div class="ll-alert-success">' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' has been Added!</div>';
-                } else {
-                    //print_r($this->Players->validationErrors);
-                    $this->response->statusCode(400);
+                    $res['success'] = 1;
+                    $res['content'] = '<div class="ll-alert-success">' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' has been Added!</div>';
+                } else {       
                     $this->set('message', __('The player could not be created due to these errors:'));
                     $errors = array();
                     foreach ($this->Players->validationErrors as $field) {
@@ -385,7 +384,8 @@ class RegistrationController extends AppController {
                     array_unique($errors);
                     $this->set(compact('errors'));
                     // Render the error_dialog element
-                    echo $this->render('/Elements/error_dialog');
+                    $res = array('success'=>0,'content'=>$this->render('/Elements/error_dialog'));
+                    echo json_encode($res);
                     mail('ehask71@gmail.com', 'save fail else' . rand(0, 9999), rand(0, 9999));
                 }
             }
