@@ -382,6 +382,7 @@ class RegistrationController extends AppController {
                             array_push($errors, $rule);
                         }
                     }
+                    array_unique($errors);
                     $this->set(compact('errors'));
                     // Render the error_dialog element
                     echo $this->render('/Elements/error_dialog');
