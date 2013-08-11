@@ -48,8 +48,8 @@
                             $("#ajaxPlayers").append(x.content);
                             $("#ajaxControl").css("display","block");
                             $("#playerForm").each (function(){this.reset();});
-                        } else {
                             $("html, body").animate({ scrollTop: 0 }, "slow");
+                        } else {
                             $("#newplayerErrorDialog").html(x.content);
                             $("#newplayerErrorDialog").dialog({
                                 modal: true,
