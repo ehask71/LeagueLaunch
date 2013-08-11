@@ -35,10 +35,23 @@ class Players extends AppModel {
                     'rule' => 'notEmpty',
                     'message' => 'Please select player gender')
             ),
+            'birthday' => array(
+                'age' => array(
+                    'rule' => 'checkOver3',
+                    'message' => 'You Must be 3 years old or older'
+                )
+            )
         );
 
         $this->validate = $validate1;
         return $this->validates();
+    }
+
+    public function checkOver3($check) {
+        $bday = strtotime($check['birthday']);
+        if (time() < strtotime('+3 years', $bday))
+            return false;
+        return true;
     }
 
     public function getPlayersByUser($id, $site_id = false) {
