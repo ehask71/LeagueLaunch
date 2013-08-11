@@ -16,7 +16,31 @@ class Players extends AppModel {
             'counterScope' => array(),
         )
     );
-    
+
+    public function validatePlayer() {
+
+        $validate1 = array(
+            'firstname' => array(
+                'mustNotEmpty' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'Please enter players first name')
+            ),
+            'lastname' => array(
+                'mustNotEmpty' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'Please enter players last name')
+            ),
+            'gender' => array(
+                'mustNotEmpty' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'Please select player gender')
+            ),
+        );
+
+        $this->validate = $validate1;
+        return $this->validates();
+    }
+
     public function getPlayersByUser($id, $site_id = false) {
         $conditions['Players.active'] = 1;
         $conditions['Players.user_id'] = (int) $id;
@@ -37,27 +61,27 @@ class Players extends AppModel {
                     )
                 ));
     }
-    
-    public function getPlayersToSeason($id,$active=FALSE){
-	$play = $this->find('all',array(
-	    'recursive' => 1,
-	    'conditions' => array(
-		'PlayersToSeasons.season_id' => $id,
-		'PlayersToSeasons.site_id' => Configure::read('Settings.site_id')
-	    ),
-	    'joins' => array(
-		array(
-		    'table' => 'players_to_seasons',
-		    'alias' => 'PlayersToSeasons',
-		    'type' => 'INNER',
-		    'conditions' => array(
-			'PlayersToSeasons.player_id = Players.player_id'
-		    )
-		)
-	    )
-	));
-	
-	return $play;
+
+    public function getPlayersToSeason($id, $active = FALSE) {
+        $play = $this->find('all', array(
+            'recursive' => 1,
+            'conditions' => array(
+                'PlayersToSeasons.season_id' => $id,
+                'PlayersToSeasons.site_id' => Configure::read('Settings.site_id')
+            ),
+            'joins' => array(
+                array(
+                    'table' => 'players_to_seasons',
+                    'alias' => 'PlayersToSeasons',
+                    'type' => 'INNER',
+                    'conditions' => array(
+                        'PlayersToSeasons.player_id = Players.player_id'
+                    )
+                )
+            )
+                ));
+
+        return $play;
     }
 
 }
