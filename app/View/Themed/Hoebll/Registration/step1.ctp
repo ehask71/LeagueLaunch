@@ -44,21 +44,24 @@
                         $("#ajaxControl").css("display","block");
 			$("html, body").animate({ scrollTop: 0 }, "slow");}, 
                     data:$("#playerForm").serialize(), 
-                    dataType:"html", 
+                    //dataType:"html", 
                     success:function (data, textStatus) {
-                        $("#ajaxPlayers").append(data);},
-                    error:function(jqXHR){
-                        $("#newplayerErrorDialog").html(jqXHR.responseText);
-                        $("#newplayerErrorDialog").dialog({
-        modal: true,
-        buttons: {
-            "OK": {
-                class: "btn btn-primary",
-                text: "OK",
-                click: function() { $(this).dialog("close"); }
-            }
-        }
-    });
+                        var x = jQuery.parseJSON( data );
+                        if(x.success == 1){
+                            $("#ajaxPlayers").append(x.content);
+                        } else {
+                            $("#newplayerErrorDialog").html(jqXHR.responseText);
+                            $("#newplayerErrorDialog").dialog({
+                                modal: true,
+                                buttons: {
+                                    "OK": {
+                                        class: "btn btn-primary",
+                                        text: "OK",
+                                        click: function() { $(this).dialog("close"); }
+                                    }
+                                }
+                             });
+                        }
                     },
                     type:"POST", 
                     url:"\/registration\/saveplayer"});
