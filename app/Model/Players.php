@@ -38,7 +38,7 @@ class Players extends AppModel {
             'birthday' => array(
                 'age' => array(
                     'rule' => 'checkOver3',
-                    'message' => 'You Must be 3 years old or older'
+                    'message' => 'Player must be 3 years old or older'
                 )
             )
         );
