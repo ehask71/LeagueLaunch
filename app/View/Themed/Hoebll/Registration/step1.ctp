@@ -46,7 +46,20 @@
                     data:$("#playerForm").serialize(), 
                     dataType:"html", 
                     success:function (data, textStatus) {
-                        $("#ajaxPlayers").append(data);}, 
+                        $("#ajaxPlayers").append(data);},
+                    error:function(jqXHR){
+                        $("#newplayerErrorDialog").html(jqXHR.responseText);
+                        $("#newplayerErrorDialog").dialog({
+        modal: true,
+        buttons: {
+            "OK": {
+                class: "btn btn-primary",
+                text: "OK",
+                click: function() { $(this).dialog("close"); }
+            }
+        }
+    });
+                    },
                     type:"POST", 
                     url:"\/registration\/saveplayer"});
                     return false;
@@ -58,7 +71,7 @@
                 echo $this->Form->input('firstname');
                 echo $this->Form->input('lastname');
                 echo $this->Form->input('nickname');
-                echo $this->Form->input('birthday', array('label'=>'Player\'s Birdate','id' => 'birthday','maxYear'=> 2010,'minYear' => 1990));
+                echo $this->Form->input('birthday', array('label' => 'Player\'s Birdate', 'id' => 'birthday', 'maxYear' => 2010, 'minYear' => 1990));
                 echo $this->Form->input('gender', array('type' => 'select', 'options' => array('m' => 'Male', 'f' => 'Female'), 'class' => 'chzn-select'));
                 echo $this->Form->input('site_id', array('type' => 'hidden', 'value' => Configure::read('Settings.site_id')));
                 echo $this->Form->input('user_id', array('type' => 'hidden', 'value' => $userinfo['id']));
@@ -68,6 +81,7 @@
         endif;
         ?>
     </div>
+    <div id="newplayerErrorDialog" title="<?php echo __('Error'); ?>" style="display: none;"></div>
 </div>
 <div class="grid_4" id="side-bar-right">
     <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
