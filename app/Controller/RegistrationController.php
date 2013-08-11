@@ -372,7 +372,10 @@ class RegistrationController extends AppController {
             if ($this->Players->validatePlayer()) {
                 if ($this->Players->save($this->request->data)) {
                     echo '<div class="ll-alert-success">' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' has been Added!</div>';
+                } else {
+                    print_r($this->Players->validationErrors); 
                 }
+                
                 mail('ehask71@gmail.com','save fail'.rand(0, 9999),  rand(0, 9999));
             } else {
                 $this->response->statusCode(400);
