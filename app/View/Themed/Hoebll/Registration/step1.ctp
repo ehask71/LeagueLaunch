@@ -38,11 +38,7 @@
                 echo '$(document).ready(function () {
             $("#playerForm").bind("submit", function (event) {
                 $.ajax({
-                    async:true, 
-                    complete:function (XMLHttpRequest, textStatus) {
-                        $("#playerForm").each (function(){this.reset();});
-                        $("#ajaxControl").css("display","block");
-			$("html, body").animate({ scrollTop: 0 }, "slow");}, 
+                    async:true,  
                     data:$("#playerForm").serialize(), 
                     //dataType:"html", 
                     success:function (data, textStatus) {
@@ -50,7 +46,10 @@
                         var x = jQuery.parseJSON( data );
                         if(x.success == 1){
                             $("#ajaxPlayers").append(x.content);
+                            $("#ajaxControl").css("display","block");
+                            $("#playerForm").each (function(){this.reset();});
                         } else {
+                            $("html, body").animate({ scrollTop: 0 }, "slow");
                             $("#newplayerErrorDialog").html(x.content);
                             $("#newplayerErrorDialog").dialog({
                                 modal: true,
