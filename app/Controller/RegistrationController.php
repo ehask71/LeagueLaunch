@@ -17,7 +17,7 @@ class RegistrationController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('index');
-        if($_SERVER['REMOTE_ADDR'] != '108.9.106.23'){
+        if ($_SERVER['REMOTE_ADDR'] != '108.9.106.23') {
             //$this->Session->setFlash('We Are Temporarily Under Going Maintenance. We apologize for any inconvience. <br>Please Try Back Shortly', 'alerts/info');
             //$this->redirect('/');
         }
@@ -172,7 +172,7 @@ class RegistrationController extends AppController {
             if (count($this->request->data['Players']) > 0) {
                 $season = $this->Session->read('Season.id');
                 foreach ($this->request->data['Players'] AS $k => $v) {
-                    
+
                     $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
                     $this->Cart->add($product[0]['Products']['id'], 1, $k, $season);
                     $player = $this->Players->getPlayerById($k);
@@ -220,8 +220,8 @@ class RegistrationController extends AppController {
                 $this->Session->write('Shop.upsell_added', 'true');
                 $this->redirect(array('action' => 'step3'));
             } else {
-		$this->redirect(array('action' => 'step3'));
-	    }
+                $this->redirect(array('action' => 'step3'));
+            }
         }
         if (count($this->Session->read('Player')) > 0 && $this->Session->read('Season.id') != '') {
             $upSells = $this->Products->getUpSells();
@@ -309,7 +309,7 @@ class RegistrationController extends AppController {
                 }
             }
         }
-        switch($shop['Order']['order_type']){
+        switch ($shop['Order']['order_type']) {
             case "paypal":
                 $paytype = 'PayPal';
                 break;
@@ -320,7 +320,7 @@ class RegistrationController extends AppController {
                 $paytype = 'Visa/MC';
                 break;
         }
-        $this->set('paytype',$paytype);
+        $this->set('paytype', $paytype);
         $this->set(compact('shop'));
         $this->set('players', $this->Session->read('Player'));
     }
@@ -369,8 +369,22 @@ class RegistrationController extends AppController {
         $this->autoRender = false;
         if ($this->RequestHandler->isAjax()) {
             $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
-            if ($this->Players->save($this->request->data)) {
-                echo '<div class="ll-alert-success">' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' has been Added!</div>';
+            if ($this->Players->validatePlayer()) {
+                if ($this->Players->save($this->request->data)) {
+                    echo '<div class="ll-alert-success">' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' has been Added!</div>';
+                }
+            } else {
+                $this->response->statusCode(400);
+                $this->set('message', __('The player could not be created due to these errors:'));
+                $errors = array();
+                foreach ($this->Players->validationErrors as $field) {
+                    foreach ($field as $rule) {
+                        array_push($errors, $rule);
+                    }
+                }
+                $this->set(compact('errors'));
+                // Render the error_dialog element
+                $this->render('/Elements/error_dialog');
             }
             return false;
         }
