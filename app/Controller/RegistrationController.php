@@ -385,7 +385,7 @@ class RegistrationController extends AppController {
                     array_unique($errors);
                     $this->set(compact('errors'));
                     mail('ehask71@gmail.com', 'save fail else' . rand(0, 9999), rand(0, 9999));
-                    $this-render('/Elements/error_dialog');
+                    $this->render('/Elements/error_dialog');
                 }
             }
             //return false;
