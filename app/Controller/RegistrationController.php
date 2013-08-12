@@ -172,7 +172,9 @@ class RegistrationController extends AppController {
             if (count($this->request->data['Players']) > 0) {
                 $season = $this->Session->read('Season.id');
                 foreach ($this->request->data['Players'] AS $k => $v) {
-
+                    if($v == ''){
+                        continue;
+                    }
                     $product = $this->Products->getProductsByDivision($v, $this->Session->read('Season.id'));
                     $this->Cart->add($product[0]['Products']['id'], 1, $k, $season);
                     $player = $this->Players->getPlayerById($k);
@@ -209,6 +211,11 @@ class RegistrationController extends AppController {
         if ($backcheck == 'true') {
             //$this->Session->setFlash('Please Don\'t Use The Back Button', 'alerts/info');
             $this->redirect(array('action' => 'step3'));
+        }
+        $shop = $this->Session->read('Shop');
+        if (!$shop['Order']['total']) {
+            $this->Session->setFlash(__('No Registration Items!', 'alerts/error'));
+            $this->redirect('/registration');
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count(@$this->request->data['Upsell']) > 0) {
