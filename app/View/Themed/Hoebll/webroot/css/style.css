@@ -336,10 +336,21 @@ section#footer h3{
     border: none !important;
     text-align:left;
 }
+#account-table tr{
+    border: none;
+}
 #account-table td{
     padding: 4px;
     border: none !important;
     text-align: left;
+}
+#account-table td span{
+    display: inline-block;
+    padding: 4px;
+}
+#account-table td span:hover{
+    cursor: pointer;
+    border: 1px solid #CCC;
 }
 #account-table .account-image{
     border: none !important;
