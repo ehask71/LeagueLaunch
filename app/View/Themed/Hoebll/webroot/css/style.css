@@ -349,6 +349,7 @@ section#footer h3{
 #account-table .account-image img{
     max-width: 100%;
     margin: 0 auto;
+    border: none;
 }
 
 /* misc */
