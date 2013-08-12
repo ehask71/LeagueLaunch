@@ -114,4 +114,11 @@
     <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
     <?php echo $this->element('events_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
     <?php echo $this->element('sponsors_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
-</div>   
+</div>  
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.edit').editable('/ajax.php', { 
+            submitdata : {'account_id':<?=$account['Account']['id']?>,'site_id' : <?=$account['Account']['site_id']?> }
+        });
+    });
+</script>
