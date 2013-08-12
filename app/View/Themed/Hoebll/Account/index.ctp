@@ -3,8 +3,25 @@
         <h2><?=__('Your Account');?></h2>
         
         <pre>
-            <?php print_r($account);?>
+            <?php //print_r($account);?>
         </pre>
+        <table width="100%">
+            <tr>
+                <td colspan="2">
+                    <?
+                        if(isset($account['Account']['image']) && !empty($account['Account']['image'])){
+                            ?>
+                        <img src="<?=$account['Account']['image']?>" />
+                    <?
+                        }else{
+                            ?>
+                            <img src="../images/profile.jpg" />
+                            <?
+                        }
+                    ?>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 <div class="grid_4" id="side-bar-right">
