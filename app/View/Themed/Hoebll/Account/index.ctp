@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <h2>Players</h2>
+                    <h2>Your Players</h2>
                 </td>
             </tr>
             <?

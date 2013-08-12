@@ -333,16 +333,16 @@ section#footer h3{
 /* player/account edit pages */
 #account-table{
     width: 100%;
-    border: none;
+    border: none !important;
     text-align:left;
 }
 #account-table td{
     padding: 4px;
-    border: none;
+    border: none !important;
     text-align: left;
 }
 #account-table .account-image{
-    border: none;
+    border: none !important;
     width: 150px;
     text-align: center;    
 }
