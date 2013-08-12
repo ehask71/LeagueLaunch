@@ -83,9 +83,9 @@
 			    <td><?php echo $row['Players']['birthday'];?></td>
 			    <td><?php echo $row['Players']['league_age'];?></td>
 			    <td><?php echo $row['Divisions']['name'];?></td>
-			    <td><?php echo ($row['Players']['haspaid'] == 1)?'Yes':'No';?></td>
-			    <td><?php echo ($row['Players']['formcomplete'] == 1)?'Yes':'No';?></td>
-			    <td><?php echo ($row['Players']['verifydocs'] == 1)?'Yes':'No';?></td>
+			    <td><?php echo ($row['PlayersToSeasons']['haspaid'] == 1)?'Yes':'No';?></td>
+			    <td><?php echo ($row['PlayersToSeasons']['formcomplete'] == 1)?'Yes':'No';?></td>
+			    <td><?php echo ($row['PlayersToSeasons']['verifydocs'] == 1)?'Yes':'No';?></td>
 			    <td>
 				
 			    </td>
