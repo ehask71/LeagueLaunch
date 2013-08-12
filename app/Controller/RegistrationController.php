@@ -214,7 +214,7 @@ class RegistrationController extends AppController {
         }
         $shop = $this->Session->read('Shop');
         if (!$shop['Order']['total']) {
-            $this->Session->setFlash(__('No Registration Items!', 'alerts/error'));
+            $this->Session->setFlash(__('We\'re sorry either you did not select a league or there were no leagues available.', 'alerts/error'));
             $this->redirect('/registration');
         }
         if ($this->request->is('post') || $this->request->is('put')) {
