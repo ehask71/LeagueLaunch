@@ -329,6 +329,26 @@ section#footer h3{
 	color: #FFF;
 	text-shadow: 2px 2px 1px rgba(0,0,0, .8);	
 }
+
+/* player/account edit pages */
+#account-table{
+    width: 100%;
+    border: none;
+    text-align:left;
+}
+#account-table td{
+    padding: 4px;
+}
+.account-image{
+    border: none;
+    width: 150px;
+    text-align: center;    
+}
+.account-image img{
+    max-width: 100%;
+    margin: 0 auto;
+}
+
 /* misc */
 .notation{
 	color: #F00;	

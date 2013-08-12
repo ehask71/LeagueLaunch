@@ -5,9 +5,9 @@
         <pre>
             <?php //print_r($account);?>
         </pre>
-        <table width="100%">
+        <table width="100%" id="account-table">
             <tr>
-                <td colspan="2" rowspan="8">
+                <td colspan="2" rowspan="8" class="account-image">
                     <?
                         if(isset($account['Account']['image']) && !empty($account['Account']['image'])){
                             ?>
@@ -61,7 +61,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <h2>Players</h2>
                 </td>
             </tr>
