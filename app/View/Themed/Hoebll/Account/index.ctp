@@ -8,6 +8,7 @@
         <table width="100%" id="account-table">
             <tr>
                 <td rowspan="8" class="account-image">
+                    <span id="account-image">
                     <?
                         if(isset($account['Account']['image']) && !empty($account['Account']['image'])){
                             ?>
@@ -18,6 +19,7 @@
                             
                         }
                     ?>
+                    </span>
                 </td>
                 <td>Name:</td>
                 <td>
@@ -81,6 +83,7 @@
             ?>
             <tr>
                 <td class="account-image">
+                    <span id="account-player-image-<?=$player['player_id']?>">
                     <?
                         if(isset($player['image']) && !empty($player['image'])){
                             ?>
@@ -90,6 +93,7 @@
                             echo $this->Html->image('/common/images/profile.jpg');
                         }
                     ?>
+                    </span>
                     <span id="account-player-nickname-<?=$player['player_id']?>"><?=$player['nickname']?></span>
                 </td>
                 <td>
