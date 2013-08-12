@@ -76,7 +76,7 @@
             <tr>
                 <td>
                     <!-- dfor account related actions -->
-                    <a href="/account/deleteaccount">Delete Account</a>
+                    <a href="/account/Invoices">View Invoices</a> | <a href="/account/history">Account History</a>
                 </td>
             </tr>
             <tr>
