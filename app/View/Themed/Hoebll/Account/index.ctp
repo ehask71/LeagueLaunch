@@ -74,6 +74,12 @@
                 </td>
             </tr>
             <tr>
+                <td>
+                    <!-- dfor account related actions -->
+                    <a href="/account/deleteaccount">Delete Account</a>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="3">
                     <h2>Your Players</h2>
                 </td>
@@ -102,6 +108,13 @@
                 </td>
                 <td>
                     <span class="edit" id="account-player-birthday-<?=$player['player_id']?>"><?=$player['birthday']?></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <!-- Player related actions -->
+                    <a href="/account/forms" title="Fill out League Required forms">File Forms</a> |
+                    <a href="/account/deleteplayer" title="Delete this player">Delete</a>
                 </td>
             </tr>
             <?
