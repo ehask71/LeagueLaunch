@@ -338,6 +338,8 @@ section#footer h3{
 }
 #account-table td{
     padding: 4px;
+    border: none;
+    text-align: left;
 }
 .account-image{
     border: none;

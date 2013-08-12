@@ -14,9 +14,8 @@
                         <img src="<?=$account['Account']['image']?>" />
                     <?
                         }else{
-                            ?>
-                           <?=$this->Html->image('/common/images/profile.jpg')?>
-                            <?
+                            echo $this->Html->image('/common/images/profile.jpg');
+                            
                         }
                     ?>
                 </td>
@@ -69,7 +68,16 @@
                 foreach($account['Players'] as $player){
             ?>
             <tr>
-                <td>
+                <td class="account-image">
+                    <?
+                        if(isset($player['image']) && !empty($player['image'])){
+                            ?>
+                        <img src="<?=$player['image']?>" />
+                    <?
+                        }else{
+                            echo $this->Html->image('/common/images/profile.jpg');
+                        }
+                    ?>
                     <span id="account-player-nickname-<?=$player['player_id']?>"><?=$player['nickname']?></span>
                 </td>
                 <td>
