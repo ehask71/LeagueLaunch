@@ -7,8 +7,8 @@
     </li>
     <li><a href="#">League<span class="icon6"></span></a>
 	<ul>	 
-	    <li><?php echo $this->html->link(__('Seasons'), array('prefix' => 'admin', 'controller' => 'season')); ?></li>
-	    <li><?php echo $this->html->link(__('Divisions'), array('prefix' => 'admin', 'controller' => 'divisions')); ?></li>
+	    <li><?php echo $this->html->link(__('Seasons'), array('prefix' => 'admin', 'controller' => 'season','action'=>'index')); ?></li>
+	    <li><?php echo $this->html->link(__('Divisions'), array('prefix' => 'admin', 'controller' => 'divisions','action'=>'index')); ?></li>
 	    <li><?php echo $this->html->link(__('Seasons'), array('prefix' => 'admin', 'controller' => 'teams')); ?></li>
 	</ul>
     </li>
