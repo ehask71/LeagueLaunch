@@ -36,13 +36,13 @@
                             <td>
 				<?php echo $this->Form->postLink('View', 
                     array('action' => 'view', $row['Season']['id']),
-                    array('class'=>'button green'));?>
+                    array('class'=>'button green small'));?>
 				<?php echo $this->Form->postLink('Edit', 
                     array('action' => 'edit', $row['Season']['id']),
-                    array('class'=>'button blue'));?>
+                    array('class'=>'button blue small'));?>
 				<?php echo $this->Form->postLink('Delete', 
                     array('action' => 'delete', $row['Season']['id']),
-                    array('class'=>'button red', 'confirm' => 'Are you sure?'));?>
+                    array('class'=>'button red small', 'confirm' => 'Are you sure?'));?>
 			    </td>
                         </tr>
                                     <?php
