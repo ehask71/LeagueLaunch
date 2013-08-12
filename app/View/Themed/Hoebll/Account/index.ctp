@@ -7,7 +7,7 @@
         </pre>
         <table width="100%" id="account-table">
             <tr>
-                <td colspan="2" rowspan="8" class="account-image">
+                <td rowspan="8" class="account-image">
                     <?
                         if(isset($account['Account']['image']) && !empty($account['Account']['image'])){
                             ?>
@@ -19,42 +19,54 @@
                         }
                     ?>
                 </td>
+                <td>Name:</td>
                 <td>
                     <span id="account-firstname"><?=$account['Account']['firstname']?></span>
                     <span id="account-lastname"><?=$account['Account']['lastname']?></span>
                 </td>
             </tr>
             <tr>
+                <td>User Name:</td>
                 <td>
                     <span id="account-username"><?=$account['Account']['username']?></span>
                 </td>
             </tr>
             <tr>
+                <td>Email:</td>
                 <td>
                     <span id="account-email"><?=$account['Account']['email']?></span>
                 </td>
             </tr>
             <tr>
                 <td>
+                    Street Address
+                </td>
+                <td>
                     <span id="account-address"><?=$account['Account']['address']?></span>
                 </td>
             </tr>
             <tr>
+                <td></td>
                 <td>
                     <span id="account-address2"><?=$account['Account']['address2']?></span>
                 </td>
             </tr>
             <tr>
+                <td>City:</td>
                 <td>
                     <span id="account-city"><?=$account['Account']['city']?></span>
                 </td>
             </tr>
             <tr>
+                <td>State:</td>
                 <td>
                     <span id="account-state"><?=$account['Account']['state']?></span>
                 </td>
             </tr>
             <tr>
+                <td>
+                    Zip Code:
+                </td>
                 <td>
                     <span id="account-zip"><?=$account['Account']['zip']?></span>
                 </td>

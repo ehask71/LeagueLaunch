@@ -347,6 +347,7 @@ section#footer h3{
 #account-table td span{
     display: inline-block;
     padding: 4px;
+    border: 1px solid #F3f3f3;
 }
 #account-table td span:hover{
     cursor: pointer;
