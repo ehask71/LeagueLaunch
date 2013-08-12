@@ -23,20 +23,20 @@
                 </td>
                 <td>Name:</td>
                 <td>
-                    <span id="account-firstname"><?=$account['Account']['firstname']?></span>
-                    <span id="account-lastname"><?=$account['Account']['lastname']?></span>
+                    <span class="edit" id="account-firstname"><?=$account['Account']['firstname']?></span>
+                    <span class="edit" id="account-lastname"><?=$account['Account']['lastname']?></span>
                 </td>
             </tr>
             <tr>
                 <td>User Name:</td>
                 <td>
-                    <span id="account-username"><?=$account['Account']['username']?></span>
+                    <span class="edit" id="account-username"><?=$account['Account']['username']?></span>
                 </td>
             </tr>
             <tr>
                 <td>Email:</td>
                 <td>
-                    <span id="account-email"><?=$account['Account']['email']?></span>
+                    <span class="edit" id="account-email"><?=$account['Account']['email']?></span>
                 </td>
             </tr>
             <tr>
@@ -44,25 +44,25 @@
                     Street Address
                 </td>
                 <td>
-                    <span id="account-address"><?=$account['Account']['address']?></span>
+                    <span class="edit" id="account-address"><?=$account['Account']['address']?></span>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <span id="account-address2"><?=$account['Account']['address2']?></span>
+                    <span class="edit" id="account-address2"><?=$account['Account']['address2']?></span>
                 </td>
             </tr>
             <tr>
                 <td>City:</td>
                 <td>
-                    <span id="account-city"><?=$account['Account']['city']?></span>
+                    <span class="edit" id="account-city"><?=$account['Account']['city']?></span>
                 </td>
             </tr>
             <tr>
                 <td>State:</td>
                 <td>
-                    <span id="account-state"><?=$account['Account']['state']?></span>
+                    <span class="edit" id="account-state"><?=$account['Account']['state']?></span>
                 </td>
             </tr>
             <tr>
@@ -70,7 +70,13 @@
                     Zip Code:
                 </td>
                 <td>
-                    <span id="account-zip"><?=$account['Account']['zip']?></span>
+                    <span class="edit" id="account-zip"><?=$account['Account']['zip']?></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- dfor account related actions -->
+                    <a href="/account/Invoices">View Invoices</a> | <a href="/account/history">Account History</a>
                 </td>
             </tr>
             <tr>
@@ -94,14 +100,21 @@
                         }
                     ?>
                     </span>
-                    <span id="account-player-nickname-<?=$player['player_id']?>"><?=$player['nickname']?></span>
+                    <span class="edit" id="account-player-nickname-<?=$player['player_id']?>"><?=$player['nickname']?></span>
                 </td>
                 <td>
-                    <span id="account-player-firstname-<?=$player['player_id']?>"><?=$player['firstname']?></span>
-                    <span id="account-player-lastname-<?=$player['player_id']?>"><?=$player['lastname']?></span>
+                    <span class="edit" id="account-player-firstname-<?=$player['player_id']?>"><?=$player['firstname']?></span>
+                    <span class="edit" id="account-player-lastname-<?=$player['player_id']?>"><?=$player['lastname']?></span>
                 </td>
                 <td>
-                    <span id="account-player-birthday-<?=$player['player_id']?>"><?=$player['birthday']?></span>
+                    <span class="edit" id="account-player-birthday-<?=$player['player_id']?>"><?=$player['birthday']?></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <!-- Player related actions -->
+                    <a href="/account/forms" title="Fill out League Required forms">File Forms</a> |
+                    <a href="/account/deleteplayer" title="Delete this player">Delete</a>
                 </td>
             </tr>
             <?
@@ -114,4 +127,11 @@
     <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
     <?php echo $this->element('events_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
     <?php echo $this->element('sponsors_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
-</div>   
+</div>  
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.edit').editable('/ajax.php', { 
+            submitdata : {'account_id':<?=$account['Account']['id']?>,'site_id' : <?=$account['Account']['site_id']?> }
+        });
+    });
+</script>

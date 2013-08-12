@@ -344,6 +344,12 @@ section#footer h3{
     border: none !important;
     text-align: left;
 }
+#account-table td a{
+    color: #600;
+    text-decoration: none;
+    font-weight: 700;
+    font-variant: small-caps;
+}
 #account-table td span{
     display: inline-block;
     padding: 4px;

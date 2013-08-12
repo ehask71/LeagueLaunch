@@ -25,6 +25,7 @@
 	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
 	echo $this->Html->script('//code.jquery.com/jquery-migrate-1.0.0.js');
 	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js');
+        echo $this->Html->script('/js/jedit.js');
 	echo $this->Html->script('/js/chosen.jquery.min.js');
 	echo $this->fetch('meta');
 	
