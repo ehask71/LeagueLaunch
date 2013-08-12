@@ -341,12 +341,12 @@ section#footer h3{
     border: none;
     text-align: left;
 }
-.account-image{
+#account-table .account-image{
     border: none;
     width: 150px;
     text-align: center;    
 }
-.account-image img{
+#account-table .account-image img{
     max-width: 100%;
     margin: 0 auto;
 }
