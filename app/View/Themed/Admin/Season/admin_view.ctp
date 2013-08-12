@@ -102,9 +102,6 @@
 			?>
 		    </tbody>
 		</table>
-                <pre>
-                    <?php print_r($players);?>
-                </pre>
 	    </div>
 	</div>
     </div>
