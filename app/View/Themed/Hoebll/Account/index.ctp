@@ -15,7 +15,7 @@
                     <?
                         }else{
                             ?>
-                            <img src="<?=$this->Html->image('/common/images/profile.jpg')?>" />
+                           <?=$this->Html->image('/common/images/profile.jpg')?>
                             <?
                         }
                     ?>
