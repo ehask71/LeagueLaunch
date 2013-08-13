@@ -289,6 +289,7 @@ class RegistrationController extends AppController {
                 if ($save) {
                     $orderid = $this->Order->getLastInsertID();
                     $shop['Order']['order_id'] = $orderid;
+		    $shop['Order']['user_id'] = $this->Auth->user('id');
                     $this->Session->write('Shop.Order.order_id', $orderid);
                     $shop['Order']['season_id'] = $this->Session->read('Season.id');
                     $this->Session->write('Shop.Order.season_id', $shop['Order']['season_id']);
