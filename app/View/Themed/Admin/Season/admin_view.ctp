@@ -1,6 +1,15 @@
 <?php
 echo $this->Html->css('/theme/admin/js/datatables/media/css/demo_table_jui');
 $this->Html->script('datatables/media/js/jquery.dataTables.min', array('block' => 'scriptTop'));
+$this->Html->scriptStart(array('block' => 'scriptBottom'));
+echo '<script type="text/javascript">
+	jQuery(document).ready(function() {
+		oTable = $("#basictable").dataTable({
+				"bJQueryUI": true,
+				"sPaginationType": "full_numbers"
+			});
+	} );';
+$this->Html->scriptEnd();
 ?>
 <div class="grid_6">
     <div class="box">
