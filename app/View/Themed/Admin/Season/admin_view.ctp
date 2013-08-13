@@ -1,4 +1,5 @@
 <?php
+echo $this->Html->css('datatables/media/css/demo_table_jui');
 $this->Html->script('datatables/media/js/jquery.dataTables.min', array('block' => 'scriptTop'));
 ?>
 <div class="grid_6">
