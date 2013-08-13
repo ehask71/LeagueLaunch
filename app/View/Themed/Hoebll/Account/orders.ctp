@@ -26,7 +26,7 @@
 		    <?php endforeach; ?>
 		<?php else: ?>
     		<tr>
-    		    <td colspan="4">No Orders To Display</td>
+    		    <td colspan="4" style="text-align: center;">No Orders To Display</td>
     		</tr>
 		<?php endif; ?>
 	    </tbody>
