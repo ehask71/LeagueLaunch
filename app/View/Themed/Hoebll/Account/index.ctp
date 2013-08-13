@@ -74,7 +74,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td colspan="2">
                     <!-- dfor account related actions -->
                     <a href="/account/Invoices">View Invoices</a> | <a href="/account/history">Account History</a>
                 </td>
