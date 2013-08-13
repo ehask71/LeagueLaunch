@@ -104,6 +104,27 @@ class AccountController extends AppController {
 	$this->redirect($this->Auth->logout());
     }
 
+    public function history(){
+	
+    }
+    
+    public function orders(){
+	$this->loadModel('Order');
+	$orders = $this->Order->find('all',array(
+	   'conditions' => array(
+	       'Order.user_id' => $this->Auth->user('id'),
+	       'Order.site_id' => Configure::read('Settings.site_id')
+	   )
+	));
+	
+	$this->set(compact('orders'));
+    }
+    
+    public function vieworder($id){
+	
+    }
+
+
     public function admin_index() {
 	$joins = array(
 	    array(
