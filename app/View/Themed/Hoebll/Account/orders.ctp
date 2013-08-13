@@ -18,7 +18,9 @@
 		    <td><?php echo $order['Order']['created'];?></td>
 		    <td><?php echo ($order['Order']['status']==2)?'Paid':'Pending';?></td>
 		    <td>
-			
+			<?php echo $this->Form->postLink('View', 
+                    array('action' => 'vieworder', $order['Order']['id']),
+                    array('class'=>'button green small'));?>
 		    </td>
 		</tr>
 		    <?php endforeach; ?>
