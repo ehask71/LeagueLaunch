@@ -15,7 +15,7 @@
 		    <?php foreach ($orders AS $order): ?>
 		<tr>
 		    <td><?php echo $order['Order']['id'];?></td>
-		    <td><?php echo $order['Order']['created'];?></td>
+		    <td><?php echo date('m-d-Y',strtotime($order['Order']['created']));?></td>
 		    <td><?php echo ($order['Order']['status']==2)?'Paid':'Pending';?></td>
 		    <td>
 			<?php echo $this->Form->postLink('View', 
