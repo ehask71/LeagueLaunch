@@ -1,3 +1,6 @@
+<?php
+$this->Html->script('datatables/media/js/jquery.dataTables.min', array('block' => 'scriptTop'));
+?>
 <div class="grid_6">
     <div class="box">
         <h2>
