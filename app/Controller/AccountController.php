@@ -86,7 +86,7 @@ class AccountController extends AppController {
 		    ->replyTo(Configure::read('Settings.admin_email'))
 		    ->cc(Configure::read('Settings.admin_email'))
 		    ->to($account['Account']['email'])
-		    ->subject(Configure::read('Settings.leaguename') . ' Order')
+		    ->subject(Configure::read('Settings.leaguename') . ' Password Reset')
 		    ->template('forgot_passwd')
 		    ->theme(Configure::read('Settings.theme'))
 		    ->emailFormat('text')
