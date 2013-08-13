@@ -111,7 +111,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="100">
                     <!-- Player related actions -->
                     <a href="/account/forms" title="Fill out League Required forms">File Forms</a> |
                     <a href="/account/deleteplayer" title="Delete this player">Delete</a>
