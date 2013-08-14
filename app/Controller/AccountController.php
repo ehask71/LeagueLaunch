@@ -106,8 +106,7 @@ class AccountController extends AppController {
 	    if ($this->request->data['code'] != '' && strlen($this->request->data['code']) == 32) {
 		$account = $this->Account->find('first', array(
 		    'conditions' => array(
-			'Account.reset_code' => $this->request->data['code'],
-			'Account.site_id' => Configure::read('Setting.site_id')
+			'Account.reset_code' => $this->request->data['code']
 		    )
 			));
 	    }
@@ -116,8 +115,7 @@ class AccountController extends AppController {
 		if($this->request->data['password'] == $this->request->data['confirm_password'] && $this->request->data['password'] != ''){
 		    $account = $this->Account->find('first', array(
 		    'conditions' => array(
-			'Account.reset_code' => $this->request->data['rstcode'],
-			'Account.site_id' => Configure::read('Setting.site_id')
+			'Account.reset_code' => $this->request->data['rstcode']
 		    )
 			));
 		    
@@ -153,8 +151,7 @@ class AccountController extends AppController {
 	if ($this->request->query['code'] != '' && strlen($this->request->query['code']) == 32) {
 	    $account = $this->Account->find('first', array(
 		'conditions' => array(
-		    'Account.reset_code' => $this->request->query['code'],
-		    'Account.site_id' => Configure::read('Setting.site_id')
+		    'Account.reset_code' => $this->request->query['code']
 		)
 		    ));
 	}
