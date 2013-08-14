@@ -98,7 +98,15 @@ class AccountController extends AppController {
 	    }
 	}
     }
-
+    
+    public function entercode(){
+	print_r($this->request->data);
+    }
+    
+    public function resetcode(){
+	print_r($this->request->data);
+    }
+    
     public function confirmpwd() {
 	
     }
