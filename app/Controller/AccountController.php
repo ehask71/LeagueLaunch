@@ -121,6 +121,7 @@ class AccountController extends AppController {
 		    
 		    $data['id'] = $account['Account']['id'];
 		    $data['password'] = $this->request->data['Account']['password'];
+		    $data['reset_code'] = '';
 		    
 		    if($this->Account->save($data)){
 			App::uses('CakeEmail', 'Network/Email');
