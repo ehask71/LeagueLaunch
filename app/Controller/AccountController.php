@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 
 class AccountController extends AppController {
 
-    public $uses = array('Account', 'RoleUser', 'Country');
+    public $uses = array('Account', 'RoleUser', 'Country','Order');
     public $components = array('Email');
 
     public function beforeFilter() {
@@ -121,7 +121,15 @@ class AccountController extends AppController {
     }
     
     public function vieworder($id){
-	
+        $order = $this->Order->find('first',array(
+           'conditions' => array(
+               'Order.id' => $id,
+               'Order.user_id' => $this->Auth->user('id'),
+	       'Order.site_id' => Configure::read('Settings.site_id')
+           ) 
+        ));
+	$this->set('rtn',base64_encode('http://eastbaylittleleague.com/account/vieworder/'.$id));
+        $this->set(compact('order'));
     }
 
 
