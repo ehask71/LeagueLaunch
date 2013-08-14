@@ -340,7 +340,9 @@ class RegistrationController extends AppController {
     }
 
     public function cc() {
-        
+        $shop = $this->Session->read('Shop');
+	$data = 'http://'.$_SERVER['SERVER_NAME'].'/registration/ccreturn/'.$shop['Order']['order_id'];
+	$this->redirect('https://leaguelaunch.com/checkout/ll/'.$shop['Order']['order_id'].'-'.Configure::read('Settings.site_id').'-'.base64_encode($data));
     }
 
     public function success() {
