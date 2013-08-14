@@ -9,7 +9,10 @@ Here is the link to reset your password
 
 
 If the link does not work please go here <?php echo 'http://'.$_SERVER['SERVER_NAME'].'/account/entercode/';?> 
-and enter this code in the box. Code: <?php echo $code;?>
+and enter this code in the box. 
+
+
+Code: <?php echo $code;?>
 
    
 
