@@ -106,16 +106,16 @@ class AccountController extends AppController {
 	    if ($this->request->data['Account']['code'] != '' && strlen($this->request->data['Account']['code']) == 32) {
 		$account = $this->Account->find('first', array(
 		    'conditions' => array(
-			'Account.reset_code' => $this->request->data['code']
+			'Account.reset_code' => $this->request->data['Account']['code']
 		    )
 			));
 	    }
 	    if(isset($this->request->data['Account']['password']) && isset($this->request->data['Account']['confirm_password']) && isset($this->request->data['Account']['rstcode'])){
 		// We are restting the passwd
-		if($this->request->data['password'] == $this->request->data['Account']['confirm_password'] && $this->request->data['Account']['password'] != ''){
+		if($this->request->data['Account']['password'] == $this->request->data['Account']['confirm_password'] && $this->request->data['Account']['password'] != ''){
 		    $account = $this->Account->find('first', array(
 		    'conditions' => array(
-			'Account.reset_code' => $this->request->data['rstcode']
+			'Account.reset_code' => $this->request->data['Account']['rstcode']
 		    )
 			));
 		    
