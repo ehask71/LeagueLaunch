@@ -27,6 +27,7 @@ class WidgetController extends AppController {
     }
     
     public function emailtest(){
+	$this->autoRender = false;
 	App::uses('CakeEmail', 'Network/Email');
         $email = new CakeEmail();
         $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
