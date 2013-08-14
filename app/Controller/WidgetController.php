@@ -26,5 +26,22 @@ class WidgetController extends AppController {
         }
     }
     
+    public function emailtest(){
+	App::uses('CakeEmail', 'Network/Email');
+        $email = new CakeEmail();
+        $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
+		->config(array('host'=>'mail.leaguelaunch.com','port'=>25,'username'=>'do-not-reply@leaguelaunch.com','password'=>'87.~~?ZG}eI}','transport'=>'Smtp'))
+                ->sender(Configure::read('Settings.admin_email'))
+                ->replyTo(Configure::read('Settings.admin_email'))
+                ->cc(Configure::read('Settings.admin_email'))
+                ->to('ehask71@gmail.com')
+                ->subject(Configure::read('Settings.leaguename') . ' Order')
+                ->template('passwd_changed')
+                ->theme(Configure::read('Settings.theme'))
+                ->emailFormat('text')
+                ->viewVars(array('shop' => $shop))
+                ->send();
+    }
+    
 }
 
