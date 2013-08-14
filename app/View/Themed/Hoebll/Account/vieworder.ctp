@@ -1,5 +1,6 @@
 <div class="grid_12" id="body-content"> 
     <div>
+        <h2><?php echo __('View Order');?></h2>
         <table width="100%">
             <tr>
                 <td>Date:</td>
