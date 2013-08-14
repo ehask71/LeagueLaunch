@@ -6,7 +6,7 @@
 	<?php
 	echo $this->Form->create('Account');
 	echo $this->Form->input('password');
-	echo $this->Form->input('confirm_password',array('label' => 'Confirm Password'));
+	echo $this->Form->input('confirm_password',array('label' => 'Confirm Password','type'=>'password'));
 	echo $this->Form->input('rstcode',array('type'=>'hidden','value'=>$code));
 	echo $this->Form->end('Reset Password');
 	?>
