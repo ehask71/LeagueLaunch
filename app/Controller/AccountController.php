@@ -104,7 +104,7 @@ class AccountController extends AppController {
     }
     
     public function resetcode(){
-	print_r($this->request->data);
+	print_r($this->request->query['code']);
     }
     
     public function confirmpwd() {
