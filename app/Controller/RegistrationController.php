@@ -346,7 +346,8 @@ class RegistrationController extends AppController {
     }
 
     public function ccreturn($id) {
-	
+	$this->Session->setFlash(__('Thank You For Your Payment'), 'alerts/success');
+	$this->redirect('/account/orders');
     }
 
     public function success() {
