@@ -2,6 +2,10 @@
     <div>
         <h2><?php echo __('View Order');?></h2>
         <table width="100%">
+	    <thead>
+	    <th colspan="2">Details</th>
+	    </thead>
+	    <tbody>
             <tr>
                 <td>Date:</td>
                 <td><?php echo $order['Order']['created']; ?></td>
@@ -55,6 +59,7 @@
                     ?>
                 </td>
             </tr>
+	    </tbody>
         </table>
         <h2><?php echo __('Order Items');?></h2>
         <table>
