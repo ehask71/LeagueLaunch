@@ -13,7 +13,7 @@ class AccountController extends AppController {
 
     public function beforeFilter() {
 	parent::beforeFilter();
-	$this->Auth->allow('login', 'logout', 'register', 'forgetpwd', 'confirmpwd', 'resetcode', 'entercode');
+	$this->Auth->allow('login', 'logout', 'register', 'forgetpwd', 'entercode');
     }
 
     public function isAuthorized($user) {
@@ -98,10 +98,6 @@ class AccountController extends AppController {
 	}
     }
 
-    public function entercode() {
-	print_r($this->request->data);
-    }
-
     public function resetcode() {
 	$this->autoRender = false;
 	$account = array();
@@ -169,10 +165,6 @@ class AccountController extends AppController {
 	} else {
 	    $this->render('entercode');
 	}
-    }
-
-    public function confirmpwd() {
-	
     }
 
     public function logout() {
