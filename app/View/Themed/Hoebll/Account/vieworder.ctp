@@ -17,7 +17,7 @@
                 <td>Payment:</td>
                 <td>
                     <?php
-                    switch ($order['Order']['type']) {
+                    switch ($order['Order']['order_type']) {
                         case "payatfield":
                             echo "Pay At Field";
                             break;
@@ -40,10 +40,10 @@
                     <?php
                     if ($order['Order']['status'] != 2):
                         echo "Pay: ";
-                        if (Configure::read('Settings.authorize_net_enabled') == 'true' && $order['Order']['type'] == 'payatfield') {
+                        if (Configure::read('Settings.authorize_net_enabled') == 'true' && $order['Order']['order_type'] == 'payatfield') {
                             echo '<a href="https://leaguelaunch.com/checkout/ll/' . $order['Order']['id'] . '-' . $order['Order']['site_id'] . '-' . $rtn . '">Credit Card</a> ';
                         }
-                        if (Configure::read('Settings.paypal_enabled') == 'true' && $order['Order']['type'] == 'payatfield') {
+                        if (Configure::read('Settings.paypal_enabled') == 'true' && $order['Order']['order_type'] == 'payatfield') {
                             echo $this->Form->postLink('PayPal', array('action' => 'vieworder', $order['Order']['id']), array('class' => 'button green small'));
                         }
                     /* if(Configure::read('Settings.pay_at_field') == 'true'){
