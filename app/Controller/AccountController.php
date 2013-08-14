@@ -164,6 +164,7 @@ class AccountController extends AppController {
 	}
 	
 	if(count($account)){
+	    $this->set('code',$account['Account']['reset_code']);
 	    $this->render('new_password');
 	} else {
 	    $this->render('entercode');
