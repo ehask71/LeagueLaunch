@@ -1,6 +1,5 @@
 <div class="grid_12" id="body-content"> 
-    <div class="grid_6">
-        <h2><?= __('Order Id# ') . $order['Order']['id']; ?></h2>
+    <div>
         <table width="100%">
             <tr>
                 <td>Date:</td>
@@ -14,11 +13,6 @@
                 <td>Total:</td>
                 <td>$<?php echo $order['Order']['total']; ?></td>
             </tr>
-        </table>
-    </div>
-    <div class="grid_6">
-        <h2>Status</h2>
-        <table width="100%">
             <tr>
                 <td>Payment:</td>
                 <td>
@@ -61,6 +55,7 @@
                 </td>
             </tr>
         </table>
+        <h2><?php echo __('Order Items');?></h2>
         <table>
             <thead>
                 <tr>
