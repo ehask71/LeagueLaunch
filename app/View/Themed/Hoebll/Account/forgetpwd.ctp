@@ -2,6 +2,7 @@
     <div>
 	<h2>Forgotten Password?</h2>
 	<p>No Problem! Please enter your email below and click "Help Me". We will send a link that will allow you to reset your password.</p>
+	<br/><br/>
 	<?php
 	echo $this->Form->create('Account');
 	echo $this->Form->input('email');
