@@ -79,19 +79,22 @@ class AccountController extends AppController {
 		$data['id'] = $account['Account']['id'];
 		$data['reset_code'] = md5($this->request->data['Account']['email'].date('Y-m-d h:i:s'));
 		
-		App::uses('CakeEmail', 'Network/Email');
-		$email = new CakeEmail();
-		$email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
-		    ->sender(Configure::read('Settings.admin_email'))
-		    ->replyTo(Configure::read('Settings.admin_email'))
-		    ->cc(Configure::read('Settings.admin_email'))
-		    ->to($account['Account']['email'])
-		    ->subject(Configure::read('Settings.leaguename') . ' Password Reset')
-		    ->template('forgot_passwd')
-		    ->theme(Configure::read('Settings.theme'))
-		    ->emailFormat('text')
-		    ->viewVars(array('account' => $account,'code' => $data['reset_code']))
-		    ->send();
+		if($this->Account->save($data)){
+		    App::uses('CakeEmail', 'Network/Email');
+		    $email = new CakeEmail();
+		    $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
+			->sender(Configure::read('Settings.admin_email'))
+			->replyTo(Configure::read('Settings.admin_email'))
+			->cc(Configure::read('Settings.admin_email'))
+			->to($account['Account']['email'])
+			->subject(Configure::read('Settings.leaguename') . ' Password Reset')
+			->template('forgot_passwd')
+			->theme(Configure::read('Settings.theme'))
+			->emailFormat('text')
+			->viewVars(array('account' => $account,'code' => $data['reset_code']))
+			->send();
+		}
+		
 	    }
 	}
     }
