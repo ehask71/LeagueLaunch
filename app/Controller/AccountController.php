@@ -93,6 +93,8 @@ class AccountController extends AppController {
 			    ->emailFormat('text')
 			    ->viewVars(array('account' => $account, 'code' => $data['reset_code']))
 			    ->send();
+		    $this->Session->setFlash(__('Check Your Email. If your in our system you should get an email.'), 'alerts/info');
+		    $this->redirect(array('action'=>'resetcode'));
 		}
 	    }
 	}
