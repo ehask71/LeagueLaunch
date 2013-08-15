@@ -52,6 +52,7 @@
                 $this->Html->scriptStart(array('block' => 'scriptBottom'));
                 echo '$(document).ready(function () {
             $("#playerForm").bind("submit", function (event) {
+                $(this).find("input[type=submit]").attr("disabled","disabled");
                 $.ajax({
                     async:true,  
                     data:$("#playerForm").serialize(), 
@@ -77,6 +78,7 @@
                                 }
                              });
                         }
+                        $(this).find("input[type=submit]").attr("disabled","");
                     },
                     type:"POST", 
                     url:"\/registration\/saveplayer"});
