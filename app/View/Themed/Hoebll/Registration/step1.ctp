@@ -58,7 +58,6 @@
                     data:$("#playerForm").serialize(), 
                     //dataType:"html", 
                     success:function (data, textStatus) {
-                        console.log(textStatus);
                         var x = jQuery.parseJSON( data );
                         if(x.success == 1){
                             $("#ajaxPlayers").append(x.content);
