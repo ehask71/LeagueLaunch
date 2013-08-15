@@ -1,12 +1,12 @@
 <div class="grid_12" id="body-content">
     <?php if (count($already_reg) > 0): ?>
     <div class="ll-alert-warning" id="flash_msg">
-        These Players are already registered in this Season! Do not Add Them Again<br/> 
+        These Players are already registered in this Season! Do not Add Them Again<br/><br/> 
         <?php
         foreach ($already_reg AS $play):
             echo '<b>'.$play."</b><br/>";
         endforeach;
-        ?>
+        ?><br>
         View Account -> <a href="/account/">My Account</a>
     </div>
 <?php endif; ?>
