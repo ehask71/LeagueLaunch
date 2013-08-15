@@ -10,7 +10,7 @@ App::uses('CakeEmail', 'Network/Email');
 class RegistrationController extends AppController {
 
     public $name = 'Registration';
-    public $uses = array('Products', 'Forms', 'Players', 'Registration', 'Divisions', 'Season', 'ProductsToRegistrations');
+    public $uses = array('Products', 'Forms', 'Players','PlayersToSeasons', 'Registration', 'Divisions', 'Season', 'ProductsToRegistrations');
     public $components = array('MathCaptcha', 'RequestHandler', 'Cookie', 'Cart', 'LeagueAge');
     public $helpers = array('PaypalIpn.Paypal');
 
@@ -346,6 +346,8 @@ class RegistrationController extends AppController {
     }
 
     public function ccreturn($id) {
+        $this->Cart->clear();
+        $this->Session->delete('Shop');
 	$this->Session->setFlash(__('Thank You For Your Payment'), 'alerts/success');
 	$this->redirect('/account/orders');
     }
@@ -367,7 +369,8 @@ class RegistrationController extends AppController {
 		->emailFormat('text')
 		->viewVars(array('shop' => $shop))
 		->send();
-
+        
+        $this->Session->delete('Shop');
 	$this->Cart->clear();
 	if (empty($shop)) {
 	    $this->redirect('/');
