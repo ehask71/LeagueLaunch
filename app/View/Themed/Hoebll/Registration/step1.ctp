@@ -2,9 +2,10 @@
     <div class="ll-alert-warning" id="flash_msg">
         <?php
         foreach ($already_reg AS $play):
-            echo $play;
+            echo $play."<br/>";
         endforeach;
         ?>
+        View Account to see <a href="/account/">My Account</a>
     </div>
 <?php endif; ?>
 <div class="grid_12" id="body-content">
