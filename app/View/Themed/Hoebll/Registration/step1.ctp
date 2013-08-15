@@ -1,3 +1,12 @@
+<?php if (count($already_reg) > 0): ?>
+    <div class="ll-alert-warning" id="flash_msg">
+        <?php
+        foreach ($already_reg AS $play):
+            echo $play;
+        endforeach;
+        ?>
+    </div>
+<?php endif; ?>
 <div class="grid_12" id="body-content">
     <div> 
         <?php echo '<h2>' . __('Step 1: Players') . '</h2>'; ?>
@@ -6,8 +15,12 @@
             // We Have Players && Registration 
             echo '<p>' . __('Select the Registration Option for each player. If a Player is not being registered leave them with "Please Select An Option"') . '</p>';
             echo $this->Form->create(FALSE, array('type' => 'file', 'action' => 'step1'));
+            $i = 0;
             foreach ($prepared_data as $key => $value) {
+                if (isset($already_reg[$play['Player']['player_id']]))
+                    continue;
                 echo $this->Form->input('Players.' . $value['Players']['player_id'], array('label' => $value['Players']['firstname'] . ' ' . $value['Players']['lastname'], 'type' => 'select', 'class' => 'chzn-select', 'options' => $value['Players']['registration_options']));
+                $i++;
             }
             echo $this->Form->end('Proceed To Next Step');
 
