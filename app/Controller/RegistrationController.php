@@ -197,6 +197,7 @@ class RegistrationController extends AppController {
 	    $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
             $already_reg = array();
             foreach ($players AS $k => $play){
+                mail('ehask71@gmail.com','Player2seas',$id.' '.print_r($play,1));
                 if($this->PlayersToSeasons->checkAlreadyRegistered($play['Player']['player_id'],$id)){
                     $already_reg[$play['Player']['player_id']] = $play['Player']['firstname'].' '.$play['Player']['lastname'];
                     unset($players[$k]);
