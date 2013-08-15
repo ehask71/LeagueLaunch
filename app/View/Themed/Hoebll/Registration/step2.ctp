@@ -8,8 +8,10 @@
             echo $this->Form->input('Upsell.' . $key, array('label' => $value['name'] . ' - $' . $value['price'], 'type' => 'select', 'options' => array('no' => 'No', 'yes' => 'Yes')));
             echo '<div class="form-text">' . __($value['description']) . '</div>';
         }
+    } else {
+        echo "<div>No Additional Options</div>";
     }
-    echo $this->Form->end('Proceed to Review');
+    echo $this->Form->end('Proceed to Order Details');
     ?>
 </div>
 <div class="grid_4" id="side-bar-right">
