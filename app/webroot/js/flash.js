@@ -7,7 +7,10 @@ $(document).ready(function(){
         minWidth: '400px',
         maxWidth: '960px',
         closeHTML: 'X',
-        persist: false
+        persist: false,
+        onClose: function(){
+            closeModal();
+        }
 });
 var mtid;
 mtid = window.setTimeout(closeModal, 3000);
