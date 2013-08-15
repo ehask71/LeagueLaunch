@@ -399,7 +399,17 @@ class RegistrationController extends AppController {
 	$this->autoRender = false;
 	if ($this->RequestHandler->isAjax()) {
 	    $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
+            // Test To see if the player Exists!!
+            $playercheck = $this->Players->find('first',array(
+                'conditions' => array(
+                    'Players.firstname' => $this->request->data['Players']['firstname'],
+                    'Players.lastname' => $this->request->data['Players']['lastname'],
+                    'Players.site_id' => Configure::read('Settings.site_id'),
+                    'Players.user_id' => $this->Auth->user('id')
+                )
+            ));
 	    if ($this->Players->validatePlayer()) {
+                if(count($playercheck) == 0){
 		if ($this->Players->save($this->request->data)) {
 		    $res['success'] = 1;
 		    $res['content'] = '<div class="ll-alert-success">' . $this->request->data['Players']['firstname'] . ' ' . $this->request->data['Players']['lastname'] . ' has been Added!</div>';
@@ -416,6 +426,11 @@ class RegistrationController extends AppController {
 		    $this->set(compact('errors'));
 		    $this->render('/Elements/error_dialog');
 		}
+                } else {
+                    $errors = array('error'=>array($this->request->data['Players']['firstname'].' '.$this->request->data['Players']['lastname'].' is already added!'));
+                    $this->set(compact('errors'));
+		    $this->render('/Elements/error_dialog');
+                }
 	    }
 	    //return false;
 	}
