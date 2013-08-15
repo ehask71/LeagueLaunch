@@ -12,7 +12,7 @@ class WidgetController extends AppController {
     
     public function beforeFilter() {
 	parent::beforeFilter();
-        $this->Auth->allow('la','index','emailtest');
+        $this->Auth->allow('la','index','emailtest','flashtest');
     }
     
     public function index(){
@@ -44,7 +44,7 @@ class WidgetController extends AppController {
                 ->send();
     }
     
-    public function flash(){
+    public function flashtest(){
         $this->Session->setFlash(__('Test For Rob'), 'alerts/info');
     }
            
