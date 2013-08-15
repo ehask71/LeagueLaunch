@@ -196,9 +196,10 @@ class RegistrationController extends AppController {
 	    $registration_options = $this->Divisions->getParentDivisionsWproduct();
 	    $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
             $already_reg = array();
-            foreach ($players AS $play){
+            foreach ($players AS $k => $play){
                 if($this->PlayersToSeasons->checkAlreadyRegistered($play['Player']['player_id'],$id)){
-                    $already_reg[] = $play['Player']['firstname'].' '.$play['Player']['lastname'];
+                    $already_reg[$play['Player']['player_id']] = $play['Player']['firstname'].' '.$play['Player']['lastname'];
+                    unset($players[$k]);
                 }
             }
 	    $prepared_data = $this->LeagueAge->limitAgeBasedOptions($players, $registration_options);
