@@ -59,6 +59,10 @@
     }
     ?>
     </div>
+    <div class="article">
+        <h2>Registration Video Tutorial</h2>
+        <?php echo $this->Youtube->video('http://www.youtube.com/watch?v=eLwajtqwYhg',array('autohide'=>true));?>
+    </div>-->
 </div>
 <div class="grid_4" id="side-bar-right">
     <?php echo $this->element('schedule_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
