@@ -53,6 +53,7 @@
                 echo '$(document).ready(function () {
             $("#playerForm").bind("submit", function (event) {
                 //$(this).find("input[type=submit]").attr("disabled","disabled");
+                $("html, body").animate({ scrollTop: 0 }, "slow");
                 $.ajax({
                     async:true,  
                     data:$("#playerForm").serialize(), 
