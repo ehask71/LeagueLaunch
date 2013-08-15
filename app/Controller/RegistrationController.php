@@ -348,6 +348,7 @@ class RegistrationController extends AppController {
 
     public function ccreturn($id) {
         $this->Cart->clear();
+        $this->Session->delete('Player');
         $this->Session->delete('Shop');
 	$this->Session->setFlash(__('Thank You For Your Payment'), 'alerts/success');
 	$this->redirect('/account/orders');
@@ -370,7 +371,7 @@ class RegistrationController extends AppController {
 		->emailFormat('text')
 		->viewVars(array('shop' => $shop))
 		->send();
-        
+        $this->Session->delete('Player');
         $this->Session->delete('Shop');
 	$this->Cart->clear();
 	if (empty($shop)) {
