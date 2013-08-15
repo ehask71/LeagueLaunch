@@ -283,7 +283,7 @@ class RegistrationController extends AppController {
 		$order = $shop;
 		$order['Order']['status'] = 1;
 		$order['Order']['site_id'] = Configure::read('Settings.site_id');
-		$shop['Order']['user_id'] = $this->Auth->user('id');
+		$order['Order']['user_id'] = $this->Auth->user('id');
 
 		$save = $this->Order->saveAll($order, array('validate' => 'first'));
 
