@@ -7,10 +7,12 @@ $(document).ready(function(){
         minWidth: '400px',
         maxWidth: '960px',
         closeHTML: 'X',
-        onClose: function(){
-            $('#flash_msg').delay(5000).fadeOut('slow');
-            $.modal.close();
-        },
         persist: false
 });
+var mtid;
+mtid = window.setTimeout(closeModal, 5000);
+function closeModal(){
+    $.modal.close();
+    $('#flash_msg').css('display','none');
+}
 });
