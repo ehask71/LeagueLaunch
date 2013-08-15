@@ -10,6 +10,7 @@ $(document).ready(function(){
         onClose: function(){
             $('#flash_msg').delay(5000).fadeOut('slow');
             $.modal.close();
-        }
+        },
+        persist: false
 });
 });
