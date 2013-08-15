@@ -409,7 +409,7 @@ class RegistrationController extends AppController {
                     'Players.user_id' => $this->Auth->user('id')
                 )
                     ));
-            
+            mail('ehask71@gmail.com','bday',print_r($this->request->data['Players']['birthday'],1));
             if ($this->Players->validatePlayer()) {
                 if (count($playercheck) == 0) {
                     if ($this->Players->save($this->request->data)) {
