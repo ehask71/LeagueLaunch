@@ -58,7 +58,6 @@
                     data:$("#playerForm").serialize(), 
                     //dataType:"html", 
                     success:function (data, textStatus) {
-                        console.log(textStatus);
                         var x = jQuery.parseJSON( data );
                         if(x.success == 1){
                             $("#ajaxPlayers").append(x.content);
@@ -78,12 +77,12 @@
                                 }
                              });
                         }
-                        $(this).find("input[type=submit]").attr("disabled","");
                     },
                     type:"POST", 
                     url:"\/registration\/saveplayer"});
                     return false;
                 });
+                $(this).find("input[type=submit]").attr("disabled","");
             });';
                 $this->Html->scriptEnd();
                 echo $this->Js->writeBuffer();
