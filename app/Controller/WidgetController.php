@@ -44,5 +44,10 @@ class WidgetController extends AppController {
                 ->send();
     }
     
+    public function flash(){
+        $this->Session->setFlash(__('Test For Rob'), 'alerts/info');
+    }
+           
+    
 }
 
