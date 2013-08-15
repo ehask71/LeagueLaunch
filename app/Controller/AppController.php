@@ -24,7 +24,7 @@ class AppController extends Controller {
                     'recursive' => 1,
                 //'contain' => array('RolesUser')
             )),
-            'flash' => array('element'=>'alerts/error'),
+            'flash' => array('key'=>'auth','element'=>'alerts/error'),
             'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'account', 'action' => 'login'),
             'loginAction' => '/login',
