@@ -6,6 +6,10 @@ $(document).ready(function(){
         overlayClose: true,
         minWidth: '400px',
         maxWidth: '960px',
-        closeHTML: 'X'
+        closeHTML: 'X',
+        onClose: function(){
+            $('#flash_msg').delay(5000).fadeOut('slow');
+            $.modal.close();
+        }
 });
 });
