@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
 
 class WidgetController extends AppController {
     
-    public $name = 'WidgetController';
+    public $name = 'Widget';
     public $components = array('LeagueAge');
     
     public function beforeFilter() {
