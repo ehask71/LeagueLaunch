@@ -404,6 +404,7 @@ class RegistrationController extends AppController {
                 'conditions' => array(
                     'Players.firstname' => $this->request->data['Players']['firstname'],
                     'Players.lastname' => $this->request->data['Players']['lastname'],
+                    'Players.birthday' => $this->request->data['Players']['birthday'],
                     'Players.site_id' => Configure::read('Settings.site_id'),
                     'Players.user_id' => $this->Auth->user('id')
                 )
