@@ -77,12 +77,12 @@
                                 }
                              });
                         }
-                        $(this).find("input[type=submit]").attr("disabled","");
                     },
                     type:"POST", 
                     url:"\/registration\/saveplayer"});
                     return false;
                 });
+                $(this).find("input[type=submit]").attr("disabled","");
             });';
                 $this->Html->scriptEnd();
                 echo $this->Js->writeBuffer();
