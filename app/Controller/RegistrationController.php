@@ -404,12 +404,11 @@ class RegistrationController extends AppController {
                 'conditions' => array(
                     'Players.firstname' => $this->request->data['Players']['firstname'],
                     'Players.lastname' => $this->request->data['Players']['lastname'],
-                    //'Players.birthday' => $this->request->data['Players']['birthday'],
+                    'Players.birthday' => $this->request->data['Players']['birthday']['year'].'-'.$this->request->data['Players']['birthday']['month'].'-'.$this->request->data['Players']['birthday']['day'],
                     'Players.site_id' => Configure::read('Settings.site_id'),
                     'Players.user_id' => $this->Auth->user('id')
                 )
                     ));
-            mail('ehask71@gmail.com','bday',print_r($this->request->data['Players']['birthday'],1));
             if ($this->Players->validatePlayer()) {
                 if (count($playercheck) == 0) {
                     if ($this->Players->save($this->request->data)) {
