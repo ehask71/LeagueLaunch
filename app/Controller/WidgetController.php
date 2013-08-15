@@ -12,7 +12,7 @@ class WidgetController extends AppController {
     
     public function beforeFilter() {
 	parent::beforeFilter();
-        $this->Auth->allow('la','index','emailtest','flash');
+        $this->Auth->allow('la','index','emailtest','flashtest');
     }
     
     public function index(){
