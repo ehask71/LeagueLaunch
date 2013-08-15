@@ -1,5 +1,6 @@
 <?php if (count($already_reg) > 0): ?>
     <div class="ll-alert-warning" id="flash_msg">
+        These Players are already registered in this Season! 
         <?php
         foreach ($already_reg AS $play):
             echo $play."<br/>";
