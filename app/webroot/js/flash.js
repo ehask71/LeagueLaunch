@@ -17,5 +17,6 @@ mtid = window.setTimeout(closeModal, 3000);
 function closeModal(){
     $.modal.close();
     $('#flash_msg').css('display','none');
+    window.clearTimeout(mtid);
 }
 });
