@@ -195,8 +195,15 @@ class RegistrationController extends AppController {
 	    //$registration_options = $this->ProductsToRegistrations->getRegistrationsDropdown($id);
 	    $registration_options = $this->Divisions->getParentDivisionsWproduct();
 	    $players = $this->Players->getPlayersByUser($user['id'], Configure::read('Settings.site_id'));
+            $already_reg = array();
+            foreach ($players AS $play){
+                if($this->PlayersToSeasons->checkAlreadyRegistered($play['Player']['player_id'],$id)){
+                    $already_reg[] = $play['Player']['firstname'].' '.$play['Player']['lastname'];
+                }
+            }
 	    $prepared_data = $this->LeagueAge->limitAgeBasedOptions($players, $registration_options);
-	    $this->set(compact('prepared_data'));
+	    $this->set(compact('already_reg'));
+            $this->set(compact('prepared_data'));
 	    $this->set(compact('players'));
 	} else {
 	    $this->Session->setFlash(__('Please Select A Registration First'), 'alerts/info');
