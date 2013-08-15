@@ -198,7 +198,7 @@ class RegistrationController extends AppController {
             $already_reg = array();
             foreach ($players AS $k => $play){
                 if($this->PlayersToSeasons->checkAlreadyRegistered($play['Players']['player_id'],$id)){
-                    $already_reg[$play['Player']['player_id']] = $play['Player']['firstname'].' '.$play['Player']['lastname'];
+                    $already_reg[$play['Players']['player_id']] = $play['Players']['firstname'].' '.$play['Players']['lastname'];
                     unset($players[$k]);
                 }
             }
