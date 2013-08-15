@@ -69,7 +69,6 @@ class PlayersToSeasons extends AppModel {
                 'PlayersToSeasons.season_id' => $id
             )
                 ));
-        mail('ehask71@gmail.com','Player2seas',$player.' '.$id.' '.print_r($isreg,1));
         if (count($isreg) > 0) {
             return true;
         }
