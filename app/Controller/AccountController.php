@@ -199,6 +199,19 @@ class AccountController extends AppController {
 	$this->set('rtn', base64_encode('http://eastbaylittleleague.com/account/vieworder/' . $id));
 	$this->set(compact('order'));
     }
+    
+    public function editplayer($id){
+        $this->loadModel('Players');
+        
+        
+        $order = $this->Players->find('first', array(
+	    'conditions' => array(
+		'Players.id' => $id,
+		'Players.user_id' => $this->Auth->user('id'),
+		'Players.site_id' => Configure::read('Settings.site_id')
+	    )
+		));
+    }
 
     public function admin_index() {
 	$joins = array(
