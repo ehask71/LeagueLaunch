@@ -203,7 +203,6 @@ class AccountController extends AppController {
     public function editplayer($id){
         $this->loadModel('Players');
         
-        
         $order = $this->Players->find('first', array(
 	    'conditions' => array(
 		'Players.id' => $id,
