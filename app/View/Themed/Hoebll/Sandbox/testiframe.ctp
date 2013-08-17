@@ -19,7 +19,6 @@
             });
         });
         window.closeDialog = function(message){
-            alert(message);
             $("#newplayerErrorDialog").dialog("close");
         }
     </script>
