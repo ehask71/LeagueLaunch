@@ -20,8 +20,7 @@ class SeoController extends AppController {
         $urls[] = '/contact';
         
         
-        $this->set(compact('urls'));  
-        $this->RequestHandler->respondAs('text');  
+        $this->set(compact('urls'));   
         $this->viewPath .= '/text';  
         $this->layout = 'ajax'; 
     }
