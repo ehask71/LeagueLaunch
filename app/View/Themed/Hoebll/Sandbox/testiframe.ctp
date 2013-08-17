@@ -16,6 +16,10 @@
                 }
             }
         });
+        
+        window.closeDialog = function(message){
+            alert(message);
+        }
     </script>
 </div>
 <div class="grid_4" id="side-bar-right">
