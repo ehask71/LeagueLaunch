@@ -35,7 +35,7 @@ class HomeController extends AppController {
     }
     
     public function dialog(){
-        $this->layout = 'xinterface';
+        $this->theme = 'xinterface';
         
     }
     
