@@ -202,14 +202,18 @@ class AccountController extends AppController {
     
     public function editplayer($id){
         $this->loadModel('Players');
-        
-        $order = $this->Players->find('first', array(
+        if ($this->request->is('post')) {
+            
+        }
+        $player = $this->Players->find('first', array(
 	    'conditions' => array(
 		'Players.id' => $id,
 		'Players.user_id' => $this->Auth->user('id'),
 		'Players.site_id' => Configure::read('Settings.site_id')
 	    )
 		));
+        
+        $this->set(compact('player'));
     }
 
     public function admin_index() {
