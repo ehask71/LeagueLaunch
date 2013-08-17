@@ -19,6 +19,7 @@
         
         window.closeDialog = function(message){
             alert(message);
+            $("#newplayerErrorDialog").hide();
         }
     </script>
 </div>
