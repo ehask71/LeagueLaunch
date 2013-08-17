@@ -20,7 +20,7 @@
         });
         window.closeDialog = function(message){
             alert(message);
-            $("#newplayerErrorDialog").hide();
+            $("#newplayerErrorDialog").dialog("close");
         }
     </script>
 </div>
