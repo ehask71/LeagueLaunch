@@ -6,7 +6,7 @@ var query = /key=([A-Z]*)(&value=([a-z|A-Z]*))?/.exec(location.search),
 // check if the url is valid
 if (query && key) {
     // call the public function
-    if (key === 'LOG') {
+    if (key === 'log') {
         alert(value);
         window.top.closeDialog(value);
     }
