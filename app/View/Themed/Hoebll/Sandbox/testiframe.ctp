@@ -6,17 +6,18 @@
     </div>-->
     <script type="text/javascript">
         //$("#newplayerErrorDialog").html(x.content);
-        $("#newplayerErrorDialog").dialog({
-            modal: true,
-            buttons: {
-                "OK": {
-                    class: "btn btn-primary",
-                    text: "OK",
-                    click: function() { $(this).dialog("close"); }
+        $( document ).ready(function() { 
+            $("#newplayerErrorDialog").dialog({
+                modal: true,
+                buttons: {
+                    "OK": {
+                        class: "btn btn-primary",
+                        text: "OK",
+                        click: function() { $(this).dialog("close"); }
+                    }
                 }
-            }
+            });
         });
-        
         window.closeDialog = function(message){
             alert(message);
             $("#newplayerErrorDialog").hide();
@@ -29,5 +30,5 @@
     <?php echo $this->element('sponsors_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
 </div>
 <div id="newplayerErrorDialog" title="<?php echo __('Error'); ?>" style="display: none;">
-<iframe src="https://leaguelaunch.com/checkout/testiframe"></iframe> 
+    <iframe src="https://leaguelaunch.com/checkout/testiframe"></iframe> 
 </div>
