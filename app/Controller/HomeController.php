@@ -11,7 +11,7 @@ class HomeController extends AppController {
     
     public function beforeFilter() {
 	parent::beforeFilter();
-	$this->Auth->allow('index','terms');
+	$this->Auth->allow('index','terms','dialog');
     }
     
     public function index(){
@@ -31,6 +31,11 @@ class HomeController extends AppController {
     }
 
     public function notconfigured(){
+        
+    }
+    
+    public function dialog(){
+        $this->layout = 'xinterface';
         
     }
     
