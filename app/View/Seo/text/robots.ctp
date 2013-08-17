@@ -1,2 +1,2 @@
-User-agent: * <?php echo "\n";?> 
-Disallow /admin/<?php echo "\n";?> 
+User-agent: * <?php echo "\r\n";?> 
+Disallow /admin/<?php echo "\r\n";?> 
