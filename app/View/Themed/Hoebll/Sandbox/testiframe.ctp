@@ -30,5 +30,5 @@
     <?php echo $this->element('sponsors_widget', array(), array('cache' => array('time' => '+1 hour'))); ?>
 </div>
 <div id="newplayerErrorDialog" title="<?php echo __('Error'); ?>" style="display: none;">
-    <iframe src="https://leaguelaunch.com/checkout/testiframe"></iframe> 
+    <iframe src="https://leaguelaunch.com/checkout/testiframe" width="500px" height="500px"></iframe> 
 </div>
