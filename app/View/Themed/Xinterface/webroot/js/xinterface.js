@@ -8,6 +8,6 @@ if (query && key) {
     // call the public function
     if (key === 'log') {
         alert(value);
-        window.parent.closeDialog(value);
+        window.top.closeDialog(value);
     }
 }
