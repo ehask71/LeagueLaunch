@@ -7,6 +7,6 @@ var query = /key=([A-Z]*)(&value=([a-z|A-Z]*))?/.exec(location.search),
 if (query && key) {
     // call the public function
     if (key === 'LOG') {
-        window.top.payment(value);
+        window.top.closeDialog(value);
     }
 }
