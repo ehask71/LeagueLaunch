@@ -7,10 +7,13 @@
     <script type="text/javascript">
         //$("#newplayerErrorDialog").html(x.content);
         $( document ).ready(function() { 
-            $("#newplayerErrorDialog").dialog({
+           /* $("#newplayerErrorDialog").dialog({
                 modal: true,
                 width: "auto"
-            });
+            });*/
+            
+            $('#newplayerErrorDialog').bPopup();
+        
         });
         window.closeDialog = function(message){
             $("#newplayerErrorDialog").dialog("close");
