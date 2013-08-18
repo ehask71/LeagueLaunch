@@ -9,14 +9,7 @@
         $( document ).ready(function() { 
             $("#newplayerErrorDialog").dialog({
                 modal: true,
-                width: "auto",
-                buttons: {
-                    "OK": {
-                        class: "btn btn-primary",
-                        text: "OK",
-                        click: function() { $(this).dialog("close"); }
-                    }
-                }
+                width: "auto"
             });
         });
         window.closeDialog = function(message){
