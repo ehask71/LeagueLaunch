@@ -12,7 +12,9 @@
                 width: "auto"
             });*/
             
-            $('#newplayerErrorDialog').bPopup();
+            $('#newplayerErrorDialog').bPopup({
+                zIndex: 9999
+            });
         
         });
         window.closeDialog = function(message){
