@@ -18,7 +18,7 @@
         
         });
         window.closeDialog = function(message){
-            $("#newplayerErrorDialog").dialog("close");
+            $("#newplayerErrorDialog").bPopup().close();
         }
     </script>
 </div>
