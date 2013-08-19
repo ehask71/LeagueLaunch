@@ -63,6 +63,7 @@ class CartComponent extends Component {
                                 // Duplicate
                                 return false;
                             }
+                            mail('ehask71@gmail.com','Players',print_r($pl,1).' '.$player);
                         }
 			if($item['product_id'] == $id){
 			    $quantity = (int)$item['quantity'] + 1;
