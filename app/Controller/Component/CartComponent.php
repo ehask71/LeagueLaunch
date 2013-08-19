@@ -64,9 +64,9 @@ class CartComponent extends Component {
                                 return false;
                             }
                         }
-			/*if($item['product_id'] == $id){
+			if($item['product_id'] == $id){
 			    $quantity = (int)$item['quantity'] + 1;
-			}*/
+			}
 		    }
 		}
 		
@@ -82,7 +82,7 @@ class CartComponent extends Component {
 		$data['subtotal'] = sprintf('%01.2f', $product['Products']['price'] * $quantity);
 		$data['totalweight'] = sprintf('%01.2f', $product['Products']['weight'] * $quantity);
 		$data['Product'] = $product['Products'];
-                $data['player_id'] = ($player)?implode(",", $pl):0;
+                $data['player_id'] = ($pl)?implode(",", $pl):0;
                 $data['season_id'] = (int)($season)?$season:0;
 		$this->Session->write('Shop.OrderItem.' . $id, $data);
 		$this->Session->write('Shop.Order.shop', 1);
