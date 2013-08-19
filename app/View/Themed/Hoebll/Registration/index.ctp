@@ -2,7 +2,7 @@
     <div class="article">
         <h2>Online Registration</h2>
         <?php 
-        if($_SERVER['REMOTE_ADDR'] != '108.9.106.23'){
+        if($_SERVER['REMOTE_ADDR'] != '108.9.106.233'){
             
             echo '<h2>Sorry Undergoing Maintenance Check Back Soon</h2>';
         } else {
