@@ -285,6 +285,7 @@ class RegistrationController extends AppController {
         if ($this->request->is('post')) {
 
             $this->loadModel('Order');
+            $this->loadModel('OrderItem');
 
             $this->Order->set($this->request->data);
             if ($this->Order->validates()) {
@@ -292,7 +293,7 @@ class RegistrationController extends AppController {
                 $order['Order']['status'] = 1;
                 $order['Order']['site_id'] = Configure::read('Settings.site_id');
                 $order['Order']['user_id'] = $this->Auth->user('id');
-
+                
                 $save = $this->Order->saveAll($order, array('validate' => 'first'));
 
                 if ($save) {
@@ -301,10 +302,23 @@ class RegistrationController extends AppController {
                     $this->Session->write('Shop.Order.order_id', $orderid);
                     $shop['Order']['season_id'] = $this->Session->read('Season.id');
                     $this->Session->write('Shop.Order.season_id', $shop['Order']['season_id']);
-
+                    // Need to add player id to Order Items
                     // Do the insert for Player_to_Registrations
                     $this->loadModel('PlayersToSeasons');
                     foreach ($shop['Order']['Player'] AS $k => $v) {
+                        $orderitem = $this->OrderItem->find('first',array(
+                            'conditions' => array(
+                                'OrderItem.product_id' => $v['product'],
+                                'OrderItem.order_id' => $orderid,
+                                'OrderItem.season_id' => $shop['Order']['season_id']
+                            )
+                        ));
+                        if(count($orderitem)>0){
+                            $data['id'] = $orderitem['OrderItem']['id'];
+                            $data['player_id'] = $orderitem['OrderItem']['player_id'].','.$k;
+                            $this->OrderItem->save($data);
+                        }
+                        
                         $sid = $this->PlayersToSeasons->saveAll($this->PlayersToSeasons->addPlayer($shop['Order']['season_id'], $k, $v['division'], $v['product']));
                     }
 
