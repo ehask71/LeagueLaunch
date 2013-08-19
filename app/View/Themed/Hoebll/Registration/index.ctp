@@ -6,7 +6,7 @@
             
             echo '<h2>Sorry Undergoing Maintenance Check Back Soon</h2>';
         } else {
-    <?php
+            
     if (!$loggedIn) {
         ?>
             <p>
