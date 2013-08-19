@@ -65,7 +65,7 @@ class CartComponent extends Component {
                             }
                         }
 			if($item['product_id'] == $id){
-			    //$quantity = (int)$item['quantity'] + 1;
+			    $quantity = (int)$item['quantity'] + 1;
 			}
 		    }
 		}
@@ -84,11 +84,11 @@ class CartComponent extends Component {
 		$data['Product'] = $product['Products'];
                 $data['player_id'] = ($player)?$player:0;
                 $data['season_id'] = (int)($season)?$season:0;
-                if($player){
+              /*  if($player){
                     $this->Session->write('Shop.OrderItem.'.$player.'.' . $id, $data);
-                } else {
+                } else {*/
                     $this->Session->write('Shop.OrderItem.' . $id, $data);
-                }
+                //}
 		$this->Session->write('Shop.Order.shop', 1);
 
 		$this->Cart = ClassRegistry::init('Cart');
