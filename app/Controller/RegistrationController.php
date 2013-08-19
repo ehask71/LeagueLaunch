@@ -314,8 +314,9 @@ class RegistrationController extends AppController {
                             )
                         ));
                         if(count($orderitem)>0){
+                            $pl = explode(",", $orderitem['OrderItem']['player_id'].','.$k);
                             $data['id'] = $orderitem['OrderItem']['id'];
-                            $data['player_id'] = $orderitem['OrderItem']['player_id'].','.$k;
+                            $data['player_id'] = implode(",", array_unique($pl));
                             $this->OrderItem->save($data);
                         }
                         
