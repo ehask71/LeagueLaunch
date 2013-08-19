@@ -1,21 +1,21 @@
 <div class="grid_12" id="body-content">
     <div class="article">
         <h2>Online Registration</h2>
-        <?php 
-        if($_SERVER['REMOTE_ADDR'] != '108.9.106.23'){
-            
-            echo '<h2>Sorry Undergoing Maintenance Check Back Soon</h2>';
-        } else {
-            
-    if (!$loggedIn) {
-        ?>
+        <?php
+        /* if($_SERVER['REMOTE_ADDR'] == 'test'){
+
+          echo '<h2>Sorry Undergoing Maintenance Check Back Soon</h2>';
+          } else { */
+
+        if (!$loggedIn) {
+            ?>
             <p>
                 To start the registration process for your child you as a parent need to have an Account and be logged in. If you already have an account please login <?php echo $this->Html->link(__('Click to Login'), '/login'); ?>
                 <br><br>If you don't please create your account here <?php echo $this->Html->link(__('Click to Register'), array('controller' => 'account', 'action' => 'register')); ?>.   
             </p>
-        <?php
-    } else {
-        ?>
+            <?php
+        } else {
+            ?>
             <p>
                 Hello <?php echo $userinfo['firstname']; ?>,<br/>
 
@@ -31,43 +31,43 @@
                 </thead>
                 <tbody>
                     <?php
-                    if(count($registrations) > 0){
-                        $i=1;
-                        foreach ($registrations AS $reg){
+                    if (count($registrations) > 0) {
+                        $i = 1;
+                        foreach ($registrations AS $reg) {
                             ?>
-                    <tr>
-                        <td><b>
-                            <?php
-                            echo '<form action="/registration/index" name="post_'.$i.'" id="post_'.$i.'" method="POST">';
-                            echo '<input type="hidden" name="data[Season][id]" value="'.$reg['Season']['id'].'"/>';
-                            echo '</form>';
-                            echo '<a href="#" class="registrationPostLink" onclick="document.post_'.$i.'.submit(); event.returnValue = false; return false;">'.__($reg['Season']['name']).'</a>';
-                            $i++;
-                            ?>
-                        </b></td>
-                    </tr>
+                            <tr>
+                                <td><b>
+                                        <?php
+                                        echo '<form action="/registration/index" name="post_' . $i . '" id="post_' . $i . '" method="POST">';
+                                        echo '<input type="hidden" name="data[Season][id]" value="' . $reg['Season']['id'] . '"/>';
+                                        echo '</form>';
+                                        echo '<a href="#" class="registrationPostLink" onclick="document.post_' . $i . '.submit(); event.returnValue = false; return false;">' . __($reg['Season']['name']) . '</a>';
+                                        $i++;
+                                        ?>
+                                    </b></td>
+                            </tr>
                             <?php
                         }
                     } else {
                         ?>
-                    <tr>
-                        <td colspan="1">We're Sorry There Are No Active Registrations At This Time</td>
-                    </tr>
+                        <tr>
+                            <td colspan="1">We're Sorry There Are No Active Registrations At This Time</td>
+                        </tr>
                         <?php
                     }
                     ?>
                 </tbody>
             </table>
-                <?php //echo $this->Html->link(__('Click Here to Proceed with Registration'), array('action' => 'step1')); ?>
+            <?php //echo $this->Html->link(__('Click Here to Proceed with Registration'), array('action' => 'step1')); ?>
             </p>
-        <?php
-    }
+            <?php
         }
-    ?>
+        //}
+        ?>
     </div>
     <div class="article">
         <h2>Registration Video Tutorial</h2>
-        <?php echo $this->Youtube->video('http://www.youtube.com/watch?v=eLwajtqwYhg',array('autohide'=>true));?>
+        <?php echo $this->Youtube->video('http://www.youtube.com/watch?v=eLwajtqwYhg', array('autohide' => true)); ?>
     </div>
 </div>
 <div class="grid_4" id="side-bar-right">
