@@ -86,7 +86,11 @@ class CartComponent extends Component {
 		$data['Product'] = $product['Products'];
                 $data['player_id'] = ($player)?$player:0;
                 $data['season_id'] = (int)($season)?$season:0;
-		$this->Session->write('Shop.OrderItem.' . $id, $data);
+                if($player){
+                    $this->Session->write('Shop.OrderItem.'.$player.'.' . $id, $data);
+                } else {
+                    $this->Session->write('Shop.OrderItem.' . $id, $data);
+                }
 		$this->Session->write('Shop.Order.shop', 1);
 
 		$this->Cart = ClassRegistry::init('Cart');
