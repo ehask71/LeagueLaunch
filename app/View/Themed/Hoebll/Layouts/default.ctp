@@ -38,6 +38,13 @@
 
     <body>
         <div class="container_16" id="body-container">
+	    <noscript>
+		    <div class="grid_16_nospace">
+			<div class="ll-alert-error" id="flash_msg">
+			    You Must Have Javascript Enabled To Use this Site!
+			</div>
+		    </div>
+	    </noscript>
             <!-- begin header -->
             <header>
                 <div class="grid_6" >
@@ -91,13 +98,6 @@
             </header>
             <!-- end header -->
             <section class="grid_16">
-		<noscript>
-		    <div class="grid_16_nospace">
-			<div class="ll-alert-error" id="flash_msg">
-			    You Must Have Javascript Enabled To Use this Site!
-			</div>
-		    </div>
-		</noscript>
                 <div class="grid_16_nospace" id="carousel-container"></div>
                 <!-- Begin Body -->
 		<div class="grid_16_nospace">
