@@ -63,13 +63,11 @@ class CartComponent extends Component {
                                 // Duplicate
                                 return false;
                             }
-                            mail('ehask71@gmail.com','Players',print_r($pl,1).' '.$player);
                         }
 			if($item['product_id'] == $id){
-			    $quantity = (int)$item['quantity'] + 1;
+			    //$quantity = (int)$item['quantity'] + 1;
 			}
 		    }
-                    mail('ehask71@gmail.com','CartItems',print_r($cartitems,1).' '.$player);
 		}
 		
 		if(empty($product)) {
