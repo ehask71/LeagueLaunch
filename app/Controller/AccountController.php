@@ -237,6 +237,7 @@ class AccountController extends AppController {
 		if (count($playercheck) == 0) {
                     if ($this->Players->save($this->request->data)) {
 			$this->Session->setFlash(__('Player Added Successfully'), 'alerts/success');
+			$this->redirect('/account');
 		    }
 		} else {
 		    $this->Session->setFlash(__('Player Already Exists'), 'alerts/error');
