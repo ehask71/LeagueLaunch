@@ -83,7 +83,7 @@ class AccountController extends AppController {
 		    App::uses('CakeEmail', 'Network/Email');
 		    $email = new CakeEmail();
 		    $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
-			    ->config(array('host'=>'mail.leaguelaunch.com','port'=>25,'username'=>'do-not-reply@leaguelaunch.com','password'=>'87.~~?ZG}eI}','transport'=>'Smtp'))
+			    ->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
 			    ->sender(Configure::read('Settings.admin_email'))
 			    ->replyTo(Configure::read('Settings.admin_email'))
 			    ->cc(Configure::read('Settings.admin_email'))
@@ -130,7 +130,7 @@ class AccountController extends AppController {
 			App::uses('CakeEmail', 'Network/Email');
 			$email = new CakeEmail();
 			$email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
-				->config(array('host'=>'mail.leaguelaunch.com','port'=>25,'username'=>'do-not-reply@leaguelaunch.com','password'=>'87.~~?ZG}eI}','transport'=>'Smtp'))
+				->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
 				->sender(Configure::read('Settings.admin_email'))
 				->replyTo(Configure::read('Settings.admin_email'))
 				->cc(Configure::read('Settings.admin_email'))
@@ -199,43 +199,49 @@ class AccountController extends AppController {
 	$this->set('rtn', base64_encode('http://eastbaylittleleague.com/account/vieworder/' . $id));
 	$this->set(compact('order'));
     }
-    
-    public function editplayer($id){
-        $this->loadModel('Players');
-        if ($this->request->is('post')) {
-            
-        }
-        $player = $this->Players->find('first', array(
+
+    public function editplayer($id) {
+	$this->loadModel('Players');
+	if ($this->request->is('post')) {
+	    $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
+	    if ($this->Players->validatePlayer()) {
+		if ($this->Players->save($this->request->data)) {
+		    $this->Session->setFlash(__('Player Updated Successfully'), 'alerts/success');
+		    $this->redirect('/account');
+		}
+	    } 
+	}
+	$player = $this->Players->find('first', array(
 	    'conditions' => array(
 		'Players.player_id' => $id,
 		'Players.user_id' => $this->Auth->user('id'),
 		'Players.site_id' => Configure::read('Settings.site_id')
 	    )
 		));
-        if($player){
+	if ($player) {
 	    $this->request->data = $player;
 	}
-        $this->set('title','Edit Player');
+	$this->set('title', 'Edit Player');
 	$this->render('addplayer');
     }
-    
-    public function addplayer(){
-        if ($this->request->is('post')) {
+
+    public function addplayer() {
+	if ($this->request->is('post')) {
 	    $this->loadModel('Players');
 	    $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
-            // Test To see if the player Exists!!
-            $playercheck = $this->Players->find('first', array(
-                'conditions' => array(
-                    'Players.firstname' => $this->request->data['Players']['firstname'],
-                    'Players.lastname' => $this->request->data['Players']['lastname'],
-                    'Players.birthday' => $this->request->data['Players']['birthday']['year'].'-'.$this->request->data['Players']['birthday']['month'].'-'.$this->request->data['Players']['birthday']['day'],
-                    'Players.site_id' => Configure::read('Settings.site_id'),
-                    'Players.user_id' => $this->Auth->user('id')
-                )
-                    ));
+	    // Test To see if the player Exists!!
+	    $playercheck = $this->Players->find('first', array(
+		'conditions' => array(
+		    'Players.firstname' => $this->request->data['Players']['firstname'],
+		    'Players.lastname' => $this->request->data['Players']['lastname'],
+		    'Players.birthday' => $this->request->data['Players']['birthday']['year'] . '-' . $this->request->data['Players']['birthday']['month'] . '-' . $this->request->data['Players']['birthday']['day'],
+		    'Players.site_id' => Configure::read('Settings.site_id'),
+		    'Players.user_id' => $this->Auth->user('id')
+		)
+		    ));
 	    if ($this->Players->validatePlayer()) {
 		if (count($playercheck) == 0) {
-                    if ($this->Players->save($this->request->data)) {
+		    if ($this->Players->save($this->request->data)) {
 			$this->Session->setFlash(__('Player Added Successfully'), 'alerts/success');
 			$this->redirect('/account');
 		    }
@@ -243,10 +249,10 @@ class AccountController extends AppController {
 		    $this->Session->setFlash(__('Player Already Exists'), 'alerts/error');
 		}
 	    }
-        }
-	$this->set('title','Add Player');
+	}
+	$this->set('title', 'Add Player');
     }
-    
+
     public function admin_index() {
 	$joins = array(
 	    array(
