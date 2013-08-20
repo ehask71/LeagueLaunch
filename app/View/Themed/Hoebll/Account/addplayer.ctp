@@ -2,6 +2,9 @@
     <div>
         <h2><?= __('Add Player'); ?></h2>
 	<?php echo $this->Form->create('Players');?>
+	<?php echo $this->Form->input('player_id',array('type'=>'hidden'));?>
+	<?php echo $this->Form->input('user_id',array('type'=>'hidden','value'=>$userinfo['id']));?>
+	<?php echo $this->Form->input('site_id',array('type'=>'hidden','value'=>  Configure::read('Settings.site_id')));?>
 	<?php echo $this->Form->input('firstname');?>
 	<?php echo $this->Form->input('lastname');?>
 	<?php echo $this->Form->input('nickname');?>
