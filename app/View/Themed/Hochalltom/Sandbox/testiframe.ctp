@@ -1,5 +1,5 @@
 <div class="grid_12" id="body-content">
-
+    <?php print_r($userinfo);?>
     <!--<div class="article">
         <h2>Testing Youtube Helper Class</h2>
     <?php //echo $this->Youtube->video('http://www.youtube.com/watch?v=bmZ9xRO7M9M',array('autohide'=>true));?>
