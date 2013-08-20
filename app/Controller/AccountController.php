@@ -202,12 +202,14 @@ class AccountController extends AppController {
 
     public function editplayer($id) {
 	$this->loadModel('Players');
-	if ($this->request->is('post')) {
+	if ($this->request->is('post') || $this->request->is('put')) {
 	    $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
 	    if ($this->Players->validatePlayer()) {
 		if ($this->Players->save($this->request->data)) {
 		    $this->Session->setFlash(__('Player Updated Successfully'), 'alerts/success');
 		    $this->redirect('/account');
+		} else {
+		    $this->Session->setFlash(__('Player Updated Successfully'), 'alerts/success');
 		}
 	    } 
 	}
