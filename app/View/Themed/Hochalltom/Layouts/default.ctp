@@ -91,7 +91,8 @@
 		    <div class="content">
 			<h3>Navigation</h3>
                         <ul>
-                            <li><?php echo $this->Html->link('Admin',array('action'=>'index','controller'=>'home','prefix'=>'admin'));?>
+                            <li><a href="/account">My Account</a></li>
+                            <li><a href="/admin/home">Admin</a></li>
                         </ul>
 		    </div>
 		</div>
