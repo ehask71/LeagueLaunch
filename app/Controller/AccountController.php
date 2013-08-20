@@ -212,8 +212,11 @@ class AccountController extends AppController {
 		'Players.site_id' => Configure::read('Settings.site_id')
 	    )
 		));
-        
-        $this->set(compact('player'));
+        if($player){
+	    $this->request->data = $player;
+	}
+        $this->set('title','Edit Player');
+	$this->render('addplayer');
     }
     
     public function addplayer(){
@@ -240,7 +243,7 @@ class AccountController extends AppController {
 		}
 	    }
         }
-	
+	$this->set('title','Add Player');
     }
     
     public function admin_index() {
