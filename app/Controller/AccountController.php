@@ -219,7 +219,26 @@ class AccountController extends AppController {
     public function addplayer(){
         if ($this->request->is('post')) {
 	    $this->loadModel('Players');
-	    
+	    $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
+            // Test To see if the player Exists!!
+            $playercheck = $this->Players->find('first', array(
+                'conditions' => array(
+                    'Players.firstname' => $this->request->data['Players']['firstname'],
+                    'Players.lastname' => $this->request->data['Players']['lastname'],
+                    'Players.birthday' => $this->request->data['Players']['birthday']['year'].'-'.$this->request->data['Players']['birthday']['month'].'-'.$this->request->data['Players']['birthday']['day'],
+                    'Players.site_id' => Configure::read('Settings.site_id'),
+                    'Players.user_id' => $this->Auth->user('id')
+                )
+                    ));
+	    if ($this->Players->validatePlayer()) {
+		if (count($playercheck) == 0) {
+                    if ($this->Players->save($this->request->data)) {
+			$this->Session->setFlash(__('Player Added Successfully'), 'alerts/success');
+		    }
+		} else {
+		    $this->Session->setFlash(__('Player Already Exists'), 'alerts/error');
+		}
+	    }
         }
 	
     }
