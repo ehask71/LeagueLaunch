@@ -113,7 +113,7 @@
             <tr>
                 <td colspan="100">
                     <!-- Player related actions -->
-                    <a href="/account/forms" title="Fill out League Required forms">File Forms</a> |
+                    <a href="/account/forms" title="Fill out League Required forms">File Forms</a> | <a href="/account/editplayer/<?php echo $player['player_id'];?>" title="Edit this player">Edit</a>
                     <a href="/account/deleteplayer" title="Delete this player">Delete</a>
                 </td>
             </tr>
