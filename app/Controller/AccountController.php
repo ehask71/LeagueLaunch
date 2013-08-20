@@ -207,7 +207,7 @@ class AccountController extends AppController {
         }
         $player = $this->Players->find('first', array(
 	    'conditions' => array(
-		'Players.id' => $id,
+		'Players.player_id' => $id,
 		'Players.user_id' => $this->Auth->user('id'),
 		'Players.site_id' => Configure::read('Settings.site_id')
 	    )
