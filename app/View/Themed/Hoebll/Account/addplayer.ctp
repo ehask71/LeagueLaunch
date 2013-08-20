@@ -10,7 +10,7 @@
 	<?php echo $this->Form->input('nickname');?>
 	<?php echo $this->Form->input('gender',array('type'=>'select','class'=>'chzn-select','options'=>array('m'=>'Male','f'=>'Female')));?>
 	<?php echo $this->Form->input('birthday');?>
-	<?php echo $this->Form->end('Add Player');?>
+	<?php echo $this->Form->end($title);?>
     </div>
 </div>
 <div class="grid_4" id="side-bar-right">
