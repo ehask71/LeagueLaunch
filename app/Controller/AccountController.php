@@ -215,7 +215,15 @@ class AccountController extends AppController {
         
         $this->set(compact('player'));
     }
-
+    
+    public function addplayer(){
+        if ($this->request->is('post')) {
+	    $this->loadModel('Players');
+	    
+        }
+	
+    }
+    
     public function admin_index() {
 	$joins = array(
 	    array(
