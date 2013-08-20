@@ -208,8 +208,6 @@ class AccountController extends AppController {
 		if ($this->Players->save($this->request->data)) {
 		    $this->Session->setFlash(__('Player Updated Successfully'), 'alerts/success');
 		    $this->redirect('/account');
-		} else {
-		    $this->Session->setFlash(__('Player Updated Successfully'), 'alerts/success');
 		}
 	    } 
 	}
