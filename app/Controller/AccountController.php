@@ -9,7 +9,7 @@ App::uses('AppController', 'Controller');
 class AccountController extends AppController {
 
     public $uses = array('Account', 'RoleUser', 'Country', 'Order');
-    public $components = array('Email');
+    public $components = array('Email', 'LeagueAge');
 
     public function beforeFilter() {
 	parent::beforeFilter();
