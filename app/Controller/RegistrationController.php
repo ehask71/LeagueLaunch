@@ -162,11 +162,11 @@ class RegistrationController extends AppController {
     // Allow Players to be Added
     public function step1() {
         $id = $this->Session->read('Season.id');
-        $pcheck = $this->Session->read('Shop.players_added');
+        /*$pcheck = $this->Session->read('Shop.players_added');
         if ($pcheck == 'true') {
             //$this->Session->setFlash('Please Don\'t Use The Back Button', 'alerts/info');
             $this->redirect(array('action' => 'step2'));
-        }
+        }*/
         // Store Results in Sessions
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count($this->request->data['Players']) > 0) {
