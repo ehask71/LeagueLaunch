@@ -38,6 +38,9 @@
                             }
                         ?>
                     </tbody>
+                    <tfoot>
+                    <th colspan="5"><?php echo $this->Paginator->numbers(array('first' => 2, 'last' => 2));?></th>
+                    </tfoot>
                 </table>
             </div>
         </div>
