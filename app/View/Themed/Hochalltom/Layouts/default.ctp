@@ -79,12 +79,17 @@
 
                 <div class="grid_4" >
                     <div class="content first">
-
+                        <div class="content first">
+                            <h3>Fan Shop</h3>
+                        </div>
                     </div>
                 </div>
                 <div class="grid_4" >
                     <div class="content">
                         <h3>Links</h3>
+                        <ul>
+                            <li><a href="http://www.littleleague.org/Little_League_Online.htm">Little League Online</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="grid_4">
