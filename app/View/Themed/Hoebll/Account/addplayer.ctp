@@ -1,6 +1,6 @@
 <div class="grid_12" id="body-content"> 
     <div>
-        <h2><?= __('Add Player'); ?></h2>
+        <h2><?= __($title); ?></h2>
 	<?php echo $this->Form->create('Players');?>
 	<?php echo $this->Form->input('player_id',array('type'=>'hidden'));?>
 	<?php echo $this->Form->input('user_id',array('type'=>'hidden','value'=>$userinfo['id']));?>
