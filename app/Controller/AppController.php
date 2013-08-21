@@ -30,7 +30,11 @@ class AppController extends Controller {
             'loginAction' => '/login',
         )
     );
-
+    
+    public function canUploadMedias($model, $id){
+        return true;
+    }
+    
     public function beforeFilter() {
         //mail('ehask71@gmail.com','Test BF',print_r($this->params['controller'],1));
 
