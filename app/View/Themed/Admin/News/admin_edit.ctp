@@ -6,7 +6,7 @@
 	//$( '#endDate' ).datepicker('show');
 });";
     $this->Html->scriptEnd();
-    $this->Html->script('/js/ckeditor/ckeditor.js',array('block' => 'scriptTop'));
+    $this->Html->script('/js/ckeditor/ckeditor',array('block' => 'scriptTop'));
 ?>
 <div class="grid_12">
     <div class="box">
