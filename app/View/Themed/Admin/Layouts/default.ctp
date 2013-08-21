@@ -12,6 +12,8 @@
 
         <!--========= STYLES =========-->
         <?php
+        echo $this->feta('meta');
+        echo $this->fetch('css');
         echo $this->CloudFlare->css('reset');
         echo $this->CloudFlare->css('grid');
         echo $this->CloudFlare->css('uniform.default');
@@ -35,6 +37,7 @@
         echo $this->CloudFlare->script('/js/gvchart/jquery.gvChart-1.0.1.min');
 
         echo $this->CloudFlare->script('head_scripts');
+        echo $this->
         echo $this->fetch('scriptTop');
         ?>
 
@@ -89,6 +92,7 @@
         echo $this->CloudFlare->script('scripts');
         echo $this->CloudFlare->script('ui_calls');
         echo $this->fetch('scriptBottom');
+        echo $this->fetch('script');
         ?>
 
         <script type="text/javascript">
