@@ -12,7 +12,7 @@
 
         <!--========= STYLES =========-->
         <?php
-        echo $this->feta('meta');
+        echo $this->fetch('meta');
         echo $this->fetch('css');
         echo $this->CloudFlare->css('reset');
         echo $this->CloudFlare->css('grid');
@@ -37,7 +37,6 @@
         echo $this->CloudFlare->script('/js/gvchart/jquery.gvChart-1.0.1.min');
 
         echo $this->CloudFlare->script('head_scripts');
-        echo $this->
         echo $this->fetch('scriptTop');
         ?>
 
