@@ -10,7 +10,7 @@ class News extends AppModel {
 
     public $primaryKey = 'id';
     
-    public $actsAs = array('Media.Medias');
+    public $actsAs = array('Media.Media');
     
     public function newsValidate() {
 	$validate1 = array(
