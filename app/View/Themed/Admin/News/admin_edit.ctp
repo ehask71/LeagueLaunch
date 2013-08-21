@@ -69,7 +69,7 @@
 				'rows' => 10,
 				'cols' => 80,
 				'label' => 'Content') );?>
-                <?php echo $this->Media->iframe('News', $this->request->data['News']['id']);?>
+                <?php  //$this->Media->iframe('News', $this->request->data['News']['id']);?>
 		<?php echo $this->Form->end(__('Update News')); ?>
             </div>
         </div>
