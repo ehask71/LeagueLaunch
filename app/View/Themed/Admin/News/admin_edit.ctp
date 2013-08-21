@@ -65,7 +65,7 @@
 				'label' => 'Content',
 				'type' => 'textarea',
 			    ));?>
-                <?php //$this->Media->iframe('News', $this->request->data['News']['id']);?>
+                <?php $this->Media->iframe('News', $this->request->data['News']['id']);?>
 		<?php echo $this->Form->end(__('Update News')); ?>
             </div>
         </div>
