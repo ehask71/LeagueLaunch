@@ -9,7 +9,7 @@ class NewsController extends AppController {
 
     public $uses = array('News');
     
-    public $helpers = array('Media.Medias');
+    public $helpers = array('Media.Media');
     
     public function beforeFilter() {
 	parent::beforeFilter();
