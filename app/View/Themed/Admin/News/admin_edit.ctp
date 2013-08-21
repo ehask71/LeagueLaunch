@@ -6,7 +6,7 @@
 	//$( '#endDate' ).datepicker('show');
 });";
     $this->Html->scriptEnd();
-    $this->Html->script('/js/ckeditor/ckeditor',array('block' => 'scriptTop'));
+   // $this->Html->script('/js/ckeditor/ckeditor',array('block' => 'scriptTop'));
 ?>
 <div class="grid_12">
     <div class="box">
@@ -57,15 +57,19 @@
 				'label' => 'End Date',
 				'type' => 'text'
 			    ));?>
-		<?=$this->Form->input('content',array(
+		<?/*$this->Form->input('content',array(
 				'class' => 'ckeditor',
 				'id' => 'editor1',
 				'rows' => 10,
 				'cols' => 80,
 				'label' => 'Content',
 				'type' => 'textarea',
-			    ));?>
-                <?php $this->Media->iframe('News', $this->request->data['News']['id']);?>
+			    ));*/?>
+                <?=$this->Media->ckeditor('content',array(
+				'rows' => 10,
+				'cols' => 80,
+				'label' => 'Content') );?>
+                <?php echo $this->Media->iframe('News', $this->request->data['News']['id']);?>
 		<?php echo $this->Form->end(__('Update News')); ?>
             </div>
         </div>
