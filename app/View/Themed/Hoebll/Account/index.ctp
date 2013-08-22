@@ -76,7 +76,7 @@
             <tr>
                 <td colspan="2">
                     <!-- for account related actions -->
-                    <a href="/account/orders">View Orders</a> | <a href="/account/history">Account History</a>
+                    <a href="/account/addplayer">Add Player</a> | <a href="/account/orders">View Orders</a> | <a href="/account/history">Account History</a>
                 </td>
             </tr>
             <tr>
