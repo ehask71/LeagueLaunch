@@ -21,6 +21,9 @@ class TeamController extends AppController {
     }
     
     public function admin_index(){
+	if ($this->request->is('post') || $this->request->is('put')) {
+	    
+	}
 	$teams = $this->Team->find('all',array(
 	    'conditions' => array(
 		'Team.site_id' => Configure::read('Settings.site_id')
