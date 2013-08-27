@@ -18,5 +18,8 @@ class SponsorsController extends AppController {
         
     }
     
+    public function options(){
+	
+    }
 }
 
