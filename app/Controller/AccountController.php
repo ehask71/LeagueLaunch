@@ -317,7 +317,6 @@ class AccountController extends AppController {
 	    $this->request->data = $player;
 	}
 	$this->set('title', 'Edit Player');
-	$this->render('addplayer');
     }
 
 }
