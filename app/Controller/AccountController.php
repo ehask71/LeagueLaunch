@@ -294,5 +294,30 @@ class AccountController extends AppController {
 	    $this->set(compact('user'));
 	}
     }
+    
+    public function admin_editplayer($id){
+	$this->loadModel('Players');
+	if ($this->request->is('post') || $this->request->is('put')) {
+	    $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
+	    if ($this->Players->validatePlayer()) {
+		if ($this->Players->save($this->request->data)) {
+		    $this->Session->setFlash(__('Player Updated Successfully'), 'alerts/success');
+		    $this->redirect('/admin/account/editplayer/'.$id);
+		}
+	    } 
+	}
+	$player = $this->Players->find('first',array(
+	   'conditions' => array(
+	       'Players.player_id' => $id,
+	       'Players.site_id' => Configure::read('Settings.site_id')
+	   ) 
+	));
+	
+	if ($player) {
+	    $this->request->data = $player;
+	}
+	$this->set('title', 'Edit Player');
+	$this->render('addplayer');
+    }
 
 }
