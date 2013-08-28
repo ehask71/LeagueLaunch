@@ -30,11 +30,11 @@
 		<?php echo $this->Form->input('site_id',array('type'=>'hidden','value'=>  Configure::read('Settings.site_id'),'before' => '',
                     'between' => '',
                     'after' => ''));?>
-		<?php echo $this->Form->input('firstname',array('class'=>'i-format'));?>
-		<?php echo $this->Form->input('lastname',array('class'=>'i-format'));?>
-		<?php echo $this->Form->input('nickname',array('class'=>'i-format'));?>
-		<?php echo $this->Form->input('gender',array('type'=>'select','class'=>'i-format','options'=>array('m'=>'Male','f'=>'Female')));?>
-		<?php echo $this->Form->input('birthday',array('class'=>'i-format'));?>
+		<?php echo $this->Form->input('firstname',array('label'=>'Firstname','class'=>'i-format'));?>
+		<?php echo $this->Form->input('lastname',array('label'=>'Lastname','class'=>'i-format'));?>
+		<?php echo $this->Form->input('nickname',array('label'=>'Nickname','class'=>'i-format'));?>
+		<?php echo $this->Form->input('gender',array('label'=>'Gender','type'=>'select','class'=>'i-format','options'=>array('m'=>'Male','f'=>'Female')));?>
+		<?php echo $this->Form->input('birthday',array('label'=>'Birthdate','class'=>'i-format'));?>
 		<?php echo $this->Form->end($title);?>
 	    </div>
 	</div>
