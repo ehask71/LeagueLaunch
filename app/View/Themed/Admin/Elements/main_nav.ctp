@@ -9,7 +9,7 @@
 	<ul>	 
 	    <li><?php echo $this->html->link(__('Seasons'), array('prefix' => 'admin', 'controller' => 'season','action'=>'index')); ?></li>
 	    <li><?php echo $this->html->link(__('Divisions'), array('prefix' => 'admin', 'controller' => 'divisions','action'=>'index')); ?></li>
-	    <li><?php echo $this->html->link(__('Teams'), array('prefix' => 'admin', 'controller' => 'teams','action'=>'index')); ?></li>
+	    <li><?php echo $this->html->link(__('Teams'), array('prefix' => 'admin', 'controller' => 'team','action'=>'index')); ?></li>
 	</ul>
     </li>
     <li><a href="#">Plugins<span class="icon6"></span></a>
