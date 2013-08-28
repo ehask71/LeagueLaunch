@@ -62,7 +62,7 @@
 			    <td><?php echo $player['birthday'];?></td>
 			    <td><?php echo $player['gender'];?></td>
 			    <td><?php echo $player['league_age'];?></td>
-			    <td><?php echo $this->Form->postLink('View', 
+			    <td><?php echo $this->Form->postLink('Edit', 
                     array('action' => 'editplayer', $player['player_id']),
                     array('class'=>'button blue'));?></td>
 			</tr>
