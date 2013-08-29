@@ -27,7 +27,11 @@
                             <td><?=$row['Account']['is_active'];?></td>
                             <td><?php echo $this->Form->postLink('View', 
                     array('action' => 'view', $row['Account']['id']),
-                    array('class'=>'button blue'));?></td>
+                    array('class'=>'button blue'));?>
+                            <?php echo $this->Form->postLink('Add Player', 
+                    array('action' => 'addplayer', $row['Account']['id']),
+                    array('class'=>'button green'));?>
+                            </td>
                         </tr>
                                     <?php
                                 }
