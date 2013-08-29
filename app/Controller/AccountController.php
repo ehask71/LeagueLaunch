@@ -295,6 +295,22 @@ class AccountController extends AppController {
 	}
     }
     
+    public function admin_addplayer($id){
+        $this->loadModel('Players');
+	if ($this->request->is('post') || $this->request->is('put')) {
+            $this->request->data['Players']['league_age'] = $this->LeagueAge->calculateLeagueAge($this->request->data['Players']['birthday']);
+	    if ($this->Players->validatePlayer()) {
+                if ($this->Players->save($this->request->data)) {
+		    $this->Session->setFlash(__('Player Added Successfully'), 'alerts/success');
+		    $this->redirect('/admin/account/view/'.$id);
+		}
+            }
+        }
+        $this->request->data['Players']['user_id'] = $id;
+        $this->set('title','Add Player');
+        $this->render('admin_editplayer');
+    }    
+    
     public function admin_editplayer($id){
 	$this->loadModel('Players');
 	if ($this->request->is('post') || $this->request->is('put')) {
