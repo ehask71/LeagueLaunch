@@ -25,11 +25,11 @@
                             <td><?=$row['Account']['firstname'];?></td>
                             <td><?=$row['Account']['lastname'];?></td>
                             <td><?=$row['Account']['is_active'];?></td>
-                            <td><?php echo $this->Form->postLink('View', 
-                    array('action' => 'view', $row['Account']['id']),
+                            <td><?php echo $this->Html->link('View', 
+                    '/admin/account/view/'.$row['Account']['id'],
                     array('class'=>'button blue'));?>
-                            <?php echo $this->Form->postLink('Add Player', 
-                    array('action' => 'addplayer', $row['Account']['id']),
+                            <?php echo $this->Html->link('Add Player', 
+                    '/admin/account/addplayer/'.$row['Account']['id'],
                     array('class'=>'button green'));?>
                             </td>
                         </tr>
