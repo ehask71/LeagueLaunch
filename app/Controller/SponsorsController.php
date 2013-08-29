@@ -44,10 +44,9 @@ class SponsorsController extends AppController {
     
     public function clear() {
         $this->Cart->clear();
-        $this->Session->delete('Player');
         $this->Session->delete('Shop');
         $this->Session->setFlash('All item(s) removed from your shopping cart', 'alerts/info');
-        $this->redirect('/registration');
+        $this->redirect('/sponsors/plans');
     }
 }
 
