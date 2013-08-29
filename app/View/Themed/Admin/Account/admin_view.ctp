@@ -51,8 +51,8 @@
 		    <thead>
                         <tr>
                             <td style="text-align: right;" colspan="5">
-                                <?php echo $this->Form->postLink('Add Player', 
-                    array('action' => 'addplayer', $user['Account']['id']),
+                                <?php echo $this->Html->link('Add Player', 
+                    '/admin/account/addplayer/'.$user['Account']['id'],
                     array('class'=>'button green'));?>
                             </td>
                         </tr>
