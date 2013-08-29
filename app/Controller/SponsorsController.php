@@ -9,6 +9,7 @@ class SponsorsController extends AppController {
     
     public $name = 'Sponsors';
     public $uses = array('Products');
+    public $components = array('RequestHandler', 'Cookie', 'Cart');
     
     public function beforeFilter() {
 	parent::beforeFilter();
@@ -39,6 +40,14 @@ class SponsorsController extends AppController {
         }
 	
 	$this->set(compact('shop'));
+    }
+    
+    public function clear() {
+        $this->Cart->clear();
+        $this->Session->delete('Player');
+        $this->Session->delete('Shop');
+        $this->Session->setFlash('All item(s) removed from your shopping cart', 'alerts/info');
+        $this->redirect('/registration');
     }
 }
 
