@@ -49,11 +49,20 @@
 		<h3>Players</h3>
 		<table>
 		    <thead>
+                        <tr>
+                            <td style="text-align: right;" colspan="5">
+                                <?php echo $this->Form->postLink('Add Player', 
+                    array('action' => 'addplayer', $user['Account']['id']),
+                    array('class'=>'button green'));?>
+                            </td>
+                        </tr>
+                        <tr>
 		    <th>Name</th>
 		    <th>Birthday</th>
 		    <th>Gender</th>
 		    <th>League Age</th>
 		    <th>Options</th>
+                        </tr>
 		    </thead>
 		    <tbody>
 			<?php foreach ($user['Players'] AS $player):?>
