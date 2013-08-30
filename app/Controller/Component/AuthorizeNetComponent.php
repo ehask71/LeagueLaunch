@@ -16,9 +16,9 @@ class AuthorizeNetComponent extends Component {
 
 	public function initialize(Controller $controller) {
 
-		$this->api_url = Configure::read('Settings.AUTHORIZENET_API_URL');
-		$this->api_login = Configure::read('Settings.AUTHORIZENET_API_LOGIN');
-		$this->api_transaction_key = Configure::read('Settings.AUTHORIZENET_API_TRANSACTION_KEY');
+		$this->api_url = Configure::read('Settings.authorize_net_api_url');
+		$this->api_login = Configure::read('Settings.authorize_net_login');
+		$this->api_transaction_key = Configure::read('Settings.authorize_net_txnke');
 
 	}
 
