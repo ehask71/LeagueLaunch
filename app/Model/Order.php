@@ -175,7 +175,7 @@ class Order extends AppModel {
             'creditcard_amount' => array(
                 'mustNotEmpty' => array(
                     'rule' => 'notEmpty',
-                    'message' => 'Please enter the Credit Card number')
+                    'message' => 'Please enter the Amount')
             ),
             'creditcard_number' => array(
                 'mustNotEmpty' => array(
