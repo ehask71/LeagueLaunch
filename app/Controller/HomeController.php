@@ -8,6 +8,7 @@ class HomeController extends AppController {
 	'index' => array('callbacks' => true, 'duration' => 48000)
     );*/
     public $name = 'Home';
+    public $components = array('AuthorizeNet');
     
     public function beforeFilter() {
 	parent::beforeFilter();
@@ -37,6 +38,12 @@ class HomeController extends AppController {
     public function dialog(){
         $this->theme = 'xinterface';
         
+    }
+    
+    public function admin_terminal(){
+        if ($this->request->is('post')) {
+            
+        }
     }
     
 }
