@@ -85,6 +85,7 @@ class SitesController extends AppController {
                 
             }
         }
+        $this->set('title_for_layout','Virtual Terminal');
     }
     /**
      *   Register a Site/League
