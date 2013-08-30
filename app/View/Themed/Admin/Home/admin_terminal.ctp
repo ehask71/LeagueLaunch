@@ -8,7 +8,7 @@
         <div class="block">
             <div class="block_in">
                 <?php
-		echo $this->Form->create('Settings', array(
+		echo $this->Form->create('Order', array(
 			    'class' => 'form_place',
 			    'type' => 'file',
                             'inputDefaults' => array(
@@ -19,7 +19,13 @@
 				'after' => '</div></div><div class="clear"></div></section>'
                             )
 			));?>
-                <? echo $this->Form->input('creditcard_number',array(
+                <? 
+                echo $this->Form->input('creditcard_amount',array(
+				'class' => 'i-format',
+				'label' => 'Amount',
+                                'after' => '<small>Only 100.00 (numeric amount)</small></div></div><div class="clear"></div></section>'
+			    ));
+                echo $this->Form->input('creditcard_number',array(
 				'class' => 'i-format',
 				'label' => 'Card Number'
 			    ));
