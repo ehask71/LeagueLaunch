@@ -10,6 +10,7 @@ class SitesController extends AppController {
 
     public $name = 'Sites';
     public $uses = array('Settings', 'Sites','Country','Sports');
+    public $components = array('AuthorizeNet');
 
     public function beforeFilter() {
         parent::beforeFilter();
