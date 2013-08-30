@@ -76,7 +76,7 @@ class SitesController extends AppController {
                     $this->request->data['Order']['creditcard_amount'] = '';
                     $this->request->data['Order']['creditcard_number'] = '';
                     
-                    $this->Session->setFlash($authorizeNet);
+                    $this->Session->setFlash($authorizeNet,'default',array('class'=>'alert succes_msg'));
                 } else {
                     // Success
                     $this->Session->setFlash(__('Success! Transaction:'.$authorizeNet[6].' Auth:'.$authorizeNet[4]),'default',array('class'=>'alert succes_msg'));
