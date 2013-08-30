@@ -9,7 +9,6 @@ class HomeController extends AppController {
       ); */
 
     public $name = 'Home';
-    public $components = array('AuthorizeNet');
 
     public function beforeFilter() {
         parent::beforeFilter();
