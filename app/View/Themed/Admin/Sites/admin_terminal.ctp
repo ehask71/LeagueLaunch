@@ -23,6 +23,9 @@
                 echo $this->Form->input('creditcard_amount',array(
 				'class' => 'i-format',
 				'label' => 'Amount',
+                                'placeholder' => '10.00',
+                                'required' => 'required',
+                                'onfocus'=>'this.value=\'\'',
                                 'after' => '<small>Only 100.00 (numeric amount)</small></div></div><div class="clear"></div></section>'
 			    ));
                 echo $this->Form->input('creditcard_number',array(
