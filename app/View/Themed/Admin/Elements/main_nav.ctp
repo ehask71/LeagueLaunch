@@ -17,6 +17,7 @@
 	    <li><?php echo $this->html->link(__('Fundraisers'), array('prefix' => 'admin', 'controller' => 'fundraising')); ?></li>
 	    <li><?php echo $this->html->link(__('Scheduler'), array('prefix' => 'admin', 'controller' => 'home')); ?></li>
 	    <li><?php echo $this->html->link(__('Random Teams'), array('prefix' => 'admin', 'controller' => 'home')); ?></li>
+            <li><?php echo $this->html->link(__('Virtual Terminal'), array('prefix' => 'admin', 'controller' => 'sites','action'=>'terminal')); ?></li>
 	</ul>
     </li>
     <li><?php echo $this->html->link(__('Accounts') . '<span class="icon2"></span>', array('prefix' => 'admin', 'controller' => 'account'), array('escape' => FALSE)); ?></li>
