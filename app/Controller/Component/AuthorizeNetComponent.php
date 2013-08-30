@@ -122,8 +122,8 @@ class AuthorizeNetComponent extends Component {
 		}
 
 		$this->log($parsed, 'authorizenet-errors');
-		throw new Exception('Credit Card Processing Error: ' . $error);
-
+		//throw new Exception('Credit Card Processing Error: ' . $error);
+                return 'Credit Card Processing Error: ' . $error;
 	}
 
 ////////////////////////////////////////////////////////////
