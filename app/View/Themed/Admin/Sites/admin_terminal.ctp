@@ -1,7 +1,7 @@
 <div class="grid_12">
     <div class="box">
         <h2>
-            Settings
+            Credit Card Virtual Terminal
             <span class="l"></span>
             <span class="r"></span>
         </h2>
