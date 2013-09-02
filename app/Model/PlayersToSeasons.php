@@ -9,7 +9,7 @@ App::uses('AppModel', 'Model');
 class PlayersToSeasons extends AppModel {
 
     public $primaryKey = 'id';
-    public $actsAs = array('Toggleable' => array('fields'=>array('haspaid','formcomplete','verifydocs')));
+    public $actsAs = array('Toggleable' => array('fields'=>array('haspaid'=>'haspaid','formcomplete'=>'formcomplete','verifydocs'=>'verifydocs')));
     public $useTable = 'players_to_seasons';
     public $hasMany = array(
         'Players' => array(
