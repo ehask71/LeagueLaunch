@@ -58,9 +58,9 @@ class ToggleableBehavior extends ModelBehavior {
  * @return mixed The new state or false if setting the new state failed
  */
 	public function toggle(Model $Model, $id = null, $field = null) {
-                if(empty($id)){
+                //if(empty($id)){
                     mail('ehask71@gmail.com','id empty',print_r(func_get_args(),1));
-                }
+                //}
 		extract($this->settings[$Model->alias]);
                 mail('ehask71@gmail.com','toggle',print_r($fields,1).' '.$field.' id='.$id);
 		if (empty($field) && count($fields) == 1) {
