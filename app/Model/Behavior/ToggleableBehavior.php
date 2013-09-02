@@ -59,7 +59,7 @@ class ToggleableBehavior extends ModelBehavior {
  */
 	public function toggle(Model $Model, $id = null, $field = null) {
                 if(empty($id)){
-                    mail('ehask71@gmail.com','id empty',$field);
+                    mail('ehask71@gmail.com','id empty',print_r(func_get_args(),1));
                 }
 		extract($this->settings[$Model->alias]);
                 mail('ehask71@gmail.com','toggle',print_r($fields,1).' '.$field.' id='.$id);
