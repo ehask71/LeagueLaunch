@@ -79,7 +79,7 @@ class SeasonController extends AppController {
         $this->loadModel('PlayersToSeasons');
         if ($this->request->is('post')) {
             if($this->request->data['PlayerToSeasons']['action'] == 'toggle'){
-                $this->PlayersToSeasons->toggle('PlayerToSeasons',$this->request->data['PlayerToSeasons']['id'],$this->request->data['PlayerToSeasons']['field']);
+                $this->PlayersToSeasons->toggle($this->PlayersToSeasons,$this->request->data['PlayerToSeasons']['id'],$this->request->data['PlayerToSeasons']['field']);
             }
         }
         $season = $this->Season->find('first', array(
