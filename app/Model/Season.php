@@ -61,5 +61,9 @@ class Season extends AppModel {
         )));
     }
     
+    public function getAccountsBySeason($season){
+        
+    }
+    
 }
 
