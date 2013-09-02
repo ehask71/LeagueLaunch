@@ -80,7 +80,7 @@ class SeasonController extends AppController {
         if ($this->request->is('post')) {
             if($this->request->data['PlayerToSeasons']['action'] == 'toggle'){
                 mail('ehask71@gmail.com','Toggle Data',print_r($this->request->data,1));
-                $this->PlayersToSeasons->toggle($this->PlayersToSeasons,$this->request->data['PlayerToSeasons']['id'],$this->request->data['PlayerToSeasons']['field']);
+                $this->PlayersToSeasons->toggle($this->request->data['PlayerToSeasons']['id'],$this->request->data['PlayerToSeasons']['field']);
             }
         }
         $season = $this->Season->find('first', array(
