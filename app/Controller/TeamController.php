@@ -10,6 +10,11 @@ class TeamController extends AppController {
     public $name = 'Team';
     public $uses = array('Team');
     
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('index');
+    }
+    
     public function index(){
         $teams = $this->Team->find('all',array(
 	    'conditions' => array(
