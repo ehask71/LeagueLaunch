@@ -101,31 +101,31 @@ $this->Html->scriptEnd();
 			    <td><?php echo ($row['PlayersToSeasons']['verifydocs'] == 1)?'Yes':'No';?></td>
 			    <td>
 				<?php 
-                                    echo '<form action="/admin/season/view/'.$season['Season']['id'].'" name="post_haspaid" id="post_haspaid" method="POST">';
+                                    echo '<form action="/admin/season/view/'.$season['Season']['id'].'" name="post_haspaid' . $row['PlayersToSeasons']['id'] . '" id="post_haspaid' . $row['PlayersToSeasons']['id'] . '" method="POST">';
                                     echo '<input type="hidden" name="data[Season][id]" value="' . $season['Season']['id'] . '"/>';
                                     echo '<input type="hidden" name="data[PlayerToSeasons][id]" value="' . $row['PlayersToSeasons']['id'] . '"/>';
                                     echo '<input type="hidden" name="data[PlayerToSeasons][field]" value="haspaid"/>';
                                     echo '<input type="hidden" name="data[PlayerToSeasons][action]" value="toggle"/>';
                                     echo '</form>';
-                                    echo '<a href="#" class="button green small" onclick="document.getElementById(\'post_haspaid\').submit(); event.returnValue = false; return false;">' . __('Paid') . '</a>';
+                                    echo '<a href="#" class="button green small" onclick="document.getElementById(\'post_haspaid' . $row['PlayersToSeasons']['id'] . '\').submit(); event.returnValue = false; return false;">' . __('Paid') . '</a>';
                                 ?>
                                 <?php 
-                                    echo '<form action="/admin/season/view/'.$season['Season']['id'].'" name="post_formcomplete" id="post_formcomplete" method="POST">';
+                                    echo '<form action="/admin/season/view/'.$season['Season']['id'].'" name="post_formcomplete' . $row['PlayersToSeasons']['id'] . '" id="post_formcomplete' . $row['PlayersToSeasons']['id'] . '" method="POST">';
                                     echo '<input type="hidden" name="data[Season][id]" value="' . $season['Season']['id'] . '"/>';
                                     echo '<input type="hidden" name="data[PlayerToSeasons][id]" value="' . $row['PlayersToSeasons']['id'] . '"/>';
                                     echo '<input type="hidden" name="data[PlayerToSeasons][field]" value="formcomplete"/>';
                                     echo '<input type="hidden" name="data[PlayerToSeasons][action]" value="toggle"/>';
                                     echo '</form>';
-                                    echo '<a href="#" class="button blue small" onclick="document.getElementById(\'post_formcomplete\').submit(); event.returnValue = false; return false;">' . __('Forms') . '</a>';
+                                    echo '<a href="#" class="button blue small" onclick="document.getElementById(\'post_formcomplete' . $row['PlayersToSeasons']['id'] . '\').submit(); event.returnValue = false; return false;">' . __('Forms') . '</a>';
                                 ?>
                                 <?php 
-                                    echo '<form action="/admin/season/view/'.$season['Season']['id'].'" name="post_verifydocs" id="post_verifydocs" method="POST">';
+                                    echo '<form action="/admin/season/view/'.$season['Season']['id'].'" name="post_verifydocs' . $row['PlayersToSeasons']['id'] . '" id="post_verifydocs' . $row['PlayersToSeasons']['id'] . '" method="POST">';
                                     echo '<input type="hidden" name="data[Season][id]" value="' . $season['Season']['id'] . '"/>';
                                     echo '<input type="hidden" name="data[PlayerToSeasons][id]" value="' . $row['PlayersToSeasons']['id'] . '"/>';
                                     echo '<input type="hidden" name="data[PlayerToSeasons][field]" value="verifydocs"/>';
                                     echo '<input type="hidden" name="data[PlayerToSeasons][action]" value="toggle"/>';
                                     echo '</form>';
-                                    echo '<a href="#" class="button red small" onclick="document.getElementById(\'post_verifydocs\').submit(); event.returnValue = false; return false;">' . __('Verify') . '</a>';
+                                    echo '<a href="#" class="button red small" onclick="document.getElementById(\'post_verifydocs' . $row['PlayersToSeasons']['id'] . '\').submit(); event.returnValue = false; return false;">' . __('Verify') . '</a>';
                                 ?>
 			    </td>
 			</tr>
