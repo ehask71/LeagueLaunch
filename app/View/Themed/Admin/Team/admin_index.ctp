@@ -27,6 +27,7 @@
 			    ));?>
 		<?=$this->Form->input('division_id',array(
 				'type' => 'select',
+                                'label' => 'Division',
 				'options' => $divisions,
 				'class' => 'i-format'
 		));?>
