@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class TeamController extends AppController {
     
     public $name = 'Team';
-    public $uses = array('Team');
+    public $uses = array('Team','Divisions');
     
     public function beforeFilter() {
         parent::beforeFilter();
@@ -38,7 +38,12 @@ class TeamController extends AppController {
 	    'conditions' => array(
 		'Team.site_id' => Configure::read('Settings.site_id')
 	)));
-	
+        $divisions = $this->Divisions->find('all', array(
+	    'conditions' => array(
+		'Divisions.site_id' => Configure::read('Settings.site_id')
+	    )
+        ));
+	$this->set('divisions',$this->Divisions->getDivisionsDropdown());
 	$this->set('teams',$teams);
     }
     
