@@ -143,7 +143,7 @@
 			    <li>East Bay Little League</li>
 			    <li>P.O. Box 2395</li>
 			    <li>Riverview FL 33568-2395</li>
-			    <li><a href="mailto:playeragentebll@gmail.com">Email</a></li>
+			    <li><a href="mailto:info@eastbayll.org">Email</a></li>
 			</ul>
 		    </div>
 		</div>
