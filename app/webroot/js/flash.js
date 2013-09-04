@@ -6,14 +6,14 @@ $(document).ready(function(){
         overlayClose: true,
         minWidth: '400px',
         maxWidth: '960px',
-        closeHTML: 'X',
+        closeHTML: '<span>Click anywhere to Close</span>',
         persist: false,
         onClose: function(){
             closeModal();
         }
 });
 var mtid;
-mtid = window.setTimeout(closeModal, 3000);
+mtid = window.setTimeout(closeModal, 5000);
 function closeModal(){
     $.modal.close();
     $('#flash_msg').css('display','none');

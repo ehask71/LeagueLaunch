@@ -136,7 +136,7 @@
                         </ul>
 		    </div>
 		</div>
-		<div class="grid_4">
+		<div class="grid_4 last">
 		    <div class="content">
 			<h3>Contacts</h3>
 			<ul>
@@ -147,7 +147,7 @@
 			</ul>
 		    </div>
 		</div>
-
+                
 	    </section>
 	    <!-- end footer -->
 	</div>
