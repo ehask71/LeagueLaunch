@@ -203,6 +203,7 @@ class RegistrationController extends AppController {
                 }
             }
             $prepared_data = $this->LeagueAge->limitAgeBasedOptions($players, $registration_options);
+	    mail('ehask71@gmail.com','Reg Test',print_r($players,1).print_r($already_reg,1).print_r($prepared_data,1));
             $this->set(compact('already_reg'));
             $this->set(compact('prepared_data'));
             $this->set(compact('players'));
