@@ -151,7 +151,7 @@
 	    </section>
 	    <!-- end footer -->
             <div class="grid_16" id="legal">
-                    East Bay Little League &copy; All rights reserved. <a href="/terms" title="Terms of Service">Terms of Service</a> <a href="/privacy" title="Privacy Policy">Privacy Policy</a>
+                    East Bay Little League &copy; All rights reserved. <a href="/terms" title="Terms of Service">Terms of Service</a> | <a href="/privacy" title="Privacy Policy">Privacy Policy</a>
                 </div>
 	</div>
 <?php echo $this->fetch('scriptBottom'); ?>
