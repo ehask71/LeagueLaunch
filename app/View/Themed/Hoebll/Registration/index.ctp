@@ -36,7 +36,7 @@
                         foreach ($registrations AS $reg) {
                             ?>
                             <tr>
-                                <td><b>
+                                <td style="text-align:left;padding-left:25px"><b>
                                         <?php
                                         echo '<form action="/registration/index" name="post_' . $i . '" id="post_' . $i . '" method="POST">';
                                         echo '<input type="hidden" name="data[Season][id]" value="' . $reg['Season']['id'] . '"/>';
