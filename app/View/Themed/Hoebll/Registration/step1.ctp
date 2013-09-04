@@ -45,7 +45,8 @@
                     </div>
                 </div>
                 <div class="article">
-                    <p>Ok it appears you do not have any Player Profiles set up for this site. We need to add at least one so we can proceed,use the form below to add all or your players.Once you have successfully added your players. Please click the button that will appear above this text to proceed</p>
+                    <p>Ok it appears you do not have any Player Profiles set up for this site. We need to add at least one so we can proceed,use the form below to add all of your 
+                        players.Once you have successfully added your players their names should appear above in green. Please click the button that will appear above this text that says "Im Done Adding Players" to proceed</p>
                     <p>Please be very careful with the <b>Birth Date</b>. If you don't enter correctly this system uses Birth Date to show what leagues the player can join.</p>
                 </div>
                 <?php

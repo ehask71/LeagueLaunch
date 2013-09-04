@@ -76,7 +76,7 @@
             <tr>
                 <td colspan="2">
                     <!-- for account related actions -->
-                    <a href="/account/orders">View Orders</a> | <a href="/account/history">Account History</a>
+                    <a href="/account/addplayer">Add Player</a> | <a href="/account/orders">View Orders</a> | <a href="/account/history">Account History</a>
                 </td>
             </tr>
             <tr>
@@ -113,7 +113,7 @@
             <tr>
                 <td colspan="100">
                     <!-- Player related actions -->
-                    <a href="/account/forms" title="Fill out League Required forms">File Forms</a> |
+                    <a href="/account/forms" title="Fill out League Required forms">File Forms</a> | <a href="/account/editplayer/<?php echo $player['player_id'];?>" title="Edit this player">Edit</a> | 
                     <a href="/account/deleteplayer" title="Delete this player">Delete</a>
                 </td>
             </tr>

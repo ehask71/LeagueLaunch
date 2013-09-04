@@ -24,12 +24,17 @@ class AppController extends Controller {
                     'recursive' => 1,
                 //'contain' => array('RolesUser')
             )),
+            'flash' => array('key'=>'auth','element'=>'alerts/error'),
             'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'account', 'action' => 'login'),
             'loginAction' => '/login',
         )
     );
-
+    
+    public function canUploadMedias($model, $id){
+        return true;
+    }
+    
     public function beforeFilter() {
         //mail('ehask71@gmail.com','Test BF',print_r($this->params['controller'],1));
 

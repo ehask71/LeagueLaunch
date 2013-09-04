@@ -12,6 +12,8 @@
 
         <!--========= STYLES =========-->
         <?php
+        echo $this->fetch('meta');
+        echo $this->fetch('css');
         echo $this->CloudFlare->css('reset');
         echo $this->CloudFlare->css('grid');
         echo $this->CloudFlare->css('uniform.default');
@@ -77,6 +79,7 @@
                             </div>
 
                             <?php echo $this->Session->flash(); ?>
+                            <?php echo $this->Session->flash('auth'); ?>
                             <?php echo $this->fetch('content'); ?>    
 
 
@@ -89,6 +92,7 @@
         echo $this->CloudFlare->script('scripts');
         echo $this->CloudFlare->script('ui_calls');
         echo $this->fetch('scriptBottom');
+        echo $this->fetch('script');
         ?>
 
         <script type="text/javascript">

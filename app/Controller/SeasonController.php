@@ -76,6 +76,12 @@ class SeasonController extends AppController {
     }
 
     public function admin_view($id) {
+        $this->loadModel('PlayersToSeasons');
+        if ($this->request->is('post')) {
+            if($this->request->data['PlayerToSeasons']['action'] == 'toggle'){
+                $this->PlayersToSeasons->toggle($this->request->data['PlayerToSeasons']['id'],$this->request->data['PlayerToSeasons']['field']);
+            }
+        }
         $season = $this->Season->find('first', array(
             'recursive' => -1,
             'conditions' => array(
@@ -83,7 +89,6 @@ class SeasonController extends AppController {
                 'Season.site_id' => Configure::read('Settings.site_id')
             )
                 ));
-        $this->loadModel('PlayersToSeasons');
         $players = $this->PlayersToSeasons->getPlayersToSeason($id);
 
         $this->set(compact('players'));

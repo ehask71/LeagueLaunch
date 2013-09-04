@@ -7,29 +7,30 @@
 	echo $this->Html->meta('icon');
 	echo $this->Html->meta('keywords', $meta_keywords);
 	echo $this->Html->meta('description', $meta_description);
-        echo $this->Html->meta('abstract', $meta_abstract);
+	echo $this->Html->meta('abstract', $meta_abstract);
 	?>
-        
+
         <meta name="author" content="LeagueLaunch.com" />
         <!-- begin css -->
 	<?php
 	echo $this->CloudFlare->css('/common/css/reset.css');
 	echo $this->Html->css('/common/css/960.css');
-        echo $this->Html->css('/common/css/elements.css');
+	echo $this->Html->css('/common/css/elements.css');
 	echo $this->Html->css('/common/css/social.css');
-        echo $this->Html->css('/common/css/forms.css');
+	echo $this->Html->css('/common/css/forms.css');
 	echo $this->Html->css('style');
 	echo $this->Html->css('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css');
-        echo $this->fetch('css');
+	echo $this->fetch('css');
 	echo $this->Html->css('chosen');
 	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
 	echo $this->Html->script('//code.jquery.com/jquery-migrate-1.0.0.js');
 	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js');
-        echo $this->Html->script('/js/jedit.js');
-        echo $this->Html->script('/js/jsmodal.js');
+	echo $this->CloudFlare->script('/js/bPopup.js');
+	echo $this->Html->script('/js/jedit.js');
+	echo $this->Html->script('/js/jsmodal.js');
 	echo $this->Html->script('/js/chosen.jquery.min.js');
 	echo $this->fetch('meta');
-	
+
 	echo $this->fetch('script');
 	?>
         <!-- begin JS -->
@@ -37,6 +38,13 @@
 
     <body>
         <div class="container_16" id="body-container">
+	    <noscript>
+		    <div class="grid_16_nospace">
+			<div class="ll-alert-error" id="flash_msg">
+			    You Must Have Javascript Enabled To Use this Site!
+			</div>
+		    </div>
+	    </noscript>
             <!-- begin header -->
             <header>
                 <div class="grid_6" >
@@ -44,11 +52,12 @@
 			<!--nocache-->
                         <ul id="top-nav">
                             <li><?php
-                            if($loggedIn) {
-                                echo $this->Html->link('LOGOUT', array('controller'=>'account', 'action'=>'logout'));
-                            } else {
-                                echo $this->Html->link('LOGIN', array('controller'=>'account', 'action'=>'login')); 
-                            }?>
+	if ($loggedIn) {
+	    echo $this->Html->link('LOGOUT', array('controller' => 'account', 'action' => 'logout'));
+	} else {
+	    echo $this->Html->link('LOGIN', array('controller' => 'account', 'action' => 'login'));
+	}
+	?>
                             </li>
                             <li><a href="/register" title="Sign Up with {SITENAME}">SIGNUP</a></li>
                             <li><a href="/contact" title="Contact {SITENAME}">CONTACT</a></li>
@@ -85,7 +94,7 @@
                     </div>
                 </div>
                 <div class="grid_16 clear"></div>
-                <?php echo $this->element('main_nav');?>
+<?php echo $this->element('main_nav'); ?>
             </header>
             <!-- end header -->
             <section class="grid_16">
@@ -93,9 +102,9 @@
                 <!-- Begin Body -->
 		<div class="grid_16_nospace">
 		    <?php echo $this->Session->flash(); ?>
-		    <?php echo $this->Session->flash('auth'); ?>
+		<?php echo $this->Session->flash('auth'); ?>
 		</div>
-		<?php echo $this->fetch('content'); ?>  
+<?php echo $this->fetch('content'); ?>  
 		<div class="clear"></div>
 	    </section>
 	    <!-- end body -->
@@ -111,6 +120,10 @@
 			<h3>Links</h3>
                         <ul>
                             <li><a href="http://www.littleleague.org/Little_League_Online.htm">Little League Online</a></li>
+			    <li><a href="http://www.eteamz.com/fldistrict13/">Florida District 13</a></li>
+			    <li><a href="http://www.hillsboroughcounty.org/parks/athletics/">Hillsborough Parks & Rec</a></li>
+			    <li><a href="http://goo.gl/maps/heVLz">Boundary Map</a></li>
+			    <li><a href="http://www.littleleague.org/Assets/forms_pubs/AgeChartBBandSB.pdf">Age Chart</a></li>
                         </ul>
 		    </div>
 		</div>
@@ -126,13 +139,19 @@
 		<div class="grid_4">
 		    <div class="content">
 			<h3>Contacts</h3>
+			<ul>
+			    <li>East Bay Little League</li>
+			    <li>P.O. Box 2395</li>
+			    <li>Riverview FL 33568-2395</li>
+			    <li><a href="mailto:playeragentebll@gmail.com">Email</a></li>
+			</ul>
 		    </div>
 		</div>
 
 	    </section>
 	    <!-- end footer -->
 	</div>
-        <?php echo $this->fetch('scriptBottom');?>
+<?php echo $this->fetch('scriptBottom'); ?>
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-42932858-1']);

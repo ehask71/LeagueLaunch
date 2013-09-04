@@ -10,6 +10,7 @@ class SitesController extends AppController {
 
     public $name = 'Sites';
     public $uses = array('Settings', 'Sites','Country','Sports');
+    public $components = array('AuthorizeNet');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -52,6 +53,40 @@ class SitesController extends AppController {
         }
     }
     
+    public function admin_terminal() {
+        if ($this->request->is('post')) {
+            $this->loadModel('Order');
+            if ($this->Order->validateTerminal($this->request->data)) {
+                $data['total'] = $this->request->data['Order']['creditcard_amount'];
+                $data['first_name'] = $this->request->data['Order']['cardholder_firstname'];
+                $data['last_name'] = $this->request->data['Order']['cardholder_lastname'];
+                $data['billing_address'] = $this->request->data['Order']['cardholder_address'];
+                $data['billing_city'] = $this->request->data['Order']['cardholder_city'];
+                $data['billing_state'] = $this->request->data['Order']['cardholder_state'];
+                $data['billing_zip'] = $this->request->data['Order']['cardholder_zip'];
+                $data['phone'] = $this->request->data['Order']['cardholder_phone'];
+                $data['email'] = $this->request->data['Order']['cardholder_email'];
+                $payment['creditcard_number'] = $this->request->data['Order']['creditcard_number'];
+		$payment['creditcard_month'] = $this->request->data['Order']['creditcard_month']; 
+                $payment['creditcard_year'] = $this->request->data['Order']['creditcard_year'];
+                $payment['creditcard_code'] = $this->request->data['Order']['creditcard_code'];
+                
+                $authorizeNet = $this->AuthorizeNet->charge($data, $payment);
+                if (is_string($authorizeNet)) {
+                    $this->request->data['Order']['creditcard_amount'] = '';
+                    $this->request->data['Order']['creditcard_number'] = '';
+                    
+                    $this->Session->setFlash($authorizeNet,'default',array('class'=>'alert error_msg'));
+                } else {
+                    // Success
+                    $this->Session->setFlash(__('Success! Transaction:'.$authorizeNet[6].' Auth:'.$authorizeNet[4]),'default',array('class'=>'alert succes_msg'));
+                    $this->redirect('/admin/sites/terminal/');
+                }
+                
+            }
+        }
+        $this->set('title_for_layout','Virtual Terminal');
+    }
     /**
      *   Register a Site/League
      */

@@ -10,8 +10,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Active</th>
+                            <th><?php echo $this->Paginator->sort('firstname', 'First Name');?></th>
+                            <th><?php echo $this->Paginator->sort('lastname', 'Last Name');?></th>
+                            <th><?php echo $this->Paginator->sort('is_active', 'Active');?></th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -21,11 +22,16 @@
                                 foreach ($users AS $row){
                                     ?>
                         <tr>
-                            <td><?=$row['Account']['firstname'].' '.$row['Account']['lastname'];?></td>
+                            <td><?=$row['Account']['firstname'];?></td>
+                            <td><?=$row['Account']['lastname'];?></td>
                             <td><?=$row['Account']['is_active'];?></td>
-                            <td><?php echo $this->Form->postLink('View', 
-                    array('action' => 'view', $row['Account']['id']),
-                    array('class'=>'button blue'));?></td>
+                            <td><?php echo $this->Html->link('View', 
+                    '/admin/account/view/'.$row['Account']['id'],
+                    array('class'=>'button blue'));?>
+                            <?php echo $this->Html->link('Add Player', 
+                    '/admin/account/addplayer/'.$row['Account']['id'],
+                    array('class'=>'button green'));?>
+                            </td>
                         </tr>
                                     <?php
                                 }
@@ -38,6 +44,9 @@
                             }
                         ?>
                     </tbody>
+                    <tfoot>
+                    <th colspan="5"><?php echo $this->Paginator->numbers(array('first' => 2, 'last' => 2));?></th>
+                    </tfoot>
                 </table>
             </div>
         </div>

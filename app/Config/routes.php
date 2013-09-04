@@ -28,6 +28,8 @@
  */
 	//Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/', array('controller' => 'home', 'action' => 'index'));
+        Router::connect('/xinterface.html', array('controller' => 'home', 'action' => 'dialog'));
+        Router::connect('/robots.txt', array('controller' => 'seo', 'action' => 'robots'));
 	Router::connect('/login', array('controller' => 'account', 'action' => 'login'));
         Router::connect('/logout', array('controller' => 'account', 'action' => 'logout'));
 	Router::connect('/register', array('controller' => 'account', 'action' => 'register'));
@@ -40,7 +42,7 @@
         /* Paypal IPN plugin */
         Router::connect('/paypal_ipn/process', array('plugin' => 'paypal_ipn', 'controller' => 'instant_payment_notifications', 'action' => 'process'));
         /* Optional Route, but nice for administration */
-        Router::connect('/admin/paypal_ipn/:action/*', array('admin' => 'true', 'plugin' => 'paypal_ipn', 'controller' => 'instant_payment_notifications', 'action' => 'index'));
+        //Router::connect('/admin/paypal_ipn/:action/*', array('admin' => 'true', 'plugin' => 'paypal_ipn', 'controller' => 'instant_payment_notifications', 'action' => 'index'));
         /* End Paypal IPN plugin */
 /**
  * Load all plugin routes. See the CakePlugin documentation on

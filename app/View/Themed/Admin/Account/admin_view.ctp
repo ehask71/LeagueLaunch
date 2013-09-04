@@ -49,11 +49,20 @@
 		<h3>Players</h3>
 		<table>
 		    <thead>
+                        <tr>
+                            <td style="text-align: right;" colspan="5">
+                                <?php echo $this->Html->link('Add Player', 
+                    '/admin/account/addplayer/'.$user['Account']['id'],
+                    array('class'=>'button green'));?>
+                            </td>
+                        </tr>
+                        <tr>
 		    <th>Name</th>
 		    <th>Birthday</th>
 		    <th>Gender</th>
 		    <th>League Age</th>
 		    <th>Options</th>
+                        </tr>
 		    </thead>
 		    <tbody>
 			<?php foreach ($user['Players'] AS $player):?>
@@ -62,8 +71,8 @@
 			    <td><?php echo $player['birthday'];?></td>
 			    <td><?php echo $player['gender'];?></td>
 			    <td><?php echo $player['league_age'];?></td>
-			    <td><?php echo $this->Form->postLink('View', 
-                    array('action' => 'view_player', $player['player_id']),
+			    <td><?php echo $this->Form->postLink('Edit', 
+                    array('action' => 'editplayer', $player['player_id']),
                     array('class'=>'button blue'));?></td>
 			</tr>
 			<?php endforeach;?>

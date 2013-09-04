@@ -162,11 +162,11 @@ class RegistrationController extends AppController {
     // Allow Players to be Added
     public function step1() {
         $id = $this->Session->read('Season.id');
-        $pcheck = $this->Session->read('Shop.players_added');
+        /*$pcheck = $this->Session->read('Shop.players_added');
         if ($pcheck == 'true') {
             //$this->Session->setFlash('Please Don\'t Use The Back Button', 'alerts/info');
             $this->redirect(array('action' => 'step2'));
-        }
+        }*/
         // Store Results in Sessions
         if ($this->request->is('post') || $this->request->is('put')) {
             if (count($this->request->data['Players']) > 0) {
@@ -203,6 +203,7 @@ class RegistrationController extends AppController {
                 }
             }
             $prepared_data = $this->LeagueAge->limitAgeBasedOptions($players, $registration_options);
+	    mail('ehask71@gmail.com','Reg Test',print_r($players,1).print_r($already_reg,1).print_r($prepared_data,1));
             $this->set(compact('already_reg'));
             $this->set(compact('prepared_data'));
             $this->set(compact('players'));
@@ -285,6 +286,7 @@ class RegistrationController extends AppController {
         if ($this->request->is('post')) {
 
             $this->loadModel('Order');
+            $this->loadModel('OrderItem');
 
             $this->Order->set($this->request->data);
             if ($this->Order->validates()) {
@@ -292,7 +294,7 @@ class RegistrationController extends AppController {
                 $order['Order']['status'] = 1;
                 $order['Order']['site_id'] = Configure::read('Settings.site_id');
                 $order['Order']['user_id'] = $this->Auth->user('id');
-
+                
                 $save = $this->Order->saveAll($order, array('validate' => 'first'));
 
                 if ($save) {
@@ -301,10 +303,24 @@ class RegistrationController extends AppController {
                     $this->Session->write('Shop.Order.order_id', $orderid);
                     $shop['Order']['season_id'] = $this->Session->read('Season.id');
                     $this->Session->write('Shop.Order.season_id', $shop['Order']['season_id']);
-
+                    // Need to add player id to Order Items
                     // Do the insert for Player_to_Registrations
                     $this->loadModel('PlayersToSeasons');
                     foreach ($shop['Order']['Player'] AS $k => $v) {
+                        $orderitem = $this->OrderItem->find('first',array(
+                            'conditions' => array(
+                                'OrderItem.product_id' => $v['product'],
+                                'OrderItem.order_id' => $orderid,
+                                'OrderItem.season_id' => $shop['Order']['season_id']
+                            )
+                        ));
+                        if(count($orderitem)>0){
+                            $pl = explode(",", $orderitem['OrderItem']['player_id'].','.$k);
+                            $data['id'] = $orderitem['OrderItem']['id'];
+                            $data['player_id'] = implode(",", array_unique($pl));
+                            $this->OrderItem->save($data);
+                        }
+                        
                         $sid = $this->PlayersToSeasons->saveAll($this->PlayersToSeasons->addPlayer($shop['Order']['season_id'], $k, $v['division'], $v['product']));
                     }
 
