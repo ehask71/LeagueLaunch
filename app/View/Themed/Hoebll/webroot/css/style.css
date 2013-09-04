@@ -376,6 +376,16 @@ section#footer h3{
     border: none;
 }
 
+#legal{
+    padding: 8px;
+    background: url(http://cdn.leaguelaunch.com/theme/hoebll/images/eastbay-navbar-background.png) top left repeat-x scroll transparent;
+    height: 36px;
+    color: #FFF;
+}
+#legal a{
+    color:#fff;
+    text-decoration: underline;
+}
 /* misc */
 .notation{
 	color: #F00;	
