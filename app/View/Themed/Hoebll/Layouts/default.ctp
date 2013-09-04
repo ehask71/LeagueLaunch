@@ -136,7 +136,7 @@
                         </ul>
 		    </div>
 		</div>
-		<div class="grid_4">
+		<div class="grid_4 last">
 		    <div class="content">
 			<h3>Contacts</h3>
 			<ul>
@@ -147,7 +147,9 @@
 			</ul>
 		    </div>
 		</div>
-
+                <div class="grid_16_nospace" id="legal">
+                    East Bay Little League &copy; All rights reserved. <a href="/terms" title="Terms of Service">Terms of Service</a> <a href="/privacy" title="Privacy Policy">Privacy Policy</a>
+                </div>
 	    </section>
 	    <!-- end footer -->
 	</div>
