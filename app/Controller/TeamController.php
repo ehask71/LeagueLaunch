@@ -47,4 +47,8 @@ class TeamController extends AppController {
 	$this->set('teams',$teams);
     }
     
+    public function admin_random(){
+	
+    } 
+    
 }
