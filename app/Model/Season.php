@@ -65,5 +65,38 @@ class Season extends AppModel {
         
     }
     
+    public function checkPlayerForms($pid){
+	$player = $this->find('first',array(
+	   'conditions' => array(
+	       'Season.active' => 1,
+	       'Season.site_id' => Configure::read('Settings.site_id'),
+	       'Season.enddate >' => date('Y-m-d H:i:s')
+	   ),
+	   'contain' => 'PlayersToSeasons.player_id = "'.$pid.'"' 
+	));
+	
+	if($player[PlayersToSeasons][formcomplete] == 0){
+	    return false;
+	}
+	
+	return true;
+    }
+    
+    public function checkPlayerPaid($pid){
+	$player = $this->find('first',array(
+	   'conditions' => array(
+	       'Season.active' => 1,
+	       'Season.site_id' => Configure::read('Settings.site_id'),
+	       'Season.enddate >' => date('Y-m-d H:i:s')
+	   ),
+	   'contain' => 'PlayersToSeasons.player_id = "'.$pid.'"' 
+	));
+	
+	if($player[PlayersToSeasons][haspaid] == 0){
+	    return false;
+	}
+	
+	return true;
+    }
 }
 
