@@ -65,15 +65,15 @@ $this->Html->scriptEnd();
 		    <tbody>
 			<tr>
 			    <td>Total:</td>
-			    <td><?php //echo $season['Season']['name'];?></td>
+			    <td><?php echo $season_total['total'];?></td>
 			</tr>
 			<tr>
 			    <td>Paid:</td>
-			    <td><?php //echo $season['Season']['name'];?></td>
+			    <td><?php echo $season_total['haspaid'];?></td>
 			</tr>
 			<tr>
 			    <td>Unpaid:</td>
-			    <td><?php //echo $season['Season']['name'];?></td>
+			    <td><?php echo $season_total['notpaid'];?></td>
 			</tr>
 		    </tbody>
 		</table>
