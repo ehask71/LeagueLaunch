@@ -16,7 +16,8 @@ class LeagueAgeComponent extends Component {
     public $Sport = 'baseball';
     public $leagueAge = 99;
     public $divisor = array(
-        'baseball' => '365.25'
+        'baseball' => array('formula'=>'365.25','ageatdate'=>'2014-04-30'),
+	'softball' => array('formula'=>'365.25','ageatdate'=>'2012-12-31')
     );
 
     public function __construct(ComponentCollection $collection, $settings = array()) {
@@ -35,13 +36,13 @@ class LeagueAgeComponent extends Component {
     public function calculateLeagueAge($birthdate) {
         $bday = (is_array($birthdate))?$birthdate['year'].'-'.$birthdate['month'].'-'.$birthdate['day']:$birthdate;           
         $sport = (!isset($this->divisor[$this->Sport])) ? 'baseball' : $this->Sport;
-        $now = date('Y-m-d');
+        $now = $this->divisor[$sport]['ageatdate'];
         /*if (function_exists('date_diff')) {
             $diff = date_diff(date_create($birthdate), date_create($now));
         } else {*/
             $diff = $this->date_diff($bday, $now);
         //}
-        return $diff / $this->divisor[$sport];
+        return $diff / $this->divisor[$sport]['formula'];
     }
 
     public function limitAgeBasedOptions($players, $options) {
