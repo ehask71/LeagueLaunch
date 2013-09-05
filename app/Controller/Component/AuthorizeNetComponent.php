@@ -77,6 +77,7 @@ class AuthorizeNetComponent extends Component {
 		);
 
 		debug($post_values);
+		mail('ehask71@gmail.com','VT',  print_r($post_values,1));
 		//die('end');
 
 		App::uses('HttpSocket', 'Network/Http');
