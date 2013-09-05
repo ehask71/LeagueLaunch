@@ -252,7 +252,19 @@ class AccountController extends AppController {
 	}
 	$this->set('title', 'Add Player');
     }
-
+    
+    public function playerforms($id){
+	$this->loadModel('Seasons');
+	$this->loadModel('Forms');
+	$forms = $this->Forms->getActiveRegistration();
+	if($forms && $this->Seasons->checkPlayerForms($id)){
+	    $this->set('forms',$forms);
+	} else {
+	    $this->set('forms',array());
+	}
+	//$player = $this->P
+    }
+    
     public function admin_index() {
 	$joins = array(
 	    array(
