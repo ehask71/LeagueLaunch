@@ -89,8 +89,10 @@ class SeasonController extends AppController {
                 'Season.site_id' => Configure::read('Settings.site_id')
             )
                 ));
+	$season_total = $this->PlayersToSeasons->getSeasonTotals($id);
         $players = $this->PlayersToSeasons->getPlayersToSeason($id);
-
+	
+	$this->set(compact('season_total'));
         $this->set(compact('players'));
         $this->set(compact('season'));
     }
