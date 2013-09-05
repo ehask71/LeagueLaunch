@@ -80,7 +80,8 @@ class PlayersToSeasons extends AppModel {
 	$totals = $this->query("
 	    SELECT season_id,
 	    (SELECT COUNT(*) FROM players_to_seasons WHERE season_id = '$id' AND haspaid = 1) AS haspaid,
-            (SELECT COUNT(*) FROM players_to_seasons WHERE season_id = '$id' AND haspaid = 0) AS notpaid
+            (SELECT COUNT(*) FROM players_to_seasons WHERE season_id = '$id' AND haspaid = 0) AS notpaid,
+	    (SELECT COUNT(*) FROM players_to_seasons WHERE season_id = '$id' ) AS total
 		FROM players_to_seasons WHERE 1");
 	
 	return $totals;
