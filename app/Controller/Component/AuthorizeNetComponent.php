@@ -84,7 +84,7 @@ class AuthorizeNetComponent extends Component {
 		$httpSocket = new HttpSocket();
 
 		$response = $httpSocket->post(Configure::read('Settings.authorize_net_api_url'), $post_values);
-		mail('ehask71@gmail.com','VT',  print_r($post_values,1).' '.$response);
+		//mail('ehask71@gmail.com','VT',  print_r($post_values,1).' '.$response);
 		if (!empty($response['body'])) {
 			$parsed = preg_split("/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/", $response['body']);
 			foreach ($parsed as $key => $value) {
