@@ -262,7 +262,7 @@ class AccountController extends AppController {
 	} else {
 	    $this->set('forms',array());
 	}
-	//$player = $this->P
+	$this->set('title_for_layout',__('Player Forms'));
     }
     
     public function admin_index() {
