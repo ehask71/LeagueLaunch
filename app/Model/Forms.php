@@ -27,5 +27,17 @@ class Forms extends AppModel {
         }
         return $form;
     }
+    
+    public function getActiveRegistration(){
+	$forms = $this->find('all',array(
+	    'conditions' => array(
+		'Forms.published' => 1,
+		'Forms.site_id'=>  Configure::read('Settings.site_id'),
+		'Forms.type' => 'registration'
+	    )
+	));
+	
+	return $forms;
+    }
 }
 
