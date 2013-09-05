@@ -79,6 +79,8 @@ class SitesController extends AppController {
                     $this->Session->setFlash($authorizeNet,'default',array('class'=>'alert error_msg'));
                 } else {
                     // Success
+		    // Set ID to Virtual (at field or over phone)
+		    $data['id'] = 'Virtual (Phone or Field)';
 		    App::uses('CakeEmail', 'Network/Email');
 		    $email = new CakeEmail();
 		    $email->from(array('do-not-reply@leaguelaunch.com' => $site['Sites']['leaguename']))
