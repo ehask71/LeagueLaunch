@@ -254,10 +254,10 @@ class AccountController extends AppController {
     }
     
     public function playerforms($id){
-	$this->loadModel('Seasons');
+	$this->loadModel('Season');
 	$this->loadModel('Forms');
 	$forms = $this->Forms->getActiveRegistration();
-	if($forms && $this->Seasons->checkPlayerForms($id)){
+	if($forms && $this->Season->checkPlayerForms($id)){
 	    $this->set('forms',$forms);
 	} else {
 	    $this->set('forms',array());
