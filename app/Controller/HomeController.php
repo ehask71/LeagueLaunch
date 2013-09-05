@@ -22,7 +22,11 @@ class HomeController extends AppController {
     public function terms() {
         
     }
-
+    
+    public function privacy() {
+        
+    }
+    
     public function admin_index() {
         
     }
