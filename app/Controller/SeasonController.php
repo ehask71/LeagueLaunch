@@ -91,7 +91,7 @@ class SeasonController extends AppController {
                 ));
 	$season_total = $this->PlayersToSeasons->getSeasonTotals($id);
         $players = $this->PlayersToSeasons->getPlayersToSeason($id);
-	mail('ehask71@gmail.com','Totals',print_r($season_total,1));
+	
 	$this->set(compact('season_total'));
         $this->set(compact('players'));
         $this->set(compact('season'));
