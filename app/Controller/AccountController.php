@@ -9,8 +9,9 @@ App::uses('AppController', 'Controller');
 class AccountController extends AppController {
 
     public $uses = array('Account', 'RoleUser', 'Country', 'Order');
-    public $components = array('Email', 'LeagueAge');
-
+    public $components = array('Email', 'LeagueAge','Search.Prg');
+    public $presetVars = true;
+    
     public function beforeFilter() {
 	parent::beforeFilter();
 	$this->Auth->allow('login', 'logout', 'register', 'forgetpwd', 'resetcode');
@@ -345,6 +346,12 @@ class AccountController extends AppController {
 	    $this->request->data = $player;
 	}
 	$this->set('title', 'Edit Player');
+    }
+    
+    public function admin_find(){
+        $this->Prg->commonProcess();
+        $this->paginate['conditions'] = $this->Article->parseCriteria($this->Prg->parsedParams());
+        $this->set('accounts', $this->paginate());
     }
 
 }
