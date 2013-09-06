@@ -9,6 +9,12 @@ class Team extends AppModel {
     
     public $name = 'Team';
     public $primaryKey = 'team_id';
+    public $belongsTo = array(
+        'Division' => array(
+            'className' => 'Division',
+            'foreignKey' => 'division_id'
+        )
+    );
     
     public function teamValidate(){
 	
