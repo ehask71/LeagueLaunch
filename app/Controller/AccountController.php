@@ -8,6 +8,7 @@ App::uses('AppController', 'Controller');
 
 class AccountController extends AppController {
 
+    public $name = 'Account';
     public $uses = array('Account', 'RoleUser', 'Country', 'Order');
     public $components = array('Email', 'LeagueAge','Search.Prg');
     public $presetVars = true;
