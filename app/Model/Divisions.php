@@ -5,6 +5,14 @@ App::uses('AppModel', 'Model');
 class Divisions extends AppModel {
 
     public $primaryKey = 'division_id';
+    
+    public $hasMany = array(
+        'Players' => array(
+	    'className' => 'Team',
+	    'foreignKey' => 'division_id',
+	    'dependant' => true
+	)
+    );
 
     public function divisionValidate() {
         $validate1 = array(
