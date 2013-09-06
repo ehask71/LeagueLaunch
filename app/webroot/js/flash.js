@@ -13,7 +13,7 @@ $(document).ready(function(){
         }
 });
 var mtid;
-mtid = window.setTimeout(closeModal, 5000);
+//mtid = window.setTimeout(closeModal, 5000);
 function closeModal(){
     $.modal.close();
     $('#flash_msg').css('display','none');
