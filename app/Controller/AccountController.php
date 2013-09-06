@@ -10,7 +10,7 @@ class AccountController extends AppController {
 
     public $name = 'Account';
     public $uses = array('Account', 'RoleUser', 'Country', 'Order');
-    public $components = array('Email', 'LeagueAge','Paginator'); //'Search.Prg',
+    public $components = array('Email', 'LeagueAge','Search.Prg','Paginator'); //'Search.Prg',
     /*public $presetVars = array(
         array('field'=>'firstname','type' => 'value'),
         array('field'=>'lastname','type' => 'value'),
@@ -289,7 +289,7 @@ class AccountController extends AppController {
 	);
 	$users = $this->paginate('Account');
         */
-        /*$this->Prg->commonProcess();
+        $this->Prg->commonProcess();
         $this->Paginator->settings = array(
             'conditions' => $this->Account->parseCriteria($this->Prg->parsedParams()),
             'joins' => array(
@@ -302,8 +302,8 @@ class AccountController extends AppController {
 		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
 		)
 	    ))
-        );*/
-        //$this->set('users', $this->Paginator->paginate('Account'));
+        );
+        $this->set('users', $this->Paginator->paginate('Account'));
 	$this->set('title_for_layout', 'Accounts');
     }
 
