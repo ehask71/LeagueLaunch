@@ -368,7 +368,7 @@ class AccountController extends AppController {
 		)
 	    )
 	);
-        
+        mail('ehask71@gmail.com','paginate-cond',print_r($this->paginate['conditions'],1));
         $this->set('users', $this->paginate());
     }
 
