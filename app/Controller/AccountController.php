@@ -11,7 +11,11 @@ class AccountController extends AppController {
     public $name = 'Account';
     public $uses = array('Account', 'RoleUser', 'Country', 'Order');
     public $components = array('Email', 'LeagueAge','Search.Prg');
-    public $presetVars = true;
+    public $presetVars = array(
+        array('field'=>'firstname','type' => 'value'),
+        array('field'=>'lastname','type' => 'value'),
+        array('field'=>'email','type' => 'value'),
+    );
     
     public function beforeFilter() {
 	parent::beforeFilter();
