@@ -55,29 +55,7 @@ class Account extends AppModel {
     }
 
     public function beforeFind($query) {
-/* $query['joins'] = array(
-	  array(
-	  'table' => 'roles_users',
-	  'alias' => 'RolesUser',
-	  'type' => 'INNER',
-	  'conditions' =>
-	  array('User.id=RolesUser.user_id',
-	  'RolesUser.site_id='.$query['conditions']['RolesUser.site_id'])),
-	  array(
-	  'table' => 'roles',
-	  'alias' => 'Role',
-	  'type' => 'INNER',
-	  'conditions' =>
-	  array('RolesUser.role_id=Role.id')));
-	  // Custom SaaS app mod
-	  if(isset($query['conditions']['RolesUser.site_id'])){
-	  //$query['joins'][0]['conditions'][] = "RolesUser.site_id={$query['conditions']['RolesUser.site_id']}";
-	  unset($query['conditions']['RolesUser.site_id']);
-	  }
- * 
- */
-	//echo "<pre>";
-	//print_r($query);
+
 
 	return $query;
     }
