@@ -10,8 +10,8 @@ class Team extends AppModel {
     public $name = 'Team';
     public $primaryKey = 'team_id';
     public $belongsTo = array(
-        'Division' => array(
-            'className' => 'Division',
+        'Divisions' => array(
+            'className' => 'Divisions',
             'foreignKey' => 'division_id'
         )
     );
