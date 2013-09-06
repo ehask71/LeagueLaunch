@@ -350,7 +350,7 @@ class AccountController extends AppController {
     
     public function admin_find(){
         $this->Prg->commonProcess();
-        $this->paginate['conditions'] = $this->Article->parseCriteria($this->Prg->parsedParams());
+        $this->paginate['conditions'] = $this->Account->parseCriteria($this->Prg->parsedParams());
         $this->set('accounts', $this->paginate());
     }
 
