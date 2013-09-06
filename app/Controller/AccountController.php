@@ -273,7 +273,7 @@ class AccountController extends AppController {
     }
     
     public function admin_index() {
-	$joins = array(
+	/*$joins = array(
 	    array(
 		'table' => '(SELECT DISTINCT(user_id),site_id FROM roles_users )',
 		'alias' => 'RolesUser',
@@ -288,9 +288,23 @@ class AccountController extends AppController {
 	    'joins' => $joins
 	);
 	$users = $this->paginate('Account');
-
+        */
+        $this->Prg->commonProcess();
+        $this->Paginator->settings = array(
+            'conditions' => $this->Account->parseCriteria($this->Prg->parsedParams()),
+            'joins' => array(
+	    array(
+		'table' => '(SELECT DISTINCT(user_id),site_id FROM roles_users )',
+		'alias' => 'RolesUser',
+		'type' => 'INNER',
+		'conditions' => array(
+		    'Account.id = RolesUser.user_id',
+		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
+		)
+	    ))
+        );
+        $this->set('users', $this->Paginator->paginate('Account'));
 	$this->set('title_for_layout', 'Accounts');
-	$this->set(compact('users'));
     }
 
     public function admin_view($id) {
