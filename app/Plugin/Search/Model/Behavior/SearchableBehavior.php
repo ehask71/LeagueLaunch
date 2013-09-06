@@ -97,6 +97,7 @@ class SearchableBehavior extends ModelBehavior {
 				$this->_addCondSubquery($Model, $conditions, $data, $field);
 			}
 		}
+                mail('ehask71@gmail.com','Parse',print_r($conditions,1));
 		return $conditions;
 	}
 
