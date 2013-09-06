@@ -352,6 +352,18 @@ class AccountController extends AppController {
     public function admin_find(){
         $this->Prg->commonProcess();
         $this->paginate['conditions'] = $this->Account->parseCriteria($this->Prg->parsedParams());
+        $this->paginate['conditions'][] = 
+        $this->paginate['joins'] = array(
+	    array(
+		'table' => '(SELECT DISTINCT(user_id),site_id FROM roles_users )',
+		'alias' => 'RolesUser',
+		'type' => 'INNER',
+		'conditions' => array(
+		    'Account.id = RolesUser.user_id',
+		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
+		)
+	    )
+	);
         $this->set('users', $this->paginate());
     }
 
