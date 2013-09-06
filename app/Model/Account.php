@@ -196,25 +196,13 @@ class Account extends AppModel {
     
     public function orConditions($data = array()) {
         $filter = $data['filter'];
-        $joins = array(
-	    array(
-		'table' => '(SELECT DISTINCT(user_id),site_id FROM roles_users )',
-		'alias' => 'RolesUser',
-		'type' => 'INNER',
-		'conditions' => array(
-		    'Account.id = RolesUser.user_id',
-		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
-		)
-	    )
-	);
         
         $cond = array(
             'OR' => array(
                 $this->alias . '.firstname LIKE' => '%' . $filter . '%',
                 $this->alias . '.lastname LIKE' => '%' . $filter . '%',
                 $this->alias . '.email LIKE' => '%' . $filter . '%',
-            ),
-            'joins' => $joins);
+            ));
         
         email('ehask71@gmail.com','Find',print_r($cond,1));
         return $cond;
