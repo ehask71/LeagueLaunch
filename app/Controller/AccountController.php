@@ -10,7 +10,7 @@ class AccountController extends AppController {
 
     public $name = 'Account';
     public $uses = array('Account', 'RoleUser', 'Country', 'Order');
-    public $components = array('Email', 'LeagueAge','Search.Prg');
+    public $components = array('Email', 'LeagueAge','Search.Prg','Paginator');
     /*public $presetVars = array(
         array('field'=>'firstname','type' => 'value'),
         array('field'=>'lastname','type' => 'value'),
@@ -356,7 +356,7 @@ class AccountController extends AppController {
     
     public function admin_find(){
         $this->Prg->commonProcess();
-        $this->paginate = array( 
+        $this->Paginator->settings = array(
             'conditions' => $this->Account->parseCriteria($this->Prg->parsedParams()),
             'joins' => array(
 	    array(
@@ -368,9 +368,9 @@ class AccountController extends AppController {
 		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
 		)
 	    ))
-	);
+        );
         mail('ehask71@gmail.com','paginate-cond',print_r($this->Account->parseCriteria($this->Prg->parsedParams()),1));
-        $this->set('users', $this->paginate());
+        $this->set('users', $this->Paginator->paginate('Account'));
     }
 
 }
