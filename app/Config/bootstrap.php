@@ -86,6 +86,7 @@ Cache::config('default', array(
  *
  */
 CakePlugin::load('Media');
+CakePlugin::load('Search');
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter . By Default CakePHP bundles two filters:
  *
