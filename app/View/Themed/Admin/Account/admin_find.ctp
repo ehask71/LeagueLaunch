@@ -8,7 +8,7 @@
         <div class="block">
             <div class="block_in">
                 <?php
-                echo $this->Form->create('Article', array(
+                echo $this->Form->create('Account', array(
                     'url' => array_merge(array('action' => 'find'), $this->params['pass'])
                 ));
                 echo $this->Form->input('firstname', array('div' => false));
