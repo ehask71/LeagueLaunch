@@ -7,6 +7,18 @@
         </h2>
         <div class="block">
             <div class="block_in">
+                <div>
+                    <?php
+                echo $this->Form->create('Account', array(
+                    'url' => array_merge(array('controller'=>'account','action' => 'find'), $this->params['pass'])
+                ));
+                echo $this->Form->input('firstname', array('div' => false));
+                echo $this->Form->input('lastname', array('div' => false));
+                echo $this->Form->input('email', array('type'=>'text','div' => false));
+                echo $this->Form->submit(__('Search'), array('div' => false));
+                echo $this->Form->end();
+                ?>
+                </div>
                 <table>
                     <thead>
                         <tr>
