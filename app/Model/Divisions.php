@@ -7,7 +7,7 @@ class Divisions extends AppModel {
     public $primaryKey = 'division_id';
     
     public $hasMany = array(
-        'Players' => array(
+        'Team' => array(
 	    'className' => 'Team',
 	    'foreignKey' => 'division_id',
 	    'dependant' => true
