@@ -10,7 +10,7 @@ App::uses('AuthComponent', 'Controller/Component');
 class Account extends AppModel {
 
     public $name = 'Account';
-    public $actsAs = array('Search.Searchable');
+   // public $actsAs = array('Search.Searchable');
     public $primaryKey = 'id';
     public $hasAndBelongsToMany = array(
 	'Role' => array(
