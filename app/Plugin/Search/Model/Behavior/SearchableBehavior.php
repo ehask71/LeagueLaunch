@@ -428,6 +428,7 @@ class SearchableBehavior extends ModelBehavior {
 				$conditions = Set::merge($conditions, (array)$conditionsAdd);
 			}
 		}
+                mail('ehask71@gmail.com','Parse _addCondQuery',print_r($conditions,1));
 		return $conditions;
 	}
 
