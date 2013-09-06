@@ -288,7 +288,7 @@ class AccountController extends AppController {
 	    'joins' => $joins
 	);
 	$users = $this->paginate('Account');
-        
+        $this->set('users',$users);
         /*$this->Prg->commonProcess();
         $this->Paginator->settings = array(
             'conditions' => $this->Account->parseCriteria($this->Prg->parsedParams()),
