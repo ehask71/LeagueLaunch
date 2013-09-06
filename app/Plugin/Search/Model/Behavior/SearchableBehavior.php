@@ -422,13 +422,14 @@ class SearchableBehavior extends ModelBehavior {
  */
 	protected function _addCondQuery(Model $Model, &$conditions, $data, $field) {
 		if ((method_exists($Model, $field['method']) || $this->_checkBehaviorMethods($Model, $field['method'])) && (!empty($field['allowEmpty']) || !empty($data[$field['name']]) || (isset($data[$field['name']]) && (String)$data[$field['name']] !== ''))) {
-			$conditionsAdd = $Model->{$field['method']}($data, $field);
+			
+                        $conditionsAdd = $Model->{$field['method']}($data, $field);
 			// if our conditions function returns something empty, nothing to merge in
 			if (!empty($conditionsAdd)) {
 				$conditions = Set::merge($conditions, (array)$conditionsAdd);
+                                mail('ehask71@gmail.com','Parse _addCondQuery',print_r($conditions,1));
 			}
 		}
-                mail('ehask71@gmail.com','Parse _addCondQuery',print_r($conditions,1));
 		return $conditions;
 	}
 
