@@ -10,7 +10,7 @@ class AccountController extends AppController {
 
     public $name = 'Account';
     public $uses = array('Account', 'RoleUser', 'Country', 'Order');
-    public $components = array('Email', 'LeagueAge','Search.Prg','Paginator'); //'Search.Prg',
+    public $components = array('Email', 'LeagueAge','Paginator'); //'Search.Prg',
     /*public $presetVars = array(
         array('field'=>'firstname','type' => 'value'),
         array('field'=>'lastname','type' => 'value'),
