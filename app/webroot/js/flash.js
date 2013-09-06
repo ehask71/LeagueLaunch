@@ -4,6 +4,7 @@ $(document).ready(function(){
 	opacity:80,
 	overlayCss: {backgroundColor:"#515151"},
         overlayClose: true,
+	minHeight: '200px',
         minWidth: '400px',
         maxWidth: '960px',
         closeHTML: '<span>Click anywhere to Close</span>',
