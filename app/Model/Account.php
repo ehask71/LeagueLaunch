@@ -192,19 +192,4 @@ class Account extends AppModel {
 	}
 	return false;
     }
-    
-    public function orConditions($data = array()) {
-        $filter = $data['filter'];
-        
-        $cond = array(
-            'OR' => array(
-                $this->alias . '.firstname LIKE' => '%' . $filter . '%',
-                $this->alias . '.lastname LIKE' => '%' . $filter . '%',
-                $this->alias . '.email LIKE' => '%' . $filter . '%',
-            ));
-        
-        email('ehask71@gmail.com','Find',print_r($cond,1));
-        return $cond;
-    }
-
 }
