@@ -51,7 +51,7 @@
 			    ?>
 			<tr>
 			    <td><?=$team['Team']['name'];?></td>
-			    <td><?=$team['Division']['name'];?></td>
+			    <td><?=$team['Divisions']['name'];?></td>
 			    <td></td>
 			</tr>
 			<?php
@@ -64,11 +64,6 @@
 			<?php } ?>
 		    </tbody>
 		</table>
-                <?php 
-                echo "<pre>";
-                print_r($teams);
-                echo "</pre>";
-                ?>
 	    </div>
         </div>
     </div>
