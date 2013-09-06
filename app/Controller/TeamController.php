@@ -34,17 +34,22 @@ class TeamController extends AppController {
 		}
 	    }
 	}
-	$teams = $this->Team->find('all',array(
+	/*$teams = $this->Team->find('all',array(
 	    'conditions' => array(
 		'Team.site_id' => Configure::read('Settings.site_id')
-	)));
+	)));*/
+        $this->paginate = array(
+	    'conditions' => array(
+		'Team.site_id' => Configure::read('Settings.site_id')
+	)
+	);
         $divisions = $this->Divisions->find('all', array(
 	    'conditions' => array(
 		'Divisions.site_id' => Configure::read('Settings.site_id')
 	    )
         ));
 	$this->set('divisions',$this->Divisions->getDivisionsDropdown());
-	$this->set('teams',$teams);
+	$this->set('teams',$this->paginate('Team'));
     }
     
     public function admin_random(){
