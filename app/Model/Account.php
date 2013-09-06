@@ -214,6 +214,8 @@ class Account extends AppModel {
                 $this->alias . '.email LIKE' => '%' . $filter . '%',
             ),
             'joins' => $joins);
+        
+        email('ehask71@gmail.com','Find',print_r($cond,1));
         return $cond;
     }
 
