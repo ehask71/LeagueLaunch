@@ -64,6 +64,11 @@
 			<?php } ?>
 		    </tbody>
 		</table>
+                <?php 
+                echo "<pre>";
+                print_r($teams);
+                echo "</pre>";
+                ?>
 	    </div>
         </div>
     </div>
