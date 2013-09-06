@@ -28,7 +28,7 @@ class HomeController extends AppController {
     }
     
     public function admin_index() {
-        $this->redirect('/');
+       // $this->redirect('/');
     }
 
     public function admin_settings() {
