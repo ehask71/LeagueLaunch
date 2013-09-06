@@ -9,6 +9,7 @@ App::uses('AuthComponent', 'Controller/Component');
 
 class Account extends AppModel {
 
+    public $actsAs = array('Search.Searchable');
     public $primaryKey = 'id';
     public $hasAndBelongsToMany = array(
 	'Role' => array(
@@ -31,7 +32,14 @@ class Account extends AppModel {
 	    'dependant' => true
 	)
     );
-
+    
+    public $filterArgs = array(
+        'firstname' => array('type' => 'like'),
+        'lastname' => array('type' => 'like'),
+        'email' => array('type' => 'like'),
+        'filter' => array('type' => 'query', 'method' => 'orConditions'),
+    );
+    
     function __construct($id = false, $table = null, $ds = null) {
 	$this->hasAndBelongsToMany['Role']['conditions'] = array('RolesUser.site_id' => Configure::read('Settings.site_id'));
 	$this->hasMany['Players']['conditions'] = array('Players.site_id' => Configure::read('Settings.site_id'));
@@ -182,6 +190,30 @@ class Account extends AppModel {
 	    return true;
 	}
 	return false;
+    }
+    
+    public function orConditions($data = array()) {
+        $filter = $data['filter'];
+        $joins = array(
+	    array(
+		'table' => '(SELECT DISTINCT(user_id),site_id FROM roles_users )',
+		'alias' => 'RolesUser',
+		'type' => 'INNER',
+		'conditions' => array(
+		    'Account.id = RolesUser.user_id',
+		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
+		)
+	    )
+	);
+        
+        $cond = array(
+            'OR' => array(
+                $this->alias . '.firstname LIKE' => '%' . $filter . '%',
+                $this->alias . '.lastname LIKE' => '%' . $filter . '%',
+                $this->alias . '.email LIKE' => '%' . $filter . '%',
+            ),
+            'joins' => $joins);
+        return $cond;
     }
 
 }
