@@ -10,7 +10,7 @@
                 <div>
                     <?php
                 echo $this->Form->create('Account', array(
-                    'url' => array_merge(array('controller'=>'account','action' => 'find'), $this->params['pass'])
+                    'url' => array_merge(array('controller'=>'account','action' => 'index'), $this->params['pass'])
                 ));
                 echo $this->Form->input('firstname', array('div' => false));
                 echo $this->Form->input('lastname', array('div' => false));
