@@ -367,6 +367,7 @@ class AccountController extends AppController {
 		)
 	    )
 	);
+        
         $this->set('users', $this->paginate());
     }
 
