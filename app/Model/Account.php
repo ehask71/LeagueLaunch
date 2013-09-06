@@ -35,11 +35,9 @@ class Account extends AppModel {
     );
     
     public $filterArgs = array(
-        'firstname' => array('type' => 'like'),
-        'lastname' => array('type' => 'like'),
-        'email' => array('type' => 'like'),
-        'filter' => array('type' => 'query', 'method' => 'orConditions'),
-        'search' => true,
+        array('name'=>'firstname','type' => 'like','method'=>'orConditions'),
+        array('name'=>'lastname','type' => 'like','method'=>'orConditions'),
+        array('name'=>'email','type' => 'like','method'=>'orConditions'),
     );
     
     function __construct($id = false, $table = null, $ds = null) {
