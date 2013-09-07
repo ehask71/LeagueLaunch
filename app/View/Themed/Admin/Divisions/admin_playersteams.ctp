@@ -8,7 +8,7 @@
         <div class="block">
             <div class="block_in">
                 <pre>
-               <?php print_r($divisions); ?>
+               <?php print_r($division); ?>
                 </pre>
             </div>
         </div>
