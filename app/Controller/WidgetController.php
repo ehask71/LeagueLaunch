@@ -20,10 +20,10 @@ class WidgetController extends AppController {
         $this->redirect('/');
     }
 
-    public function la($bd) {
+    public function la($bd,$sport='baseball') {
         $this->autoRender = false;
         if ($bd != '') {
-            return $this->LeagueAge->calculateLeagueAge($bd);
+            return $this->LeagueAge->calculateLeagueAge($bd,$sport);
         }
     }
 
