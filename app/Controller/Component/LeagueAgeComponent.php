@@ -43,9 +43,13 @@ class LeagueAgeComponent extends Component {
         /*if (function_exists('date_diff')) {
             $diff = date_diff(date_create($birthdate), date_create($now));
         } else {*/
-            $diff = $this->date_diff($bday, $now);
+            //$diff = $this->date_diff($bday, $now);
         //}
-        return $diff / $this->divisor[$sport]['formula'];
+        $bday = new DateTime($bday);
+        $today = new DateTime($now); 
+        $diff = $today->diff($bday); // This is actually not today
+        $diff_days = $diff->days;
+        return $diff_days / $this->divisor[$sport]['formula'];
     }
 
     public function limitAgeBasedOptions($players, $options) {
