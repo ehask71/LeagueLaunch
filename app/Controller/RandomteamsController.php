@@ -26,7 +26,7 @@ class RandomteamsController extends AppController {
             ))
                 ));
 
-        foreach ($divisions AS $div) {
+        foreach ($divisions AS $k => $div) {
             if (count($div['Team']) > 0) {
                 $players = $this->PlayersToSeasons->find('all', array(
                     'conditions' => array(
@@ -37,7 +37,7 @@ class RandomteamsController extends AppController {
                         ));
 
                 if (count($players)>0){
-                    $divisions['players'] = $players;
+                    $divisions[$k][Divisions]['players'] = $players;
                 }
             }
         }
