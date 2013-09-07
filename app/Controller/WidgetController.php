@@ -123,6 +123,7 @@ class WidgetController extends AppController {
                     'player_id' => $p[Players]['player_id'],
                     'firstname' => $p[Players]['firstname'],
                     'lastname' => $p[Players]['lastname'],
+                    'birthday' => $p[Players]['birthday'],
                     'current_la' => $p[Players]['league_age'],
                     'new_la' => $new,
                     'correctLeague' => $cor,
