@@ -47,14 +47,14 @@ class RandomteamsController extends AppController {
                     )
                         ));*/
                 $players = $this->PlayersToSeasons->query("SELECT 
-                    pts.*,p.*
-                    FROM players_to_seasons pts INNER JOIN players p ON pts.player_id = p.player_id
+                    PlayersToSeasons.*,Players.*
+                    FROM players_to_seasons PlayersToSeasons INNER JOIN players Players ON pts.player_id = Players.player_id
                     WHERE
-                    pts.division_id = '".$div[Divisions][division_id]."'
+                    PlayersToSeasons.division_id = '".$div[Divisions][division_id]."'
                         AND
-                    pts.site_id = '".$div[Divisions][site_id]."'
+                    PlayersToSeasons.site_id = '".$div[Divisions][site_id]."'
                         AND
-                    pts.haspaid = 1");
+                    PlayersToSeasons.haspaid = 1");
 
                 if (count($players)>0){
                     $divisions[$k][Divisions]['players'] = $players;
