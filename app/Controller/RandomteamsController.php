@@ -24,4 +24,8 @@ class RandomteamsController extends AppController {
         $this->set(compact('divisions'));
     }
     
+    public function generate($id){
+        
+    }
+    
 }
