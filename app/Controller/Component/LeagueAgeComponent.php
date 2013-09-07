@@ -49,7 +49,7 @@ class LeagueAgeComponent extends Component {
         $today = new DateTime($now); 
         $diff = $today->diff($bday); // This is actually not today
         $diff_days = $diff->days;
-        return $diff_days / $this->divisor[$sport]['formula'];
+        return floor($diff_days / $this->divisor[$sport]['formula']);
     }
 
     public function limitAgeBasedOptions($players, $options) {
