@@ -29,11 +29,22 @@ class RandomteamsController extends AppController {
         foreach ($divisions AS $k => $div) {
             if (count($div['Team']) > 0) {
                 $players = $this->PlayersToSeasons->find('all', array(
+                    'recursive' => -1,
                     'conditions' => array(
                         'PlayersToSeasons.division_id' => $div[Divisions][division_id],
                         'PlayersToSeasons.site_id' => $div[Divisions][site_id],
                         'PlayersToSeasons.haspaid' => 1
-                     )
+                     ),
+                    'joins' => array(
+                        array(
+                            'table' => 'players', //or movie_genres if you've specified it as the table to use
+                            'alias' => 'Players',
+                            'type' => 'INNER',
+                            'conditions' => array(
+                                'Players.player_id = PlayersToSeasons.player_id'
+                            )
+                         )
+                    )
                         ));
 
                 if (count($players)>0){
