@@ -34,7 +34,7 @@
                                         if ($i < 4) {
                                             $remainder = (3 - $i);
                                             if($remainder != 0){
-                                                echo '<td colspan="' . (3 - $i) . '"></td>';
+                                                echo '<td colspan="' . $remainder . '"></td>';
                                             }
                                         }
                                     }
