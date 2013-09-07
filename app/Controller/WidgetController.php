@@ -60,7 +60,8 @@ class WidgetController extends AppController {
             INNER JOIN 
                 divisions Divisions ON PlayersToSeasons.division_id = Divisions.division_id
             WHERE 
-                PlayersToSeasons.site_id = ".Configure::read('Settings.site_id').",
+                PlayersToSeasons.site_id = ".Configure::read('Settings.site_id')."
+                    AND
                 PlayersToSeasons.season_id = 3
         ");
         
