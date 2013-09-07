@@ -15,7 +15,7 @@
                 foreach($results AS $r){
                     if(isset($r[queries])){
                         foreach ($r[queries] AS $v){
-                            echo $v."<br>";
+                            echo $v.";<br>";
                         }
                     }
                 }
