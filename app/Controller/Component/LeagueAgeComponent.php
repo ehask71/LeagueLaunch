@@ -17,7 +17,7 @@ class LeagueAgeComponent extends Component {
     public $leagueAge = 99;
     public $divisor = array(
         'baseball' => array('formula'=>'365.25','ageatdate'=>'2014-04-30'),
-	'softball' => array('formula'=>'365.25','ageatdate'=>'2012-12-31')
+	'softball' => array('formula'=>'365.25','ageatdate'=>'2013-12-31')
     );
 
     public function __construct(ComponentCollection $collection, $settings = array()) {
