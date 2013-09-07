@@ -80,6 +80,7 @@ class WidgetController extends AppController {
                 PlayersToSeasons.season_id = 3
         ");
         $results = array();
+        $count = 0;
         foreach ($players AS $k => $p) {
             $wrongtype = 'false';
             $pos = array();
@@ -119,7 +120,7 @@ class WidgetController extends AppController {
                 } else {
                     $cor = 'true';
                 }
-                $results[] = array(
+                $results[$count] = array(
                     'player_id' => $p[Players]['player_id'],
                     'firstname' => $p[Players]['firstname'],
                     'lastname' => $p[Players]['lastname'],
@@ -131,6 +132,15 @@ class WidgetController extends AppController {
                     'currentleague' => array('division_id' => $p[Divisions]['division_id'], 'name' => $p[Divisions]['name'], 'age' => $p[Divisions]['age']),
                     'possibleleagues' => $pos
                 );
+               if(count($pos) <= 1){
+                    //$setage = $this->PlayersToSeasons->query("UPDATE players SET league_age = '".$new."' WHERE player_id = '".$p[Players]['player_id']."'");
+                    $results[$count][queries][] = "UPDATE players SET league_age = '".$new."' WHERE player_id = '".$p[Players]['player_id']."'";
+                    if($cor == 'false'){
+                        //$setnewdiv = $this->PlayersToSeasons->query("UPDATE players_to_seasons SET division_id = '".$pos[0][division_id]."' WHERE id='".$p[PlayersToSeasons][id]."'");
+                        $results[$count][queries][] = "UPDATE players_to_seasons SET division_id = '".$pos[0][division_id]."' WHERE id='".$p[PlayersToSeasons][id]."'";
+                    }
+               }
+               $count++;
             }
         }
         $this->set(compact('results'));
