@@ -67,8 +67,9 @@ class WidgetController extends AppController {
         ");
         $results = array();
         foreach ($players AS $k => $p){
-            if($p[Players]['league_age'] != floor($this->LeagueAge->calculateLeagueAge($p[Players]['birthday']))){
-                if(!in_array(abs($this->LeagueAge->calculateLeagueAge($p[Players]['birthday'])), explode(",", $p[Divisions]['age']))){
+            $new = floor($this->LeagueAge->calculateLeagueAge($p[Players]['birthday']));
+            if($p[Players]['league_age'] != $new){
+                if(!in_array($new, explode(",", $p[Divisions]['age']))){
                     $cor = 'false';
                 } else {
                     $cor = 'true';
@@ -77,6 +78,8 @@ class WidgetController extends AppController {
                     'player_id' => $p[Players]['player_id'],
                     'firstname'=>$p[Players]['firstname'],
                     'lastname'=>$p[Players]['lastname'],
+                    'current_la' => $p[Players]['league_age'],
+                    'new_la' => $new,
                     'correctLeague' => $cor
                     );
                 
