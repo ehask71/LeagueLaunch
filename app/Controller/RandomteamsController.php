@@ -28,7 +28,7 @@ class RandomteamsController extends AppController {
 
         foreach ($divisions AS $k => $div) {
             if (count($div['Team']) > 0) {
-                $players = $this->PlayersToSeasons->find('all', array(
+                /*$players = $this->PlayersToSeasons->find('all', array(
                     'recursive' => 1,
                     'conditions' => array(
                         'PlayersToSeasons.division_id' => $div[Divisions][division_id],
@@ -45,7 +45,16 @@ class RandomteamsController extends AppController {
                             )
                          )
                     )
-                        ));
+                        ));*/
+                $players = $this->PlayersToSeasons->query("SELECT 
+                    pts.*,p.*
+                    FROM players_to_seasons pts INNER JOIN players p ON pts.player_id = p.player_id
+                    WHERE
+                    pts.division_id = '".$div[Divisions][division_id]."'
+                        AND
+                    pts.site_id = '".$div[Divisions][site_id]."'
+                        AND
+                    pts.haspaid = 1");
 
                 if (count($players)>0){
                     $divisions[$k][Divisions]['players'] = $players;
