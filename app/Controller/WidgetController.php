@@ -64,7 +64,24 @@ class WidgetController extends AppController {
                     AND
                 PlayersToSeasons.season_id = 3
         ");
-        
+        $results = array();
+        foreach ($players AS $k => $p){
+            if($p[Players]['league_age'] != abs($this->LeagueAge->calculateLeagueAge($p[Players]['birthday']))){
+                if(!in_array(abs($this->LeagueAge->calculateLeagueAge($p[Players]['birthday'])), explode(",", $p[Divisions]['age']))){
+                    $cor = 'false';
+                } else {
+                    $cor = 'true';
+                }
+                $results[] = array(
+                    'player_id' => $p[Players]['player_id'],
+                    'firstname'=>$p[Players]['firstname'],
+                    'lastname'=>$p[Players]['lastname'],
+                    'correctLeague' => $cor
+                    );
+                
+            }
+        }
+        $this->set(compact('results'));
         $this->set(compact('players'));
     }
     
