@@ -67,7 +67,11 @@ class WidgetController extends AppController {
         ");
         $results = array();
         foreach ($players AS $k => $p){
-            $new = floor($this->LeagueAge->calculateLeagueAge($p[Players]['birthday']));
+            if(stripos($p[Divisions]['name'],'softball')){
+                $new = floor($this->LeagueAge->calculateLeagueAge($p[Players]['birthday'],'softball'));
+            } else {
+                $new = floor($this->LeagueAge->calculateLeagueAge($p[Players]['birthday']));
+            }
             if($p[Players]['league_age'] != $new){
                 if(!in_array($new, explode(",", $p[Divisions]['age']))){
                     $cor = 'false';
