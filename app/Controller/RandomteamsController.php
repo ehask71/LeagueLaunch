@@ -25,7 +25,7 @@ class RandomteamsController extends AppController {
                     'Team.active' => 1
             ))
                 ));
-
+        mail('ehask71@gmail.com','Divisions',  print_r($divisions,1));
         foreach ($divisions AS $k => $div) {
             if (count($div['Team']) > 0) {
                
