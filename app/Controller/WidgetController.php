@@ -143,6 +143,7 @@ class WidgetController extends AppController {
                $count++;
             }
         }
+        
         $this->set(compact('results'));
         $this->set(compact('players'));
     }
