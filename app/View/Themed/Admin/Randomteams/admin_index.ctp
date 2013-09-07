@@ -31,15 +31,12 @@
                                     $i++;
                                     $r++;
                                     if ($r == $totalteams) {
-                                        if ($i < 3) {
+                                        if ($i < 4) {
                                             echo '<td colspan="' . (3 - $i) . '"></td>';
                                         }
                                     }
                                     if ($i == 4) {
                                         if ($r == $totalteams) {
-                                            if ($i < 3) {
-                                                echo '<td colspan="' . (3 - $i) . '"></td>';
-                                            }
                                             echo '</tr>';
                                         } else {
                                             echo '</tr><tr>';
