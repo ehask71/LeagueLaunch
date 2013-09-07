@@ -6,7 +6,7 @@
 App::uses('AppController', 'Controller');
 
 class RandomteamsController extends AppController {
-    public $name="Randomteams";
+
     public $uses = array('Divisions','Team','PlayersToSeasons','Players');
     public function beforeFilter() {
         parent::beforeFilter();
