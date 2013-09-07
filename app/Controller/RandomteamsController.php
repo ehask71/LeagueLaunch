@@ -46,7 +46,7 @@ class RandomteamsController extends AppController {
                         $player[] = array(
                             'ageindays' => $this->calcage($pl[Players]['birthday']),
                             'player_id' => $pl[Players][player_id],
-                            'division_id' => $pl[Players][division_id],
+                            'division_id' => $div[Divisions][division_id],
                             'name' => $pl[Players][firstname] . ' ' . $pl[Players][lastname]
                         );
                     }
