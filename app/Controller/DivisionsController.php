@@ -85,7 +85,7 @@ class DivisionsController extends AppController {
             'conditions' => array(
                 'Divisions.site_id' => Configure::read('Settings.site_id'),
                 'Divisions.season_id' => $season,
-                'Division.division_id' => $id
+                'Divisions.division_id' => $id
             )
                 ));
 
