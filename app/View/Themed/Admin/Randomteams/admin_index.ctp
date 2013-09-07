@@ -24,7 +24,7 @@
                                     echo '<h2>'.$team[name].'</h2><br>';
                                     echo '<ul>';
                                     foreach($team['players'] AS $pp){
-                                        echo '<li>'.$pp['name'].'</li>';
+                                        echo '<li>'.$pp['name'].' '.$pp['ageindays'].'</li>';
                                     }
                                     echo '</ul>';
                                     echo '</td>';
