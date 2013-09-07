@@ -29,7 +29,7 @@ class RandomteamsController extends AppController {
         foreach ($divisions AS $k => $div) {
             if (count($div['Team']) > 0) {
                 $players = $this->PlayersToSeasons->find('all', array(
-                    'recursive' => -1,
+                    'recursive' => 0,
                     'conditions' => array(
                         'PlayersToSeasons.division_id' => $div[Divisions][division_id],
                         'PlayersToSeasons.site_id' => $div[Divisions][site_id],
