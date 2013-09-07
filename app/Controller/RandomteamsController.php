@@ -41,7 +41,7 @@ class RandomteamsController extends AppController {
                     PlayersToSeasons.haspaid = 1");
 
                 if (count($players) > 0) {
-                    
+                    $player = array();
                     foreach ($players AS $pl) {
                         $player[] = array(
                             'ageindays' => $this->calcage($pl[Players]['birthday']),
