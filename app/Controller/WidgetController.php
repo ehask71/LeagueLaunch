@@ -48,6 +48,24 @@ class WidgetController extends AppController {
         $this->Session->setFlash(__('Test For Rob'), 'alerts/info');
     }
            
+    public function admin_checkLeagueAge(){
+        $this->loadModel('PlayersToSeasons');
+        
+        $players = $this->PlayersToSeasons->query("
+            SELECT PlayersToSeasons.*,Players.*,Divisions.* 
+            FROM
+                players_to_seasons PlayersToSeasons 
+            INNER JOIN
+                players Players ON PlayersToSeasons.player_id = Players.player_id
+            INNER JOIN 
+                divisions Divisions ON PlayersToSeasons.division_id = Divisions.division_id
+            WHERE 
+                PlayersToSeasons.site_id = ".Configure::read('Settings.site_id').",
+                PlayersToSeasons.season_id = 3
+        ");
+        
+        $this->set(compact('players'));
+    }
     
 }
 
