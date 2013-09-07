@@ -10,6 +10,16 @@
                 <pre>
                 <?php print_r($results);?>
                 </pre>
+                
+                <?php 
+                foreach($results AS $r){
+                    if(isset($r[queries])){
+                        foreach ($r[queries] AS $v){
+                            echo $v."<br>";
+                        }
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
