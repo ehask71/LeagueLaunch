@@ -7,13 +7,21 @@ App::uses('AppController', 'Controller');
 
 class RandomteamsController extends AppController {
     public $name="Randomteams";
-    
+    public $uses = array('Divisions','Team','PlayersToSeasons','Players');
     public function beforeFilter() {
         parent::beforeFilter();
     }
     
     public function index(){
+        $divisions = $this->Divisions->find('all',array(
+            'conditions' => array(
+                'Divisions.active' => 1,
+                'Divisions.site_id' => Configure::read('Settings.site_id')
+            ),
+            'contain' => 'Team'
+        ));
         
+        $this->set(compact('divisions'));
     }
     
 }
