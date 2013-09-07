@@ -12,7 +12,7 @@ class RandomteamsController extends AppController {
         parent::beforeFilter();
     }
     
-    public function index(){
+    public function admin_index(){
         $divisions = $this->Divisions->find('all',array(
             'conditions' => array(
                 'Divisions.active' => 1,
@@ -24,7 +24,7 @@ class RandomteamsController extends AppController {
         $this->set(compact('divisions'));
     }
     
-    public function generate($id){
+    public function admin_generate($id){
         
     }
     
