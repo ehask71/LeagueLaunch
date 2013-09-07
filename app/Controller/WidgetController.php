@@ -101,14 +101,18 @@ class WidgetController extends AppController {
                                 continue;
                             } else {
                                 if (in_array($new, explode(",", $v['age']))) {
-                                    $pos[] = array('division_id' => $v['division_id'], 'name' => $v['name'],'age'=>$v['age']);
+                                    $pos[] = array('division_id' => $v['division_id'], 'name' => $v['name'], 'age' => $v['age']);
                                 }
                             }
                         }
                     } else {
                         foreach ($divisions AS $k => $v) {
-                            if (in_array($new, explode(",", $v['age']))) {
-                                $pos[] = array('division_id' => $v['division_id'], 'name' => $v['name'],'age'=>$v['age']);
+                            if (stripos($v['name'], 'softball') !== false) {
+                                continue;
+                            } else {
+                                if (in_array($new, explode(",", $v['age']))) {
+                                    $pos[] = array('division_id' => $v['division_id'], 'name' => $v['name'], 'age' => $v['age']);
+                                }
                             }
                         }
                     }
@@ -123,7 +127,7 @@ class WidgetController extends AppController {
                     'new_la' => $new,
                     'correctLeague' => $cor,
                     'wrongtype' => $wrongtype,
-                    'currentleague' => array('division_id' => $p[Divisions]['division_id'], 'name' => $p[Divisions]['name'],'age'=>$p[Divisions]['age']),
+                    'currentleague' => array('division_id' => $p[Divisions]['division_id'], 'name' => $p[Divisions]['name'], 'age' => $p[Divisions]['age']),
                     'possibleleagues' => $pos
                 );
             }
