@@ -49,6 +49,7 @@ class WidgetController extends AppController {
     }
            
     public function admin_checkleagueage(){
+        set_time_limit(0);
         $this->loadModel('PlayersToSeasons');
         
         $players = $this->PlayersToSeasons->query("
