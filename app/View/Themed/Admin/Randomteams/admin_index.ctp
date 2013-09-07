@@ -30,8 +30,11 @@
                                     echo '</td>';
                                     $i++;
                                     $r++;
-                                    if($i==5){
+                                    if($i==4){
                                         if($r==$totalteams){
+                                            if($i <4){
+                                                echo '<td colspan="'.$i.'"></td>';
+                                            }
                                             echo '</tr>';
                                         } else {
                                             echo '</tr><tr>';
