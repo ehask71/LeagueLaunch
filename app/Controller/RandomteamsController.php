@@ -59,16 +59,16 @@ class RandomteamsController extends AppController {
                     
                     $teams = shuffle($div[Team]);
                     if($teams){
-                        $total = count($teams);
+                        $total = count($div[Team]);
                         $i=0;
                         foreach ($player AS $p){
-                            $teams[$i]['players'][] = $p;
+                            $div[Team][$i]['players'][] = $p;
                             $i++;
                             if($i==($total)){
                                 $i=0;
                             }
                         }
-                        $divisions[$k][Divisions]['teams'] = $teams;
+                        $divisions[$k][Divisions]['teams'] = $div[Team];
                     }
                 }
             }
