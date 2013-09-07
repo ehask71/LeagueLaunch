@@ -12,7 +12,7 @@ class WidgetController extends AppController {
     
     public function beforeFilter() {
 	parent::beforeFilter();
-        $this->Auth->allow('la','index','emailtest','flashtest');
+        $this->Auth->allow('la','index','emailtest','flashtest','admin_checkleagueage');
     }
     
     public function index(){
@@ -48,7 +48,7 @@ class WidgetController extends AppController {
         $this->Session->setFlash(__('Test For Rob'), 'alerts/info');
     }
            
-    public function admin_checkLeagueAge(){
+    public function admin_checkleagueage(){
         $this->loadModel('PlayersToSeasons');
         
         $players = $this->PlayersToSeasons->query("
