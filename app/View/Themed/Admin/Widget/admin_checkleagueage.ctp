@@ -8,7 +8,7 @@
         <div class="block">
             <div class="block_in">
                 <pre>
-                <?php print_r($players);?>
+                <?php print_r($results);?>
                 </pre>
             </div>
         </div>
