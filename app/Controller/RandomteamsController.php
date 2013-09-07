@@ -28,24 +28,7 @@ class RandomteamsController extends AppController {
 
         foreach ($divisions AS $k => $div) {
             if (count($div['Team']) > 0) {
-                /* $players = $this->PlayersToSeasons->find('all', array(
-                  'recursive' => 1,
-                  'conditions' => array(
-                  'PlayersToSeasons.division_id' => $div[Divisions][division_id],
-                  'PlayersToSeasons.site_id' => $div[Divisions][site_id],
-                  'PlayersToSeasons.haspaid' => 1
-                  ),
-                  'joins' => array(
-                  array(
-                  'table' => 'players', //or movie_genres if you've specified it as the table to use
-                  'alias' => 'Players',
-                  'type' => 'INNER',
-                  'conditions' => array(
-                  'Players.player_id = PlayersToSeasons.player_id'
-                  )
-                  )
-                  )
-                  )); */
+               
                 $players = $this->PlayersToSeasons->query("SELECT 
                     PlayersToSeasons.*,Players.*
                     FROM players_to_seasons PlayersToSeasons 
@@ -73,6 +56,20 @@ class RandomteamsController extends AppController {
                     }
                     array_multisort($tmp,SORT_DESC, $player); 
                     $divisions[$k][Divisions]['players'] = $player;
+                    
+                    $teams = shuffle($div[Team]);
+                    if($teams){
+                        $total = count($teams);
+                        $i=0;
+                        foreach ($player AS $p){
+                            $teams[$i]['players'][] = $p;
+                            $i++;
+                            if($i==($total)){
+                                $i=0;
+                            }
+                        }
+                        $divisions[$k][Divisions]['teams'] = $teams;
+                    }
                 }
             }
         }
