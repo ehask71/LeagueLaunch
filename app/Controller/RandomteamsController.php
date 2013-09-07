@@ -71,7 +71,7 @@ class RandomteamsController extends AppController {
                     foreach($player AS &$ma){
                         $tmp[] = $ma['ageindays'];
                     }
-                    array_multisort($tmp,SORT_ASC, $player); 
+                    array_multisort($tmp,SORT_DESC, $player); 
                     $divisions[$k][Divisions]['players'] = $player;
                 }
             }
@@ -86,16 +86,12 @@ class RandomteamsController extends AppController {
     }
 
     public function calcage($bday) {
-        $year = gmdate('Y');
-        $month = gmdate('m');
-        $day = gmdate('d');
-        $dob = explode("-", $bday);
+        $bday = new DateTime($bday);
+        $today = new DateTime('00:00:00'); // for testing purposes
 
-        //seconds in a day = 86400
-        $days_in_between = (mktime(0, 0, 0, $month, $day, $year) - mktime(0, 0, 0, $dob[1], $dob[2], $dob[0])) / 86400;
-        $age_float = $days_in_between / 365.242199; // Account for leap year
-        $age = (int) ($age_float); // Remove decimal places without rounding up once number is + .5
-        return $age;
+        $diff = $today->diff($bday);
+        
+        return $diff->days;
     }
 
 }
