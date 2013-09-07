@@ -82,6 +82,7 @@ class WidgetController extends AppController {
         $results = array();
         foreach ($players AS $k => $p) {
             $wrongtype = 'false';
+            $pos = array();
             if (stripos($p[Divisions]['name'], 'softball') !== false) {
                 if ($p[Players]['gender'] == 'm') {
                     $wrongtype = 'Male in Softball';
@@ -94,7 +95,6 @@ class WidgetController extends AppController {
                 if (!in_array($new, explode(",", $p[Divisions]['age']))) {
                     $cor = 'false';
                     // Try to find proper League
-                    $pos = array();
                     if (stripos($p[Divisions]['name'], 'softball') !== false) {
                         foreach ($divisions AS $k => $v) {
                             if (stripos($v['name'], 'softball') === false) {
