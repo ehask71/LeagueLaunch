@@ -67,7 +67,11 @@ class WidgetController extends AppController {
         ");
         $results = array();
         foreach ($players AS $k => $p){
-            if(stripos($p[Divisions]['name'],'softball')){
+            $wrongtype = 'false';
+            if(stripos($p[Divisions]['name'],'softball') !== false){
+                if($p[Players]['gender'] == 'm'){
+                    $wrongtype = 'Male in Softball';
+                }
                 $new = floor($this->LeagueAge->calculateLeagueAge($p[Players]['birthday'],'softball'));
             } else {
                 $new = floor($this->LeagueAge->calculateLeagueAge($p[Players]['birthday']));
@@ -84,7 +88,8 @@ class WidgetController extends AppController {
                     'lastname'=>$p[Players]['lastname'],
                     'current_la' => $p[Players]['league_age'],
                     'new_la' => $new,
-                    'correctLeague' => $cor
+                    'correctLeague' => $cor,
+                    'wrongtype' => $wrongtype
                     );
                 
             }
