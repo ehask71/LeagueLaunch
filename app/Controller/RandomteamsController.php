@@ -18,7 +18,10 @@ class RandomteamsController extends AppController {
                 'Divisions.active' => 1,
                 'Divisions.site_id' => Configure::read('Settings.site_id')
             ),
-            'contain' => 'Team'
+            'contain' => array(
+                'Team'=> array(
+                    'Team.active' => 1
+                ))
         ));
         
         $this->set(compact('divisions'));
