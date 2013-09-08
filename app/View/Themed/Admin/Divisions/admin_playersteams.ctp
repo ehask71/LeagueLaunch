@@ -90,8 +90,7 @@
             event.preventDefault();
             console.log('Save');
             var ser = $('.droppable').serial();
-            ser.push({name:'season_id',value:season_id});
-            //ser.push({name:'season_id',value:season_id});
+            ser + (ser.length != 0)?'&season_id='+season_id:'';
             console.log(ser);
             $.post("/admin/divisions/updateteams", ser, function (data) {
                     alert("success!");
