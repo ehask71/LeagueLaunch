@@ -90,7 +90,8 @@
             }
         });
     });
-    function saveTeams(){
+    function saveTeams(e){
+        e.preventDefault();
         var teams = $('.droppable').serialize();
         console.log(teams);
     }
