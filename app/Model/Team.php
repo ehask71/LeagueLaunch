@@ -15,6 +15,12 @@ class Team extends AppModel {
             'foreignKey' => 'division_id'
         )
     );
+    public $hasMany = array(
+        'PlayersToTeams' => array(
+            'className' => 'PlayersToTeams',
+            'foreignKey' => 'team_id'
+        )
+    );
     
     public function teamValidate(){
 	
