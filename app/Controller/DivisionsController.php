@@ -99,7 +99,7 @@ class DivisionsController extends AppController {
         $this->layout('ajax');
         $data=  $this->request->data;
         $this->set('data',$data);
-        $this->render('/Elements/SerializeJson');
+        $this->render('/Elements/SerializeJson','ajax');
     }
 
 }
