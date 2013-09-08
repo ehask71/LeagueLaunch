@@ -92,6 +92,8 @@
         $('#save-teams').click(function(event){
             event.preventDefault();
             console.log('Save');
+            var ser = $('.droppable').serialize();
+            console.log(ser);
         });
     });
     
