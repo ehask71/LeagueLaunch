@@ -12,7 +12,7 @@
         </h2>
         <div class="block">
             <div class="block_in">
-                <a href="#" id="save-teams" onclick="saveTeams();" class="button small green">Save Teams</a>
+                <a href="#" id="save-teams" class="button small green">Save Teams</a>
                 <table>
                     <thead>
                         <tr>
@@ -91,13 +91,8 @@
         });
         $('#save-teams').click(function(event){
             event.preventDefault();
-            saveTeams();
+            console.log('Save');
         });
     });
     
-    function saveTeams(){
-        var teams = $('.droppable').serialize();
-        console.log('Save')
-        console.log(teams);
-    }
 </script>
