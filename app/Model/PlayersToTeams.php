@@ -17,7 +17,7 @@ class PlayersToTeams extends AppModel {
             foreach ($data AS $k => $v) {
                 if (is_array($v) && count($v) > 0) {
                     foreach ($v AS $player_id) {
-                        $this->query("UPDATE players_to_teams 
+                        $this->query("INSERT players_to_teams 
                             SET 
                             season_id = '" . $season . "',
                             player_id = '" . $player_id . "',
