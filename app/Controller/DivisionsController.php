@@ -90,15 +90,26 @@ class DivisionsController extends AppController {
                 ));
         $players = $this->Divisions->query('SELECT * FROM players_to_seasons PlayersToSeasons 
             INNER JOIN players Players ON PlayersToSeasons.player_id = Players.player_id
-            WHERE PlayersToSeasons.season_id = '.$season.' AND PlayersToSeasons.division_id = '.$id.' AND PlayersToSeasons.haspaid = 1');
+            WHERE PlayersToSeasons.season_id = ' . $season . ' AND PlayersToSeasons.division_id = ' . $id . ' AND PlayersToSeasons.haspaid = 1');
         $this->set(compact('players'));
         $this->set(compact('division'));
     }
-    
-    public function admin_updateteams(){
-        $data=  $this->request->data;
-        $this->set('data',$data);
-        $this->render('/Elements/SerializeJson','ajax');
+
+    public function admin_updateteams() {
+        $data = array();
+        $req = json_decode($this->request->data);
+        if (is_array($req) && count($req) > 0) {
+            foreach($req AS $k=>$v) {
+                $k = str_replace($k, "", "team_");
+                if(is_array($v)){
+                    foreach ($v AS $kk => $vv){
+                        $data[$k][] = str_replace($vv, "", "player_");
+                    }
+                }
+            }
+        }
+        $this->set('data', $data);
+        $this->render('/Elements/SerializeJson', 'ajax');
     }
 
 }
