@@ -83,8 +83,7 @@
         }).sortable({
             //items: "li:not(.placeholder)",
             connectWith: '.droppable',
-            update : function () 
-            {
+            recieve: function (){
                 console.log('update');
                 var ser = $(this).sortable('serialize');
                 console.log(ser);
