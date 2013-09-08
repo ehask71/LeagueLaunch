@@ -74,7 +74,7 @@
                 var clone = $(ui.draggable).clone();
                 $(this).append(clone);
                 $(ui.draggable).remove();
-                $.post("/save.php", { team: target, player_id: clone.attr("id") }, function (data) {
+                $.post("/save.php", { team: target.replace('team_',''), player_id: clone.attr("id").replace('player_','') }, function (data) {
                     alert("success!");
                 });
                 
