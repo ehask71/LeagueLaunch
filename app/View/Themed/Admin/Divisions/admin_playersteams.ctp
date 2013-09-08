@@ -47,7 +47,15 @@
     </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){
-    alert('Test');
-});​
+    $(document).ready(function(){/*  $(".players li").draggable({	
+	containment: 'document',
+	opacity: 0.6,
+	revert: 'invalid',
+	helper: 'clone',
+	zIndex: 100
+	
+	});
+    $( ".droppable" ).droppable({
+
+    });*/});
 </script>
