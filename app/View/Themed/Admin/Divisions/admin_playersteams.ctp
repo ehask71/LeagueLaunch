@@ -40,7 +40,8 @@
                     </tbody>
                 </table>
                 <pre>
-                    <?php print_r($division);
+                    <?php
+                    print_r($division);
                     print_r($players);
                     ?>
                 </pre>
@@ -61,6 +62,11 @@
             drop: function (event, ui) {
                 var target = $(this).attr("id");
                 $(ui.draggable).appendTo(target).remove();
+            }
+        }).sortable({
+            items: "li:not(.placeholder)",
+            sort: function() {
+                $( this ).removeClass( "ui-state-default" );
             }
         });
     });
