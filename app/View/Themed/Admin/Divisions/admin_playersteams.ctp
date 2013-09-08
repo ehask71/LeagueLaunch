@@ -80,13 +80,12 @@
                 });
                 
             }
-        }).sortable({
+        })
+        $( ".droppable" ).sortable({
             //items: "li:not(.placeholder)",
             connectWith: '.droppable',
-            recieve: function (){
+            update: function (){
                 console.log('update');
-                var ser = $(this).sortable('serialize');
-                console.log(ser);
             }, 
             sort: function() {
                 $( this ).removeClass( "ui-state-default" );
