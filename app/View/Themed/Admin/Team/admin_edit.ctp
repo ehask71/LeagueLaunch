@@ -6,7 +6,7 @@
             <span class="r"></span>
         </h2>
         <div class="block">
-            <div class="block_in">
+            <div class="block_in" style="min-height: 400px;">
                 <?php
                 echo $this->Form->create('Team', array(
                     'class' => 'form_place',
@@ -46,6 +46,7 @@
                 $this->Form->input('division_id', array(
                     'type' => 'select',
                     'label' => 'Division',
+                    'style' => 'width:400px',
                     'class' => 'chzn-select',
                     'options' => $divisions
                 ));
@@ -53,6 +54,7 @@
                 <?=
                 $this->Form->input('active', array(
                     'class' => 'chzn-select',
+                    'style' => 'width:350px',
                     'label' => 'Active',
                     'options' => array('0' => 'No', '1' => 'Yes')
                 ));
