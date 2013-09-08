@@ -21,5 +21,18 @@ class PlayersController extends AppController {
         $this->set('title_for_layout','Manage Players');
     }
     
+    public function admin_division($div,$season){
+        $this->loadModel('PlayersToSeasons');
+        $players = $this->PlayersToSeasons->find('all',array(
+            'conditions' => array(
+                'PlayersToSeasons.division_id' => $div,
+                'PlayersToSeasons.haspaid' => 1,
+                'PlayersToSeasons.season_id' => $season,
+                'PlayersToSeasons.site_id' => Configure::read('Settings.site_id')
+            )
+        ));
+        
+        $this->set(compact($players));
+    }
 }
 
