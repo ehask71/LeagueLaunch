@@ -84,16 +84,18 @@
         })
         $( ".droppable" ).sortable({
             //items: "li:not(.placeholder)",
-            connectWith: '.droppable',
-            update: function (){
-                console.log('update');
-            }
+            connectWith: '.droppable'
         });
         $('#save-teams').click(function(event){
             event.preventDefault();
             console.log('Save');
             var ser = $('.droppable').serial();
             console.log(ser);
+            $.post("/admin/divisions/updateteams", ser, function (data) {
+                    alert("success!");
+                    console.log(data);
+            });
+            
         });
     });
     (function($) {
