@@ -58,7 +58,7 @@
             helper: 'clone',
             zIndex: 100
         });
-        $( "ul .droppable" ).droppable({
+        $( ".droppable" ).droppable({
             tolerance: "pointer",
             accept: ".players li",
             activeClass: "ui-state-hover",
@@ -66,7 +66,7 @@
             drop: function (event, ui) {
                 alert('dropped');
                 var target = $(this).attr("id");
-                $(ui.draggable).appendTo(target).remove();
+                $(ui.draggable).clone().appendTo(target).remove();
             }
         }).sortable({
             items: "li:not(.placeholder)",
