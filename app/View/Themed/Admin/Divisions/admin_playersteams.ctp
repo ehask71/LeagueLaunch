@@ -28,7 +28,11 @@
                             echo '<td>';
                             echo '<h2>' . $div['name'] . '</h2>';
                             echo '<ol id="team_' . $div[team_id] . '" class="droppable teamcontainer">';
-                            // echo '<li class="placeholder">Drop Here</li>';
+                            if(is_array($div[players]) && count($div[players])>0){
+                                foreach($div[players] AS $play){
+                                    echo '<li id="player_'.$play[Players][player_id].'">'.$play[Players][firstname].' '.$play[Players]['lastname'].'</li>';
+                                }
+                            }
                             echo '</ol>';
                             echo '</td>';
                             if ($i == 0) {
