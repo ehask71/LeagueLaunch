@@ -46,15 +46,15 @@
                 $this->Form->input('division_id', array(
                     'type' => 'select',
                     'label' => 'Division',
-                    'style' => 'width:400px',
-                    'class' => 'chzn-select',
+                    //'style' => 'width:400px',
+                    //'class' => 'chzn-select',
                     'options' => $divisions
                 ));
                 ?>
                 <?=
                 $this->Form->input('active', array(
-                    'class' => 'chzn-select',
-                    'style' => 'width:350px',
+                    //'class' => 'chzn-select',
+                    //'style' => 'width:350px',
                     'label' => 'Active',
                     'options' => array('0' => 'No', '1' => 'Yes')
                 ));
