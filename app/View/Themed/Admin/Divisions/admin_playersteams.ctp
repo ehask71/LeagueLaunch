@@ -70,7 +70,7 @@
                 alert('dropped '+target);
             }
         }).sortable({
-            items: "li:not(.placeholder)",
+            //items: "li:not(.placeholder)",
             sort: function() {
                 $( this ).removeClass( "ui-state-default" );
             }
