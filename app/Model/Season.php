@@ -61,6 +61,17 @@ class Season extends AppModel {
         )));
     }
     
+    public function getActiveSeasons(){
+        return $this->find('all',array(
+            'conditions'=>array(
+                'Season.site_id' => Configure::read('Settings.site_id'),
+                'Season.active' => 1,
+                'and' => array(
+                    array('Season.startdate <= ' => date('Y-m-d'),'Season.enddate >= ' => date('Y-m-d'))
+                )
+        )));
+    }
+    
     public function getAccountsBySeason($season){
         
     }
