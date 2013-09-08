@@ -88,6 +88,16 @@ class DivisionsController extends AppController {
                 'Divisions.division_id' => $id
             )
                 ));
+        if(is_array($division['Team'])){
+            $i=0;
+            foreach ($division[Team] AS $team){
+                $tp = $this->Divisions->query('SELECT * FROM players_to_teams PlayersToTeams 
+                    INNER JOIN players Players ON PlayersToTeams.player_id = Players.player_id
+                    WHERE PlayersToTeams.season_id = ' . $season . ' AND PlayersToTeams.division_id = ' . $id);
+                $division[Team][$i]['players'] = $tp; 
+            }
+        }
+        
         $players = $this->Divisions->query('SELECT * FROM players_to_seasons PlayersToSeasons 
             INNER JOIN players Players ON PlayersToSeasons.player_id = Players.player_id
             WHERE PlayersToSeasons.season_id = ' . $season . ' AND PlayersToSeasons.division_id = ' . $id . ' AND PlayersToSeasons.haspaid = 1');
