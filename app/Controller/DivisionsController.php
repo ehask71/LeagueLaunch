@@ -79,7 +79,17 @@ class DivisionsController extends AppController {
             $this->set('divdropdown', $this->Divisions->getDivisionsDropdown());
         }
     }
-
+    
+    public function admin_manageplayersteams(){
+        if($this->request->is('post')){
+            
+        }
+        $this->loadModel('Seasons');
+        $seasons = $this->Seasons->getActiveSeasons();
+        
+        $this->set(compact('seasons'));
+    }
+    
     public function admin_playersteams($id, $season) {
         $division = $this->Divisions->find('first', array(
             'conditions' => array(
