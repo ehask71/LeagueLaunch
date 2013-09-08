@@ -95,7 +95,7 @@ class DivisionsController extends AppController {
         $this->set(compact('division'));
     }
     
-    public function updateteams(){
+    public function admin_updateteams(){
         $this->layout('ajax');
         $data=  $this->request->data;
         $this->set('data',$data);
