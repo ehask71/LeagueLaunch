@@ -59,6 +59,7 @@
             zIndex: 100
         });
         $( "ul .droppable" ).droppable({
+            tolerance: "pointer",
             drop: function (event, ui) {
                 alert('dropped');
                 var target = $(this).attr("id");
