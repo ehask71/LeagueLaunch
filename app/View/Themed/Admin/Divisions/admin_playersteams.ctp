@@ -28,6 +28,7 @@
                                 echo '<td rowspan="1000"></td>';
                             }
                             echo '</tr>';
+                            $i++;
                         }
                         ?>
                     </tbody>
