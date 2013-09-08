@@ -51,7 +51,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        $(".players li").draggable({	
+        $(".players div").draggable({	
             containment: 'document',
             opacity: 0.6,
             revert: 'invalid',
