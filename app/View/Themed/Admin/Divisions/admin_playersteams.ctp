@@ -1,3 +1,6 @@
+<style>
+    .
+</style>
 <div class="grid_12">
     <div class="box">
         <h2>
@@ -22,7 +25,7 @@
                             echo '<td>';
                             echo '<h2>'. $div['name'].'</h2>';
                             echo '<ol id="team_' . $div[team_id] . '" class="droppable teamcontainer">';
-                            echo '<li class="placeholder">Drop Here</li>';
+                           // echo '<li class="placeholder">Drop Here</li>';
                             echo '</ol>';
                             echo '</td>';
                             if ($i == 0) {
