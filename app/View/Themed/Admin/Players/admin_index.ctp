@@ -7,6 +7,7 @@
         </h2>
         <div class="block">
             <div class="block_in">
+                <p>Select the Division you would like to manage the players for</p>
                 <table>
                     <tbody>
                         <?php
