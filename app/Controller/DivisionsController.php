@@ -88,7 +88,10 @@ class DivisionsController extends AppController {
                 'Divisions.division_id' => $id
             )
                 ));
-
+        $players = $this->Divisions->query('SELECT * FROM players_to_seasons PlayersToSeasons 
+            INNER JOIN players Players ON PlayersToSeasons.player_id = Players.player_id
+            WHERE PlayersToSeasons.season_id = '.$season.' AND PlayersToSeasons.division_id = '.$id.' AND PlayersToSeasons.haspaid = 1');
+        $this->set(compact('players'));
         $this->set(compact('division'));
     }
 
