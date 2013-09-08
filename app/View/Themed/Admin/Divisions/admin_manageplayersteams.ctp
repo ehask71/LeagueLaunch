@@ -53,9 +53,6 @@
                         ?>
                     </tbody>
                 </table>
-                <pre>
-                    <?php //print_r($seasons); ?>
-                </pre>
             </div>
         </div>
     </div>
