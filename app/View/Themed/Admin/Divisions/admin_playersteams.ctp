@@ -76,9 +76,9 @@
                 var clone = $(ui.draggable).clone();
                 $(this).append(clone);
                 $(ui.draggable).remove();
-                $.post("/save.php", { season: season_id,team: target.replace('team_',''), player_id: clone.attr("id").replace('player_','') }, function (data) {
+               /* $.post("/save.php", { season: season_id,team: target.replace('team_',''), player_id: clone.attr("id").replace('player_','') }, function (data) {
                     alert("success!");
-                });
+                });*/
                 
             }
         })
@@ -92,6 +92,7 @@
     });
     function saveTeams(){
         var teams = $('.droppable').serialize();
+        console.log('Save')
         console.log(teams);
     }
 </script>
