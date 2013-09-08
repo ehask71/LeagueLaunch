@@ -9,7 +9,11 @@
 	<ul>	 
 	    <li><?php echo $this->html->link(__('Seasons'), array('prefix' => 'admin', 'controller' => 'season','action'=>'index')); ?></li>
 	    <li><?php echo $this->html->link(__('Divisions'), array('prefix' => 'admin', 'controller' => 'divisions','action'=>'index')); ?></li>
-	    <li><?php echo $this->html->link(__('Teams'), array('prefix' => 'admin', 'controller' => 'team','action'=>'index')); ?></li>
+	    <li><?php echo $this->html->link(__('Teams'), array('prefix' => 'admin', 'controller' => 'team','action'=>'index')); ?>
+                <ul>
+                    <li><?php echo $this->html->link(__('Manage Players'), array('prefix' => 'admin', 'controller' => 'divisions','action'=>'manageplayersteams')); ?></li>
+                </ul>
+            </li>
 	</ul>
     </li>
     <li><a href="#">Plugins<span class="icon6"></span></a>
