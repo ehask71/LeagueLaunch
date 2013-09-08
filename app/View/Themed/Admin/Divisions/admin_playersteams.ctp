@@ -81,6 +81,7 @@
             connectWith: '.droppable',
             update : function () 
             {
+                console.log('update');
                 var ser = $(this).sortable('serialize');
                 console.log(ser);
             }, 
