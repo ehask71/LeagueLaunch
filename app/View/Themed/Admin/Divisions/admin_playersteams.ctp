@@ -53,7 +53,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $(".players li").draggable({	
-            containment: 'document',
+            cursor: 'hand',
+            revert: 'invalid'
             opacity: 0.6,
             helper: 'clone',
             zIndex: 100
@@ -65,7 +66,8 @@
             hoverClass: "ui-state-active",
             drop: function (event, ui) {         
                 var target = $(this).attr("id");
-                $(this).append(ui.draggable);
+                var clone = $(ui.draggable).clone();
+                $(this).append(clone);
                 $(ui.draggable).remove();
                 alert('dropped '+target);
             }
