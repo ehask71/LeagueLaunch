@@ -74,7 +74,10 @@
                 var clone = $(ui.draggable).clone();
                 $(this).append(clone);
                 $(ui.draggable).remove();
-                alert('dropped '+target);
+                $.post("/save.php", { team: target, player_id: clone.attr("id") }, function (data) {
+                    alert("success!");
+                });
+                
             }
         }).sortable({
             //items: "li:not(.placeholder)",
