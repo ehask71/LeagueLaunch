@@ -64,8 +64,7 @@
             accept: ".players li",
             activeClass: "ui-state-hover",
             hoverClass: "ui-state-active",
-            drop: function (event, ui) {
-                
+            drop: function (event, ui) {         
                 var target = $(this).attr("id");
                 $(ui.draggable).clone().appendTo(target).remove();
                 alert('dropped '+target);
