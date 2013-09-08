@@ -90,9 +90,10 @@
             event.preventDefault();
             console.log('Save');
             var ser = $('.droppable').serial();
-            ser + (ser.length != 0)?'&season_id='+season_id:'';
+            console.log(ser.length);
+            var se = (ser.length != 0)?'&season_id='+season_id:'';
             console.log(ser);
-            $.post("/admin/divisions/updateteams", ser, function (data) {
+            $.post("/admin/divisions/updateteams", ser + se, function (data) {
                     alert("success!");
                     console.log(data);
             });
