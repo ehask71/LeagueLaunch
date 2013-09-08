@@ -66,6 +66,14 @@ class TeamController extends AppController {
 		}
 	    }
         }
+        $team = $this->Team->find('first',array(
+            'conditions' => array(
+                'Team.team_id' => $id,
+                'Team.site_id' => Configure::read('Settings.site_id')
+            )
+        ));
+        $this->request->data = $team;
+        $this->set('title',__('Edit Team'));
         $this->set('divisions',$this->Divisions->getDivisionsDropdown());
         $this->set('title_for_layout','Edit Team');
     } 
