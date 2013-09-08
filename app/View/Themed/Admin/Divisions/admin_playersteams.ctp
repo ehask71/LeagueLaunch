@@ -78,6 +78,7 @@
             }
         }).sortable({
             //items: "li:not(.placeholder)",
+            connectWith: '.droppable',
             sort: function() {
                 $( this ).removeClass( "ui-state-default" );
             }
