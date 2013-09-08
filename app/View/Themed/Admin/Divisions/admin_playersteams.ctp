@@ -56,6 +56,7 @@
     </div>
 </div>
 <script type="text/javascript">
+    var season_id = '<?php echo $division[Divisions][season_id];?>';
     $(document).ready(function(){
         $(".players li").draggable({	
             cursor: 'hand',
@@ -74,7 +75,7 @@
                 var clone = $(ui.draggable).clone();
                 $(this).append(clone);
                 $(ui.draggable).remove();
-                $.post("/save.php", { team: target.replace('team_',''), player_id: clone.attr("id").replace('player_','') }, function (data) {
+                $.post("/save.php", { season: season_id,team: target.replace('team_',''), player_id: clone.attr("id").replace('player_','') }, function (data) {
                     alert("success!");
                 });
                 
