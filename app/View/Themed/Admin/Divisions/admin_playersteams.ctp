@@ -48,17 +48,16 @@
 </div>
 <script type="text/javascript">
 $(function() {
-    $( "ul li" ).each(function(){
-        $(this).draggable();
-    });
+    $(".players li").draggable({	
+	containment: 'document',
+	opacity: 0.6,
+	revert: 'invalid',
+	helper: 'clone',
+	zIndex: 100
+	
+	});
     $( ".droppable" ).droppable({
-        activeClass: "ui-state-hover",
-        hoverClass: "ui-state-active",
-        accept: ":not(.ui-sortable-helper)",
-        drop: function( event, ui ) {
-            var targetElem = $(this).attr("id");
-            //$( ui.draggable ).clone().appendTo( this );
-        }
+
     });
 });​
 </script>
