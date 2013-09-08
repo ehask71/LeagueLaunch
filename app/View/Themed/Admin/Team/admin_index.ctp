@@ -53,7 +53,7 @@
 			    <td><?=$team['Team']['name'];?></td>
 			    <td><?=$team['Divisions']['name'];?></td>
 			    <td>
-                                <a href="/admin/team/edit/<?=$team['Team']['team_id'];?>" class="button small green">Edit</a>
+                                <a href="/admin/team/edit/<?=$team['Team']['team_id'];?>" class="button green">Edit</a>
                             </td>
 			</tr>
 			<?php
