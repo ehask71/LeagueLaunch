@@ -65,7 +65,7 @@
             hoverClass: "ui-state-active",
             drop: function (event, ui) {         
                 var target = $(this).attr("id");
-                $(target).append(ui.draggable);
+                $(this).append(ui.draggable);
                 $(ui.draggable).remove();
                 alert('dropped '+target);
             }
