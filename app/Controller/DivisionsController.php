@@ -91,11 +91,13 @@ class DivisionsController extends AppController {
         if(is_array($division['Team'])){
             $i=0;
             foreach ($division[Team] AS $team){
+                $tp = array();
                 $tp = $this->Divisions->query('SELECT * FROM players_to_teams PlayersToTeams 
                     INNER JOIN players Players ON PlayersToTeams.player_id = Players.player_id
                     WHERE PlayersToTeams.season_id = ' . $season . ' AND PlayersToTeams.team_id = ' . $team[team_id].' 
                     AND PlayersToTeams.site_id = '.Configure::read('Settings.site_id'));
-                $division[Team][$i]['players'] = $tp; 
+                $division[Team][$i]['players'] = $tp;
+                $i++;
             }
         }
         
