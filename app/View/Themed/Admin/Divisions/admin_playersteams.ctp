@@ -47,8 +47,8 @@
     </div>
 </div>
 <script type="text/javascript">
-$(function() {
-    $(".players li").draggable({	
+$(document).ready(function(){
+  /*  $(".players li").draggable({	
 	containment: 'document',
 	opacity: 0.6,
 	revert: 'invalid',
@@ -58,6 +58,6 @@ $(function() {
 	});
     $( ".droppable" ).droppable({
 
-    });
+    });*/
 });​
 </script>
