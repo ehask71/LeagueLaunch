@@ -94,6 +94,11 @@ class DivisionsController extends AppController {
         $this->set(compact('players'));
         $this->set(compact('division'));
     }
+    
+    public function updateteams(){
+        $data=  $this->request->data;
+        $this->set('data',$data);
+    }
 
 }
 
