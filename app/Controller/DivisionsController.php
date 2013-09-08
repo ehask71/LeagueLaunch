@@ -100,10 +100,10 @@ class DivisionsController extends AppController {
         $req = $this->request->data;
         if (is_array($req) && count($req) > 0) {
             foreach($req AS $k=>$v) {
-                $k = str_replace($k, "", "team_");
+                $k = str_replace("team_","",$k);
                 if(is_array($v)){
                     foreach ($v AS $kk => $vv){
-                        $data[$k][] = str_replace($vv, "", "player_");
+                        $data[$k][] = str_replace("player_","",$vv);
                     }
                 }
             }
