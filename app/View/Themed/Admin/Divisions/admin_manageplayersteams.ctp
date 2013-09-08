@@ -17,16 +17,27 @@
                                     <td colspan="100"><?php echo $season[Season][name]; ?></td>
                                 </tr>
                                 <?php
-                                if(count($season[Divisions])>0){
-                                    $i=0;
+                                if (count($season[Divisions]) > 0) {
+                                    $total = count($season[Divisions]);
+                                    $i = 0;
+                                    $r = 0;
                                     echo '<tr>';
-                                    foreach($season[Divisions] AS $division){
-                                        echo '<td><a href="/admin/divisions/playersteams/'.$division[division_id].'/'.$division[season_id].'" class="button green">';
-                                        echo $division[name].'</a></td>';
+                                    foreach ($season[Divisions] AS $division) {
+                                        echo '<td><a href="/admin/divisions/playersteams/' . $division[division_id] . '/' . $division[season_id] . '" class="button green">';
+                                        echo $division[name] . '</a></td>';
                                         $i++;
-                                        if($i == 7){
+                                        $r++;
+                                        if ($r == $total) {
+                                            if ($i < 7) {
+                                                $remainder = (6 - $i);
+                                                if ($remainder != 0) {
+                                                    echo '<td colspan="' . $remainder . '"></td>';
+                                                }
+                                            }
+                                        }
+                                        if ($i == 7) {
                                             echo '</tr><tr>';
-                                            $i=0;
+                                            $i = 0;
                                         }
                                     }
                                     echo '</tr>';
@@ -34,9 +45,9 @@
                             }
                         } else {
                             ?>
-                                <tr>
-                                    <td colspan="10">No Seasons</td>
-                                </tr>
+                            <tr>
+                                <td colspan="10">No Seasons</td>
+                            </tr>
                             <?php
                         }
                         ?>
