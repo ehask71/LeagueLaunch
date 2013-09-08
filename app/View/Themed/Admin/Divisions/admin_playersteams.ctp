@@ -54,7 +54,7 @@
     $(document).ready(function(){
         $(".players li").draggable({	
             cursor: 'hand',
-            revert: 'invalid'
+            revert: 'invalid',
             opacity: 0.6,
             helper: 'clone',
             zIndex: 100
