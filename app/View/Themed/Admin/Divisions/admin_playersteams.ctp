@@ -20,7 +20,7 @@
                         foreach ($division[Team] AS $div) {
                             echo '<tr>';
                             echo '<td>';
-                            echo '<ul id="' . $div[team_id] . '" class="droppable teamcontainer">';
+                            echo '<ul id="team_' . $div[team_id] . '" class="droppable teamcontainer">';
                             echo '<li class="placeholder">' . $div['name'] . '</li>';
                             echo '</ul>';
                             echo '</td>';
