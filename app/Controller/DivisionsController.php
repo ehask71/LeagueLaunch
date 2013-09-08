@@ -96,7 +96,6 @@ class DivisionsController extends AppController {
     }
     
     public function admin_updateteams(){
-        $this->layout('ajax');
         $data=  $this->request->data;
         $this->set('data',$data);
         $this->render('/Elements/SerializeJson','ajax');
