@@ -40,7 +40,7 @@
                     </tbody>
                 </table>
                 <pre>
-               <?php print_r($division); ?>
+               <?php print_r($division);print_r($players); ?>
                 </pre>
             </div>
         </div>
