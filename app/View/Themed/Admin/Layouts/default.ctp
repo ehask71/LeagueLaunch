@@ -20,8 +20,8 @@
         echo $this->CloudFlare->css('chosen');
         echo $this->Html->css('/js/jqueryui/all/themes/base/jquery.ui.all.css');
 
-        //echo $this->Html->css('style');
-        echo $this->CloudFlare->css('style');
+        echo $this->Html->css('style');
+        //echo $this->CloudFlare->css('style');
         echo $this->CloudFlare->css('config');
         ?>
         <!--[if gte IE 8]><?php echo $this->CloudFlare->css('ie8'); ?><![endif]-->
