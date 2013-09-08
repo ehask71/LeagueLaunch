@@ -20,17 +20,17 @@
                         foreach ($division[Team] AS $div) {
                             echo '<tr>';
                             echo '<td>';
-                            echo '<div id="team_' . $div[team_id] . '" class="droppable">';
-                            echo '<h2>' . $div['name'] . '</h2>';
-                            echo '</div>';
+                            echo '<ul id="team_' . $div[team_id] . '" class="droppable teamcontainer">';
+                            echo '<li class="placeholder">' . $div['name'] . '</li>';
+                            echo '</ul>';
                             echo '</td>';
                             if ($i == 0) {
                                 echo '<td rowspan="1000">';
-                                echo '<div id="players">';
+                                echo '<ul class="players">';
                                 foreach ($players AS $play) {
-                                    echo '<div id="player_' . $play['Players']['player_id'] . '">' . $play['Players']['firstname'] . ' ' . $play['Players']['lastname'] . '</div>';
+                                    echo '<li id="player_' . $play['Players']['player_id'] . '">' . $play['Players']['firstname'] . ' ' . $play['Players']['lastname'] . '</li>';
                                 }
-                                echo '</div>';
+                                echo '</ul>';
                                 echo '</td>';
                             }
                             echo '</tr>';
@@ -51,20 +51,21 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        $(".players div").draggable({	
+        $(".players li").draggable({	
             containment: 'document',
             opacity: 0.6,
             revert: 'invalid',
             helper: 'clone',
             zIndex: 100
         });
-        $( ".droppable" ).droppable({
+        $( "ul .droppable" ).droppable({
             drop: function (event, ui) {
+                alert('dropped');
                 var target = $(this).attr("id");
                 $(ui.draggable).appendTo(target).remove();
             }
         }).sortable({
-            items: "div",
+            items: "li:not(.placeholder)",
             sort: function() {
                 $( this ).removeClass( "ui-state-default" );
             }
