@@ -64,7 +64,7 @@
                 $(ui.draggable).appendTo(target).remove();
             }
         }).sortable({
-            items: "li:not(.placeholder)",
+            items: "div",
             sort: function() {
                 $( this ).removeClass( "ui-state-default" );
             }
