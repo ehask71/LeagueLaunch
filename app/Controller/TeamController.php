@@ -52,8 +52,23 @@ class TeamController extends AppController {
 	$this->set('teams',$this->paginate('Team'));
     }
     
-    public function admin_random(){
-	
+    public function admin_edit($id){
+        $this->Team->id = $id;
+        if (!$this->Team->exists()) {
+            $this->Session->setFlash(__('Team doesn\'t Exist'), 'default', array('class' => 'alert error_msg'));
+            $this->redirect('/admin/team');
+        }
+	if($this->request->is('post') || $this->request->is('put')){
+            if($this->Team->teamValidate()){
+		if($this->Team->save($this->request->data)){
+		    $this->Session->setFlash(__('Team Updated!'),'default',array('class'=>'alert succes_msg'));
+		    $this->redirect('/admin/team');
+		}
+	    }
+        }
+        $this->set('divisions',$this->Divisions->getDivisionsDropdown());
+        $this->set('title_for_layout','Edit Team');
     } 
+    
     
 }
