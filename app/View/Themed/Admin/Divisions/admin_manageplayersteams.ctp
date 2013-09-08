@@ -28,14 +28,14 @@
                                         $i++;
                                         $r++;
                                         if ($r == $total) {
-                                            if ($i < 7) {
+                                            if ($i < 6) {
                                                 $remainder = (6 - $i);
                                                 if ($remainder != 0) {
                                                     echo '<td colspan="' . $remainder . '"></td>';
                                                 }
                                             }
                                         }
-                                        if ($i == 7) {
+                                        if ($i == 6) {
                                             echo '</tr><tr>';
                                             $i = 0;
                                         }
