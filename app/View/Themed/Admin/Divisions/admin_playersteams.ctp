@@ -12,7 +12,7 @@
         </h2>
         <div class="block">
             <div class="block_in">
-                <a href="#" onclick="saveTeams();" class="button small green">Save Teams</a>
+                <a href="#" id="save-teams" onclick="saveTeams();" class="button small green">Save Teams</a>
                 <table>
                     <thead>
                         <tr>
@@ -26,9 +26,9 @@
                         foreach ($division[Team] AS $div) {
                             echo '<tr>';
                             echo '<td>';
-                            echo '<h2>'. $div['name'].'</h2>';
+                            echo '<h2>' . $div['name'] . '</h2>';
                             echo '<ol id="team_' . $div[team_id] . '" class="droppable teamcontainer">';
-                           // echo '<li class="placeholder">Drop Here</li>';
+                            // echo '<li class="placeholder">Drop Here</li>';
                             echo '</ol>';
                             echo '</td>';
                             if ($i == 0) {
@@ -57,7 +57,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    var season_id = '<?php echo $division[Divisions][season_id];?>';
+    var season_id = '<?php echo $division[Divisions][season_id]; ?>';
     $(document).ready(function(){
         $(".players li").draggable({	
             cursor: 'hand',
@@ -76,7 +76,7 @@
                 var clone = $(ui.draggable).clone();
                 $(this).append(clone);
                 $(ui.draggable).remove();
-               /* $.post("/save.php", { season: season_id,team: target.replace('team_',''), player_id: clone.attr("id").replace('player_','') }, function (data) {
+                /* $.post("/save.php", { season: season_id,team: target.replace('team_',''), player_id: clone.attr("id").replace('player_','') }, function (data) {
                     alert("success!");
                 });*/
                 
@@ -89,7 +89,12 @@
                 console.log('update');
             }
         });
+        $('#save-teams').click(function(event){
+            event.preventDefault();
+            saveTeams();
+        });
     });
+    
     function saveTeams(){
         var teams = $('.droppable').serialize();
         console.log('Save')
