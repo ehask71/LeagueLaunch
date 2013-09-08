@@ -45,13 +45,14 @@
                 <?=
                 $this->Form->input('division_id', array(
                     'type' => 'select',
-                    'class' => 'i-format',
+                    'label' => 'Division',
+                    'class' => 'chzn-select',
                     'options' => $divisions
                 ));
                 ?>
                 <?=
                 $this->Form->input('active', array(
-                    'class' => 'i-format',
+                    'class' => 'chzn-select',
                     'label' => 'Active',
                     'options' => array('0' => 'No', '1' => 'Yes')
                 ));
