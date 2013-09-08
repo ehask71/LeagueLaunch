@@ -49,23 +49,15 @@
 <script type="text/javascript">
 $(function() {
     $( "ul li" ).each(function(){
-        $(this).draggable({
-            helper: "clone"
-        });
+        $(this).draggable();
     });
-
     $( ".droppable" ).droppable({
         activeClass: "ui-state-hover",
         hoverClass: "ui-state-active",
         accept: ":not(.ui-sortable-helper)",
         drop: function( event, ui ) {
             var targetElem = $(this).attr("id");
-            $( ui.draggable ).clone().appendTo( this );
-        }
-    }).sortable({
-        items: "li:not(.placeholder)",
-        sort: function() {
-            $( this ).removeClass( "ui-state-default" );
+            //$( ui.draggable ).clone().appendTo( this );
         }
     });
 });​
