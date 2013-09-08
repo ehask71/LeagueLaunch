@@ -25,7 +25,13 @@
                             echo '</ul>';
                             echo '</td>';
                             if($i==0){
-                                echo '<td rowspan="1000"></td>';
+                                echo '<td rowspan="1000">';
+                                echo '<ul class="players">';
+                                foreach ($players AS $play){
+                                    echo '<li id="player_'.$play['Players']['player_id'].'">'.$play['Players']['firstname'].' '.$play['Players']['lastname'].'</li>';          
+                                }
+                                echo '</ul>';
+                                echo '</td>';
                             }
                             echo '</tr>';
                             $i++;
