@@ -1,5 +1,7 @@
 <style>
-    .
+    .droppable {
+        min-height: 25px;
+    }
 </style>
 <div class="grid_12">
     <div class="box">
