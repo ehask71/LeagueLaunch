@@ -33,12 +33,14 @@ class RandomteamsController extends AppController {
                     PlayersToSeasons.*,Players.*
                     FROM players_to_seasons PlayersToSeasons 
                     INNER JOIN players Players ON PlayersToSeasons.player_id = Players.player_id
+                    LEFT JOIN players_to_teams PlayersToTeams ON PlayersToSeasons.player_id = PlayersToTeams.player_id
                     WHERE
                     PlayersToSeasons.division_id = '" . $div[Divisions][division_id] . "'
                         AND
                     PlayersToSeasons.site_id = '" . $div[Divisions][site_id] . "'
                         AND
-                    PlayersToSeasons.haspaid = 1");
+                    PlayersToSeasons.haspaid = 1 AND
+                PlayersToTeams.player_id IS NULL");
 
                 if (count($players) > 0) {
                     $player = array();
