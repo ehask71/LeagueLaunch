@@ -60,6 +60,9 @@
         });
         $( "ul .droppable" ).droppable({
             tolerance: "pointer",
+            accept: ".players li",
+            activeClass: "ui-state-hover",
+            hoverClass: "ui-state-active",
             drop: function (event, ui) {
                 alert('dropped');
                 var target = $(this).attr("id");
