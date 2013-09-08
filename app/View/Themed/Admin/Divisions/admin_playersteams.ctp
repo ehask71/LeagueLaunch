@@ -41,7 +41,8 @@
                 </table>
                 <pre>
                     <?php print_r($division);
-                    print_r($players); ?>
+                    print_r($players);
+                    ?>
                 </pre>
             </div>
         </div>
@@ -57,7 +58,10 @@
             zIndex: 100
         });
         $( ".droppable" ).droppable({
-
+            drop: function (event, ui) {
+                var target = $(this).attr("id");
+                $(ui.draggable).appendTo(target).remove();
+            }
         });
     });
 </script>
