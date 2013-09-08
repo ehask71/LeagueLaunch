@@ -84,8 +84,8 @@ class DivisionsController extends AppController {
         if($this->request->is('post')){
             
         }
-        $this->loadModel('Seasons');
-        $seasons = $this->Seasons->getActiveSeasons();
+        $this->loadModel('Season');
+        $seasons = $this->Season->getActiveSeasons();
         
         $this->set(compact('seasons'));
     }
