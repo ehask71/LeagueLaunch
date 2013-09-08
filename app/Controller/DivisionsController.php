@@ -98,6 +98,8 @@ class DivisionsController extends AppController {
     public function admin_updateteams() {
         $data = array();
         $req = $this->request->data;
+        $season = $this->request->data['season_id'];
+        unset($this->request->data['season_id']);
         if (is_array($req) && count($req) > 0) {
             foreach($req AS $k=>$v) {
                 $k = str_replace("team_","",$k);
@@ -107,6 +109,8 @@ class DivisionsController extends AppController {
                     }
                 }
             }
+            $this->loadModel('PlayersToTeams');
+            $this->PlayersToTeams->updateTeamsAjax($data,$season);
         }
         $this->set('data', $data);
         $this->render('/Elements/SerializeJson', 'ajax');
