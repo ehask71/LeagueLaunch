@@ -86,9 +86,6 @@
             connectWith: '.droppable',
             update: function (){
                 console.log('update');
-            }, 
-            sort: function() {
-                $( this ).removeClass( "ui-state-default" );
             }
         });
     });
