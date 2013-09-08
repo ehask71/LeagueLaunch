@@ -20,17 +20,17 @@
                         foreach ($division[Team] AS $div) {
                             echo '<tr>';
                             echo '<td>';
-                            echo '<ul id="team_' . $div[team_id] . '" class="droppable teamcontainer">';
-                            echo '<li class="placeholder">' . $div['name'] . '</li>';
-                            echo '</ul>';
+                            echo '<div id="team_' . $div[team_id] . '" class="droppable">';
+                            echo '<h2>' . $div['name'] . '</h2>';
+                            echo '</div>';
                             echo '</td>';
                             if ($i == 0) {
                                 echo '<td rowspan="1000">';
-                                echo '<ul class="players">';
+                                echo '<div id="players">';
                                 foreach ($players AS $play) {
-                                    echo '<li id="player_' . $play['Players']['player_id'] . '">' . $play['Players']['firstname'] . ' ' . $play['Players']['lastname'] . '</li>';
+                                    echo '<div id="player_' . $play['Players']['player_id'] . '">' . $play['Players']['firstname'] . ' ' . $play['Players']['lastname'] . '</div>';
                                 }
-                                echo '</ul>';
+                                echo '</div>';
                                 echo '</td>';
                             }
                             echo '</tr>';
