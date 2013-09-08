@@ -92,9 +92,21 @@
         $('#save-teams').click(function(event){
             event.preventDefault();
             console.log('Save');
-            var ser = $('.droppable').sortable('serialize');
+            var ser = $('.droppable').serial();
             console.log(ser);
         });
     });
-    
+    (function($) {
+        $.fn.serial = function() {
+            var array = [];
+            var $elem = $(this);
+            $elem.each(function(i) {
+                var menu = this.id;
+                $('li', this).each(function(e) {
+                    array.push(menu + '[' + e + ']=' + this.id);
+                });
+            });
+            return array.join('&');
+        }
+    })(jQuery);
 </script>
