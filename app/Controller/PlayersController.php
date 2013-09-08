@@ -35,7 +35,7 @@ class PlayersController extends AppController {
         $this->set('div',$div);
         $this->set('season',$season);
         $this->set('divisions',$this->Divisions->getDivisionsDropdown());
-        $this->set(compact($players));
+        $this->set(compact('players'));
     }
 }
 
