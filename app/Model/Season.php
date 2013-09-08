@@ -17,7 +17,8 @@ class Season extends AppModel {
         ),
         'Divisions' => array(
             'className' => 'Divisions',
-            'foreignKey' => 'season_id'
+            'foreignKey' => 'season_id',
+            'conditions' => array('Divisions.active' => 1),
         )
     );
     
