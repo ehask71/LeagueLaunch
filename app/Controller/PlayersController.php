@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class PlayersController extends AppController {
     
     public $name = 'Players';
-    public $uses = array('Season');
+    public $uses = array('Season','Divisions');
     
     public function beforeFilter() {
 	parent::beforeFilter();
@@ -32,6 +32,7 @@ class PlayersController extends AppController {
             )
         ));
         
+        $this->set('divisions',$this->Divisions->getDivisionsDropdown());
         $this->set(compact($players));
     }
 }
