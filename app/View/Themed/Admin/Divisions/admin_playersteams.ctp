@@ -91,7 +91,7 @@
             console.log('Save');
             var ser = $('.droppable').serial();
             console.log(ser.length);
-            var se = (ser.length != 0)?'&season_id='+season_id:'';
+            var se = '&season_id='+season_id;
             console.log(ser);
             $.post("/admin/divisions/updateteams", ser + se, function (data) {
                     alert("success!");
