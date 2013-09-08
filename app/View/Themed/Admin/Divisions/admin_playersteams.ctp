@@ -47,7 +47,7 @@ $(function() {
         });
     });
 
-    $( ".day" ).droppable({
+    $( ".droppable" ).droppable({
         activeClass: "ui-state-hover",
         hoverClass: "ui-state-active",
         accept: ":not(.ui-sortable-helper)",
