@@ -52,8 +52,8 @@
                 </table>
                 <pre>
                     <?php
-                    print_r($division);
-                    print_r($players);
+                    /*print_r($division);
+                    print_r($players);*/
                     ?>
                 </pre>
             </div>
