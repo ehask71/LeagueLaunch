@@ -20,9 +20,9 @@
                         foreach ($division[Team] AS $div) {
                             echo '<tr>';
                             echo '<td>';
-                            echo '<ul id="team_' . $div[team_id] . '" class="droppable teamcontainer">';
-                            echo '<li class="placeholder">' . $div['name'] . '</li>';
-                            echo '</ul>';
+                            echo '<h2>'. $div['name'].'</h2>';
+                            echo '<ol id="team_' . $div[team_id] . '" class="droppable teamcontainer">';
+                            echo '</ol>';
                             echo '</td>';
                             if ($i == 0) {
                                 echo '<td rowspan="1000">';
