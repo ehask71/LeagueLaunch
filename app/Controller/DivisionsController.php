@@ -97,6 +97,7 @@ class DivisionsController extends AppController {
 
     public function admin_updateteams() {
         $data = array();
+        print_r($this->request->data);
         $req = json_decode($this->request->data,1);
         if (is_array($req) && count($req) > 0) {
             foreach($req AS $k=>$v) {
