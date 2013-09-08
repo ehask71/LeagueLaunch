@@ -65,9 +65,10 @@
             activeClass: "ui-state-hover",
             hoverClass: "ui-state-active",
             drop: function (event, ui) {
-                alert('dropped');
+                
                 var target = $(this).attr("id");
                 $(ui.draggable).clone().appendTo(target).remove();
+                alert('dropped '+target);
             }
         }).sortable({
             items: "li:not(.placeholder)",
