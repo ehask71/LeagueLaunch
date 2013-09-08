@@ -52,7 +52,9 @@
 			<tr>
 			    <td><?=$team['Team']['name'];?></td>
 			    <td><?=$team['Divisions']['name'];?></td>
-			    <td></td>
+			    <td>
+                                <a href="/admin/team/edit/<?=$team['Team']['team_id'];?>" class="button small green">Edit</a>
+                            </td>
 			</tr>
 			<?php
 			    }
