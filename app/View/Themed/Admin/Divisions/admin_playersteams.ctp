@@ -55,7 +55,6 @@
         $(".players li").draggable({	
             containment: 'document',
             opacity: 0.6,
-            revert: 'invalid',
             helper: 'clone',
             zIndex: 100
         });
@@ -66,7 +65,8 @@
             hoverClass: "ui-state-active",
             drop: function (event, ui) {         
                 var target = $(this).attr("id");
-                $(ui.draggable).clone().appendTo(target).remove();
+                $(ui.draggable).appendTo(target)
+                $(ui.draggable).remove();
                 alert('dropped '+target);
             }
         }).sortable({
