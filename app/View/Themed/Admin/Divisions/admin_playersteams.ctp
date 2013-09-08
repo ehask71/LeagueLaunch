@@ -88,13 +88,9 @@
         });
         $('#save-teams').click(function(event){
             event.preventDefault();
-            console.log('Save');
             var ser = $('.droppable').serial();
-            console.log(ser.length);
-            var se = '&season_id='+season_id;
-            console.log(ser);
+            var se = (ser.length != 0)?'&season_id='+season_id:'';
             $.post("/admin/divisions/updateteams", ser + se, function (data) {
-                    alert("success!");
                     console.log(data);
             });
             
