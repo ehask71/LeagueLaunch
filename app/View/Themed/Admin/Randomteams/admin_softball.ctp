@@ -9,7 +9,7 @@
             <div class="block_in">
                 <table>
                     <tr>
-                        <td colspan="100"><a href="/admin/randomteams/softball/makelive/<?=$id;?>/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button green">Commit To Live</a></td>
+                        <td colspan="100"><a href="/admin/randomteams/softball/makelive/<?=$season_id;?>/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button green">Commit To Live</a></td>
                     </tr>
                     <?php
                     if (count($divisions) > 0) {
