@@ -115,8 +115,8 @@ class SeasonController extends AppController {
     public function playersNotInSeason(){
         $this->autoRender = FALSE;
         $players = $this->Season->query("SELECT 
-            CONCAT(Players.firstname,' ',Players.lastname) as Players.player_name,
-            CONCAT(Accounts.firstname,' ',Accounts.lastname) as Players.parent_name,
+            CONCAT(Players.firstname,' ',Players.lastname) as player_name,
+            CONCAT(Accounts.firstname,' ',Accounts.lastname) as parent_name,
             Accounts.email,Accounts.phone FROM `players` Players
             INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
             LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
