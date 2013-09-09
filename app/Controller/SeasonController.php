@@ -121,10 +121,11 @@ class SeasonController extends AppController {
             LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
             WHERE Players.site_id = ".Configure::read('Settings.site_id')."  AND PlayersToSeasons.season_id != $id 
 	    OR PlayersToSeasons.season_id IS NULL");
-	$division = $this->Divisions->find('first', array(
+	$division = $this->Divisions->find('all', array(
             'conditions' => array(
                 'Divisions.site_id' => Configure::read('Settings.site_id'),
-                'Divisions.season_id' => $id
+                'Divisions.season_id' => $id,
+		'Divisions.active' => 1
             )
         ));
 	
