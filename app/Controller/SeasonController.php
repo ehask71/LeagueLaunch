@@ -111,5 +111,19 @@ class SeasonController extends AppController {
         
         $this->set(compact('player'));
     }
+    
+    public function playersNotInSeason(){
+        $this->autoRender = FALSE;
+        $players = $this->Season->query("SELECT 
+            CONCAT(Players.firstname,' ',Players.lastname) as Players.player_name,
+            CONCAT(Accounts.firstname,' ',Accounts.lastname) as Players.parent_name,
+            Accounts.email,Accounts.phone FROM `players` Players
+            INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
+            LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
+            WHERE Players.site_id = 3 AND PlayersToSeasons.id IS NULL");
+        
+        print_r($players);
+        
+    }
 
 }
