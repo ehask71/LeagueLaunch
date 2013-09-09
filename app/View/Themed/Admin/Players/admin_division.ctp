@@ -22,7 +22,7 @@
                                 echo '<tr>';
                                 echo '<td width="15%"><input type="checkbox" name="data[PlayersToSeasons][player_id][]" value="'.$player[Players][player_id].'"></td>';
                                 echo '<td>'.$player[Players][firstname].' '.$player[Players][lastname].'</td>';
-                                echo '<td>'.$players[Players][league_age].'</td>';
+                                echo '<td>'.$player[Players][league_age].'</td>';
                                 echo '<td>'.$player[Divisions][name].'</td>';     
                                 echo '</tr>';
                             }
