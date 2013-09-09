@@ -118,7 +118,14 @@ class RandomteamsController extends AppController {
     }
     
     public function admin_generate($id) {
+        $teams = $this->RandomTeamPicks->find('first',array(
+            'conditions' => array(
+                'RandomTeamPicks.id' => $id
+            )
+        ));
         
+        mail('ehask71@gmail.com','generate',print_r($teams,1));
+        $this->redirect('/admin/randomteams');
     }
 
     public function calcage($bday) {
