@@ -113,7 +113,6 @@ class SeasonController extends AppController {
     }
 
     public function admin_playersnotinseason($id) {
-        $this->autoRender = FALSE;
         $players = $this->Season->query("SELECT 
             Players.firstname,Players.lastname,Accounts.firstname,Accounts.lastname,
             Accounts.email,Accounts.phone FROM `players` Players
@@ -131,7 +130,6 @@ class SeasonController extends AppController {
 	$this->set(compact('division'));
 	$this->set(compact('players'));
 	
-        foreach ($players AS $player) {
 
            /* App::uses('CakeEmail', 'Network/Email');
             $email = new CakeEmail();
@@ -147,9 +145,7 @@ class SeasonController extends AppController {
                     ->emailFormat('text')
                     ->viewVars(array('player' => $player,'leaguename'=>Configure::read('Settings.leaguename')))
                     ->send();*/
-        }
-        echo '<pre>';
-        print_r($players);
+ 
     }
 
 }
