@@ -113,6 +113,7 @@ class SeasonController extends AppController {
     }
 
     public function admin_playersnotinseason($id) {
+	$this->loadModel('Divisions');
         $players = $this->Season->query("SELECT 
             Players.firstname,Players.lastname,Accounts.firstname,Accounts.lastname,
             Accounts.email,Accounts.phone FROM `players` Players
