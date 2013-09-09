@@ -24,7 +24,7 @@ class PlayersController extends AppController {
     public function admin_division($div,$season){
         $this->loadModel('PlayersToSeasons');
         if ($this->request->is('post')) {
-            //print_r($this->request->data);
+            print_r($this->request->data);
             if($this->PlayersToSeasons->changePlayerDivisionBulk($this->request->data)){
                 $this->Session->setFlash(__('Players Moved Successfully'),'alerts/success');
                 $this->redirect('/admin/players');
