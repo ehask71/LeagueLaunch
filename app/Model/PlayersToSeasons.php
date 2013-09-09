@@ -107,6 +107,7 @@ class PlayersToSeasons extends AppModel {
 
     public function changePlayerDivisionBulk($data) {
         if (is_array($data[PlayersToSeasons][Players]) && count($data[PlayersToSeasons][Players]) > 0) {
+            $error=false;
             foreach ($data[PlayersToSeasons][player_id] AS $player) {
                 $parts = $explode("_",$player);
                 $sub = array(
@@ -115,7 +116,7 @@ class PlayersToSeasons extends AppModel {
                     'season_id' => $data[Divisions][season_id],
                     'id' => $parts[0]);
                 if(!$this->changePlayerDivision($sub)){
-                    return FALSE;
+                    $error = true;
                 }
             }
         }
