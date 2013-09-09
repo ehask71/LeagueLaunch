@@ -20,9 +20,9 @@
                         if(count($players)>0){
                             foreach ($players AS $player){
                                 echo '<tr>';
-                                echo '<td width="15%"><input type="checkbox" name="data[PlayersToSeasons][player_id][]" value="'.$player[PlayersToSeasons][player_id].'"></td>';
-                                echo '<td>'.$player[Players][0][firstname].' '.$player[Players][0][lastname].'</td>';
-                                echo '<td>'.$players[Players][0][league_age].'</td>';
+                                echo '<td width="15%"><input type="checkbox" name="data[PlayersToSeasons][player_id][]" value="'.$player[Players][player_id].'"></td>';
+                                echo '<td>'.$player[Players][firstname].' '.$player[Players][lastname].'</td>';
+                                echo '<td>'.$players[Players][league_age].'</td>';
                                 echo '<td>'.$player[Divisions][name].'</td>';     
                                 echo '</tr>';
                             }
