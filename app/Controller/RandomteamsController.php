@@ -58,8 +58,14 @@ class RandomteamsController extends AppController {
                         AND
                     PlayersToSeasons.haspaid = 1 AND
                 PlayersToTeams.player_id IS NULL");
-
-               /* if (count($players) > 0) {
+                
+                $teams = $this->Team->find('all',array(
+                    'conditions' => array(
+                        'Team.division_id' => $div[Divisions][division_id],
+                        'Team.active' => 1
+                    )
+                ));
+                if (count($players) > 0) {
                     $player = array();
                     foreach ($players AS $pl) {
                         $player[] = array(
@@ -76,20 +82,20 @@ class RandomteamsController extends AppController {
                     array_multisort($tmp,SORT_DESC, $player); 
                     $divisions[$k][Divisions]['players'] = $player;
                     
-                    $teams = shuffle($div[Team]);
+                    $teams = shuffle($teams);
                     if($teams){
-                        $total = count($div[Team]);
+                        $total = count($teams);
                         $i=0;
                         foreach ($player AS $p){
-                            $div['Team'][$i]['players'][] = $p;
+                            $teams[$i]['players'][] = $p;
                             $i++;
                             if($i==($total)){
                                 $i=0;
                             }
                         }
-                        $divisions[$k][Divisions]['teams'] = $div[Team];
+                        $divisions[$k][Divisions]['teams'] = $teams;
                     }
-                }*/
+                }
             }
         }
         $data = array(
