@@ -26,8 +26,8 @@
                         foreach ($division AS $div) {
                             echo '<tr>';
                             echo '<td>';
-                            echo '<h2>' . $div[Division]['name'] . '</h2>';
-                            echo '<ol id="div_' . $div[Division][division_id] . '" class="droppable teamcontainer">';
+                            echo '<h2>' . $div[Divisions]['name'] . '</h2>';
+                            echo '<ol id="div_' . $div[Divisions][division_id] . '" class="droppable teamcontainer">';
                             if(is_array($div[Players]) && count($div[Players])>0){
                                 foreach($div[Players] AS $play){
                                     echo '<li id="player_'.$play[player_id].'">'.$play[firstname].' '.$play['lastname'].'</li>';
