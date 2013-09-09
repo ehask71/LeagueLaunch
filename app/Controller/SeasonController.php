@@ -112,17 +112,27 @@ class SeasonController extends AppController {
         $this->set(compact('player'));
     }
 
-    public function admin_playersNotInSeason() {
-        $this->autoRender = FALSE;
+    public function admin_playersnotinseason($id) {
+	$this->loadModel('Divisions');
         $players = $this->Season->query("SELECT 
-            CONCAT(Players.firstname,' ',Players.lastname) as player_name,
-            CONCAT(Accounts.firstname,' ',Accounts.lastname) as parent_name,
+            Players.player_id,Players.firstname,Players.lastname,Accounts.firstname,Accounts.lastname,
             Accounts.email,Accounts.phone FROM `players` Players
             INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
             LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
-            WHERE Players.site_id = 3 AND PlayersToSeasons.id IS NULL");
-
-        foreach ($players AS $player) {
+            WHERE Players.site_id = ".Configure::read('Settings.site_id')."  AND PlayersToSeasons.season_id != $id 
+	    OR PlayersToSeasons.season_id IS NULL ORDER BY Players.lastname ASC");
+	$division = $this->Divisions->find('all', array(
+            'conditions' => array(
+                'Divisions.site_id' => Configure::read('Settings.site_id'),
+                'Divisions.season_id' => $id,
+		'Divisions.active' => 1
+            )
+        ));
+	
+	$this->set('season_id',$id);
+	$this->set(compact('division'));
+	$this->set(compact('players'));
+	
 
            /* App::uses('CakeEmail', 'Network/Email');
             $email = new CakeEmail();
@@ -138,9 +148,7 @@ class SeasonController extends AppController {
                     ->emailFormat('text')
                     ->viewVars(array('player' => $player,'leaguename'=>Configure::read('Settings.leaguename')))
                     ->send();*/
-        }
-        echo '<pre>';
-        print_r($players);
+ 
     }
 
 }
