@@ -124,7 +124,7 @@ class SeasonController extends AppController {
 	$division = $this->Divisions->find('first', array(
             'conditions' => array(
                 'Divisions.site_id' => Configure::read('Settings.site_id'),
-                'Divisions.season_id' => $season
+                'Divisions.season_id' => $id
             )
         ));
 	
