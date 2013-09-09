@@ -53,7 +53,7 @@
                     ?>
                 </table>
                 <pre>
-                    <?php //print_r($divisions);?>
+                    <?php print_r($divisions);?>
                 </pre>
             </div>
         </div>
