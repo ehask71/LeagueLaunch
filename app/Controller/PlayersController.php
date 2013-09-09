@@ -21,6 +21,26 @@ class PlayersController extends AppController {
         $this->set('title_for_layout','Manage Players');
     }
     
+    public function admin_notinseason(){
+	$sql = "SELECT 
+		    Players.player_id,Players.firstname,Players.lastname,
+		    Accounts.firstname,
+		    Accounts.lastname,
+		    Accounts.email,Accounts.phone 
+		FROM 
+		    `players` Players 
+		    INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
+		    LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
+		WHERE 
+		    Players.site_id = ".Configure::read('Settings.site_id')." AND 
+		    PlayersToSeasons.id IS NULL";
+	$players = $this->Season->query($sql);
+	$seasons = $this->Season->getActiveSeasons();
+        
+        $this->set(compact('seasons'));
+	$this->set(compact('players'));
+    }
+    
     public function admin_division($div,$season){
         $this->loadModel('PlayersToSeasons');
         if ($this->request->is('post')) {
