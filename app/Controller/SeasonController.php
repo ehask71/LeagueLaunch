@@ -134,7 +134,7 @@ class SeasonController extends AppController {
                     ->to($player[Accounts]['email'])
                     ->subject(Configure::read('Settings.leaguename') . ' Fall Ball Inquiry')
                     ->template('player_not_in_league')
-                    ->theme(Configure::read('Settings.theme'))
+                    ->theme('admin')
                     ->emailFormat('text')
                     ->viewVars(array('player' => $player,'leaguename'=>Configure::read('Settings.leaguename')))
                     ->send();
