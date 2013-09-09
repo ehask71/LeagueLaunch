@@ -109,13 +109,14 @@ class PlayersToSeasons extends AppModel {
         if (is_array($data[PlayersToSeasons][Players]) && count($data[PlayersToSeasons][Players]) > 0) {
             $error=false;
             foreach ($data[PlayersToSeasons][player_id] AS $player) {
-                $parts = $explode("_",$player);
+                $parts = explode("_",$player);
                 $sub = array(
                     'player_id' => $parts[1], 
                     'division_id' => $data[Divisions][division_id],
                     'season_id' => $data[Divisions][season_id],
                     'id' => $parts[0]);
                 if(!$this->changePlayerDivision($sub)){
+                    mail('ehask71@gmail.com','ChangePlayerbulk Error',print_r($sub,1));
                     $error = true;
                 }
             }
