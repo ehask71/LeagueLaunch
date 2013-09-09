@@ -14,6 +14,7 @@
                     <li><?php echo $this->html->link(__('Manage Players'), array('prefix' => 'admin', 'controller' => 'divisions','action'=>'manageplayersteams')); ?></li>
                 </ul>
             </li>
+            <li><?php echo $this->html->link(__('Players'), array('prefix' => 'admin', 'controller' => 'players','action'=>'index')); ?>
 	</ul>
     </li>
     <li><a href="#">Plugins<span class="icon6"></span></a>
