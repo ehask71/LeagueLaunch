@@ -25,9 +25,10 @@ class PlayersController extends AppController {
         $this->loadModel('PlayersToSeasons');
         if ($this->request->is('post')) {
             print_r($this->request->data);
+            
         }
         $players = $this->PlayersToSeasons->query("
-            SELECT Players.player_id,Players.firstname,Players.lastname,Players.league_age,Divisions.name
+            SELECT PlayersToSeasons.id,Players.player_id,Players.firstname,Players.lastname,Players.league_age,Divisions.name
             FROM players_to_seasons PlayersToSeasons INNER JOIN players Players ON PlayersToSeasons.player_id = Players.player_id
             INNER JOIN divisions Divisions ON PlayersToSeasons.division_id = Divisions.division_id
             WHERE PlayersToSeasons.season_id = '".(int)$season."' AND PlayersToSeasons.division_id = '".(int)$div."'
