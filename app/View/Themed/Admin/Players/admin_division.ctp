@@ -7,7 +7,10 @@
         </h2>
         <div class="block">
             <div class="block_in">
+                <p>This will allow you to move players to a new division. This will remove the player from any team he or she is currently a player in</p>
                 <form action="/admin/players/division/<?=$div;?>/<?=$season;?>" method="POST" onsubmit="return checkDivision();">
+                    <input type="hidden" name="data[Divisions][current_division]" value="<?=$div;?>"/>
+                    <input type="hidden" name="data[Divisions][season_id]" value="<?=$season;?>"/>
                 <table>
                     <thead>
                         <th>&nbsp</th>
@@ -31,6 +34,8 @@
                             echo '<td colspan="3"><select name="data[Divisions][division_id]" id="division_id">';
                             echo '<option value="">Please Select</option>';
                             foreach ($divisions AS $k=>$v){
+                                if($k==0)
+                                    continue;
                                 echo '<option value="'.$k.'">'.$v.'</option>';
                             }
                             echo '</select>';
