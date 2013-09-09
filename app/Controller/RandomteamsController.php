@@ -35,7 +35,7 @@ class RandomteamsController extends AppController {
             ))
                 ));
         mail('ehask71@gmail.com','Divisions',print_r($divisions,1));
-        $sql = "SELECT Divisions.* FROM divisions Divisions 
+        $sql = "SELECT Divisions.*,Team.* FROM divisions Divisions 
             LEFT JOIN teams Team ON Divisions.division_id = Team.division_id 
             WHERE Divisions.active = 1 AND Divisions.site_id = ".Configure::read('Settings.site_id')."
             AND Divisions.season_id = '".$id."'
