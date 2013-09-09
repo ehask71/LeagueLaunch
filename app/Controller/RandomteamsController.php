@@ -59,7 +59,7 @@ class RandomteamsController extends AppController {
                     PlayersToSeasons.haspaid = 1 AND
                 PlayersToTeams.player_id IS NULL");
 
-                if (count($players) > 0) {
+               /* if (count($players) > 0) {
                     $player = array();
                     foreach ($players AS $pl) {
                         $player[] = array(
@@ -81,7 +81,7 @@ class RandomteamsController extends AppController {
                         $total = count($div[Team]);
                         $i=0;
                         foreach ($player AS $p){
-                            $div[Team][$i]['players'][] = $p;
+                            $div['Team'][$i]['players'][] = $p;
                             $i++;
                             if($i==($total)){
                                 $i=0;
@@ -89,7 +89,7 @@ class RandomteamsController extends AppController {
                         }
                         $divisions[$k][Divisions]['teams'] = $div[Team];
                     }
-                }
+                }*/
             }
         }
         $data = array(
