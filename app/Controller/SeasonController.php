@@ -124,7 +124,7 @@ class SeasonController extends AppController {
 
         foreach ($players AS $player) {
 
-            App::uses('CakeEmail', 'Network/Email');
+           /* App::uses('CakeEmail', 'Network/Email');
             $email = new CakeEmail();
             $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
                     ->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
@@ -137,7 +137,7 @@ class SeasonController extends AppController {
                     ->theme('admin')
                     ->emailFormat('text')
                     ->viewVars(array('player' => $player,'leaguename'=>Configure::read('Settings.leaguename')))
-                    ->send();
+                    ->send();*/
         }
         echo '<pre>';
         print_r($players);
