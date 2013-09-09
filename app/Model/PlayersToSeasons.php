@@ -120,6 +120,10 @@ class PlayersToSeasons extends AppModel {
                     $error = true;
                 }
             }
+            if($error){
+                return false;
+            } 
+            return true;
         }
     }
 
