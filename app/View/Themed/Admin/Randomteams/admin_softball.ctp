@@ -8,6 +8,9 @@
         <div class="block">
             <div class="block_in">
                 <table>
+                    <tr>
+                        <td colspan="100"><a href="/admin/randomteams/softball/makelive/<?=$id;?>/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button green">Commit To Live</a></td>
+                    </tr>
                     <?php
                     if (count($divisions) > 0) {
                         foreach ($divisions AS $div) {
@@ -52,9 +55,6 @@
                     }
                     ?>
                 </table>
-                <pre>
-                    <?php print_r($divisions);?>
-                </pre>
             </div>
         </div>
     </div>
