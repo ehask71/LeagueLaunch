@@ -8,7 +8,7 @@
         <div class="block">
             <div class="block_in">
                 <p>This will allow you to move players to a new division. This will remove the player from any team he or she is currently a player in</p>
-                <form action="/admin/players/division/<?=$div;?>/<?=$season;?>" method="POST" onsubmit="return checkDivision();">
+                <form action="/admin/players/division/<?=$div;?>/<?=$season;?>" method="POST" id="manageplayers" onsubmit="return checkDivision();">
                     <input type="hidden" name="data[Divisions][current_division]" value="<?=$div;?>"/>
                     <input type="hidden" name="data[Divisions][season_id]" value="<?=$season;?>"/>
                 <table>
@@ -59,6 +59,10 @@
 </div>
 <script type="text/javascript">
 function checkDivision(){
+    if(!$('#manageplayers input[type="checkbox"]').is(':checked')){
+      alert("Please check at least one.");
+      return false;
+    }
     if($('#division_id').val() == ''){
         alert('You Need To Select A New Division!');
         return false;
