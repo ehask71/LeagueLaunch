@@ -60,6 +60,7 @@
 <script type="text/javascript">
 function checkDivision(){
     if($('#division_id').val() == ''){
+        alert('You Need To Select A New Division!');
         return false;
     }
 }
