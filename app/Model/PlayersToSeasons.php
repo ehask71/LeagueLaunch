@@ -92,38 +92,41 @@ class PlayersToSeasons extends AppModel {
     }
 
     public function changePlayerDivision($data) {
-        $res = $this->query("UPDATE players_to_seasons SET
-            division_id = '".(int)$data[division_id]."'
-            WHERE id = '".(int)$data[id]."' AND season_id='".(int)$data['season_id']."' AND 
-                player_id = '".$data[player_id]."' AND site_id = '".Configure::read('Settings.site_id')."'");
-        mail('ehask71@gmail.com','ChangePlayerbulk Error',print_r($res,1));
-        if($res){
-            $this->query("DELETE FROM players_to_teams WHERE player_id = '".(int)$data[player_id]."' AND season_id = '".(int)$data['season_id']."'
-                 AND site_id = '".Configure::read('Settings.site_id')."'");
-            
+        set_error_handler(array($this, 'handleError'));
+        try {
+            $res = $this->query("UPDATE players_to_seasons SET
+            division_id = '" . (int) $data[division_id] . "'
+            WHERE id = '" . (int) $data[id] . "' AND season_id='" . (int) $data['season_id'] . "' AND 
+                player_id = '" . $data[player_id] . "' AND site_id = '" . Configure::read('Settings.site_id') . "'");
+
+            $this->query("DELETE FROM players_to_teams WHERE player_id = '" . (int) $data[player_id] . "' AND season_id = '" . (int) $data['season_id'] . "'
+                 AND site_id = '" . Configure::read('Settings.site_id') . "'");
+
             return true;
+        } catch (exception $ex) {
+            mail('ehask71@gmail.com', 'ChangePlayer Error', $ex);
+            return false;
         }
-        return false;
     }
 
     public function changePlayerDivisionBulk($data) {
         if (is_array($data[PlayersToSeasons][player_id]) && count($data[PlayersToSeasons][player_id]) > 0) {
-            $error=false;
+            $error = false;
             foreach ($data[PlayersToSeasons][player_id] AS $player) {
-                $parts = explode("_",$player);
+                $parts = explode("_", $player);
                 $sub = array(
-                    'player_id' => $parts[1], 
+                    'player_id' => $parts[1],
                     'division_id' => $data[Divisions][division_id],
                     'season_id' => $data[Divisions][season_id],
                     'id' => $parts[0]);
-                if(!$this->changePlayerDivision($sub)){
-                    mail('ehask71@gmail.com','ChangePlayerbulk Error',print_r($sub,1));
+                if (!$this->changePlayerDivision($sub)) {
+                    mail('ehask71@gmail.com', 'ChangePlayerbulk Error', print_r($sub, 1));
                     $error = true;
                 }
             }
-            if($error){
+            if ($error) {
                 return false;
-            } 
+            }
             return true;
         }
     }
