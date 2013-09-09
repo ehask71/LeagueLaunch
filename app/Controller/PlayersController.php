@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class PlayersController extends AppController {
     
     public $name = 'Players';
-    public $uses = array('Season','Divisions');
+    public $uses = array('Players','Season','Divisions');
     
     public function beforeFilter() {
 	parent::beforeFilter();
@@ -64,6 +64,17 @@ class PlayersController extends AppController {
         $this->set('season',$season);
         $this->set('divisions',$this->Divisions->getDivisionsDropdown());
         $this->set(compact('players'));
+    }
+    
+    public function admin_list(){
+	$options = array(
+	    'conditions' => array(
+		'Players.site_id' => Configure::read('Settings.site_id')
+	    )
+	);
+	
+	
+	$players = $this->Players->find('all',$options);
     }
 }
 
