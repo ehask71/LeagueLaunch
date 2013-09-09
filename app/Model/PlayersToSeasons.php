@@ -92,7 +92,17 @@ class PlayersToSeasons extends AppModel {
     }
 
     public function changePlayerDivision($data) {
-        
+        $res = $this->query("UPDATE players_to_seasons SET
+            division_id = '".(int)$data[division_id]."'
+            WHERE id = '".(int)$data[id]."' AND season_id='".(int)$data['season_id']."' AND 
+                player_id = '".$data[player_id]."' AND site_id = '".Configure::read('Settings.site_id')."'");
+        if($res){
+            $this->query("DELETE FROM players_to_teams WHERE player_id = '".(int)$data[player_id]."' AND season_id = '".(int)$data['season_id']."'
+                 AND site_id = '".Configure::read('Settings.site_id')."'");
+            
+            return true;
+        }
+        return false;
     }
 
     public function changePlayerDivisionBulk($data) {
@@ -104,7 +114,9 @@ class PlayersToSeasons extends AppModel {
                     'division_id' => $data[Divisions][division_id],
                     'season_id' => $data[Divisions][season_id],
                     'id' => $parts[0]);
-                $this->changePlayerDivision($sub);
+                if(!$this->changePlayerDivision($sub)){
+                    return FALSE;
+                }
             }
         }
     }
