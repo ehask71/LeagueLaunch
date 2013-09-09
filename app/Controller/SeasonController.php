@@ -121,7 +121,7 @@ class SeasonController extends AppController {
             INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
             LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
             WHERE Players.site_id = 3 AND PlayersToSeasons.id IS NULL");
-        
+        echo '<pre>';
         print_r($players);
         
     }
