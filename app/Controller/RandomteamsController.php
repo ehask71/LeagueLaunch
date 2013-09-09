@@ -35,7 +35,7 @@ class RandomteamsController extends AppController {
             ))
                 ));
         //mail('ehask71@gmail.com','Divisions',print_r($divisions,1));
-        /*$sql = "SELECT Divisions.*,Team.* FROM divisions Divisions 
+       /* $sql = "SELECT Divisions.*,Team.* FROM divisions Divisions 
             LEFT JOIN teams Team ON Divisions.division_id = Team.division_id 
             WHERE Divisions.active = 1 AND Divisions.site_id = ".Configure::read('Settings.site_id')."
             AND Divisions.season_id = '".$id."'
@@ -82,18 +82,18 @@ class RandomteamsController extends AppController {
                     array_multisort($tmp,SORT_DESC, $player); 
                     $divisions[$k][Divisions]['players'] = $player;
                     
-                    $teams = shuffle($teams);
+                    $teams = shuffle($div[Team]);
                     if($teams){
-                        $total = count($teams);
+                        $total = count($div[Team]);
                         $i=0;
                         foreach ($player AS $p){
-                            $teams[$i]['players'][] = $p;
+                            $div['Team'][$i]['players'][] = $p;
                             $i++;
                             if($i==($total)){
                                 $i=0;
                             }
                         }
-                        $divisions[$k][Divisions]['teams'] = $teams;
+                        $divisions[$k][Divisions]['teams'] = $div[Team];
                     }
                 }
             }
