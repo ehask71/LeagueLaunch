@@ -61,7 +61,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    var season_id = '<?php echo $division[Divisions][season_id]; ?>';
+    var season_id = '<?php echo $season_id; ?>';
     $(document).ready(function(){
         $(".players li").draggable({	
             cursor: 'hand',
@@ -94,9 +94,9 @@
             event.preventDefault();
             var ser = $('.droppable').serial();
             var se = (ser.length != 0)?'&season_id='+season_id:'';
-            $.post("/admin/divisions/updateteams", ser + se, function (data) {
+            /*$.post("/admin/divisions/updateteams", ser + se, function (data) {
                     console.log(data);
-            });
+            });*/
             
         });
     });
