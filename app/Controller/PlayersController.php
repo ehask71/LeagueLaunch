@@ -24,12 +24,13 @@ class PlayersController extends AppController {
     public function admin_division($div,$season){
         $this->loadModel('PlayersToSeasons');
         if ($this->request->is('post')) {
-            print_r($this->request->data);
+            //print_r($this->request->data);
             if($this->PlayersToSeasons->changePlayerDivisionBulk($this->request->data)){
-                $this->Session->setFlash(__('Players Moved Successfully'),'alerts/success');
+                $this->Session->setFlash(__('Players Moved Successfully'),'default', array('class' => 'alert succes_msg'));
                 $this->redirect('/admin/players');
             }
-            $this->Session->setFlash(__('There was a problem moving players '),'alerts/error');
+            $this->Session->setFlash(__('There was a problem moving players '), 'default', array('class' => 'alert error_msg'));
+            //$this->redirect('/admin/players/division/'.$div.'/'.$season);
         }
         $players = $this->PlayersToSeasons->query("
             SELECT PlayersToSeasons.id,Players.player_id,Players.firstname,Players.lastname,Players.league_age,Divisions.name
