@@ -129,6 +129,7 @@ class SeasonController extends AppController {
             )
         ));
 	
+	$this->set('season_id',$id);
 	$this->set(compact('division'));
 	$this->set(compact('players'));
 	
