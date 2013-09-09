@@ -9,7 +9,7 @@ App::uses('AppModel', 'Model');
 class PlayersToSeasons extends AppModel {
 
     public $primaryKey = 'id';
-    public $actsAs = array('Toggleable' => array('fields'=>array('haspaid'=>array(0,1),'formcomplete'=>array(0,1),'verifydocs'=>array(0,1))));
+    public $actsAs = array('Toggleable' => array('fields' => array('haspaid' => array(0, 1), 'formcomplete' => array(0, 1), 'verifydocs' => array(0, 1))));
     public $useTable = 'players_to_seasons';
     public $hasMany = array(
         'Players' => array(
@@ -79,16 +79,35 @@ class PlayersToSeasons extends AppModel {
         }
         return false;
     }
-    
-    public function getSeasonTotals($id){
-	$totals = $this->query("
+
+    public function getSeasonTotals($id) {
+        $totals = $this->query("
 	    SELECT season_id,
 	    (SELECT COUNT(*) FROM players_to_seasons WHERE season_id = '$id' AND haspaid = 1) AS haspaid,
             (SELECT COUNT(*) FROM players_to_seasons WHERE season_id = '$id' AND haspaid = 0) AS notpaid,
 	    (SELECT COUNT(*) FROM players_to_seasons WHERE season_id = '$id' ) AS total
 		FROM players_to_seasons WHERE 1 LIMIT 1");
-	
-	return $totals;
+
+        return $totals;
     }
+
+    public function changePlayerDivision($data) {
+        
+    }
+
+    public function changePlayerDivisionBulk($data) {
+        if (is_array($data[PlayersToSeasons][Players]) && count($data[PlayersToSeasons][Players]) > 0) {
+            foreach ($data[PlayersToSeasons][player_id] AS $player) {
+                $parts = $explode("_",$player);
+                $sub = array(
+                    'player_id' => $parts[1], 
+                    'division_id' => $data[Divisions][division_id],
+                    'season_id' => $data[Divisions][season_id],
+                    'id' => $parts[0]);
+                $this->changePlayerDivision($sub);
+            }
+        }
+    }
+
 }
 
