@@ -124,7 +124,11 @@ class RandomteamsController extends AppController {
             )
         ));
         
-        mail('ehask71@gmail.com','generate',print_r($teams,1));
+        if(is_array($teams[RandomTeamPicks])){
+            $data = unserialize($teams[RandomTeamPicks][data]);
+            mail('ehask71@gmail.com','generate',print_r($data,1));
+        }   
+
         $this->redirect('/admin/randomteams');
     }
 
