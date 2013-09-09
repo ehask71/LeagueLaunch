@@ -96,6 +96,7 @@ class PlayersToSeasons extends AppModel {
             division_id = '".(int)$data[division_id]."'
             WHERE id = '".(int)$data[id]."' AND season_id='".(int)$data['season_id']."' AND 
                 player_id = '".$data[player_id]."' AND site_id = '".Configure::read('Settings.site_id')."'");
+        mail('ehask71@gmail.com','ChangePlayerbulk Error',print_r($res,1));
         if($res){
             $this->query("DELETE FROM players_to_teams WHERE player_id = '".(int)$data[player_id]."' AND season_id = '".(int)$data['season_id']."'
                  AND site_id = '".Configure::read('Settings.site_id')."'");
