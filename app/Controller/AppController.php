@@ -24,17 +24,17 @@ class AppController extends Controller {
                     'recursive' => 1,
                 //'contain' => array('RolesUser')
             )),
-            'flash' => array('key'=>'auth','element'=>'alerts/error'),
+            'flash' => array('key' => 'auth', 'element' => 'alerts/error'),
             'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'account', 'action' => 'login'),
             'loginAction' => '/login',
         )
     );
-    
-    public function canUploadMedias($model, $id){
+
+    public function canUploadMedias($model, $id) {
         return true;
     }
-    
+
     public function beforeFilter() {
         //mail('ehask71@gmail.com','Test BF',print_r($this->params['controller'],1));
 
@@ -137,8 +137,8 @@ class AppController extends Controller {
             $this->loadModel('Order');
             // Status 2 = Paid :-)
             $status = 2;
-            $this->Order->updateOrderStatus($transaction['InstantPaymentNotification']['invoice'],$status);
-            mail('ehask71@gmail.com','PayPal IPN',print_r($transaction,1));
+            $this->Order->updateOrderStatus($transaction['InstantPaymentNotification']['invoice'], $status);
+            mail('ehask71@gmail.com', 'PayPal IPN', print_r($transaction, 1));
             $IPN->email(array(
                 'id' => $txnId,
                 'message' => 'Thank you for your payment'
@@ -150,6 +150,15 @@ class AppController extends Controller {
                 'message' => 'Your transaction was declined.'
             ));
         }
+    }
+
+    function handleError($code, $description, $file = null, $line = null, $context = null) {
+        if (error_reporting() == 0 || $code === 2048 || $code === 8192) {
+            return;
+        }
+
+        // throw error for further handling
+        throw new exception(strip_tags($description));
     }
 
 }
