@@ -92,7 +92,7 @@ class PlayersToSeasons extends AppModel {
     }
 
     public function changePlayerDivision($data) {
-        set_error_handler(array($this, 'handleError'));
+        //
         try {
             $res = $this->query("UPDATE players_to_seasons SET
             division_id = '" . (int) $data[division_id] . "'
