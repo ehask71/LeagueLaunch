@@ -78,8 +78,8 @@ class SeasonController extends AppController {
     public function admin_view($id) {
         $this->loadModel('PlayersToSeasons');
         if ($this->request->is('post')) {
-            if($this->request->data['PlayerToSeasons']['action'] == 'toggle'){
-                $this->PlayersToSeasons->toggle($this->request->data['PlayerToSeasons']['id'],$this->request->data['PlayerToSeasons']['field']);
+            if ($this->request->data['PlayerToSeasons']['action'] == 'toggle') {
+                $this->PlayersToSeasons->toggle($this->request->data['PlayerToSeasons']['id'], $this->request->data['PlayerToSeasons']['field']);
             }
         }
         $season = $this->Season->find('first', array(
@@ -89,10 +89,10 @@ class SeasonController extends AppController {
                 'Season.site_id' => Configure::read('Settings.site_id')
             )
                 ));
-	$season_total = $this->PlayersToSeasons->getSeasonTotals($id);
+        $season_total = $this->PlayersToSeasons->getSeasonTotals($id);
         $players = $this->PlayersToSeasons->getPlayersToSeason($id);
-	
-	$this->set(compact('season_total'));
+
+        $this->set(compact('season_total'));
         $this->set(compact('players'));
         $this->set(compact('season'));
     }
@@ -108,11 +108,11 @@ class SeasonController extends AppController {
                 'PlayersToSeasons.site_id' => Configure::read('Settings.site_id')
             )
                 ));
-        
+
         $this->set(compact('player'));
     }
-    
-    public function playersNotInSeason(){
+
+    public function admin_playersNotInSeason() {
         $this->autoRender = FALSE;
         $players = $this->Season->query("SELECT 
             CONCAT(Players.firstname,' ',Players.lastname) as player_name,
@@ -121,9 +121,26 @@ class SeasonController extends AppController {
             INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
             LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
             WHERE Players.site_id = 3 AND PlayersToSeasons.id IS NULL");
+
+        foreach ($players AS $player) {
+
+            App::uses('CakeEmail', 'Network/Email');
+            $email = new CakeEmail();
+            $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
+                    ->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
+                    ->sender(Configure::read('Settings.admin_email'))
+                    ->replyTo(Configure::read('playeragentebll@gmail.com'))
+                    ->bcc(Configure::read('Settings.admin_email'))
+                    ->to($player[Accounts]['email'])
+                    ->subject(Configure::read('Settings.leaguename') . ' Fall Ball Inquiry')
+                    ->template('player_not_in_league')
+                    ->theme(Configure::read('Settings.theme'))
+                    ->emailFormat('text')
+                    ->viewVars(array('player' => $player,'leaguename'=>Configure::read('Settings.leaguename')))
+                    ->send();
+        }
         echo '<pre>';
         print_r($players);
-        
     }
 
 }
