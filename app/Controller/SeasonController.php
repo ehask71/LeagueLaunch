@@ -115,7 +115,7 @@ class SeasonController extends AppController {
     public function admin_playersnotinseason($id) {
 	$this->loadModel('Divisions');
         $players = $this->Season->query("SELECT 
-            Players.firstname,Players.lastname,Accounts.firstname,Accounts.lastname,
+            Players.player_id,Players.firstname,Players.lastname,Accounts.firstname,Accounts.lastname,
             Accounts.email,Accounts.phone FROM `players` Players
             INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
             LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
