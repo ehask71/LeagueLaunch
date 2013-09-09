@@ -156,7 +156,6 @@ class AppController extends Controller {
         if (error_reporting() == 0 || $code === 2048 || $code === 8192) {
             return;
         }
-
         // throw error for further handling
         throw new exception(strip_tags($description));
     }
