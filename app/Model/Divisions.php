@@ -10,7 +10,6 @@ class Divisions extends AppModel {
         'Team' => array(
 	    'className' => 'Team',
 	    'foreignKey' => 'division_id',
-	    'dependant' => true
 	)
     );
 
