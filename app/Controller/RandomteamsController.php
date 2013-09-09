@@ -109,8 +109,9 @@ class RandomteamsController extends AppController {
         }
         if($this->RandomTeamPicks->save($data)){
             $this->Session->setFlash(__('Random Pick Stored'), 'default', array('class' => 'alert succes_msg'));
-            $rand = $this->RandomTeamPicks->getLastInsertId();
+            $randdb = $this->RandomTeamPicks->getLastInsertId();
         }
+        $rand = ($randdb)?$randdb:$rand;
         $this->set('season_id',$id);
         $this->set('rand',$rand);
         $this->set(compact('divisions'));
