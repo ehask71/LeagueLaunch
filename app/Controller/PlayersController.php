@@ -23,14 +23,9 @@ class PlayersController extends AppController {
     
     public function admin_division($div,$season){
         $this->loadModel('PlayersToSeasons');
-        /*$players = $this->PlayersToSeasons->find('all',array(
-            'conditions' => array(
-                'PlayersToSeasons.division_id' => $div,
-                'PlayersToSeasons.haspaid' => 1,
-                'PlayersToSeasons.season_id' => $season,
-                'PlayersToSeasons.site_id' => Configure::read('Settings.site_id')
-            )
-        ));*/
+        if ($this->request->is('post')) {
+            print_r($this->request->data);
+        }
         $players = $this->PlayersToSeasons->query("
             SELECT Players.player_id,Players.firstname,Players.lastname,Players.league_age,Divisions.name
             FROM players_to_seasons PlayersToSeasons INNER JOIN players Players ON PlayersToSeasons.player_id = Players.player_id
