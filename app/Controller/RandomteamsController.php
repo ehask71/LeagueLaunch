@@ -22,7 +22,7 @@ class RandomteamsController extends AppController {
         
     }
     
-    public function admin_softball(){
+    public function admin_softball($id,$rand=FALSE){
         $divisions = $this->Divisions->find('all', array(
             'conditions' => array(
                 'Divisions.active' => 1,
@@ -84,9 +84,20 @@ class RandomteamsController extends AppController {
                 }
             }
         }
-        
-        $this->
-        
+        $data = array(
+            'site_id' => Configure::read('Settings.site_id'),
+            'season_id' => $id,
+            'key' => 'softball',
+            'data' => serialize($divisions)
+        );
+        if($rand){
+            $data['id'] = $rand;
+        }
+        if($this->RandomTeamPicks->save($data)){
+            $this->Session->setFlash(__('Random Pick Stored'), 'default', array('class' => 'alert succes_msg'));
+            $rand = $this->RandomTeamPicks->getLastInsertId();
+        }
+        $this->set('rand',$rand);
         $this->set(compact('divisions'));
     }
     
