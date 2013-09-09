@@ -128,7 +128,7 @@ class SeasonController extends AppController {
             $email = new CakeEmail();
             $email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
                     ->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
-                    ->sender(Configure::read('Settings.admin_email'))
+                    ->sender(Configure::read('playeragentebll@gmail.com'))
                     ->replyTo(Configure::read('playeragentebll@gmail.com'))
                     ->bcc(Configure::read('Settings.admin_email'))
                     ->to($player[Accounts]['email'])
