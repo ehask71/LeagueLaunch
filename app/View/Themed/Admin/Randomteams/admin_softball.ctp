@@ -9,7 +9,7 @@
             <div class="block_in">
                 <table>
                     <tr>
-                        <td colspan="100"><a href="/admin/randomteams/softball/generate/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button green">Commit To Live</a>
+                        <td colspan="100"><a href="/admin/randomteams/generate/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button green">Commit To Live</a>
                          Click Here Commit Players To Teams</td>
                     </tr>
                     <?php
