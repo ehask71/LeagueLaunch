@@ -138,14 +138,15 @@ class RandomteamsController extends AppController {
                                     'player_id' => $player[player_id],
                                     'team_id' => $team[team_id]
                                 );
-                                $this->PlayersToTeams->save($d);
+                                mail('ehask71@gmail.com','generate',print_r($d,1));
+                                //$this->PlayersToTeams->save($d);
                             }
                         }
                     }
                 }
             }
             
-            mail('ehask71@gmail.com','generate',print_r($data,1));
+            //mail('ehask71@gmail.com','generate',print_r($data,1));
         }   
 
         $this->redirect('/admin/randomteams');
