@@ -7,11 +7,12 @@
 App::uses('AppModel', 'Model');
 
 class PlayersToTeams extends AppModel {
-
+    
     public $name = 'PlayerstoTeams';
     public $primaryKey = 'id';
     public $useTable = 'players_to_teams';
-
+    public $belongsTo = array('Team','Players');
+    
     public function updateTeamsAjax($data, $season) {
         if (is_array($data) && count($data) > 0) {
             foreach ($data AS $k => $v) {
