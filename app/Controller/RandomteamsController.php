@@ -56,6 +56,7 @@ class RandomteamsController extends AppController {
                 $teams = $this->Team->find('all', array(
                     'conditions' => array(
                         'Team.division_id' => $div[Divisions][division_id],
+                        'Team.site_id' => Configure::read('Settings.site_id'),
                         'Team.active' => 1
                     )
                         ));
