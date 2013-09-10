@@ -15,6 +15,7 @@ class Team extends AppModel {
             'foreignKey' => 'division_id'
         )
     );
+    
     public $hasMany = array(
         'PlayersToTeams' => array(
             'className' => 'PlayersToTeams',
@@ -43,5 +44,15 @@ class Team extends AppModel {
     
     public function getSiteTeams(){
 	
+    }
+    
+    public function getTeam($id){
+        $team = $this->find('first',array(
+            'conditions' => array(
+                'Team.site_id' => Configure::read('Settings.site_id'),
+                'Team.team_id' => $id)
+        ));
+        
+        return $team;
     }
 }
