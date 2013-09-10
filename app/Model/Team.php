@@ -55,4 +55,19 @@ class Team extends AppModel {
         
         return $team;
     }
+    
+    public function getTeamPlayers($id){
+        
+        $sql = "SELECT Players.*,Account.* 
+            FROM players_to_teams PlayersToTeams
+            INNER JOIN players Players ON PlayersToTeams.player_id = Players.player_id
+            INNER JOIN accounts Accounts ON Players.user_id = Accounts.id
+            WHERE
+                PlayersToTeams.site_id = '".Configure::read('Settings.site_id')."'
+                    AND
+                PlayersToTeams.team_id = '".$id."'";
+        $players = $this->query($sql);
+        
+        return $players;
+    }
 }
