@@ -44,10 +44,10 @@ class RandomteamsController extends AppController {
                 PlayersToTeams.player_id IS NULL");
 
                 $teams = $this->Team->find('all', array(
+                    'recursive' => -1,
                     'conditions' => array(
                         'Team.division_id' => $div[Divisions][division_id],
                         'Team.active' => 1,
-                        'recursive' => -1
                     )
                         ));
                 mail('ehask71@gmail.com','Teams',print_r($teams,1));
