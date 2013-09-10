@@ -224,7 +224,7 @@ class RandomteamsController extends AppController {
                                 );
                                 mail('ehask71@gmail.com', 'generate', print_r($d, 1));
                                 if($this->PlayersToTeams->save($d)){
-                                    
+                                    mail('ehask71@gmail.com', 'Insert',$this->PlayersToTeams->getLastInsertID() );
                                 } else {
                                     mail('ehask71@gmail.com', 'generate error', print_r($d, 1));
                                 }
