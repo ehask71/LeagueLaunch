@@ -117,6 +117,14 @@ class SeasonController extends AppController {
                     'Team.active' => 1
             ))
                 ));
+        /*if(count($divisions)>0){
+            foreach($divisions AS $div){
+                if(count($div[Team])>0){
+                    foreach($div[Team] AS $team)
+                }
+            }
+        }*/
+        
         
         $this->set(compact('divisions'));
         $this->set(compact('season'));
