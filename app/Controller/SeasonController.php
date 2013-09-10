@@ -123,7 +123,7 @@ class SeasonController extends AppController {
             foreach($divisions AS $div){
                 if(count($div[Team])>0){
                     foreach($div[Team] AS $k => $team){
-                        $divisions[$i][Team][$k][players] = $this->Team->getTeam($team[team_id]);
+                        $divisions[$i][Team][$k][players] = $this->Team->getTeamPlayers($team[team_id]);
                     }
                 }
                 $i++;
