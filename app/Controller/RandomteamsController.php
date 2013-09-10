@@ -223,6 +223,7 @@ class RandomteamsController extends AppController {
                                         'team_id' => $team[team_id])
                                 );
                                 mail('ehask71@gmail.com', 'generate', print_r($d, 1));
+                                $this->PlayersToTeams->create();
                                 if($this->PlayersToTeams->save($d)){
                                     mail('ehask71@gmail.com', 'Insert',$this->PlayersToTeams->getLastInsertID() );
                                 } else {
