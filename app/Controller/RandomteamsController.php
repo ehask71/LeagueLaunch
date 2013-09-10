@@ -25,6 +25,16 @@ class RandomteamsController extends AppController {
                 'Divisions.site_id' => Configure::read('Settings.site_id'),
                 'Divisions.name NOT LIKE' => '%softball%'
             ),
+            /*'joins' => array(
+                'Team' => array(
+                    'table' => 'team',
+                    'alias' => 'Team',
+                    'type' => 'INNER',
+                    'conditions' => array(
+                        'Team.division_id = Divisions.division_id', 
+                        'Team.active' => 1
+                    )
+            ))*/
                 ));
 
         foreach ($divisions AS $k => $div) {
@@ -44,13 +54,11 @@ class RandomteamsController extends AppController {
                 PlayersToTeams.player_id IS NULL");
 
                 $teams = $this->Team->find('all', array(
-                    'recursive' => -1,
                     'conditions' => array(
                         'Team.division_id' => $div[Divisions][division_id],
-                        'Team.active' => 1,
+                        'Team.active' => 1
                     )
                         ));
-                mail('ehask71@gmail.com','Teams',print_r($teams,1));
                 if (count($players) > 0) {
                     $player = array();
                     foreach ($players AS $pl) {
@@ -67,22 +75,20 @@ class RandomteamsController extends AppController {
                     }
                     array_multisort($tmp, SORT_DESC, $player);
                     $divisions[$k][Divisions]['players'] = $player;
-                    
-                    $team_array = shuffle($teams);
-                    //$teams = shuffle($div[Team]);
-                    $newteams = array();
-                    if ($team_array) {
-                        $total = count($team_array);
+
+                    $teams = shuffle($div[Team]);
+                    if ($teams) {
+                        $total = count($div[Team]);
                         $i = 0;
                         foreach ($player AS $p) {
-                            (array)$team_array[$i][Team]['players'][] = $p;
+                            $div['Team'][$i]['players'][] = $p;
                             $i++;
                             if ($i == ($total)) {
                                 $i = 0;
                             }
                         }
-                        //$divisions[$k][Divisions]['teams'] = $div[Team];
-                        $divisions[$k][Divisions]['teams'] = $team_array;
+                        $divisions[$k][Divisions]['teams'] = $div[Team];
+                        $divisions[$k][Divisions]['baseteams'] = $teams;
                     }
                 }
             }
