@@ -25,21 +25,11 @@ class RandomteamsController extends AppController {
                 'Divisions.site_id' => Configure::read('Settings.site_id'),
                 'Divisions.name NOT LIKE' => '%softball%'
             ),
-            /*'joins' => array(
-                'Team' => array(
-                    'table' => 'team',
-                    'alias' => 'Team',
-                    'type' => 'INNER',
-                    'conditions' => array(
-                        'Team.division_id = Divisions.division_id', 
-                        'Team.active' => 1
-                    )
-            ))*/
                 ));
 
         foreach ($divisions AS $k => $div) {
             if (count($div['Team']) > 0) {
-
+                
                 $players = $this->PlayersToSeasons->query("SELECT 
                     PlayersToSeasons.*,Players.*
                     FROM players_to_seasons PlayersToSeasons 
@@ -88,6 +78,7 @@ class RandomteamsController extends AppController {
                             }
                         }
                         $divisions[$k][Divisions]['teams'] = $div[Team];
+                        $divisions[$k][Divisions]['baseteams'] = $teams;
                     }
                 }
             }
