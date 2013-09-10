@@ -139,7 +139,7 @@ class RandomteamsController extends AppController {
                                     'team_id' => $team[team_id]
                                 );
                                 mail('ehask71@gmail.com','generate',print_r($d,1));
-                                //$this->PlayersToTeams->save($d);
+                                $this->PlayersToTeams->save($d);
                             }
                         }
                     }
@@ -148,7 +148,7 @@ class RandomteamsController extends AppController {
             
             //mail('ehask71@gmail.com','generate',print_r($data,1));
         }   
-
+        $this->Session->setFlash(__('Random Teams Applied'), 'default', array('class' => 'alert succes_msg'));
         $this->redirect('/admin/randomteams');
     }
 
