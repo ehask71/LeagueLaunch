@@ -126,6 +126,7 @@ class SeasonController extends AppController {
                         $divisions[$i][Team][$k][players] = $this->Team->getTeam($team[team_id]);
                     }
                 }
+                $i++;
             }
         }
         
