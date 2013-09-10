@@ -9,8 +9,8 @@
             <div class="block_in">
                 <table>
                     <tr>
-                        <td><a href="/admin/randomteams/softball" class="button green">Softball</a></td>
-                        <td><a href="/admin/randomteams/baseball" class="button green">Baseball</a></td>
+                        <td><a href="/admin/randomteams/softball/3" class="button green">Softball</a></td>
+                        <td><a href="/admin/randomteams/baseball/3" class="button green">Baseball</a></td>
                     </tr>
                 </table>
             </div>
