@@ -38,7 +38,7 @@
                                     $r++;
                                     if ($r == $totalteams) {
                                         if ($i < 4) {
-                                            $remainder = (3 - $i);
+                                            $remainder = (4 - $i);
                                             if($remainder != 0){
                                                 echo '<td colspan="' . $remainder . '"></td>';
                                             }
@@ -59,8 +59,8 @@
                     ?>
                 </table>
                 <pre>
-                <?php print_r($divisions);
-                                        print_r($teams);?>
+                <?php //print_r($divisions);
+                                        //print_r($teams);?>
 </pre>
             </div>
         </div>
