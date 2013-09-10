@@ -18,7 +18,7 @@ class RandomteamsController extends AppController {
         
     }
     
-    public function admin_baseball(){
+    public function admin_baseball($id,$rand=FALSE){
         $divisions = $this->Divisions->find('all', array(
             'conditions' => array(
                 'Divisions.active' => 1,
