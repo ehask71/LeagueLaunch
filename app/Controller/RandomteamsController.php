@@ -66,20 +66,22 @@ class RandomteamsController extends AppController {
                     }
                     array_multisort($tmp, SORT_DESC, $player);
                     $divisions[$k][Divisions]['players'] = $player;
-
-                    $teams = shuffle($div[Team]);
-                    if ($teams) {
-                        $total = count($div[Team]);
+                    
+                    $team_array = shuffle($teams);
+                    //$teams = shuffle($div[Team]);
+                    $newteams = array();
+                    if ($team_array) {
+                        $total = count($team_array);
                         $i = 0;
                         foreach ($player AS $p) {
-                            $div['Team'][$i]['players'][] = $p;
+                            $team_array[$i]['players'][] = $p;
                             $i++;
                             if ($i == ($total)) {
                                 $i = 0;
                             }
                         }
-                        $divisions[$k][Divisions]['teams'] = $div[Team];
-                        $divisions[$k][Divisions]['baseteams'] = $teams;
+                        //$divisions[$k][Divisions]['teams'] = $div[Team];
+                        $divisions[$k][Divisions]['teams'] = $team_array;
                     }
                 }
             }
