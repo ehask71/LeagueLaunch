@@ -105,6 +105,7 @@ class SeasonController extends AppController {
                 'Season.id' => $id
             )
         ));
+        $this->loadModel('Divisions');
         $divisions = $this->Divisions->find('all', array(
             'conditions' => array(
                 'Divisions.active' => 1,
