@@ -89,7 +89,7 @@ class RandomteamsController extends AppController {
         $data = array(
             'site_id' => Configure::read('Settings.site_id'),
             'season_id' => $id,
-            'key' => 'softball',
+            'key' => 'baseball',
             'data' => serialize($divisions)
         );
         if($rand){
