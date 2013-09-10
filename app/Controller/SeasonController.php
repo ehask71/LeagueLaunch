@@ -117,13 +117,17 @@ class SeasonController extends AppController {
                     'Team.active' => 1
             ))
                 ));
-        /*if(count($divisions)>0){
+        if(count($divisions)>0){
+            $this->loadModel('Team');
+            $i=0;
             foreach($divisions AS $div){
                 if(count($div[Team])>0){
-                    foreach($div[Team] AS $team)
+                    foreach($div[Team] AS $k => $team){
+                        $divisions[$i][Team][$k][players] = $this->Team->getTeam($team[team_id]);
+                    }
                 }
             }
-        }*/
+        }
         
         
         $this->set(compact('divisions'));
