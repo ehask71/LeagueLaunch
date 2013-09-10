@@ -25,7 +25,7 @@ class RandomteamsController extends AppController {
                 'Divisions.site_id' => Configure::read('Settings.site_id'),
                 'Divisions.name NOT LIKE' => '%softball%'
             ),
-            'joins' => array(
+            /*'joins' => array(
                 'Team' => array(
                     'table' => 'team',
                     'alias' => 'Team',
@@ -34,7 +34,7 @@ class RandomteamsController extends AppController {
                         'Team.division_id = Divisions.division_id', 
                         'Team.active' => 1
                     )
-            ))
+            ))*/
                 ));
 
         foreach ($divisions AS $k => $div) {
