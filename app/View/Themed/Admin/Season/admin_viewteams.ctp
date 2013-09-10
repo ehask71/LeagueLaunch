@@ -18,9 +18,9 @@
                             <tr>
                                 <td>
                                     <style>
-                                        ul li {float:left; width:22%;} 
+                                        #pseudo-table li {float:left; width:22%;} 
                                     </style>
-                                    <ul>
+                                    <ul class="pseudo-table">
                                         <?php
                                         if (count($div[Team]) > 0) {
                                             foreach ($div[Team] AS $team) {
