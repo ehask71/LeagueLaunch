@@ -25,9 +25,15 @@ class RandomteamsController extends AppController {
                 'Divisions.site_id' => Configure::read('Settings.site_id'),
                 'Divisions.name NOT LIKE' => '%softball%'
             ),
-            'contain' => array(
+            'joins' => array(
                 'Team' => array(
-                    'Team.active' => 1
+                    'table' => 'team',
+                    'alias' => 'Team',
+                    'type' => 'INNER',
+                    'conditions' => array(
+                        'Team.division_id = Divisions.division_id', 
+                        'Team.active' => 1
+                    )
             ))
                 ));
 
@@ -223,12 +229,11 @@ class RandomteamsController extends AppController {
                                         'team_id' => $team[team_id])
                                 );
                                 $this->PlayersToTeams->create();
-                                if($this->PlayersToTeams->save($d)){
+                                if ($this->PlayersToTeams->save($d)) {
                                     
                                 } else {
                                     mail('ehask71@gmail.com', 'generate error', print_r($d, 1));
                                 }
-                                
                             }
                         }
                     }
