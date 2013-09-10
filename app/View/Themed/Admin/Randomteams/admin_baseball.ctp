@@ -58,8 +58,10 @@
                     }
                     ?>
                 </table>
+                <pre>
                 <?php print_r($divisions);
                                         print_r($teams);?>
+</pre>
             </div>
         </div>
     </div>
