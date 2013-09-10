@@ -26,7 +26,7 @@
                                             foreach ($div[Team] AS $team) {
                                                 echo '<li>';
                                                 echo '<div><h2>' . $team['name'] . '</h2>';
-                                                echo '<ul>';
+                                                echo '<ul class="players">';
                                                 if (count($team[players]) > 0) {
                                                     foreach ($team[players] AS $player) {
                                                         echo '<li>' . $player[Players]['firstname'] . ' ' . $player[Players][lastname] . '</li>';
