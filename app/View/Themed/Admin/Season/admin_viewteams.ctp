@@ -17,6 +17,9 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <style>
+                                        ul li {float:left; width:22%;} 
+                                    </style>
                                     <ul>
                                         <?php
                                         if (count($div[Team]) > 0) {
