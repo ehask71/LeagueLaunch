@@ -30,7 +30,7 @@
                                         if (count($div[Team]) > 0) {
                                             foreach ($div[Team] AS $team) {
                                                 echo '<li>';
-                                                echo '<div><h2>' . $team['name'] . '</h2>';
+                                                echo '<div><h2>' . $team['name'] . '</h2><br><a href="/admin/team/roster/'.$team['team_id'].'" class="small button blue">Roster</a>';
                                                 echo '<ul class="players">';
                                                 if (count($team[players]) > 0) {
                                                     foreach ($team[players] AS $player) {
