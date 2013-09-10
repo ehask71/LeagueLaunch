@@ -46,7 +46,8 @@ class RandomteamsController extends AppController {
                 $teams = $this->Team->find('all', array(
                     'conditions' => array(
                         'Team.division_id' => $div[Divisions][division_id],
-                        'Team.active' => 1
+                        'Team.active' => 1,
+                        'recursive' => -1
                     )
                         ));
                 mail('ehask71@gmail.com','Teams',print_r($teams,1));
@@ -74,7 +75,7 @@ class RandomteamsController extends AppController {
                         $total = count($team_array);
                         $i = 0;
                         foreach ($player AS $p) {
-                            $team_array[$i]['players'][] = $p;
+                            $team_array[$i][Team]['players'][] = $p;
                             $i++;
                             if ($i == ($total)) {
                                 $i = 0;
