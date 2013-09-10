@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 
 class RandomteamsController extends AppController {
 
-    public $uses = array('Divisions', 'Team', 'PlayersToSeasons', 'Players','RandomTeamPicks');
+    public $uses = array('Divisions', 'Team', 'PlayersToSeasons','PlayersToTeams', 'Players','RandomTeamPicks');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -126,6 +126,25 @@ class RandomteamsController extends AppController {
         
         if(is_array($teams[RandomTeamPicks])){
             $data = unserialize($teams[RandomTeamPicks][data]);
+            
+            foreach($data AS $div){
+                if(count($div[Divisions][teams]) > 0){
+                    foreach($div[Divisions][teams] AS $team){
+                        if(is_array($team[players]) && count($team[players])){
+                            foreach($team[players] AS $player){
+                                $d = array(
+                                    'site_id' => Configure::read('Settings.site_id'),
+                                    'season_id' => $teams[RandomTeamPicks][season_id],
+                                    'player_id' => $player[player_id],
+                                    'team_id' => $team[team_id]
+                                );
+                                $this->PlayersToTeams->save($d);
+                            }
+                        }
+                    }
+                }
+            }
+            
             mail('ehask71@gmail.com','generate',print_r($data,1));
         }   
 
