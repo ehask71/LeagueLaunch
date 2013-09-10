@@ -19,7 +19,90 @@ class RandomteamsController extends AppController {
     }
     
     public function admin_baseball(){
+        $divisions = $this->Divisions->find('all', array(
+            'conditions' => array(
+                'Divisions.active' => 1,
+                'Divisions.site_id' => Configure::read('Settings.site_id'),
+                'Divisions.name NOT LIKE' => '%softball%'              
+            ),
+            'contain' => array(
+                'Team' => array(
+                    'Team.active' => 1
+            ))
+                ));
         
+        foreach ($divisions AS $k => $div) {
+            if (count($div['Team']) > 0) {
+               
+                $players = $this->PlayersToSeasons->query("SELECT 
+                    PlayersToSeasons.*,Players.*
+                    FROM players_to_seasons PlayersToSeasons 
+                    INNER JOIN players Players ON PlayersToSeasons.player_id = Players.player_id
+                    LEFT JOIN players_to_teams PlayersToTeams ON PlayersToSeasons.player_id = PlayersToTeams.player_id
+                    WHERE
+                    PlayersToSeasons.division_id = '" . $div[Divisions][division_id] . "'
+                        AND
+                    PlayersToSeasons.site_id = '" . $div[Divisions][site_id] . "'
+                        AND
+                    PlayersToSeasons.haspaid = 1 AND
+                PlayersToTeams.player_id IS NULL");
+                
+                $teams = $this->Team->find('all',array(
+                    'conditions' => array(
+                        'Team.division_id' => $div[Divisions][division_id],
+                        'Team.active' => 1
+                    )
+                ));
+                if (count($players) > 0) {
+                    $player = array();
+                    foreach ($players AS $pl) {
+                        $player[] = array(
+                            'ageindays' => $this->calcage($pl[Players]['birthday']),
+                            'player_id' => $pl[Players][player_id],
+                            'division_id' => $div[Divisions][division_id],
+                            'name' => $pl[Players][firstname] . ' ' . $pl[Players][lastname]
+                        );
+                    }
+                    $tmp = array();
+                    foreach($player AS &$ma){
+                        $tmp[] = $ma['ageindays'];
+                    }
+                    array_multisort($tmp,SORT_DESC, $player); 
+                    $divisions[$k][Divisions]['players'] = $player;
+                    
+                    $teams = shuffle($div[Team]);
+                    if($teams){
+                        $total = count($div[Team]);
+                        $i=0;
+                        foreach ($player AS $p){
+                            $div['Team'][$i]['players'][] = $p;
+                            $i++;
+                            if($i==($total)){
+                                $i=0;
+                            }
+                        }
+                        $divisions[$k][Divisions]['teams'] = $div[Team];
+                    }
+                }
+            }
+        }
+        $data = array(
+            'site_id' => Configure::read('Settings.site_id'),
+            'season_id' => $id,
+            'key' => 'softball',
+            'data' => serialize($divisions)
+        );
+        if($rand){
+            $data['id'] = $rand;
+        }
+        if($this->RandomTeamPicks->save($data)){
+            $this->Session->setFlash(__('Random Pick Stored'), 'default', array('class' => 'alert succes_msg'));
+            $randdb = $this->RandomTeamPicks->getLastInsertId();
+        }
+        $rand = ($randdb)?$randdb:$rand;
+        $this->set('season_id',$id);
+        $this->set('rand',$rand);
+        $this->set(compact('divisions'));
     }
     
     public function admin_softball($id,$rand=FALSE){
