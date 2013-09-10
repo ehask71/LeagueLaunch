@@ -19,9 +19,13 @@
                                 <td>
                                     <style>
                                         .pseudo-table {list-style-type:none;} 
-                                        .pseudo-table li {float:left; width:22%;}
-                                    </style>
-                                    <ul class="pseudo-table">
+                                        .pseudo-table > li {
+                                            float: left;
+                                            margin: 0;
+                                            padding: 0;
+                                            width: 45%; }
+                                        </style>
+                                        <ul class="pseudo-table">
                                         <?php
                                         if (count($div[Team]) > 0) {
                                             foreach ($div[Team] AS $team) {
@@ -47,9 +51,6 @@
                     }
                     ?>
                 </table>
-                <pre>
-                    <?php print_r($divisions); ?>
-                </pre>  
             </div>
         </div>
     </div>
