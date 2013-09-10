@@ -21,7 +21,7 @@
          echo '<tr>';
          echo '<td>'.$player[Players][firstname].' '.$player[Players][lastname].'</td>';
          echo '<td>'.$player[Account][firstname].' '.$player[Account][lastname].'</td>';
-         echo '<td>Email:'.$player[Account]['email'].'<br/>Phone:'.$player[Account]['phone'].'</td>';
+         echo '<td><b>Email:</b> '.$player[Account]['email'].'<br/><b>Phone:</b> '.$player[Account]['phone'].'</td>';
          echo '</tr>';
      }  
                         } else {
