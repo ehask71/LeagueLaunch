@@ -61,7 +61,7 @@ class Team extends AppModel {
         $sql = "SELECT Players.*,Account.* 
             FROM players_to_teams PlayersToTeams
             INNER JOIN players Players ON PlayersToTeams.player_id = Players.player_id
-            INNER JOIN accounts Accounts ON Players.user_id = Accounts.id
+            INNER JOIN accounts Account ON Players.user_id = Account.id
             WHERE
                 PlayersToTeams.site_id = '".Configure::read('Settings.site_id')."'
                     AND
