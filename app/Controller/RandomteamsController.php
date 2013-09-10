@@ -75,7 +75,7 @@ class RandomteamsController extends AppController {
                         $total = count($team_array);
                         $i = 0;
                         foreach ($player AS $p) {
-                            $team_array[$i][Team]['players'][] = $p;
+                            (array)$team_array[$i][Team]['players'][] = $p;
                             $i++;
                             if ($i == ($total)) {
                                 $i = 0;
