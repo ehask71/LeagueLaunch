@@ -10,7 +10,9 @@
                 <table>
                     <tr>
                         <td colspan="100"><a href="/admin/randomteams/generate/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button green">Commit To Live</a>
-                         Click Here Commit Players To Teams</td>
+                         Click Here Commit Players To Teams<br/>
+                        <a href="/admin/randomteams/softball/<?=$season_id;?>/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button blue">Randomize Again?</a>
+                        </td>
                     </tr>
                     <?php
                     if (count($divisions) > 0) {
