@@ -18,7 +18,8 @@
                             <tr>
                                 <td>
                                     <style>
-                                        #pseudo-table li {float:left; width:22%;} 
+                                        .pseudo-table {list-style-type:none;} 
+                                        .pseudo-table li {float:left; width:22%;}
                                     </style>
                                     <ul class="pseudo-table">
                                         <?php
