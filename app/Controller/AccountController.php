@@ -386,5 +386,27 @@ class AccountController extends AppController {
         mail('ehask71@gmail.com','paginate-cond',print_r($this->Account->parseCriteria($this->Prg->parsedParams()),1));
         $this->set('users', $this->Paginator->paginate('Account'));
     }
-
+    
+    public function admin_addrole($user){
+	if ($this->request->is('post') || $this->request->is('put')) {
+	    $this->loadModel('RoleUser');
+	    $data = array(
+		'site_id' => Configure::read('Settings.site_id'),
+		'user_id' => $this->request->data['user_id'],
+		'role_id' => $this->request->data['role_id'],
+	    );
+	}
+	$this->loadModel('Role');
+	$roles = $this->Role->find('all',array(
+	    'Role.id !=' => 1
+	));
+	
+	$this->set('user_id',$user);
+	$this->set(compact('roles'));
+	$this->set('title_for_layout','Roles');
+    }
+    
+    public function admin_deleterole($user,$role_id){
+	
+    }
 }
