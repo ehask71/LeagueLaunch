@@ -1,7 +1,7 @@
 <div class="grid_12">
     <div class="box">
         <h2>
-            <?= __('Random Team Generator - Softball'); ?>
+            <?= __('Random Team Generator - Baseball'); ?>
             <span class="l"></span>
             <span class="r"></span>
         </h2>
@@ -11,7 +11,7 @@
                     <tr>
                         <td colspan="100"><a href="/admin/randomteams/generate/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button green">Commit To Live</a>
                          Click Here Commit Players To Teams<br/>
-                        <a href="/admin/randomteams/softball/<?=$season_id;?>/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button blue">Randomize Again?</a>
+                        <a href="/admin/randomteams/baseball/<?=$season_id;?>/<?=$rand;?>" onclick="return confirm('Are you Sure?');" class="button blue">Randomize Again?</a>
                         </td>
                     </tr>
                     <?php
@@ -38,7 +38,7 @@
                                     $r++;
                                     if ($r == $totalteams) {
                                         if ($i < 4) {
-                                            $remainder = (3 - $i);
+                                            $remainder = (4 - $i);
                                             if($remainder != 0){
                                                 echo '<td colspan="' . $remainder . '"></td>';
                                             }
@@ -58,6 +58,10 @@
                     }
                     ?>
                 </table>
+                <pre>
+                <?php //print_r($divisions);
+                                        //print_r($teams);?>
+</pre>
             </div>
         </div>
     </div>

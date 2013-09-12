@@ -96,7 +96,44 @@ class SeasonController extends AppController {
         $this->set(compact('players'));
         $this->set(compact('season'));
     }
-
+    
+    public function admin_viewteams($id){
+        $season = $this->Season->find('first',array(
+            'recursive' => -1,
+            'conditions' => array(
+                'Season.site_id' => Configure::read('Settings.site_id'),
+                'Season.id' => $id
+            )
+        ));
+        $this->loadModel('Divisions');
+        $divisions = $this->Divisions->find('all', array(
+            'conditions' => array(
+                'Divisions.active' => 1,
+                'Divisions.site_id' => Configure::read('Settings.site_id'),
+                'Divisions.season_id' => $id
+            ),
+            'contain' => array(
+                'Team' => array(
+                    'Team.active' => 1
+            ))
+                ));
+        if(count($divisions)>0){
+            $this->loadModel('Team');
+            $i=0;
+            foreach($divisions AS $div){
+                if(count($div[Team])>0){
+                    foreach($div[Team] AS $k => $team){
+                        $divisions[$i][Team][$k][players] = $this->Team->getTeamPlayers($team[team_id]);
+                    }
+                }
+                $i++;
+            }
+        }
+        
+        
+        $this->set(compact('divisions'));
+        $this->set(compact('season'));
+    }
     public function admin_editplayer($id) {
         if ($this->request->is('post')) {
             

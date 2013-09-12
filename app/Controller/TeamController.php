@@ -78,5 +78,22 @@ class TeamController extends AppController {
         $this->set('title_for_layout','Edit Team');
     } 
     
+    public function admin_roster($id){
+        $team = $this->Team->find('first',array(
+            'conditions' => array(
+                'Team.team_id' => $id,
+                'Team.active' => 1,
+                'Team.site_id' => Configure::read('Settings.site_id')
+            )
+        ));
+        
+        if(count($team)>0){
+            $team['Team'][players] = $this->Team->getTeamPlayers($id);
+        }
+        
+        $this->set(compact('team'));
+        $this->set('title_for_layout',$team[Team]['name'].' Roster');
+    }
+    
     
 }
