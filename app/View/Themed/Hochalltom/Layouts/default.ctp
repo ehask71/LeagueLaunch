@@ -4,24 +4,24 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title><?php echo $title_for_layout; ?> - powered by LeagueLaunch.Com Technology</title>
-        <?php
-        echo $this->Html->meta('icon');
-        echo $this->Html->meta('keywords', $meta_keywords);
-        echo $this->Html->meta('description', $meta_description);
-        ?>
+	<?php
+	echo $this->Html->meta('icon');
+	echo $this->Html->meta('keywords', $meta_keywords);
+	echo $this->Html->meta('description', $meta_description);
+	?>
         <meta name="abstract" content="" />
         <meta name="author" content="LeagueLaunch.com" />
         <!-- begin css -->
-        <?php
-        echo $this->Html->css('/common/css/reset.css');
-        echo $this->Html->css('/common/css/960.css');
-        echo $this->Html->css('/common/css/social.css');
-        echo $this->Html->css('style');
-        echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
-        echo $this->fetch('meta');
-        echo $this->fetch('css');
-        echo $this->fetch('script');
-        ?>
+	<?php
+	echo $this->Html->css('/common/css/reset.css');
+	echo $this->Html->css('/common/css/960.css');
+	echo $this->Html->css('/common/css/social.css');
+	echo $this->Html->css('style');
+	echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
+	echo $this->fetch('meta');
+	echo $this->fetch('css');
+	echo $this->fetch('script');
+	?>
         <!-- begin JS -->
     </head>
     <body>
@@ -30,7 +30,20 @@
             <header>
                 <div class="grid_6" >
                     <div id="sub-nav">
-
+			<!--nocache-->
+                        <ul id="top-nav">
+                            <li><?php
+	if ($loggedIn) {
+	    echo $this->Html->link('LOGOUT', array('controller' => 'account', 'action' => 'logout'));
+	} else {
+	    echo $this->Html->link('LOGIN', array('controller' => 'account', 'action' => 'login'));
+	}
+	?>
+                            </li>
+                            <li><a href="/register" title="Sign Up with {SITENAME}">SIGNUP</a></li>
+                            <li><a href="/contact" title="Contact {SITENAME}">CONTACT</a></li>
+                        </ul>
+			<!--/nocache-->
                     </div>
                     <div class="clear"></div>
                     <div class="logo-text left">
@@ -62,15 +75,15 @@
                     </div>
                 </div>
                 <div class="grid_16 clear"></div>
-                <?php echo $this->element('main_nav'); ?>
+		<?php echo $this->element('main_nav'); ?>
             </header>
             <!-- end header -->
             <section class="grid_16">
                 <div class="grid_16_nospace" id="carousel-container"></div>
                 <!-- Begin Body -->
-                <?php echo $this->Session->flash(); ?>
-                <?php echo $this->Session->flash('auth'); ?>
-                <?php echo $this->fetch('content'); ?>  
+		<?php echo $this->Session->flash(); ?>
+		<?php echo $this->Session->flash('auth'); ?>
+		<?php echo $this->fetch('content'); ?>  
                 <div class="clear"></div>
             </section>
             <!-- end body -->
@@ -97,12 +110,12 @@
                         <h3>Navigation</h3>
                         <ul>
                             <li><?php
-                if ($loggedIn) {
-                    echo $this->Html->link('LOGOUT', array('controller' => 'account', 'action' => 'logout'));
-                } else {
-                    echo $this->Html->link('LOGIN', array('controller' => 'account', 'action' => 'login'));
-                }
-                ?>
+		if ($loggedIn) {
+		    echo $this->Html->link('LOGOUT', array('controller' => 'account', 'action' => 'logout'));
+		} else {
+		    echo $this->Html->link('LOGIN', array('controller' => 'account', 'action' => 'login'));
+		}
+		?>
                             </li>
                             <li><a href="/account">My Account</a></li>
                             <li><a href="/admin/home">Admin</a></li>
