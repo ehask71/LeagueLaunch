@@ -36,7 +36,7 @@
 		</table>
 		<table>
 		    <thead>
-		    <th>Roles <span style="text-align: right;"><a href="/admin/account/addrole/<?=$user['Account']['id'];?>" class="button green">Add Role</a></span></th>
+		    <th>Roles <span style="float: right;"><a href="/admin/account/addrole/<?=$user['Account']['id'];?>" class="button green">Add Role</a></span></th>
 		    </thead>
 		    <tbody>
 			<?php foreach($user['Role'] AS $role):?>
