@@ -188,13 +188,13 @@ class SeasonController extends AppController {
 	  ->send(); */
     }
 
-    public function admin_mailunpaid() {
+    public function admin_mailunpaid($id) {
 	$players = $this->Season->query("SELECT 
             Players.player_id,Players.firstname,Players.lastname,Accounts.firstname,Accounts.lastname,
             Accounts.email,Accounts.phone FROM `players` Players
             INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
             LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
-            WHERE Players.site_id = " . Configure::read('Settings.site_id') . "  AND PlayersToSeasons.season_id != $id 
+            WHERE Players.site_id = " . Configure::read('Settings.site_id') . "  AND PlayersToSeasons.season_id = $id 
 	    OR PlayersToSeasons.haspaid = 0 ORDER BY Players.lastname ASC");
 	
 	
