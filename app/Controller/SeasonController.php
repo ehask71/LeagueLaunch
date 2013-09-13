@@ -195,7 +195,7 @@ class SeasonController extends AppController {
             INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
             LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
             WHERE Players.site_id = " . Configure::read('Settings.site_id') . "  AND PlayersToSeasons.season_id = $id 
-	    OR PlayersToSeasons.haspaid = 0 ORDER BY Players.lastname ASC");
+	    AND PlayersToSeasons.haspaid = 0 ORDER BY Players.lastname ASC");
 	
 	
 	App::uses('CakeEmail', 'Network/Email');
