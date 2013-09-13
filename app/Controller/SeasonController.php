@@ -215,6 +215,8 @@ class SeasonController extends AppController {
 		->viewVars(array('player' => $player, 'leaguename' => Configure::read('Settings.leaguename')))
 		->send();
 	}
+	$this->Session->setFlash(__('Email Sent!'), 'default', array('class' => 'alert succes_msg'));
+	$this->redirect('/admin/season');
     }
 
 }
