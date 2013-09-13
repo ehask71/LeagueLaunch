@@ -218,5 +218,36 @@ class SeasonController extends AppController {
 	$this->Session->setFlash(__('Email Sent!'), 'default', array('class' => 'alert succes_msg'));
 	$this->redirect('/admin/season');
     }
+    
+    public function admin_mailpaid($id) {
+	$players = $this->Season->query("SELECT 
+            Players.player_id,Players.firstname,Players.lastname,Accounts.firstname,Accounts.lastname,
+            Accounts.email,Accounts.phone FROM `players` Players
+            INNER JOIN accounts Accounts ON Players.user_id = Accounts.id 
+            LEFT JOIN players_to_seasons PlayersToSeasons ON Players.player_id = PlayersToSeasons.player_id 
+            WHERE Players.site_id = " . Configure::read('Settings.site_id') . "  AND PlayersToSeasons.season_id = $id 
+	    AND PlayersToSeasons.haspaid = 1 ORDER BY Players.lastname ASC");
+	
+	
+	App::uses('CakeEmail', 'Network/Email');
+	
+	foreach ($players AS $player){
+	$email = new CakeEmail();
+	$email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
+		->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
+		->sender('playeragentebll@gmail.com')
+		->replyTo('playeragentebll@gmail.com')
+		->bcc(Configure::read('Settings.admin_email'))
+		->to($player[Accounts]['email'])
+		->subject(Configure::read('Settings.leaguename') . ' Sorry')
+		->template('player_paid')
+		->theme('admin')
+		->emailFormat('text')
+		->viewVars(array('player' => $player, 'leaguename' => Configure::read('Settings.leaguename')))
+		->send();
+	}
+	$this->Session->setFlash(__('Email Sent!'), 'default', array('class' => 'alert succes_msg'));
+	$this->redirect('/admin/season');
+    }
 
 }
