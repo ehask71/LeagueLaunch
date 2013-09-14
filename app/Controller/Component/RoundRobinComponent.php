@@ -14,8 +14,8 @@ class RoundRobinComponent extends Component {
     public $components = array();
 
     /**
-     * Is true when rounds have been created properly by using 'create_matches()'
-     * or 'create_raw_matches()'
+     * Is true when rounds have been created properly by using 'create_games()'
+     * or 'create_raw_games()'
      *
      * Default value is false
      *
@@ -35,42 +35,42 @@ class RoundRobinComponent extends Component {
     public $error;
 
     /**
-     * Is true when the last action was a successful run of 'create_matches'
+     * Is true when the last action was a successful run of 'create_games'
      *
      * Default value is false
      *
      * @access public
      * @var boolean
      */
-    public $matchdays_created;
+    public $gamedays_created;
 
     /**
-     * Is true when the last action was a successful run of 'create_raw_matches'
+     * Is true when the last action was a successful run of 'create_raw_games'
      *
      * Default value is false
      *
      * @access public
      * @var boolean
      */
-    public $raw_matches_created;
+    public $raw_games_created;
 
     /**
      * Holds a specific amount of match days. If set there will be this limited amout
-     * of match days with random picks of the matches.
+     * of match days with random picks of the games.
      *
      * Default value is 0
      *
      * @access public
      * @var integer
      */
-    public $matchday_count;
+    public $gameday_count;
 
     /**
-     * When there is an uneven number of teams, either one free ticket match per matchday can be created
+     * When there is an uneven number of teams, either one free ticket match per gameday can be created
      * or the match is ignored
      *
-     * When true matches against 'free_ticket' are created
-     * If false those matches will be excluded from the 'matches' property
+     * When true games against 'free_ticket' are created
+     * If false those games will be excluded from the 'games' property
      *
      * Default value is true
      *
@@ -97,17 +97,17 @@ class RoundRobinComponent extends Component {
      * @access private
      * @var integer
      */
-    private $match_pointer;
+    private $game_pointer;
 
     /**
-     * Holds the Pointer to the next matchday to be returned by next_matchday()
+     * Holds the Pointer to the next gameday to be returned by next_gameday()
      *
      * Default value is 0
      *
      * @access private
      * @var integer
      */
-    private $matchday_pointer;
+    private $gameday_pointer;
 
     /**
      * Holds the teams that play against each other
@@ -140,21 +140,21 @@ class RoundRobinComponent extends Component {
     private $teams_2;
 
     /**
-     * Holds the matches with the teams that go against each other after
+     * Holds the games with the teams that go against each other after
      * successfully executing 'create_round_robin()'
      *
      * A match is an array containing the 2 opponents.
-     * A matchday is represented by an array of match arrays
+     * A gameday is represented by an array of match arrays
      *
-     * When 'create_matches' called, $matches contains an array of the matchdays
-     * When 'create_raw_matches' calles, $matches contains an array of matches
+     * When 'create_games' called, $games contains an array of the gamedays
+     * When 'create_raw_games' calles, $games contains an array of games
      *
      * Default value is an empty array
      *
      * @access public
      * @var array
      */
-    public $matches;
+    public $games;
 
     public function __construct(ComponentCollection $collection, $settings = array()) {
         $this->controller = $collection->getController();
@@ -186,14 +186,14 @@ class RoundRobinComponent extends Component {
         //default properties
         $this->finished = false;
         $this->error = '';
-        $this->matchdays_created = false;
-        $this->raw_matches_created = false;
-        $this->matchday_count = 0;
+        $this->gamedays_created = false;
+        $this->raw_games_created = false;
+        $this->gameday_count = 0;
         $this->free_ticket = true;
         $this->free_ticket_identifer = 'Free ticket';
-        $this->matchday_pointer = 0;
-        $this->match_pointer = 0;
-        $this->matches = array();
+        $this->gameday_pointer = 0;
+        $this->game_pointer = 0;
+        $this->games = array();
     }
 
     /**
@@ -209,19 +209,19 @@ class RoundRobinComponent extends Component {
     }
 
     /**
-     * Creates the matches for the tournament which are stored in $matches.
+     * Creates the games for the tournament which are stored in $games.
      *
      * Does not start if $teams isn't an array or empty.
      *
      * @access public
-     * @return false when error occured or the $matches array when successful;
+     * @return false when error occured or the $games array when successful;
      */
-    public function create_matches() {
+    public function create_games() {
         if (!$this->valid_team_array())
             return false;
 
-        //clear $matches
-        $this->matches = array();
+        //clear $games
+        $this->games = array();
 
         // create the two seperated arrays for the rotating algorithm
         if (count($this->teams) % 2) {
@@ -235,15 +235,15 @@ class RoundRobinComponent extends Component {
         }
 
         //start rotating / saving
-        if (!$this->matchday_count) {
-            //no specific matchday count
+        if (!$this->gameday_count) {
+            //no specific gameday count
             for ($i = 2; $i < (count($this->teams_1) * 2); $i++) {
-                $this->save_matchday();
+                $this->save_gameday();
                 $this->rotate();
             }
-            $this->save_matchday();
+            $this->save_gameday();
         } else {
-            if ($this->matchday_count < 0) {
+            if ($this->gameday_count < 0) {
                 $this->error = 'No negative match day count allowed.';
                 $this->reset_class_state();
                 return true;
@@ -251,23 +251,23 @@ class RoundRobinComponent extends Component {
             shuffle($this->teams_1);
             shuffle($this->teams_2);
 
-            // test if we can create so many valid matchdays
-            if (count($this->teams) >= $this->matchday_count) {
-                for ($i = 1; $i < $this->matchday_count; $i++) {
-                    $this->save_matchday();
+            // test if we can create so many valid gamedays
+            if (count($this->teams) >= $this->gameday_count) {
+                for ($i = 1; $i < $this->gameday_count; $i++) {
+                    $this->save_gameday();
                     $this->rotate();
                 }
-                $this->save_matchday();
+                $this->save_gameday();
             } else {
                 for ($i = 2; $i < (count($this->teams_1) * 2); $i++) {
-                    $this->save_matchday();
+                    $this->save_gameday();
                     $this->rotate();
                 }
-                $this->save_matchday();
+                $this->save_gameday();
                 // add extra blank days
-                $diff = $this->matchday_count - count($this->teams);
+                $diff = $this->gameday_count - count($this->teams);
                 for ($i = 0; $i < $diff; $i++) {
-                    $this->matches[] = array();
+                    $this->games[] = array();
                 }
             }
         }
@@ -275,33 +275,33 @@ class RoundRobinComponent extends Component {
 
 
         $this->finished = true;
-        $this->raw_matches_created = false;
-        $this->matchdays_created = true;
+        $this->raw_games_created = false;
+        $this->gamedays_created = true;
         $this->clear_pointer();
 
-        return $this->matches;
+        return $this->games;
     }
 
     /**
-     * Inserts one matchday into the $matches array
+     * Inserts one gameday into the $games array
      *
-     * Takes care if matches with free tickets should be included
+     * Takes care if games with free tickets should be included
      *
      * @access private
      * @return true;
      */
-    private function save_matchday() {
+    private function save_gameday() {
         for ($i = 0; $i < count($this->teams_1); $i++) {
             if ($this->free_ticket || ($this->teams_1[$i] != $this->free_ticket_identifer &&
                     $this->teams_2[$i] != $this->free_ticket_identifer))
-                $matches_tmp[] = array($this->teams_1[$i], $this->teams_2[$i]);
+                $games_tmp[] = array($this->teams_1[$i], $this->teams_2[$i]);
         }
-        $this->matches[] = $matches_tmp;
+        $this->games[] = $games_tmp;
         return true;
     }
 
     /**
-     * Rotates the 2 opponent arrays $teams_1, $teams_2 to create the next matchday matches
+     * Rotates the 2 opponent arrays $teams_1, $teams_2 to create the next gameday games
      *
      * Based on an algorithm described here: http://groups.google.com/group/net.works/msg/1f132ad5803e82a5
      *
@@ -322,28 +322,28 @@ class RoundRobinComponent extends Component {
     }
 
     /**
-     * Creates matches everybody against everybody without matchdays.
+     * Creates games everybody against everybody without gamedays.
      * Free tickets will be ignored
      *
      * @access public
      * @return false when error occured, the match array when true
      */
-    public function create_raw_matches() {
+    public function create_raw_games() {
         if (!$this->valid_team_array())
             return false;
 
-        $this->matches = array();
+        $this->games = array();
 
         for ($i = 0; $i < count($this->teams); $i++)
             for ($i2 = $i + 1; $i2 < count($this->teams); $i2++)
-                $this->matches[] = array($this->teams[$i], $this->teams[$i2]);
+                $this->games[] = array($this->teams[$i], $this->teams[$i2]);
 
         $this->finished = true;
-        $this->raw_matches_created = true;
-        $this->matchdays_created = false;
+        $this->raw_games_created = true;
+        $this->gamedays_created = false;
         $this->clear_pointer();
 
-        return $this->matches;
+        return $this->games;
     }
 
     /**
@@ -351,7 +351,7 @@ class RoundRobinComponent extends Component {
      *
      * When an error occurs, the class goes back into start shape
      * This is probably the only error that might occure during a attempt
-     * of generating matches
+     * of generating games
      *
      * @access private
      * @return false when not, true when valid
@@ -374,11 +374,11 @@ class RoundRobinComponent extends Component {
     private function reset_class_state() {
         // going back to start shape
         $this->finished = false;
-        $this->raw_matches_created = false;
-        $this->matchdays_created = false;
-        $this->matches = array();
+        $this->raw_games_created = false;
+        $this->gamedays_created = false;
+        $this->games = array();
         $this->clear_pointer();
-        $this->matchday_count = 0;
+        $this->gameday_count = 0;
         return true;
     }
 
@@ -390,67 +390,67 @@ class RoundRobinComponent extends Component {
      * @return true
      */
     private function clear_pointer() {
-        $this->matchday_pointer = 0;
-        $this->match_pointer = 0;
+        $this->gameday_pointer = 0;
+        $this->game_pointer = 0;
         return true;
     }
 
     /**
-     * Returns the next match array  according to 'match_pointer'
-     * When 'matchdays_created' is true it also refers to where '$matchday_pointer' is
-     * If 'raw_matches_created' is true, it simply returns the next array in matches
+     * Returns the next match array  according to 'game_pointer'
+     * When 'gamedays_created' is true it also refers to where '$gameday_pointer' is
+     * If 'raw_games_created' is true, it simply returns the next array in games
      *
-     * When there are no more matches to return, false is returned
+     * When there are no more games to return, false is returned
      *
      * @access public
      * @return array the match array or false
      */
     public function next_match() {
-        if ($this->raw_matches_created) {
-            if (isset($this->matches[$this->match_pointer])) {
-                $this->match_pointer++;
-                return $this->matches[$this->match_pointer - 1];
+        if ($this->raw_games_created) {
+            if (isset($this->games[$this->game_pointer])) {
+                $this->game_pointer++;
+                return $this->games[$this->game_pointer - 1];
             }
             else
                 return false;
         }
-        elseif ($this->matchdays_created) {
-            if (isset($this->matches[$this->matchday_pointer - 1][$this->match_pointer])) {
-                $this->match_pointer++;
-                return $this->matches[$this->matchday_pointer - 1][$this->match_pointer - 1];
+        elseif ($this->gamedays_created) {
+            if (isset($this->games[$this->gameday_pointer - 1][$this->game_pointer])) {
+                $this->game_pointer++;
+                return $this->games[$this->gameday_pointer - 1][$this->game_pointer - 1];
             }
             else
                 return false;
         }
         else {
-            $this->error = 'No matches created yet.';
+            $this->error = 'No games created yet.';
             return false;
         }
     }
 
     /**
-     * Returns the next matchday array  according to 'matchday_pointer'
+     * Returns the next gameday array  according to 'gameday_pointer'
      *
-     * When there are no more matchdays to return, false is returned
+     * When there are no more gamedays to return, false is returned
      *
      * @access public
-     * @return array the matchday array or false
+     * @return array the gameday array or false
      */
-    public function next_matchday() {
-        if ($this->raw_matches_created) {
-            $this->error = "No matchdays created within last action.";
+    public function next_gameday() {
+        if ($this->raw_games_created) {
+            $this->error = "No gamedays created within last action.";
             return false;
-        } elseif ($this->matchdays_created) {
-            if (isset($this->matches[$this->matchday_pointer])) {
-                $this->matchday_pointer++;
-                $this->match_pointer = 0;
-                return $this->matches[$this->matchday_pointer - 1];
+        } elseif ($this->gamedays_created) {
+            if (isset($this->games[$this->gameday_pointer])) {
+                $this->gameday_pointer++;
+                $this->game_pointer = 0;
+                return $this->games[$this->gameday_pointer - 1];
             }
             else
                 return false;
         }
         else {
-            $this->error = 'No matches created yet.';
+            $this->error = 'No games created yet.';
             return false;
         }
     }
