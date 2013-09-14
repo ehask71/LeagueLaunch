@@ -182,7 +182,6 @@ class RoundRobinComponent extends Component {
      */
     public function roundrobin($passed_teams = null) {
         $this->teams = $passed_teams;
-	echo $this->gameday_count;
         //default properties
         $this->finished = false;
         $this->error = '';
