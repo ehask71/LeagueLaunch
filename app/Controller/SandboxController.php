@@ -52,7 +52,7 @@ class SandboxController extends AppController {
 	    $this->RoundRobin->roundrobin($team_array);
 	    $this->RoundRobin->gameday_count = 10;
 	    //$this->RoundRobin->create_games();
-            $this->RounnRobin->create_raw_games();
+            $this->RoundRobin->create_raw_games();
 	    echo $div['Divisions']['name'].'<br>';
 	    echo '<pre>';
 	    print_r($this->RoundRobin->games);
