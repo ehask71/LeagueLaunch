@@ -42,7 +42,7 @@ class SandboxController extends AppController {
 		    'Team.site_id' => Configure::read('Settings.site_id')
 		)
 	    ));
-	    
+    print_r($teams);
 	    $team_array = array();
 	    foreach ($teams AS $team){
 		$team_array[] = $team['Team']['name'];
