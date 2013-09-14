@@ -370,7 +370,7 @@ class RoundRobinComponent extends Component {
      * @access private
      * @return true
      */
-    private function reset_class_state() {
+    public function reset_class_state() {
         // going back to start shape
         $this->finished = false;
         $this->raw_games_created = false;
