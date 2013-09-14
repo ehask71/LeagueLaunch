@@ -190,7 +190,7 @@ class RoundRobinComponent extends Component {
         $this->raw_games_created = false;
         $this->gameday_count = 0;
         $this->free_ticket = true;
-        $this->free_ticket_identifer = 'Free ticket';
+        $this->free_ticket_identifer = 'Bye';
         $this->gameday_pointer = 0;
         $this->game_pointer = 0;
         $this->games = array();
