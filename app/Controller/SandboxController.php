@@ -57,8 +57,8 @@ class SandboxController extends AppController {
 	    echo '<pre>';
 	    $games = $this->RoundRobin->games;
             
-            $secondgames = array_reverse($this->RoundRobin->games);
-            print_r(array_merge($games,$secondgames));
+            //$secondgames = array_reverse($this->RoundRobin->games);
+            print_r($games);
 	    echo '</pre>';
 	}
     }
