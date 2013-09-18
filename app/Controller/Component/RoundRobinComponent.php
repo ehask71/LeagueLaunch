@@ -266,7 +266,7 @@ class RoundRobinComponent extends Component {
                 // add extra blank days
                 $diff = $this->gameday_count - count($this->teams);
                 $this->teams_2 = shuffle($this->teams_2);
-                mail('ehask71@gmail.com','Teams',print_r($this->teams_1,1).' '.print_r($this->teams_2,1));
+                mail('ehask71@gmail.com', 'Teams', print_r($this->teams_1, 1) . ' ' . print_r($this->teams_2, 1));
                 for ($i = 0; $i < $diff; $i++) {
                     $this->save_gameday();
                     $this->rotate();
@@ -455,6 +455,46 @@ class RoundRobinComponent extends Component {
             $this->error = 'No games created yet.';
             return false;
         }
+    }
+
+    public function createRandom() {
+        $teams = $_GET['t'];
+        $games = array();   //2D array tracking which week teams will be playing
+// do the work
+        for ($i = 1; $i <= $teams; $i++) {
+            $games[$i] = array();
+            for ($j = 1; $j <= $teams; $j++) {
+                $games[$i][$j] = getweek($i, $j, $teams);
+            }
+        }
+
+// display
+        echo '<pre>';
+        $max = 0;
+        foreach ($games as $row) {
+            foreach ($row as $col) {
+                printf('%4d', is_null($col) ? -2 : $col);
+                if ($col > $max) {
+                    $max = $col;
+                }
+            }
+            echo "\n";
+        }
+    }
+
+    public function getWeek($home, $away, $num_teams) {
+        if ($home == $away) {
+            return -1;
+        }
+        $week = $home + $away - 2;
+        if ($week >= $num_teams) {
+            $week = $week - $num_teams + 1;
+        }
+        if ($home > $away) {
+            $week += $num_teams - 1;
+        }
+
+        return $week;
     }
 
 }
