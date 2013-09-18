@@ -604,7 +604,6 @@ class RoundRobinComponent extends Component {
 	    }
 	    $startDate = date('Y-m-d', strtotime($startDate . "+7 days"));
 	}
-	if(!$odd){
 	    if($team[$z] < 10){
 		$diff = 10 - $team[$z];
 		echo $team[$z];
@@ -612,7 +611,6 @@ class RoundRobinComponent extends Component {
 		$filler = array_slice(array_reverse($match),$diff);
 		$match = array_merge($match,$filler);
 	    }
-	}
 	//go through the whole array storing everything and go to each round, then game and check whether our bye team is present, if so ignore and remove the fixture,else keep it 
 	foreach ($match AS $matchkey => $matchval) {
 	    foreach ($matchval AS $gamekey => $game) {
