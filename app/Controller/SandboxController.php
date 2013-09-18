@@ -30,7 +30,8 @@ class SandboxController extends AppController {
 	    'conditions' => array(
 		'Divisions.active' => 1,
 		'Divisions.site_id' => Configure::read('Settings.site_id'),
-		'Divisions.season_id' => $id
+		'Divisions.season_id' => $id,
+		'Divisions.name NOT LIKE' => '%Softball%'
 	    )
 	));
 	
