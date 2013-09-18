@@ -605,8 +605,9 @@ class RoundRobinComponent extends Component {
 	    $startDate = date('Y-m-d', strtotime($startDate . "+7 days"));
 	}
 	if(!$odd){
-	    if($team[0] < 10){
+	    if($team[$z] < 10){
 		$diff = 10 - $team[0];
+		echo $diff;
 		$filler = array_slice(array_reverse($match),$diff);
 		$match = array_merge($match,$filler);
 	    }
