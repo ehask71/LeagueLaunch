@@ -265,11 +265,11 @@ class RoundRobinComponent extends Component {
                 $this->save_gameday();
                 // add extra blank days
                 $diff = $this->gameday_count - count($this->teams);
-                $this->teams_2 = shuffle($this->teams_2);
-                mail('ehask71@gmail.com', 'Teams', print_r($this->teams_1, 1) . ' ' . print_r($this->teams_2, 1));
+                //$this->teams_2 = shuffle($this->teams_2);
+                //mail('ehask71@gmail.com', 'Teams', print_r($this->teams_1, 1) . ' ' . print_r($this->teams_2, 1));
                 for ($i = 0; $i < $diff; $i++) {
-                    $this->save_gameday();
-                    $this->rotate();
+                   // $this->save_gameday();
+                   //$this->rotate();
                 }
             }
         }
