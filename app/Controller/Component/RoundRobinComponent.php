@@ -157,16 +157,16 @@ class RoundRobinComponent extends Component {
     public $games;
 
     public function __construct(ComponentCollection $collection, $settings = array()) {
-        $this->controller = $collection->getController();
-        parent::__construct($collection, array_merge($this->settings, (array) $settings));
+	$this->controller = $collection->getController();
+	parent::__construct($collection, array_merge($this->settings, (array) $settings));
     }
 
     public function initialize($controller) {
-        
+	
     }
 
     public function startup($controller) {
-        
+	
     }
 
     /**
@@ -181,18 +181,18 @@ class RoundRobinComponent extends Component {
      * @param array $passed_teams the teams which play
      */
     public function roundrobin($passed_teams = null) {
-        $this->teams = $passed_teams;
-        //default properties
-        $this->finished = false;
-        $this->error = '';
-        $this->gamedays_created = false;
-        $this->raw_games_created = false;
-        $this->gameday_count = 0;
-        $this->free_ticket = true;
-        $this->free_ticket_identifer = 'Bye';
-        $this->gameday_pointer = 0;
-        $this->game_pointer = 0;
-        $this->games = array();
+	$this->teams = $passed_teams;
+	//default properties
+	$this->finished = false;
+	$this->error = '';
+	$this->gamedays_created = false;
+	$this->raw_games_created = false;
+	$this->gameday_count = 0;
+	$this->free_ticket = true;
+	$this->free_ticket_identifer = 'Bye';
+	$this->gameday_pointer = 0;
+	$this->game_pointer = 0;
+	$this->games = array();
     }
 
     /**
@@ -203,8 +203,8 @@ class RoundRobinComponent extends Component {
      * @return true
      */
     public function pass_teams($passed_teams) {
-        $this->teams = $passed_teams;
-        return true;
+	$this->teams = $passed_teams;
+	return true;
     }
 
     /**
@@ -216,72 +216,72 @@ class RoundRobinComponent extends Component {
      * @return false when error occured or the $games array when successful;
      */
     public function create_games() {
-        if (!$this->valid_team_array())
-            return false;
+	if (!$this->valid_team_array())
+	    return false;
 
-        //clear $games
-        $this->games = array();
+	//clear $games
+	$this->games = array();
 
-        // create the two seperated arrays for the rotating algorithm
-        if (count($this->teams) % 2) {
-            // when uneven number of teams
-            $this->teams_1 = array_slice($this->teams, 0, ceil(count($this->teams) / 2));
-            $this->teams_2 = array_slice($this->teams, ceil(count($this->teams) / 2));
-            $this->teams_2[] = $this->free_ticket_identifer;
-        } else {
-            $this->teams_1 = array_slice($this->teams, 0, count($this->teams) / 2);
-            $this->teams_2 = array_slice($this->teams, count($this->teams) / 2);
-        }
+	// create the two seperated arrays for the rotating algorithm
+	if (count($this->teams) % 2) {
+	    // when uneven number of teams
+	    $this->teams_1 = array_slice($this->teams, 0, ceil(count($this->teams) / 2));
+	    $this->teams_2 = array_slice($this->teams, ceil(count($this->teams) / 2));
+	    $this->teams_2[] = $this->free_ticket_identifer;
+	} else {
+	    $this->teams_1 = array_slice($this->teams, 0, count($this->teams) / 2);
+	    $this->teams_2 = array_slice($this->teams, count($this->teams) / 2);
+	}
 
-        //start rotating / saving
-        if (!$this->gameday_count) {
-            //no specific gameday count
-            for ($i = 2; $i < (count($this->teams_1) * 2); $i++) {
-                $this->save_gameday();
-                $this->rotate();
-            }
-            $this->save_gameday();
-        } else {
-            if ($this->gameday_count < 0) {
-                $this->error = 'No negative match day count allowed.';
-                $this->reset_class_state();
-                return true;
-            }
-            shuffle($this->teams_1);
-            shuffle($this->teams_2);
+	//start rotating / saving
+	if (!$this->gameday_count) {
+	    //no specific gameday count
+	    for ($i = 2; $i < (count($this->teams_1) * 2); $i++) {
+		$this->save_gameday();
+		$this->rotate();
+	    }
+	    $this->save_gameday();
+	} else {
+	    if ($this->gameday_count < 0) {
+		$this->error = 'No negative match day count allowed.';
+		$this->reset_class_state();
+		return true;
+	    }
+	    shuffle($this->teams_1);
+	    shuffle($this->teams_2);
 
-            // test if we can create so many valid gamedays
-            if (count($this->teams) >= $this->gameday_count) {
-                for ($i = 1; $i < $this->gameday_count; $i++) {
-                    $this->save_gameday();
-                    $this->rotate();
-                }
-                $this->save_gameday();
-            } else {
-                for ($i = 2; $i < (count($this->teams_1) * 2); $i++) {
-                    $this->save_gameday();
-                    $this->rotate();
-                }
-                $this->save_gameday();
-                // add extra blank days
-                $diff = $this->gameday_count - count($this->teams);
-                //$this->teams_2 = shuffle($this->teams_2);
-                //mail('ehask71@gmail.com', 'Teams', print_r($this->teams_1, 1) . ' ' . print_r($this->teams_2, 1));
-                for ($i = 0; $i < $diff; $i++) {
-                    // $this->save_gameday();
-                    //$this->rotate();
-                }
-            }
-        }
+	    // test if we can create so many valid gamedays
+	    if (count($this->teams) >= $this->gameday_count) {
+		for ($i = 1; $i < $this->gameday_count; $i++) {
+		    $this->save_gameday();
+		    $this->rotate();
+		}
+		$this->save_gameday();
+	    } else {
+		for ($i = 2; $i < (count($this->teams_1) * 2); $i++) {
+		    $this->save_gameday();
+		    $this->rotate();
+		}
+		$this->save_gameday();
+		// add extra blank days
+		$diff = $this->gameday_count - count($this->teams);
+		//$this->teams_2 = shuffle($this->teams_2);
+		//mail('ehask71@gmail.com', 'Teams', print_r($this->teams_1, 1) . ' ' . print_r($this->teams_2, 1));
+		for ($i = 0; $i < $diff; $i++) {
+		    // $this->save_gameday();
+		    //$this->rotate();
+		}
+	    }
+	}
 
 
 
-        $this->finished = true;
-        $this->raw_games_created = false;
-        $this->gamedays_created = true;
-        $this->clear_pointer();
+	$this->finished = true;
+	$this->raw_games_created = false;
+	$this->gamedays_created = true;
+	$this->clear_pointer();
 
-        return $this->games;
+	return $this->games;
     }
 
     /**
@@ -293,13 +293,13 @@ class RoundRobinComponent extends Component {
      * @return true;
      */
     private function save_gameday() {
-        for ($i = 0; $i < count($this->teams_1); $i++) {
-            if ($this->free_ticket || ($this->teams_1[$i] != $this->free_ticket_identifer &&
-                    $this->teams_2[$i] != $this->free_ticket_identifer))
-                $games_tmp[] = array($this->teams_1[$i], $this->teams_2[$i]);
-        }
-        $this->games[] = $games_tmp;
-        return true;
+	for ($i = 0; $i < count($this->teams_1); $i++) {
+	    if ($this->free_ticket || ($this->teams_1[$i] != $this->free_ticket_identifer &&
+		    $this->teams_2[$i] != $this->free_ticket_identifer))
+		$games_tmp[] = array($this->teams_1[$i], $this->teams_2[$i]);
+	}
+	$this->games[] = $games_tmp;
+	return true;
     }
 
     /**
@@ -311,16 +311,16 @@ class RoundRobinComponent extends Component {
      * @return true;
      */
     private function rotate() {
-        $temp = $this->teams_1[1];
-        for ($i = 1; $i < (count($this->teams_1) - 1); $i++) {
-            $this->teams_1[$i] = $this->teams_1[$i + 1];
-        }
-        $this->teams_1[count($this->teams_1) - 1] = end($this->teams_2);
-        for ($i = (count($this->teams_2) - 1); $i > 0; $i--) {
-            $this->teams_2[$i] = $this->teams_2[$i - 1];
-        }
-        $this->teams_2[0] = $temp;
-        return true;
+	$temp = $this->teams_1[1];
+	for ($i = 1; $i < (count($this->teams_1) - 1); $i++) {
+	    $this->teams_1[$i] = $this->teams_1[$i + 1];
+	}
+	$this->teams_1[count($this->teams_1) - 1] = end($this->teams_2);
+	for ($i = (count($this->teams_2) - 1); $i > 0; $i--) {
+	    $this->teams_2[$i] = $this->teams_2[$i - 1];
+	}
+	$this->teams_2[0] = $temp;
+	return true;
     }
 
     /**
@@ -331,21 +331,21 @@ class RoundRobinComponent extends Component {
      * @return false when error occured, the match array when true
      */
     public function create_raw_games() {
-        if (!$this->valid_team_array())
-            return false;
+	if (!$this->valid_team_array())
+	    return false;
 
-        $this->games = array();
+	$this->games = array();
 
-        for ($i = 0; $i < count($this->teams); $i++)
-            for ($i2 = $i + 1; $i2 < count($this->teams); $i2++)
-                $this->games[] = array($this->teams[$i], $this->teams[$i2]);
+	for ($i = 0; $i < count($this->teams); $i++)
+	    for ($i2 = $i + 1; $i2 < count($this->teams); $i2++)
+		$this->games[] = array($this->teams[$i], $this->teams[$i2]);
 
-        $this->finished = true;
-        $this->raw_games_created = true;
-        $this->gamedays_created = false;
-        $this->clear_pointer();
+	$this->finished = true;
+	$this->raw_games_created = true;
+	$this->gamedays_created = false;
+	$this->clear_pointer();
 
-        return $this->games;
+	return $this->games;
     }
 
     /**
@@ -359,12 +359,12 @@ class RoundRobinComponent extends Component {
      * @return false when not, true when valid
      */
     private function valid_team_array() {
-        if (!is_array($this->teams) || count($this->teams) < 2) {
-            $this->error = 'Not enough teams in array shape passed';
-            $this->reset_class_state();
-            return false;
-        }
-        return true;
+	if (!is_array($this->teams) || count($this->teams) < 2) {
+	    $this->error = 'Not enough teams in array shape passed';
+	    $this->reset_class_state();
+	    return false;
+	}
+	return true;
     }
 
     /**
@@ -374,14 +374,14 @@ class RoundRobinComponent extends Component {
      * @return true
      */
     public function reset_class_state() {
-        // going back to start shape
-        $this->finished = false;
-        $this->raw_games_created = false;
-        $this->gamedays_created = false;
-        $this->games = array();
-        $this->clear_pointer();
-        $this->gameday_count = 0;
-        return true;
+	// going back to start shape
+	$this->finished = false;
+	$this->raw_games_created = false;
+	$this->gamedays_created = false;
+	$this->games = array();
+	$this->clear_pointer();
+	$this->gameday_count = 0;
+	return true;
     }
 
     /**
@@ -392,9 +392,9 @@ class RoundRobinComponent extends Component {
      * @return true
      */
     private function clear_pointer() {
-        $this->gameday_pointer = 0;
-        $this->game_pointer = 0;
-        return true;
+	$this->gameday_pointer = 0;
+	$this->game_pointer = 0;
+	return true;
     }
 
     /**
@@ -408,26 +408,26 @@ class RoundRobinComponent extends Component {
      * @return array the match array or false
      */
     public function next_match() {
-        if ($this->raw_games_created) {
-            if (isset($this->games[$this->game_pointer])) {
-                $this->game_pointer++;
-                return $this->games[$this->game_pointer - 1];
-            }
-            else
-                return false;
-        }
-        elseif ($this->gamedays_created) {
-            if (isset($this->games[$this->gameday_pointer - 1][$this->game_pointer])) {
-                $this->game_pointer++;
-                return $this->games[$this->gameday_pointer - 1][$this->game_pointer - 1];
-            }
-            else
-                return false;
-        }
-        else {
-            $this->error = 'No games created yet.';
-            return false;
-        }
+	if ($this->raw_games_created) {
+	    if (isset($this->games[$this->game_pointer])) {
+		$this->game_pointer++;
+		return $this->games[$this->game_pointer - 1];
+	    }
+	    else
+		return false;
+	}
+	elseif ($this->gamedays_created) {
+	    if (isset($this->games[$this->gameday_pointer - 1][$this->game_pointer])) {
+		$this->game_pointer++;
+		return $this->games[$this->gameday_pointer - 1][$this->game_pointer - 1];
+	    }
+	    else
+		return false;
+	}
+	else {
+	    $this->error = 'No games created yet.';
+	    return false;
+	}
     }
 
     /**
@@ -439,185 +439,187 @@ class RoundRobinComponent extends Component {
      * @return array the gameday array or false
      */
     public function next_gameday() {
-        if ($this->raw_games_created) {
-            $this->error = "No gamedays created within last action.";
-            return false;
-        } elseif ($this->gamedays_created) {
-            if (isset($this->games[$this->gameday_pointer])) {
-                $this->gameday_pointer++;
-                $this->game_pointer = 0;
-                return $this->games[$this->gameday_pointer - 1];
-            }
-            else
-                return false;
-        }
-        else {
-            $this->error = 'No games created yet.';
-            return false;
-        }
+	if ($this->raw_games_created) {
+	    $this->error = "No gamedays created within last action.";
+	    return false;
+	} elseif ($this->gamedays_created) {
+	    if (isset($this->games[$this->gameday_pointer])) {
+		$this->gameday_pointer++;
+		$this->game_pointer = 0;
+		return $this->games[$this->gameday_pointer - 1];
+	    }
+	    else
+		return false;
+	}
+	else {
+	    $this->error = 'No games created yet.';
+	    return false;
+	}
     }
 
     public function createRandom() {
-        $teams = $_GET['t'];
-        $games = array();   //2D array tracking which week teams will be playing
+	$teams = $_GET['t'];
+	$games = array();   //2D array tracking which week teams will be playing
 // do the work
-        for ($i = 1; $i <= $teams; $i++) {
-            $games[$i] = array();
-            for ($j = 1; $j <= $teams; $j++) {
-                $games[$i][$j] = getweek($i, $j, $teams);
-            }
-        }
+	for ($i = 1; $i <= $teams; $i++) {
+	    $games[$i] = array();
+	    for ($j = 1; $j <= $teams; $j++) {
+		$games[$i][$j] = getweek($i, $j, $teams);
+	    }
+	}
 
 // display
-        echo '<pre>';
-        $max = 0;
-        foreach ($games as $row) {
-            foreach ($row as $col) {
-                printf('%4d', is_null($col) ? -2 : $col);
-                if ($col > $max) {
-                    $max = $col;
-                }
-            }
-            echo "\n";
-        }
+	echo '<pre>';
+	$max = 0;
+	foreach ($games as $row) {
+	    foreach ($row as $col) {
+		printf('%4d', is_null($col) ? -2 : $col);
+		if ($col > $max) {
+		    $max = $col;
+		}
+	    }
+	    echo "\n";
+	}
     }
 
     public function getWeek($home, $away, $num_teams) {
-        if ($home == $away) {
-            return -1;
-        }
-        $week = $home + $away - 2;
-        if ($week >= $num_teams) {
-            $week = $week - $num_teams + 1;
-        }
-        if ($home > $away) {
-            $week += $num_teams - 1;
-        }
+	if ($home == $away) {
+	    return -1;
+	}
+	$week = $home + $away - 2;
+	if ($week >= $num_teams) {
+	    $week = $week - $num_teams + 1;
+	}
+	if ($home > $away) {
+	    $week += $num_teams - 1;
+	}
 
-        return $week;
+	return $week;
     }
 
     /**
      * Rotates an array for the round robin algorithm
      */
     function round_robin_array($array) {
-        // we always keep index 0
-        $top = array_shift($array);
-        $last = array_pop($array);
-        $rotate = [$last];
-        foreach ($array as $_value) {
-            $rotate[] = $_value;
-        }
-        array_unshift($rotate, $top);
-        return $rotate;
+	// we always keep index 0
+	$top = array_shift($array);
+	$last = array_pop($array);
+	$rotate = [$last];
+	foreach ($array as $_value) {
+	    $rotate[] = $_value;
+	}
+	array_unshift($rotate, $top);
+	return $rotate;
     }
 
     /**
      * Runs a round robin to make a schedule.
      */
     function round_robin($players, $weeks) {
-        $schedule = [];
-        $count = count($players);
-        foreach ($players as $_p) {
-            $schedule[$_p] = array_fill(0, $weeks, []);
-        }
-        for ($i = 0; $i < $weeks; $i++) {
-            for ($a = 0; $a < ($count / 2) + 1; $a++) {
-                $vs = $players[$a];
-                $opp = $players[($count - $a) - 1];
-                $at = rand(0, 1);
-                $pg = [$opp, $at];
-                $og = [$vs, $at];
-                $schedule[$vs][$i] = $pg;
-                $schedule[$opp][$i] = $og;
-            }
-            $players = $this->round_robin_array($players);
-        }
-        return $schedule;
+	$schedule = [];
+	$count = count($players);
+	foreach ($players as $_p) {
+	    $schedule[$_p] = array_fill(0, $weeks, []);
+	}
+	for ($i = 0; $i < $weeks; $i++) {
+	    for ($a = 0; $a < ($count / 2) + 1; $a++) {
+		$vs = $players[$a];
+		$opp = $players[($count - $a) - 1];
+		$at = rand(0, 1);
+		$pg = [$opp, $at];
+		$og = [$vs, $at];
+		$schedule[$vs][$i] = $pg;
+		$schedule[$opp][$i] = $og;
+	    }
+	    $players = $this->round_robin_array($players);
+	}
+	return $schedule;
     }
 
     function getFixtures($teamslist, $startDate, $referees) {
-        //if odd number of teams add a BYE team! 
+	//if odd number of teams add a BYE team! 
 	$odd = false;
 	$team = array();
-	foreach($teamslist AS $t){
+	foreach ($teamslist AS $t) {
 	    $team[$t] = 0;
 	}
-        if (count($teamslist) % 2 != 0) {
-            array_push($teamslist, "BYE");
+	if (count($teamslist) % 2 != 0) {
+	    array_push($teamslist, "BYE");
 	    $odd = true;
-        }
+	}
 
-        //shuffle the list of teams, so we don't get same fixtures each time! 
-        shuffle($teamslist);
-        //split teamslist into two arrays 
-        $away = array_splice($teamslist, (count($teamslist) / 2));
-        $home = $teamslist;
-	
-	if($odd){
+	//shuffle the list of teams, so we don't get same fixtures each time! 
+	shuffle($teamslist);
+	//split teamslist into two arrays 
+	$away = array_splice($teamslist, (count($teamslist) / 2));
+	$home = $teamslist;
+
+	if ($odd) {
 	    $fig = ((count($teamslist) + count($away))) * 2 + 1;
 	} else {
-	    $fig = ((count($teamslist) + count($away))-1) * 2;
+	    $fig = ((count($teamslist) + count($away)) - 1) * 2;
 	}
-        //iterate through for every game in every round for teams 
-        for ($a = 0; $a < $fig; $a++) {
-            //assign the full list of referees each round or week so we get full list again 
-            $refs = $referees;
-            //shuffle the list so its random 
-            shuffle($refs);
-            for ($z = 0; $z < count($home); $z++) {
-                //pick a ref for a game basically! 
-                $picked = array_shift($refs);
-                //assign the relevant teams, dates, times and referee to fixtures 
-                if (($a % 2 != 0) && ($z % 2 == 0)) {
+	//iterate through for every game in every round for teams 
+	for ($a = 0; $a < $fig; $a++) {
+	    //assign the full list of referees each round or week so we get full list again 
+	    $refs = $referees;
+	    //shuffle the list so its random 
+	    shuffle($refs);
+	    for ($z = 0; $z < count($home); $z++) {
+		//pick a ref for a game basically! 
+		$picked = array_shift($refs);
+		//assign the relevant teams, dates, times and referee to fixtures 
+		if (($a % 2 != 0) && ($z % 2 == 0)) {
 
-                    if ($z % 2 == 0) {
-                        $startDate = date('Y-m-d', strtotime($startDate . "+1 days"));
-                    }
-                    $match[$a][$z]["Home"] = $away[$z];
-                    $match[$a][$z]["Away"] = $home[$z];
-                    //$match[$a][$z]["Date"] = $startDate;
-                    //$match[$a][$z]["Time"] = "19:00:00";
-                    //$match[$a][$z]["Ref"] = $picked;
-                } else {
-                    if ($z % 2 == 0) {
-                        $startDate = date('Y-m-d', strtotime($startDate . "+1 days"));
-                    }
-                    $match[$a][$z]["Home"] = $home[$z];
-                    $match[$a][$z]["Away"] = $away[$z];
-                    //$match[$a][$z]["Date"] = $startDate;
-                    //$match[$a][$z]["Time"] = "19:00:00";
-                    //$match[$a][$z]["Ref"] = $picked;
-                }
-		if($home[$z] != 'BYE' && $away[$z] != 'BYE'){
+		    if ($z % 2 == 0) {
+			$startDate = date('Y-m-d', strtotime($startDate . "+1 days"));
+		    }
+		    $match[$a][$z]["Home"] = $away[$z];
+		    $match[$a][$z]["Away"] = $home[$z];
+		    //$match[$a][$z]["Date"] = $startDate;
+		    //$match[$a][$z]["Time"] = "19:00:00";
+		    //$match[$a][$z]["Ref"] = $picked;
+		} else {
+		    if ($z % 2 == 0) {
+			$startDate = date('Y-m-d', strtotime($startDate . "+1 days"));
+		    }
+		    $match[$a][$z]["Home"] = $home[$z];
+		    $match[$a][$z]["Away"] = $away[$z];
+		    //$match[$a][$z]["Date"] = $startDate;
+		    //$match[$a][$z]["Time"] = "19:00:00";
+		    //$match[$a][$z]["Ref"] = $picked;
+		}
+		if ($home[$z] != 'BYE' && $away[$z] != 'BYE') {
 		    $team[$home[$z]]++;
 		    $team[$away[$z]]++;
 		}
-            }
+	    }
 
-            //If there 
-            if (count($home) + count($away) - 1 > 2) {
-                $splice = array_splice($home, 1, 1);
-                $shift = array_shift($splice);
-                array_unshift($away, $shift);
-                array_push($home, array_pop($away));
-            }
-            $startDate = date('Y-m-d', strtotime($startDate . "+7 days"));
-        }
-        //go through the whole array storing everything and go to each round, then game and check whether our bye team is present, if so ignore and remove the fixture,else keep it 
-        foreach ($match AS $matchkey => $matchval) {
-
-            foreach ($matchval AS $gamekey => $game) {
-               // if ($game["Home"] != "IGNORE" && $game["Away"] != "IGNORE") {
-
-                    //store it all in a new multidimensional array  
-                    $allmatches[$matchkey][$gamekey] = $game;
-                //}
-            }
-        }
+	    //If there 
+	    if (count($home) + count($away) - 1 > 2) {
+		$splice = array_splice($home, 1, 1);
+		$shift = array_shift($splice);
+		array_unshift($away, $shift);
+		array_push($home, array_pop($away));
+	    }
+	    $startDate = date('Y-m-d', strtotime($startDate . "+7 days"));
+	}
+	if(!$odd){
+	    if($team[0] < 10){
+		$diff = 10 - $team[0];
+		$filler = array_slice(array_reverse($match),$diff);
+		$match = array_merge($match,$filler);
+	    }
+	}
+	//go through the whole array storing everything and go to each round, then game and check whether our bye team is present, if so ignore and remove the fixture,else keep it 
+	foreach ($match AS $matchkey => $matchval) {
+	    foreach ($matchval AS $gamekey => $game) {
+		$allmatches[$matchkey][$gamekey] = $game;
+	    }
+	}
 	$allmatches[counts] = $team;
 //return it all 
-        return $allmatches;
+	return $allmatches;
     }
 
 }
