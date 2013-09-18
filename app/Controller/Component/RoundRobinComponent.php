@@ -604,11 +604,11 @@ class RoundRobinComponent extends Component {
 	    }
 	    $startDate = date('Y-m-d', strtotime($startDate . "+7 days"));
 	}
-        echo $team[$z];
-	    if($team[$z] < 10){
-		$diff = 10 - $team[$z];
-		echo $team[$z];
-		echo $diff;
+        echo $team[$home[$z]];
+	    if($team[$home[$z]] < 10){
+		$diff = 10 - $team[$home[$z]];
+		//echo $team[$z];
+		//echo $diff;
 		$filler = array_slice(array_reverse($match),$diff);
                 print_r($filler);
 		$match = array_merge($match,$filler);
