@@ -57,6 +57,7 @@ class SandboxController extends AppController {
             //$this->RoundRobin->create_raw_games();
 	    echo '<b>'.$div['Divisions']['name'].'</b><br>';
 	    echo '<pre>';
+	    print_r($team_array);
 	   /* $games = $this->RoundRobin->games;
             $this->RoundRobin->create_games();
             $games2 = $this->RoundRobin->games;
