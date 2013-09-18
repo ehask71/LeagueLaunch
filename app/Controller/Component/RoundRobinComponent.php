@@ -549,7 +549,7 @@ class RoundRobinComponent extends Component {
         $away = array_splice($teamslist, (count($teamslist) / 2));
         $home = $teamslist;
 	if($odd){
-	    echo ((count($teamslist) + count($away))+1) * 2;
+	    echo ((count($teamslist) + count($away))) * 2;
 	} else {
 	    echo ((count($teamslist) + count($away))-1) * 2;
 	}
