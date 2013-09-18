@@ -564,18 +564,18 @@ class RoundRobinComponent extends Component {
                     }
                     $match[$a][$z]["Home"] = $away[$z];
                     $match[$a][$z]["Away"] = $home[$z];
-                    $match[$a][$z]["Date"] = $startDate;
-                    $match[$a][$z]["Time"] = "19:00:00";
-                    $match[$a][$z]["Ref"] = $picked;
+                    //$match[$a][$z]["Date"] = $startDate;
+                    //$match[$a][$z]["Time"] = "19:00:00";
+                    //$match[$a][$z]["Ref"] = $picked;
                 } else {
                     if ($z % 2 == 0) {
                         $startDate = date('Y-m-d', strtotime($startDate . "+1 days"));
                     }
                     $match[$a][$z]["Home"] = $home[$z];
                     $match[$a][$z]["Away"] = $away[$z];
-                    $match[$a][$z]["Date"] = $startDate;
-                    $match[$a][$z]["Time"] = "19:00:00";
-                    $match[$a][$z]["Ref"] = $picked;
+                    //$match[$a][$z]["Date"] = $startDate;
+                    //$match[$a][$z]["Time"] = "19:00:00";
+                    //$match[$a][$z]["Ref"] = $picked;
                 }
             }
 
