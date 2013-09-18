@@ -540,6 +540,7 @@ class RoundRobinComponent extends Component {
         //if odd number of teams add a BYE team! 
         if (count($teamslist) % 2 != 0) {
             array_push($teamslist, "BYE");
+	    $odd = true;
         }
 
         //shuffle the list of teams, so we don't get same fixtures each time! 
@@ -547,7 +548,11 @@ class RoundRobinComponent extends Component {
         //split teamslist into two arrays 
         $away = array_splice($teamslist, (count($teamslist) / 2));
         $home = $teamslist;
-	echo ((count($teamslist) + count($away))-1) * 2;
+	if($odd){
+	    echo ((count($teamslist) + count($away))+1) * 2;
+	} else {
+	    echo ((count($teamslist) + count($away))-1) * 2;
+	}
         //iterate through for every game in every round for teams 
         for ($a = 0; $a < ((count($teamslist) + count($away))-1) * 2; $a++) {
             //assign the full list of referees each round or week so we get full list again 
