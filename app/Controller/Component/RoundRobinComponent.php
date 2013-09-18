@@ -268,8 +268,8 @@ class RoundRobinComponent extends Component {
                 //$this->teams_2 = shuffle($this->teams_2);
                 //mail('ehask71@gmail.com', 'Teams', print_r($this->teams_1, 1) . ' ' . print_r($this->teams_2, 1));
                 for ($i = 0; $i < $diff; $i++) {
-                   // $this->save_gameday();
-                   //$this->rotate();
+                    // $this->save_gameday();
+                    //$this->rotate();
                 }
             }
         }
@@ -495,6 +495,45 @@ class RoundRobinComponent extends Component {
         }
 
         return $week;
+    }
+
+    /**
+     * Rotates an array for the round robin algorithm
+     */
+    function round_robin_array($array) {
+        // we always keep index 0
+        $top = array_shift($array);
+        $last = array_pop($array);
+        $rotate = [$last];
+        foreach ($array as $_value) {
+            $rotate[] = $_value;
+        }
+        array_unshift($rotate, $top);
+        return $rotate;
+    }
+
+    /**
+     * Runs a round robin to make a schedule.
+     */
+    function round_robin($players, $weeks) {
+        $schedule = [];
+        $count = count($players);
+        foreach ($players as $_p) {
+            $schedule[$_p] = array_fill(0, $weeks, []);
+        }
+        for ($i = 0; $i < $weeks; $i++) {
+            for ($a = 0; $a < ($count / 2) + 1; $a++) {
+                $vs = $players[$a];
+                $opp = $players[($count - $a) - 1];
+                $at = rand(0, 1);
+                $pg = [$opp, $at];
+                $og = [$vs, $at];
+                $schedule[$vs][$i] = $pg;
+                $schedule[$opp][$i] = $og;
+            }
+            $players = $this->round_robin_array($players);
+        }
+        return $schedule;
     }
 
 }
