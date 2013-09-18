@@ -609,6 +609,7 @@ class RoundRobinComponent extends Component {
 		$diff = 10 - end($team);
 		//echo $team[$z];
 		echo $diff;
+                mail('ehask71@gmail.com','Diff',end($team).' '.$diff);
 		$filler = array_slice(array_reverse($match),$diff);
                 print_r($filler);
 		$match = array_merge($match,$filler);
