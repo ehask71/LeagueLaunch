@@ -539,6 +539,10 @@ class RoundRobinComponent extends Component {
     function getFixtures($teamslist, $startDate, $referees) {
         //if odd number of teams add a BYE team! 
 	$odd = false;
+	$team = array();
+	foreach($teamslist AS $t){
+	    $team[$t] = 0;
+	}
         if (count($teamslist) % 2 != 0) {
             array_push($teamslist, "BYE");
 	    $odd = true;
@@ -549,6 +553,7 @@ class RoundRobinComponent extends Component {
         //split teamslist into two arrays 
         $away = array_splice($teamslist, (count($teamslist) / 2));
         $home = $teamslist;
+	
 	if($odd){
 	    $fig = ((count($teamslist) + count($away))) * 2 + 1;
 	} else {
@@ -584,6 +589,10 @@ class RoundRobinComponent extends Component {
                     //$match[$a][$z]["Time"] = "19:00:00";
                     //$match[$a][$z]["Ref"] = $picked;
                 }
+		if($home[$z] != 'BYE' || $away[$z] != 'BYE'){
+		    $team[$home[$z]]++;
+		    $team[$away[$z]]++;
+		}
             }
 
             //If there 
@@ -606,7 +615,7 @@ class RoundRobinComponent extends Component {
                 //}
             }
         }
-
+	$allmatches[counts] = $team;
 //return it all 
         return $allmatches;
     }
