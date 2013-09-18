@@ -589,7 +589,7 @@ class RoundRobinComponent extends Component {
                     //$match[$a][$z]["Time"] = "19:00:00";
                     //$match[$a][$z]["Ref"] = $picked;
                 }
-		if($home[$z] != 'BYE' || $away[$z] != 'BYE'){
+		if($home[$z] != 'BYE' && $away[$z] != 'BYE'){
 		    $team[$home[$z]]++;
 		    $team[$away[$z]]++;
 		}
