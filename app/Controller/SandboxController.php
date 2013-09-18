@@ -64,13 +64,14 @@ class SandboxController extends AppController {
             //$secondgames = array_reverse($this->RoundRobin->games);*/
            // print_r($games);
 	    echo '</pre>';
-          
+	    $i=1;
             foreach($games AS $game){
                echo $i."<br>";
                foreach($game AS $g){
                    echo '[H] '.$g[Home].' vs '.$g[Away]."<br/>";
                }
                echo '<br>';
+	       $i++;
             }
             exit();
 	}
