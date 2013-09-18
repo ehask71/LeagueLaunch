@@ -547,6 +547,7 @@ class RoundRobinComponent extends Component {
         //split teamslist into two arrays 
         $away = array_splice($teamslist, (count($teamslist) / 2));
         $home = $teamslist;
+	echo ((count($teamslist) + count($away))-1) * 2;
         //iterate through for every game in every round for teams 
         for ($a = 0; $a < ((count($teamslist) + count($away))-1) * 2; $a++) {
             //assign the full list of referees each round or week so we get full list again 
