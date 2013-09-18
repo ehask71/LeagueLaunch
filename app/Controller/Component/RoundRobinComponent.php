@@ -606,7 +606,7 @@ class RoundRobinComponent extends Component {
 	}
 	if(!$odd){
 	    if($team[$z] < 10){
-		$diff = 10 - $team[0];
+		$diff = 10 - $team[$z];
 		echo $diff;
 		$filler = array_slice(array_reverse($match),$diff);
 		$match = array_merge($match,$filler);
