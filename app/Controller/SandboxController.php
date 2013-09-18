@@ -68,7 +68,7 @@ class SandboxController extends AppController {
             foreach($games AS $game){
                echo $i."<br>";
                foreach($game AS $g){
-                   echo '[H]'.$g[Home].' vs '.$g[Away]."<br/>";
+                   echo '[H] '.$g[Home].' vs '.$g[Away]."<br/>";
                }
                echo '<br>';
             }
