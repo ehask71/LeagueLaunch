@@ -56,7 +56,9 @@ class SandboxController extends AppController {
 	    echo $div['Divisions']['name'].'<br>';
 	    echo '<pre>';
 	    $games = $this->RoundRobin->games;
-            
+            $this->RoundRobin->create_games();
+            $games2 = $this->RoundRobin->games;
+            $games = array_merge($games,$games2);
             //$secondgames = array_reverse($this->RoundRobin->games);
             print_r($games);
 	    echo '</pre>';
