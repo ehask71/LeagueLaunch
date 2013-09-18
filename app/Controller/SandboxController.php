@@ -35,6 +35,9 @@ class SandboxController extends AppController {
 	));
 	
 	foreach($divisions AS $div){
+	    if(strpos($div, 'softball')){
+		continue;
+	    }
 	    $teams = $this->Team->find('all',array(
 		'conditions' => array(
 		    'Team.division_id' =>$div['Divisions']['division_id'],
