@@ -53,15 +53,24 @@ class SandboxController extends AppController {
 	    $this->RoundRobin->gameday_count = 10;
 	    $this->RoundRobin->create_games();
             //$this->RoundRobin->create_raw_games();
-	    echo $div['Divisions']['name'].'<br>';
-	    echo '<pre>';
+	    echo '<b>'.$div['Divisions']['name'].'</b><br>';
+	    //echo '<pre>';
 	    $games = $this->RoundRobin->games;
             $this->RoundRobin->create_games();
             $games2 = $this->RoundRobin->games;
             $games = array_merge($games,$games2);
             //$secondgames = array_reverse($this->RoundRobin->games);
-            print_r($games);
-	    echo '</pre>';
+            //print_r($games);
+	    //echo '</pre>';
+          
+            foreach($games AS $game){
+               echo $i."<br>";
+               foreach($game AS $g){
+                   echo $g[0].' vs '.$g[1]."<br/>";
+               }
+               echo '<br>';
+            }
+        
 	}
     }
     
