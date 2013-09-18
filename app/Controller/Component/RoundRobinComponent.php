@@ -608,7 +608,7 @@ class RoundRobinComponent extends Component {
 	    if(end($team) < 10){
 		$diff = 10 - end($team);
 		//echo $team[$z];
-		//echo $diff;
+		echo $diff;
 		$filler = array_slice(array_reverse($match),$diff);
                 print_r($filler);
 		$match = array_merge($match,$filler);
