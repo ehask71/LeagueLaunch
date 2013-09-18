@@ -72,7 +72,7 @@ class SandboxController extends AppController {
                }
                echo '<br>';
             }*/
-        
+            exit();
 	}
     }
     
