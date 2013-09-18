@@ -610,6 +610,7 @@ class RoundRobinComponent extends Component {
 		echo $team[$z];
 		echo $diff;
 		$filler = array_slice(array_reverse($match),$diff);
+                print_r($filler);
 		$match = array_merge($match,$filler);
 	    }
 	//go through the whole array storing everything and go to each round, then game and check whether our bye team is present, if so ignore and remove the fixture,else keep it 
