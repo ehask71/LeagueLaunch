@@ -93,6 +93,7 @@ class SandboxController extends AppController {
                    echo '<td>'.$i.'</td><td>[H] '.$g[Home].' vs '.$g[Away]."</td>";
                    echo '</tr>';
                }
+               echo '<tr><td colspan="2">&nbsp;</td></tr>';
                //echo '<br>';
 	       $i++;
             }
