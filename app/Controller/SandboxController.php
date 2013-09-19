@@ -59,27 +59,46 @@ class SandboxController extends AppController {
             $games = $this->RoundRobin->getFixtures($team_array,'2013-09-28',array('Eric','Rob','Scott'));
             //$games = $this->RoundRobin->round_robin($team_array,10);
             //$this->RoundRobin->create_raw_games();
-	    echo '<b>'.$div['Divisions']['name'].'</b><br>';
-	    echo '<pre>';
-	    print_r($team_array);
+            echo '<table>';
+            echo '<thead>';
+            echo '<tr><th colspan="100">';
+	    echo '<b>'.$div['Divisions']['name'].'</b>';
+            echo '</th></tr></thead><tbody>';
+	    //echo '<pre>';
+            /*echo '<tr><td>Teams:<ol>';
+            foreach($team_array AS $ta){
+                echo '<li>'.$ta.'</li>';
+            }
+            echo '</ol></td></tr>';*/
+	    //print_r($team_array);
+            
 	   /* $games = $this->RoundRobin->games;
             $this->RoundRobin->create_games();
             $games2 = $this->RoundRobin->games;
             $games = array_merge($games,$games2);
             //$secondgames = array_reverse($this->RoundRobin->games);*/
-            print_r($games[counts]);
+            //print_r($games[counts]);
+            echo '<tr><td>Teams:<ol>';
+            foreach($games[counts] AS $k=>$v){
+                echo '<li>'.$k.' ~ Games ('.$v.')</li>';
+            }
+            echo '</ol></td></tr>';
 	    unset($games[counts]);
-	    echo '</pre>';
+	    //echo '</pre>';
 	    $i=1;
             foreach($games AS $game){
-               echo $i."<br>";
+               echo '<tr><td>'.$i.'</td></tr>';
                foreach($game AS $g){
-                   echo '[H] '.$g[Home].' vs '.$g[Away]."<br/>";
+                   echo '<tr>';
+                   echo '<td>[H] '.$g[Home].' vs '.$g[Away]."</td>";
+                   echo '</tr>';
                }
-               echo '<br>';
+               //echo '<br>';
 	       $i++;
             }
             //exit();
+            echo '</tbody>';
+            echo '</table>';
 	}
     }
     
