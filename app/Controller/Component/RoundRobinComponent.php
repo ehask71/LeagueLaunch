@@ -608,10 +608,10 @@ class RoundRobinComponent extends Component {
 	    if(end($team) < 10){
 		$diff = 10 - end($team);
 		//echo $team[$z];
-		echo $diff;
-                mail('ehask71@gmail.com','Diff',end($team).' '.$diff);
+		//echo $diff;
+                //mail('ehask71@gmail.com','Diff',end($team).' '.$diff);
 		$filler = array_slice(array_reverse($match),(end($team)-$diff));
-                print_r($filler);
+                //print_r($filler);
 		$match = array_merge($match,$filler);
 	    }
 	//go through the whole array storing everything and go to each round, then game and check whether our bye team is present, if so ignore and remove the fixture,else keep it 
