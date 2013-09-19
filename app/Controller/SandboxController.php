@@ -78,7 +78,7 @@ class SandboxController extends AppController {
             $games = array_merge($games,$games2);
             //$secondgames = array_reverse($this->RoundRobin->games);*/
             //print_r($games[counts]);
-            echo '<tr><td>Teams:<ol>';
+            echo '<tr><td colspan="100">Teams:<ol>';
             foreach($games[counts] AS $k=>$v){
                 echo '<li>'.$k.' ~ Games ('.$v.')</li>';
             }
@@ -87,10 +87,10 @@ class SandboxController extends AppController {
 	    //echo '</pre>';
 	    $i=1;
             foreach($games AS $game){
-               echo '<tr><td>'.$i.'</td></tr>';
+               //echo '<tr><td>'.$i.'</td></tr>';
                foreach($game AS $g){
                    echo '<tr>';
-                   echo '<td>[H] '.$g[Home].' vs '.$g[Away]."</td>";
+                   echo '<td>'.$i.'</td><td>[H] '.$g[Home].' vs '.$g[Away]."</td>";
                    echo '</tr>';
                }
                //echo '<br>';
