@@ -99,6 +99,7 @@ class SandboxController extends AppController {
             //exit();
             echo '</tbody>';
             echo '</table>';
+            echo '<br><br>';
 	}
     }
     
