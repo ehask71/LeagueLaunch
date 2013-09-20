@@ -106,7 +106,7 @@ class SandboxController extends AppController {
             echo '<br><br>';
         }
 
-        $data = array(
+      /*  $data = array(
             'site_id' => Configure::read('Settings.site_id'),
             'season_id' => $id,
             'key' => 'schedule',
@@ -118,7 +118,7 @@ class SandboxController extends AppController {
         if ($this->RandomTeamPicks->save($data)) {
             $this->Session->setFlash(__('Schedule Stored'), 'default', array('class' => 'alert succes_msg'));
             $randdb = $this->RandomTeamPicks->getLastInsertId();
-        }
+        }*/
     }
 
 }
