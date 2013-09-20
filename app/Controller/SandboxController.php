@@ -79,7 +79,7 @@ class SandboxController extends AppController {
               $games = array_merge($games,$games2);
               //$secondgames = array_reverse($this->RoundRobin->games); */
             //print_r($games[counts]);
-            $overallgames[$div['Divisions']['division_id']] = $games;
+            $overallgames[$div['Divisions']['division_id']] = array('games'=>$games,'name'=>$div['Divisions']['name'],'id'=>$div['Divisions']['division_id']);
 
             echo '<tr><td colspan="100">Teams:<ol>';
             foreach ($games[counts] AS $k => $v) {
