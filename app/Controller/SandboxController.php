@@ -79,7 +79,7 @@ class SandboxController extends AppController {
               $games = array_merge($games,$games2);
               //$secondgames = array_reverse($this->RoundRobin->games); */
             //print_r($games[counts]);
-            $overallgames[$div['Divisions']['division_id']] = array('games'=>$games,'name'=>$div['Divisions']['name'],'id'=>$div['Divisions']['division_id']);
+            $overallgames[$div['Divisions']['division_id']] = array('games' => $games, 'name' => $div['Divisions']['name'], 'id' => $div['Divisions']['division_id']);
 
             echo '<tr><td colspan="100">Teams:<ol>';
             foreach ($games[counts] AS $k => $v) {
@@ -106,19 +106,62 @@ class SandboxController extends AppController {
             echo '<br><br>';
         }
 
-      /*  $data = array(
-            'site_id' => Configure::read('Settings.site_id'),
-            'season_id' => $id,
-            'key' => 'schedule',
-            'data' => serialize($overallgames)
-        );
-        if ($rand) {
-            $data['id'] = $rand;
+        /*  $data = array(
+          'site_id' => Configure::read('Settings.site_id'),
+          'season_id' => $id,
+          'key' => 'schedule',
+          'data' => serialize($overallgames)
+          );
+          if ($rand) {
+          $data['id'] = $rand;
+          }
+          if ($this->RandomTeamPicks->save($data)) {
+          $this->Session->setFlash(__('Schedule Stored'), 'default', array('class' => 'alert succes_msg'));
+          $randdb = $this->RandomTeamPicks->getLastInsertId();
+          } */
+    }
+
+    public function viewschedule($id) {
+        $this->autoRender = false;
+        $schedule = $this->RandomTeamPicks->find('first', array(
+            'conditions' => array(
+                'RandomTeamPicks.site_id' => Configure::read('Settings.site_id'),
+                'RandomTeamPicks.key' => 'schedule',
+                'RandomTeamPicks.season_id' => $id
+            )
+                ));
+
+        $divisions = unserialize($schedule[RandomTeamPicks][data]);
+        foreach ($divisions AS $division) {
+            echo '<table>';
+            echo '<thead>';
+            echo '<tr><th colspan="100">';
+            echo '<b>' . $division['name'] . '</b>';
+            echo '</th></tr></thead><tbody>';
+            echo '<tr><td colspan="100">Teams:<ol>';
+            foreach ($division[games][counts] AS $k => $v) {
+                echo '<li>' . $k . ' ~ Games (' . $v . ')</li>';
+            }
+            echo '</ol></td></tr>';
+            unset($division[games][counts]);
+            //echo '</pre>';
+            $i = 1;
+            foreach ($division[games] AS $game) {
+                //echo '<tr><td>'.$i.'</td></tr>';
+                foreach ($game AS $g) {
+                    echo '<tr>';
+                    echo '<td>' . $i . '</td><td>[H] ' . $g[Home] . ' vs ' . $g[Away] . "</td>";
+                    echo '</tr>';
+                }
+                echo '<tr><td colspan="2">&nbsp;</td></tr>';
+                //echo '<br>';
+                $i++;
+            }
+            //exit();
+            echo '</tbody>';
+            echo '</table>';
+            echo '<br><br>';
         }
-        if ($this->RandomTeamPicks->save($data)) {
-            $this->Session->setFlash(__('Schedule Stored'), 'default', array('class' => 'alert succes_msg'));
-            $randdb = $this->RandomTeamPicks->getLastInsertId();
-        }*/
     }
 
 }
