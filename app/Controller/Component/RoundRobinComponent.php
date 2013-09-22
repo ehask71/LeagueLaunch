@@ -519,7 +519,7 @@ class RoundRobinComponent extends Component {
 	$schedule= array();
 	$count = count($players);
 	foreach ($players as $_p) {
-	    $schedule[$_p] = array_fill(0, $weeks, []);
+	    $schedule[$_p] = array_fill(0, $weeks, array());
 	}
 	for ($i = 0; $i < $weeks; $i++) {
 	    for ($a = 0; $a < ($count / 2) + 1; $a++) {
