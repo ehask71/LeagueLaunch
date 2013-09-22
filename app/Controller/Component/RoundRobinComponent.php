@@ -504,7 +504,7 @@ class RoundRobinComponent extends Component {
 	// we always keep index 0
 	$top = array_shift($array);
 	$last = array_pop($array);
-	$rotate = [$last];
+	$rotate[] = $last;
 	foreach ($array as $_value) {
 	    $rotate[] = $_value;
 	}
