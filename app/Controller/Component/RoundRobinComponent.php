@@ -526,8 +526,8 @@ class RoundRobinComponent extends Component {
 		$vs = $players[$a];
 		$opp = $players[($count - $a) - 1];
 		$at = rand(0, 1);
-		$pg = [$opp, $at];
-		$og = [$vs, $at];
+		$pg = $opp[$at];
+		$og = $vs[$at];
 		$schedule[$vs][$i] = $pg;
 		$schedule[$opp][$i] = $og;
 	    }
