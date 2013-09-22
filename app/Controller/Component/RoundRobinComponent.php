@@ -516,7 +516,7 @@ class RoundRobinComponent extends Component {
      * Runs a round robin to make a schedule.
      */
     function round_robin($players, $weeks) {
-	$schedule = [];
+	$schedule= array();
 	$count = count($players);
 	foreach ($players as $_p) {
 	    $schedule[$_p] = array_fill(0, $weeks, []);
