@@ -504,7 +504,7 @@ class RoundRobinComponent extends Component {
 	// we always keep index 0
 	$top = array_shift($array);
 	$last = array_pop($array);
-	$rotate = [$last];
+	$rotate[] = $last;
 	foreach ($array as $_value) {
 	    $rotate[] = $_value;
 	}
@@ -516,18 +516,18 @@ class RoundRobinComponent extends Component {
      * Runs a round robin to make a schedule.
      */
     function round_robin($players, $weeks) {
-	$schedule = [];
+	$schedule= array();
 	$count = count($players);
 	foreach ($players as $_p) {
-	    $schedule[$_p] = array_fill(0, $weeks, []);
+	    $schedule[$_p] = array_fill(0, $weeks, array());
 	}
 	for ($i = 0; $i < $weeks; $i++) {
 	    for ($a = 0; $a < ($count / 2) + 1; $a++) {
 		$vs = $players[$a];
 		$opp = $players[($count - $a) - 1];
 		$at = rand(0, 1);
-		$pg = [$opp, $at];
-		$og = [$vs, $at];
+		$pg = $opp[$at];
+		$og = $vs[$at];
 		$schedule[$vs][$i] = $pg;
 		$schedule[$opp][$i] = $og;
 	    }
