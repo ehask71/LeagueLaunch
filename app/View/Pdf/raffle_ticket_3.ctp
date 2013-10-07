@@ -2,7 +2,7 @@
 
 App::import('Vendor', 'xtcpdf');
 $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
-$pdf->SetMargins(20, 20, 20);
+$pdf->SetMargins(20, 0, 20);
 $pdf->AddPage();
 $html = '
 <table border="1" cellspacing="0" cellpadding="0" width="650px">
@@ -12,7 +12,7 @@ $html = '
 	    Ticket #:<b>'.$ticket.'</b><br>
 	    Purchased By:'.$purchaser.'<br>
 	</td>
-	<td width="25%" height="100px"></td>
+	<td width="25%" height="200px"></td>
     </tr>
     <tr>
 	<td colspan="2" align="center" height="70px">
@@ -20,10 +20,10 @@ $html = '
 	</td>
     </tr>
     <tr>
-	<td colspan="2">
-	<table cellspacing="0" cellpadding="0" width="98%">
+	<td colspan="2" align="center">
+	<table cellspacing="0" cellpadding="1" width="98%">
 	<tr>
-        <td align="center" bgcolor="#FFFF00" height="300px">
+        <td align="center" bgcolor="#FFFF00" height="500px">
 	    <b>Ad Space 2</b>
 	</td>
         <td bgcolor="#cccccc" align="center">
