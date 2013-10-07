@@ -4,7 +4,7 @@ App::import('Vendor', 'xtcpdf');
 $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
 $pdf->AddPage();
 $html = '
-<table border="1" cellspacing="0" cellpadding="0">
+<table border="1" cellspacing="0" cellpadding="0" width="98%">
     <tr>
         <td>
 	    BuddyBall.Org Fall Raffle<br><br>
@@ -19,11 +19,17 @@ $html = '
 	</td>
     </tr>
     <tr>
-        <td align="center" bgcolor="#FFFF00">
+	<td colspan="2">
+	<table cellspacing="0" cellpadding="0" width="98%">
+	<tr>
+        <td align="center" bgcolor="#FFFF00" height="300px">
 	    <b>Ad Space 2</b>
 	</td>
         <td bgcolor="#cccccc" align="center">
 	    <b>Ad Space 3</b>
+	</td>
+	</tr>
+	</table>
 	</td>
     </tr>
 </table>';
