@@ -21,7 +21,7 @@ $html = '
     </tr>
     <tr>
 	<td colspan="2" align="center" cellpadding="1">
-	<table cellspacing="2" cellpadding="1" width="98%">
+	<table cellspacing="2" cellpadding="1">
 	<tr>
         <td align="center" bgcolor="#FFFF00" height="500px">
 	    <b>Ad Space 2</b>
