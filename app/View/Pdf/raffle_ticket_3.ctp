@@ -17,7 +17,7 @@ $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 //$pdf->setPrintFooter(false);
 $pdf->AddPage();
 $html = '
-<table border="1" cellspacing="0" cellpadding="0" width="675px" align="center">
+<table cellspacing="0" cellpadding="0" width="675px" align="center">
     <tr>
         <td align="left">
 	    BuddyBall.Org Fall Raffle<br><br>
