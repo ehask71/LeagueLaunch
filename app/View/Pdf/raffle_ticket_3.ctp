@@ -7,7 +7,7 @@ $pdf->SetCreator('LeagueLaunch.com');
 $pdf->SetAuthor('LeagueLaunch.com');
 $pdf->SetTitle('BuddyBall.Org Fall Raffle');
 $pdf->SetSubject('Fall Raffle');
-$pdf->setHeaderData('', 0, 'League Launch');
+$pdf->setHeaderData('', 10, 'League Launch');
 $pdf->AddPage();
 $html = '
 <table border="1" cellspacing="0" cellpadding="0" width="650px">
