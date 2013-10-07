@@ -10,10 +10,11 @@ $pdf->SetAuthor('LeagueLaunch.com');
 $pdf->SetTitle('BuddyBall.Org Fall Raffle');
 $pdf->SetSubject('Fall Raffle');
 $pdf->setHeaderData('logo-medium.png', 30, '', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
+$pdf->setFooterData(array(0,64,0), array(0,64,128));
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-$pdf->setPrintFooter(false);
+//$pdf->setPrintFooter(false);
 $pdf->AddPage();
 $html = '
 <table border="1" cellspacing="0" cellpadding="0" width="675px" align="center">
