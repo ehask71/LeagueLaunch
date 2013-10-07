@@ -3,6 +3,7 @@
 App::import('Vendor', 'xtcpdf');
 $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
 $pdf->SetMargins(20, 5, 20);
+$pdf->setHeaderData('', 0, 'League Launch');
 $pdf->AddPage();
 $html = '
 <table border="1" cellspacing="0" cellpadding="0" width="650px">
