@@ -13,7 +13,7 @@ $pdf->setHeaderData('logo-medium.png', 30, 'League Launch');
 $pdf->setPrintFooter(false);
 $pdf->AddPage();
 $html = '
-<table border="1" cellspacing="0" cellpadding="0" width="660px">
+<table border="1" cellspacing="0" cellpadding="0" width="675px" align="center">
     <tr>
         <td>
 	    BuddyBall.Org Fall Raffle<br><br>
