@@ -2,9 +2,10 @@
 
 App::import('Vendor', 'xtcpdf');
 $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
+$pdf->SetMargins(50, 50, 50);
 $pdf->AddPage();
 $html = '
-<table border="1" cellspacing="0" cellpadding="0" width="98%">
+<table border="1" cellspacing="0" cellpadding="0" width="500px">
     <tr>
         <td>
 	    BuddyBall.Org Fall Raffle<br><br>
