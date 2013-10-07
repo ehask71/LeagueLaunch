@@ -2,14 +2,14 @@
 
 App::import('Vendor', 'xtcpdf');
 $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
-$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetMargins(PDF_MARGIN_LEFT, 25, PDF_MARGIN_RIGHT);
 $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 $pdf->SetCreator('LeagueLaunch.com');
 $pdf->SetAuthor('LeagueLaunch.com');
 $pdf->SetTitle('BuddyBall.Org Fall Raffle');
 $pdf->SetSubject('Fall Raffle');
-$pdf->setHeaderData('logo-medium.png', 30, '');
+$pdf->setHeaderData('logo-medium.png', 30, '', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
 $pdf->setPrintFooter(false);
 $pdf->AddPage();
 $html = '
