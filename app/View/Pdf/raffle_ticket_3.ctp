@@ -3,6 +3,10 @@
 App::import('Vendor', 'xtcpdf');
 $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
 $pdf->SetMargins(20, 5, 20);
+$pdf->SetCreator('LeagueLaunch.com');
+$pdf->SetAuthor('LeagueLaunch.com');
+$pdf->SetTitle('BuddyBall.Org Fall Raffle');
+$pdf->SetSubject('Fall Raffle');
 $pdf->setHeaderData('', 0, 'League Launch');
 $pdf->AddPage();
 $html = '
