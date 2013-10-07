@@ -10,6 +10,7 @@ $pdf->SetAuthor('LeagueLaunch.com');
 $pdf->SetTitle('BuddyBall.Org Fall Raffle');
 $pdf->SetSubject('Fall Raffle');
 $pdf->setHeaderData('logo-medium.png', 30, '', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
+$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 $pdf->setPrintFooter(false);
 $pdf->AddPage();
 $html = '
