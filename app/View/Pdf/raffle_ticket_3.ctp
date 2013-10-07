@@ -55,7 +55,7 @@ $style = array(
     'module_width' => 1, // width of a single module in points
     'module_height' => 1 // height of a single module in points
 );
-$pdf->write1DBarcode($ticket, 'C128', 22, 65);
+$pdf->write1DBarcode($ticket, 'C128', 20, 60);
 $pdf->write2DBarcode('http://buddyball.org', 'QRCODE,H', 138, 28, 50, 50, $style, 'N');
 //$pdf->Text(20, 205, 'QRCODE H');
 
