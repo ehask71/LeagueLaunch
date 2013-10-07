@@ -15,8 +15,8 @@ $style = array(
     'module_width' => 1, // width of a single module in points
     'module_height' => 1 // height of a single module in points
 );
-$pdf->write2DBarcode('www.tcpdf.org', 'QRCODE,H', 20, 210, 50, 50, $style, 'N');
-$pdf->Text(20, 205, 'QRCODE H');
+$pdf->write2DBarcode('www.tcpdf.org', 'QRCODE,H', 125, 30, 50, 50, $style, 'N');
+//$pdf->Text(20, 205, 'QRCODE H');
 
 $pdf->lastPage();
 echo $pdf->Output(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf' . DS . 'test.pdf', 'F');
