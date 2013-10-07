@@ -6,5 +6,5 @@ $pdf->AddPage();
 $html = '<h1>hello world</h1>';
 $pdf->writeHTML($html, true, false, true, false, '');
 $pdf->lastPage();
-echo $pdf->Output(WEBROOT_DIR . 'content/'.Configure::read('Settings.site_id').'/pdf' . DS . 'test.pdf', 'F');
+echo $pdf->Output(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf' . DS . 'test.pdf', 'F');
 ?>
