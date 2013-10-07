@@ -2,7 +2,7 @@
 
 App::import('Vendor', 'xtcpdf');
 $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
-$pdf->SetMargins(50, 50, 50);
+$pdf->SetMargins(20, 20, 20);
 $pdf->AddPage();
 $html = '
 <table border="1" cellspacing="0" cellpadding="0" width="500px">
