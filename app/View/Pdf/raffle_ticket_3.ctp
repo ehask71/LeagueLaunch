@@ -8,7 +8,7 @@ $html = '
     <tr>
         <td>
 	    BuddyBall.Org Fall Raffle<br><br>
-	    '.$ticket.'<br>
+	    Ticket #:<b>'.$ticket.'</b><br>
 	    Purchased By:'.$purchaser.'<br>
 	</td>
 	<td width="25%" height="100px"></td>
