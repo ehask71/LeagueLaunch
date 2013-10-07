@@ -167,6 +167,8 @@ class SandboxController extends AppController {
     public function create_pdf() {
 	//$posts = $this->Post->find('all');
 	//$this->set(compact('posts'));
+	$this->set('ticket','111011101110111');
+	$this->set('purchaser','Eric Haskins');
 	$this->layout = '/pdf/default';
 	$this->render('/Pdf/raffle_ticket_3');
     }
