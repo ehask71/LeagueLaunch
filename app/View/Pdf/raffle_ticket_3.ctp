@@ -9,13 +9,13 @@ $pdf->SetCreator('LeagueLaunch.com');
 $pdf->SetAuthor('LeagueLaunch.com');
 $pdf->SetTitle('BuddyBall.Org Fall Raffle');
 $pdf->SetSubject('Fall Raffle');
-$pdf->setHeaderData('logo-medium.png', 30, 'League Launch');
+$pdf->setHeaderData('logo-medium.png', 30, '');
 $pdf->setPrintFooter(false);
 $pdf->AddPage();
 $html = '
 <table border="1" cellspacing="0" cellpadding="0" width="675px" align="center">
     <tr>
-        <td>
+        <td align="left">
 	    BuddyBall.Org Fall Raffle<br><br>
 	    Ticket #:<b>'.$ticket.'</b><br>
 	    Purchased By:'.$purchaser.'<br>
