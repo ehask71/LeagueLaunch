@@ -21,8 +21,9 @@ $html = '
     <tr>
         <td align="left">
 	    BuddyBall.Org Fall Raffle<br><br>
-	    Ticket #:<b>'.$ticket.'</b><br>
-	    Purchased By:'.$purchaser.'<br>
+            Purchased By: <b>'.$purchaser.'</b><br>
+            Generated: '.date('Y-m-d H:m:i').'<br>
+	    Ticket #: <b>'.$ticket.'</b><br>
 	</td>
 	<td width="25%" height="150px"></td>
     </tr>
