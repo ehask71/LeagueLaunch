@@ -111,7 +111,7 @@ define ('PDF_HEADER_TITLE', 'TCPDF Example');
 /**
  * Header description string.
  */
-define ('PDF_HEADER_STRING', "LeagueLaunch.com - Sports Management");
+define ('PDF_HEADER_STRING', "http://LeagueLaunch.com - Sports Management");
 
 /**
  * Document unit of measure [pt=point, mm=millimeter, cm=centimeter, in=inch].
