@@ -47,12 +47,12 @@
                     </div>
                     <div class="clear"></div>
                     <div class="logo-text left">
-                        <h1>Tomahawk</h1>
-                        <h1>Challenger</h1>
+                        <h1>Buddy</h1>
+                        <h1>Ball</h1>
                     </div>
                 </div>
                 <div class="grid_4" >
-                    <a href="/index.php" title="Back to The {SITENAME} home page" id="logo"><span>{SITENAME}</span></a>
+                    <a href="/index.php" title="Back to The Buddy Ball home page" id="logo"><span>{SITENAME}</span></a>
                 </div>
                 <div class="grid_6" >
                     <div id="top-search">
