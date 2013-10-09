@@ -9,6 +9,8 @@ App::uses('AuthComponent', 'Controller/Component');
 
 class Account extends AppModel {
 
+    public $name = 'Account';
+    public $actsAs = array('Search.Searchable');
     public $primaryKey = 'id';
     public $hasAndBelongsToMany = array(
 	'Role' => array(
@@ -31,7 +33,14 @@ class Account extends AppModel {
 	    'dependant' => true
 	)
     );
-
+    
+    public $filterArgs = array(
+        'firstname' => array('type' => 'like'),
+        'lastname' => array('type' => 'like'),
+        'email' => array('type' => 'like'),
+        //'filter' => array('type' => 'query', 'method' => 'orConditions'),
+    );
+    
     function __construct($id = false, $table = null, $ds = null) {
 	$this->hasAndBelongsToMany['Role']['conditions'] = array('RolesUser.site_id' => Configure::read('Settings.site_id'));
 	$this->hasMany['Players']['conditions'] = array('Players.site_id' => Configure::read('Settings.site_id'));
@@ -46,29 +55,7 @@ class Account extends AppModel {
     }
 
     public function beforeFind($query) {
-/* $query['joins'] = array(
-	  array(
-	  'table' => 'roles_users',
-	  'alias' => 'RolesUser',
-	  'type' => 'INNER',
-	  'conditions' =>
-	  array('User.id=RolesUser.user_id',
-	  'RolesUser.site_id='.$query['conditions']['RolesUser.site_id'])),
-	  array(
-	  'table' => 'roles',
-	  'alias' => 'Role',
-	  'type' => 'INNER',
-	  'conditions' =>
-	  array('RolesUser.role_id=Role.id')));
-	  // Custom SaaS app mod
-	  if(isset($query['conditions']['RolesUser.site_id'])){
-	  //$query['joins'][0]['conditions'][] = "RolesUser.site_id={$query['conditions']['RolesUser.site_id']}";
-	  unset($query['conditions']['RolesUser.site_id']);
-	  }
- * 
- */
-	//echo "<pre>";
-	//print_r($query);
+
 
 	return $query;
     }
@@ -183,5 +170,4 @@ class Account extends AppModel {
 	}
 	return false;
     }
-
 }

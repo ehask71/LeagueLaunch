@@ -8,9 +8,16 @@ App::uses('AppController', 'Controller');
 
 class AccountController extends AppController {
 
+    public $name = 'Account';
     public $uses = array('Account', 'RoleUser', 'Country', 'Order');
-    public $components = array('Email', 'LeagueAge');
-
+    public $components = array('Email', 'LeagueAge','Paginator'); //'Search.Prg',
+    /*public $presetVars = array(
+        array('field'=>'firstname','type' => 'value'),
+        array('field'=>'lastname','type' => 'value'),
+        array('field'=>'email','type' => 'value'),
+    );*/
+    public $presetVars = true;
+    
     public function beforeFilter() {
 	parent::beforeFilter();
 	$this->Auth->allow('login', 'logout', 'register', 'forgetpwd', 'resetcode');
@@ -252,7 +259,19 @@ class AccountController extends AppController {
 	}
 	$this->set('title', 'Add Player');
     }
-
+    
+    public function playerforms($id){
+	$this->loadModel('Season');
+	$this->loadModel('Forms');
+	$forms = $this->Forms->getActiveRegistration();
+	if($forms && $this->Season->checkPlayerForms($id)){
+	    $this->set('forms',$forms);
+	} else {
+	    $this->set('forms',array());
+	}
+	$this->set('title_for_layout',__('Player Forms'));
+    }
+    
     public function admin_index() {
 	$joins = array(
 	    array(
@@ -269,9 +288,23 @@ class AccountController extends AppController {
 	    'joins' => $joins
 	);
 	$users = $this->paginate('Account');
-
+        $this->set('users',$users);
+        /*$this->Prg->commonProcess();
+        $this->Paginator->settings = array(
+            'conditions' => $this->Account->parseCriteria($this->Prg->parsedParams()),
+            'joins' => array(
+	    array(
+		'table' => '(SELECT DISTINCT(user_id),site_id FROM roles_users )',
+		'alias' => 'RolesUser',
+		'type' => 'INNER',
+		'conditions' => array(
+		    'Account.id = RolesUser.user_id',
+		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
+		)
+	    ))
+        );
+        $this->set('users', $this->Paginator->paginate('Account'));*/
 	$this->set('title_for_layout', 'Accounts');
-	$this->set(compact('users'));
     }
 
     public function admin_view($id) {
@@ -334,5 +367,46 @@ class AccountController extends AppController {
 	}
 	$this->set('title', 'Edit Player');
     }
-
+    
+    public function admin_find(){
+        $this->Prg->commonProcess();
+        $this->Paginator->settings = array(
+            'conditions' => $this->Account->parseCriteria($this->Prg->parsedParams()),
+            'joins' => array(
+	    array(
+		'table' => '(SELECT DISTINCT(user_id),site_id FROM roles_users )',
+		'alias' => 'RolesUser',
+		'type' => 'INNER',
+		'conditions' => array(
+		    'Account.id = RolesUser.user_id',
+		    'RolesUser.site_id = ' . Configure::read('Settings.site_id')
+		)
+	    ))
+        );
+        mail('ehask71@gmail.com','paginate-cond',print_r($this->Account->parseCriteria($this->Prg->parsedParams()),1));
+        $this->set('users', $this->Paginator->paginate('Account'));
+    }
+    
+    public function admin_addrole($user){
+	if ($this->request->is('post') || $this->request->is('put')) {
+	    $this->loadModel('RoleUser');
+	    $data = array(
+		'site_id' => Configure::read('Settings.site_id'),
+		'user_id' => $this->request->data['user_id'],
+		'role_id' => $this->request->data['role_id'],
+	    );
+	}
+	$this->loadModel('Role');
+	$roles = $this->Role->find('all',array(
+	    'Role.id !=' => 1
+	));
+	
+	$this->set('user_id',$user);
+	$this->set(compact('roles'));
+	$this->set('title_for_layout','Roles');
+    }
+    
+    public function admin_deleterole($user,$role_id){
+	
+    }
 }

@@ -18,5 +18,12 @@ class ScheduleController extends AppController {
         
     }
     
+    public function admin_index($id=NULL) {
+	if($id==null){
+	    $this->Session->setFlash(__('Missing Season Id'));
+	    $this->redirect('/admin/season');
+	}
+    }
+    
 }
 

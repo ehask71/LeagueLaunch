@@ -79,6 +79,22 @@ class SitesController extends AppController {
                     $this->Session->setFlash($authorizeNet,'default',array('class'=>'alert error_msg'));
                 } else {
                     // Success
+		    // Set ID to Virtual (at field or over phone)
+		    $data['id'] = 'Virtual (Phone or Field)';
+		    App::uses('CakeEmail', 'Network/Email');
+		    $email = new CakeEmail();
+		    $email->from(array('do-not-reply@leaguelaunch.com' => $site['Sites']['leaguename']))
+                        ->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
+                        ->sender(Configure::read('Settings.admin_email'))
+                        ->replyTo(Configure::read('Settings.admin_email'))
+                        ->cc(Configure::read('Settings.admin_email'))
+                        ->to($this->request->data['Order']['cardholder_email'])
+                        ->subject(Configure::read('Settings.leaguename') . ' Payment')
+                        ->template('vt_credit_card_paid')
+                        ->emailFormat('text')
+                        ->theme('admin')
+                        ->viewVars(array('order'=>$data ,'authnet' => $authorizeNet))
+                        ->send();
                     $this->Session->setFlash(__('Success! Transaction:'.$authorizeNet[6].' Auth:'.$authorizeNet[4]),'default',array('class'=>'alert succes_msg'));
                     $this->redirect('/admin/sites/terminal/');
                 }

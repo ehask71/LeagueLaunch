@@ -20,8 +20,8 @@
         echo $this->CloudFlare->css('chosen');
         echo $this->Html->css('/js/jqueryui/all/themes/base/jquery.ui.all.css');
 
-        //echo $this->Html->css('style');
-        echo $this->CloudFlare->css('style');
+        echo $this->Html->css('style');
+        //echo $this->CloudFlare->css('style');
         echo $this->CloudFlare->css('config');
         ?>
         <!--[if gte IE 8]><?php echo $this->CloudFlare->css('ie8'); ?><![endif]-->
@@ -35,6 +35,7 @@
         echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js');
         echo $this->Html->script('http://www.google.com/jsapi');
         echo $this->CloudFlare->script('/js/gvchart/jquery.gvChart-1.0.1.min');
+        echo $this->CloudFlare->script('/js/jquery.ui.touch-punch.min');
 
         echo $this->CloudFlare->script('head_scripts');
         echo $this->fetch('scriptTop');

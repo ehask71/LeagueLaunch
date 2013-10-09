@@ -51,8 +51,10 @@
 			    ?>
 			<tr>
 			    <td><?=$team['Team']['name'];?></td>
-			    <td><?=$team['Division']['name'];?></td>
-			    <td></td>
+			    <td><?=$team['Divisions']['name'];?></td>
+			    <td>
+                                <a href="/admin/team/edit/<?=$team['Team']['team_id'];?>" class="button green">Edit</a>
+                            </td>
 			</tr>
 			<?php
 			    }
@@ -63,6 +65,9 @@
 			    </tr>
 			<?php } ?>
 		    </tbody>
+                    <tfoot>
+                    <th colspan="5"><?php echo $this->Paginator->numbers(array('first' => 2, 'last' => 2)); ?></th>
+                    </tfoot>
 		</table>
 	    </div>
         </div>

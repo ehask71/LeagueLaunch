@@ -12,7 +12,7 @@ class HomeController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('index', 'terms', 'dialog');
+        $this->Auth->allow('index', 'terms','privacy', 'dialog');
     }
 
     public function index() {
@@ -22,9 +22,13 @@ class HomeController extends AppController {
     public function terms() {
         
     }
-
-    public function admin_index() {
+    
+    public function privacy() {
         
+    }
+    
+    public function admin_index() {
+       // $this->redirect('/');
     }
 
     public function admin_settings() {

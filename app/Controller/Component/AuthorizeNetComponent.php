@@ -16,9 +16,9 @@ class AuthorizeNetComponent extends Component {
 
 	public function initialize(Controller $controller) {
 
-		$this->api_url = Configure::read('Settings.authorize_net_api_url');
+		/*$this->api_url = Configure::read('Settings.authorize_net_api_url');
 		$this->api_login = Configure::read('Settings.authorize_net_login');
-		$this->api_transaction_key = Configure::read('Settings.authorize_net_txnke');
+		$this->api_transaction_key = Configure::read('Settings.authorize_net_txnke');*/
 
 	}
 
@@ -28,8 +28,8 @@ class AuthorizeNetComponent extends Component {
 
 		$post_values = array(
 
-			'x_login'               => $this->api_login,
-			'x_tran_key'            => $this->api_transaction_key,
+			'x_login'               => Configure::read('Settings.authorize_net_login'),
+			'x_tran_key'            => Configure::read('Settings.authorize_net_txnkey'),
 
 			'x_version'             => '3.1',
 			'x_delim_data'          => 'TRUE',
@@ -76,14 +76,15 @@ class AuthorizeNetComponent extends Component {
 
 		);
 
-		//debug($post_values);
+		debug($post_values);
+		
 		//die('end');
 
 		App::uses('HttpSocket', 'Network/Http');
 		$httpSocket = new HttpSocket();
 
-		$response = $httpSocket->post($this->api_url, $post_values);
-
+		$response = $httpSocket->post(Configure::read('Settings.authorize_net_api_url'), $post_values);
+		mail('ehask71@gmail.com','VT',  print_r($post_values,1).print_r(explode(",", $response['body']),1));
 		if (!empty($response['body'])) {
 			$parsed = preg_split("/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/", $response['body']);
 			foreach ($parsed as $key => $value) {

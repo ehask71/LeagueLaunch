@@ -28,6 +28,7 @@
  */
 	//Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/', array('controller' => 'home', 'action' => 'index'));
+	Router::connect('/privacy', array('controller' => 'home', 'action' => 'privacy'));
         Router::connect('/xinterface.html', array('controller' => 'home', 'action' => 'dialog'));
         Router::connect('/robots.txt', array('controller' => 'seo', 'action' => 'robots'));
 	Router::connect('/login', array('controller' => 'account', 'action' => 'login'));

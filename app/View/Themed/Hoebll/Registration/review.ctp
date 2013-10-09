@@ -74,11 +74,11 @@
                 <td colspan="2" align="right">Total:</td><td>$<?php echo $shop['Order']['total']; ?></td>
             </tr>
         </table>
-        <?php echo $this->Form->postButton('Start Over', '/registration/clear'); ?>
     </div>
 
     <div>
-        <?php echo $this->Form->postButton('Payment', '/registration/review'); ?>
+        <h2>Be Sure To Press Complete Order</h2>
+        <?php echo $this->Form->postButton('Complete Order', '/registration/review'); ?>&nbsp;&nbsp;<?php echo $this->Form->postButton('Start Over', '/registration/clear'); ?>
     </div>
 </div>
 <div class="grid_4" id="side-bar-right">

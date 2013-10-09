@@ -61,7 +61,22 @@ $this->Html->scriptEnd();
         </h2>
         <div class="block">
             <div class="block_in">
-		
+		<table>
+		    <tbody>
+			<tr>
+			    <td>Total:</td>
+			    <td><?php echo $season_total[0][0]['total'];?></td>
+			</tr>
+			<tr>
+			    <td>Paid:</td>
+			    <td><?php echo $season_total[0][0]['haspaid'];?></td>
+			</tr>
+			<tr>
+			    <td>Unpaid:</td>
+			    <td><?php echo $season_total[0][0]['notpaid'];?></td>
+			</tr>
+		    </tbody>
+		</table>
 	    </div>
 	</div>
     </div>

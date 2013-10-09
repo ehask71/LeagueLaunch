@@ -26,10 +26,7 @@ class RegistrationController extends AppController {
     // Admin 
     public function admin_index() {
         $registrations = $this->Season->find('all', array(
-            'conditions' => array('Season.site_id' => Configure::read('Settings.site_id'),
-                'and' => array(
-                    array('News.start_date <= ' => date('Y-m-d H:i:s'), 'News.end_date >= ' => date('Y-m-d H:i:s'))
-                )
+            'conditions' => array('Season.site_id' => Configure::read('Settings.site_id')
             )
                 ));
 

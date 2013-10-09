@@ -16,6 +16,12 @@ class Players extends AppModel {
             'counterScope' => array(),
         )
     );
+    public $hasMany = array(
+        'PlayersToTeams' => array(
+            'className' => 'PlayersToTeams',
+            'foreignKey' => 'player_id'
+        )
+    );
 
     public function validatePlayer() {
 

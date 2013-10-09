@@ -14,6 +14,11 @@ class Season extends AppModel {
         'PlayersToSeasons' => array(
             'className' => 'PlayersToSeasons',
 	    'foreignKey' => 'season_id'
+        ),
+        'Divisions' => array(
+            'className' => 'Divisions',
+            'foreignKey' => 'season_id',
+            'conditions' => array('Divisions.active' => 1),
         )
     );
     
@@ -61,8 +66,53 @@ class Season extends AppModel {
         )));
     }
     
+    public function getActiveSeasons(){
+        return $this->find('all',array(
+            'conditions'=>array(
+                'Season.site_id' => Configure::read('Settings.site_id'),
+                'Season.active' => 1,
+                'and' => array(
+                    array('Season.startdate <= ' => date('Y-m-d'),'Season.enddate >= ' => date('Y-m-d'))
+                )
+        )));
+    }
+    
     public function getAccountsBySeason($season){
         
+    }
+    
+    public function checkPlayerForms($pid){
+	$player = $this->find('first',array(
+	   'conditions' => array(
+	       'Season.active' => 1,
+	       'Season.site_id' => Configure::read('Settings.site_id'),
+	       'Season.enddate >' => date('Y-m-d H:i:s')
+	   ),
+	   'contain' => 'PlayersToSeasons.player_id = "'.$pid.'"' 
+	));
+	
+	if($player[PlayersToSeasons][formcomplete] == 0){
+	    return false;
+	}
+	
+	return true;
+    }
+    
+    public function checkPlayerPaid($pid){
+	$player = $this->find('first',array(
+	   'conditions' => array(
+	       'Season.active' => 1,
+	       'Season.site_id' => Configure::read('Settings.site_id'),
+	       'Season.enddate >' => date('Y-m-d H:i:s')
+	   ),
+	   'contain' => 'PlayersToSeasons.player_id = "'.$pid.'"' 
+	));
+	
+	if($player[PlayersToSeasons][haspaid] == 0){
+	    return false;
+	}
+	
+	return true;
     }
     
 }

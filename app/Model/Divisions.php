@@ -5,6 +5,13 @@ App::uses('AppModel', 'Model');
 class Divisions extends AppModel {
 
     public $primaryKey = 'division_id';
+    public $actsAs = array('Containable');
+    public $hasMany = array(
+        'Team' => array(
+	    'className' => 'Team',
+	    'foreignKey' => 'division_id',
+	)
+    );
 
     public function divisionValidate() {
         $validate1 = array(

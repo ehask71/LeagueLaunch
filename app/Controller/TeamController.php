@@ -34,17 +34,66 @@ class TeamController extends AppController {
 		}
 	    }
 	}
-	$teams = $this->Team->find('all',array(
+	/*$teams = $this->Team->find('all',array(
 	    'conditions' => array(
 		'Team.site_id' => Configure::read('Settings.site_id')
-	)));
+	)));*/
+        $this->paginate = array(
+	    'conditions' => array(
+		'Team.site_id' => Configure::read('Settings.site_id')
+	)
+	);
         $divisions = $this->Divisions->find('all', array(
 	    'conditions' => array(
 		'Divisions.site_id' => Configure::read('Settings.site_id')
 	    )
         ));
 	$this->set('divisions',$this->Divisions->getDivisionsDropdown());
-	$this->set('teams',$teams);
+	$this->set('teams',$this->paginate('Team'));
     }
+    
+    public function admin_edit($id){
+        $this->Team->id = $id;
+        if (!$this->Team->exists()) {
+            $this->Session->setFlash(__('Team doesn\'t Exist'), 'default', array('class' => 'alert error_msg'));
+            $this->redirect('/admin/team');
+        }
+	if($this->request->is('post') || $this->request->is('put')){
+            if($this->Team->teamValidate()){
+		if($this->Team->save($this->request->data)){
+		    $this->Session->setFlash(__('Team Updated!'),'default',array('class'=>'alert succes_msg'));
+		    $this->redirect('/admin/team');
+		}
+	    }
+        }
+        $team = $this->Team->find('first',array(
+            'conditions' => array(
+                'Team.team_id' => $id,
+                'Team.site_id' => Configure::read('Settings.site_id')
+            )
+        ));
+        $this->request->data = $team;
+        $this->set('title',__('Edit Team'));
+        $this->set('divisions',$this->Divisions->getDivisionsDropdown());
+        $this->set('title_for_layout','Edit Team');
+    } 
+    
+    public function admin_roster($id){
+        $team = $this->Team->find('first',array(
+            'conditions' => array(
+                'Team.team_id' => $id,
+                'Team.active' => 1,
+                'Team.site_id' => Configure::read('Settings.site_id')
+            )
+        ));
+        
+        if(count($team)>0){
+            $team['Team'][players] = $this->Team->getTeamPlayers($id);
+        }
+        
+        $this->set(compact('team'));
+        $this->set('title_for_layout',$team[Team]['name'].' Roster');
+    }
+    
     
 }
