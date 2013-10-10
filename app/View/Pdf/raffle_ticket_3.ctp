@@ -78,9 +78,9 @@ $pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').
 // Ad Space 3
 $pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_2.jpg', 107, 115, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
 // Ad Space 4
-$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_1.jpg', 15, 180, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
+$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_1.jpg', 15, 183, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
 // Ad Space 5
-$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_2.jpg', 107, 180, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
+$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_2.jpg', 107, 183, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
 
 
 $pdf->lastPage();
