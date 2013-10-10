@@ -71,9 +71,16 @@ $pdf->write1DBarcode($ticket, 'C128', 18, 58, '', 18, 0.4, $style, 'N');
 $pdf->write2DBarcode('http://buddyball.org', 'QRCODE,H', 138, 27, 50, 50, $style, 'N');
 // set JPEG quality
 $pdf->setJPEGQuality(75);
+// Ad Space 1
 $pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/HO728x90.jpg', 15, 85, 180, 25, 'JPG', 'http://www.highoctanebrands.com', '', true, 150, '', false, false, 1, false, false, false);
+// Ad Space 2
 $pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_1.jpg', 15, 115, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
-$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_2.jpg', 108, 115, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
+// Ad Space 3
+$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_2.jpg', 107, 115, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
+// Ad Space 4
+$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_1.jpg', 15, 140, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
+// Ad Space 5
+$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_2.jpg', 107, 140, 88, 62, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
 //$pdf->Text(20, 205, 'QRCODE H');
 
 $pdf->lastPage();
