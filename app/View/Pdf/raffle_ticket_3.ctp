@@ -37,10 +37,10 @@ $html = '
 	<table cellspacing="2" cellpadding="1">
 	<tr>
         <td align="center" height="450px">
-	    <b>Ad Space 2</b>
+	    <!--<b>Ad Space 2</b>-->
 	</td>
         <td align="center">
-	    <b>Ad Space 3</b>
+	    <!--<b>Ad Space 3</b>-->
 	</td>
 	</tr>
 	</table>
@@ -72,6 +72,7 @@ $pdf->write2DBarcode('http://buddyball.org', 'QRCODE,H', 138, 27, 50, 50, $style
 // set JPEG quality
 $pdf->setJPEGQuality(75);
 $pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_1.jpg', 15, 140, 75, 113, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
+$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_2.jpg', 130, 140, 75, 113, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
 //$pdf->Text(20, 205, 'QRCODE H');
 
 $pdf->lastPage();
