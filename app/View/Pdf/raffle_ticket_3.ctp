@@ -71,6 +71,7 @@ $pdf->write1DBarcode($ticket, 'C128', 18, 58, '', 18, 0.4, $style, 'N');
 $pdf->write2DBarcode('http://buddyball.org', 'QRCODE,H', 138, 27, 50, 50, $style, 'N');
 // set JPEG quality
 $pdf->setJPEGQuality(75);
+$pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/HO728x90.jpg', 15, 70, 120, 50, 'JPG', 'http://www.highoctanebrands.com', '', true, 150, '', false, false, 1, false, false, false);
 $pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_1.jpg', 15, 140, 75, 113, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
 $pdf->Image(APP . WEBROOT_DIR . '/content/'.Configure::read('Settings.site_id').'/pdf/images/Ad300x250_2.jpg', 125, 140, 75, 113, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
 //$pdf->Text(20, 205, 'QRCODE H');
