@@ -19,7 +19,12 @@
     </li>
     <li><a href="#">Plugins<span class="icon6"></span></a>
 	<ul>	 
-	    <li><?php echo $this->html->link(__('Fundraisers'), array('prefix' => 'admin', 'controller' => 'fundraising')); ?></li>
+	    <li><?php echo $this->html->link(__('Fundraisers'), array('prefix' => 'admin', 'controller' => 'fundraising')); ?>
+                <ul>
+                    <li><?php echo $this->html->link(__('Raffle'), array('prefix' => 'admin', 'controller' => 'fundraising','action'=>'raffle')); ?></li>
+                    <li><?php echo $this->html->link(__('Poker Run'), array('prefix' => 'admin', 'controller' => 'fundraising','action'=>'pokerrun')); ?></li>
+                </ul>
+            </li>
 	    <li><?php echo $this->html->link(__('Scheduler'), array('prefix' => 'admin', 'controller' => 'home')); ?></li>
 	    <li><?php echo $this->html->link(__('Random Teams'), array('prefix' => 'admin', 'controller' => 'randomteams','action'=>'index')); ?></li>
             <li><?php echo $this->html->link(__('Virtual Terminal'), array('prefix' => 'admin', 'controller' => 'sites','action'=>'terminal')); ?></li>
