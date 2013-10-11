@@ -61,12 +61,34 @@
 				'class' => 'chzn-select',
                                 'style' => 'width: 350px;',
 				'label' => 'Show All on Error',
-				'after' => '<br><small>If you want the system to show all available divisions if unable to determinr league age.<br><b>Use League Age must be True</b></small></div></div><div class="clear"></div></section>'
+				'after' => '<br><small>If you want the system to show all available divisions if unable to determine league age.<br><b>Use League Age must be True</b></small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
 			<div id="tabs-3">
 			    <h2>Payment Options</h2>
-			    <p>Coming Soon</p>
+			    <?=$this->Form->input('authorize_net_enabled',array(
+                                'id'=>'authorize_net_enabled',
+                                'options' => array('true'=>'True','false'=>'False'),
+				'class' => 'chzn-select',
+                                'style' => 'width: 350px;',
+				'label' => 'Authorize.Net Enabled',
+				'after' => '<br><small>If you want the system to attempt to use calculated league age</small></div></div><div class="clear"></div></section>'
+			    ));?>
+                            <?=$this->Form->input('authorize_net_login',array(
+				'class' => 'i-format',
+				'label' => 'Auth.Net Login',
+				'after' => '<small>Api Login</small></div></div><div class="clear"></div></section>'
+			    ));?>
+                            <?=$this->Form->input('authorize_net_txnkey',array(
+				'class' => 'i-format',
+				'label' => 'Auth.Net Txn Key',
+				'after' => '<small>API Transaction Key</small></div></div><div class="clear"></div></section>'
+			    ));?>
+                            <?=$this->Form->input('authorize_net_api_url',array(
+				'class' => 'i-format',
+				'label' => 'Auth.Net URL',
+				'after' => '<small>API URL</small></div></div><div class="clear"></div></section>'
+			    ));?>
 			</div>
 		    <?php echo $this->Form->end(array(
                         'label' => 'Update',
