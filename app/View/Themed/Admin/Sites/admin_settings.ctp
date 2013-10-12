@@ -33,6 +33,7 @@
 				'after' => '<small>League Description</small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
+                        <?php if(Configure::read('Settings.sport') == 'baseball' || Configure::read('Settings.sport') == 'softball'):?>
 			<h3><a href="#">League Age</a></h3>
 			<div>
 			    <?=$this->Form->input('leagueage|use_leagueage',array(
@@ -52,6 +53,7 @@
 				'after' => '<br><small>If you want the system to show all available divisions if unable to determine league age.<br><b>Use League Age must be True</b></small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
+                        <?php endif;?>
 			<h3><a href="#">Payment Options</a></h3>
 			<div>
 			    <?=$this->Form->input('authorize_net_enabled',array(
