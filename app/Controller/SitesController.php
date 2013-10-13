@@ -31,6 +31,7 @@ class SitesController extends AppController {
             }
         }
 	$this->request->data = $this->Settings->buildPopulateArray();
+	$this->set('title_for_layout','Site Settings');
     }
 
     public function admin_account() {
