@@ -97,7 +97,8 @@
 		<?php echo $this->Form->end(array(
                         'label' => 'Update',
                         'div' => array(
-                            'class' => 'grid_12'
+                            'class' => 'grid_12',
+			    'style' => 'padding-top:20px;'
                         )
                      )); ?>
 		<script type="text/javascript">
