@@ -35,7 +35,7 @@
 			    <li><a href="#tabs-2">League Age</a></li>
 			    <li><a href="#tabs-3">Payment</a></li>
 			</ul>-->
-			<div id="tabs-1">
+			<div>
 			    <h3><a href="#">Basic Info</a></h3>
 			    <?=$this->Form->input('meta_keywords',array(
 				'class' => 'i-format',
@@ -48,7 +48,7 @@
 				'after' => '<small>League Description</small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
-			<div id="tabs-2">
+			<div>
 			    <h3><a href="#">League Age</a></h3>
 			    <?=$this->Form->input('leagueage|use_leagueage',array(
                                 'id'=>'leagueage_use_leagueage',
@@ -67,7 +67,7 @@
 				'after' => '<br><small>If you want the system to show all available divisions if unable to determine league age.<br><b>Use League Age must be True</b></small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
-			<div id="tabs-3">
+			<div>
 			    <h3>Payment Options</h3>
 			    <?=$this->Form->input('authorize_net_enabled',array(
                                 'id'=>'authorize_net_enabled',
