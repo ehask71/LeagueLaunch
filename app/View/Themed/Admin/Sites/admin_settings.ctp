@@ -67,7 +67,7 @@
 				'after' => '<br><small>If you want the system to show all available divisions if unable to determine league age.<br><b>Use League Age must be True</b></small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
-			<h3>Payment Options</h3>
+			<h3><a href="#">Payment Options</a></h3>
 			<div>
 			    <?=$this->Form->input('authorize_net_enabled',array(
                                 'id'=>'authorize_net_enabled',
