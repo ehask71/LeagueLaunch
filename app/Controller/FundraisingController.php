@@ -42,6 +42,10 @@ class FundraisingController extends AppController {
 	
     }
     
+    public function admin_buyraffle(){
+	
+    }
+    
     public function admin_pokerrun(){
 	
     }
