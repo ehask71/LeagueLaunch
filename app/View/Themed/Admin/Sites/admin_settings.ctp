@@ -16,9 +16,7 @@
 		    .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 58em;}
 		</style>-->
 		<!--<div id="tabs"> -->
-		<div class="accordion">
-		    <!--<form class="form_place" action="#">-->
-		    <?php
+		<?php
 			echo $this->Form->create('Settings', array(
 			    'class' => 'form_place',
 			    'type' => 'file',
@@ -30,6 +28,8 @@
 				'after' => '</div></div><div class="clear"></div></section>'
                             )
 			));?>
+		<div class="accordion">
+		    <!--<form class="form_place" action="#">-->
 			<!--<ul>
 			    <li><a href="#tabs-1">Basic Info</a></li>
 			    <li><a href="#tabs-2">League Age</a></li>
@@ -93,13 +93,13 @@
 				'after' => '<small>API URL</small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
-		    <?php echo $this->Form->end(array(
+		</div>
+		<?php echo $this->Form->end(array(
                         'label' => 'Update',
                         'div' => array(
                             'class' => 'grid_12'
                         )
                      )); ?>
-		</div>
 		<script type="text/javascript">
 		    $(function() {
 			//$( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
