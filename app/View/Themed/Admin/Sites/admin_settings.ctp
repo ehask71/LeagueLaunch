@@ -15,7 +15,8 @@
 		    .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
 		    .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 58em;}
 		</style>
-		<div id="tabs">
+		<!--<div id="tabs"> -->
+		<div class="accordion">
 		    <!--<form class="form_place" action="#">-->
 		    <?php
 			echo $this->Form->create('Settings', array(
@@ -29,12 +30,13 @@
 				'after' => '</div></div><div class="clear"></div></section>'
                             )
 			));?>
-			<ul>
+			<!--<ul>
 			    <li><a href="#tabs-1">Basic Info</a></li>
 			    <li><a href="#tabs-2">League Age</a></li>
 			    <li><a href="#tabs-3">Payment</a></li>
-			</ul>
+			</ul>-->
 			<div id="tabs-1">
+			    <h3><a href="#">Basic Info</a></h3>
 			    <?=$this->Form->input('meta_keywords',array(
 				'class' => 'i-format',
 				'label' => 'Keywords',
@@ -47,6 +49,7 @@
 			    ));?>
 			</div>
 			<div id="tabs-2">
+			    <h3><a href="#">League Age</a></h3>
 			    <?=$this->Form->input('leagueage|use_leagueage',array(
                                 'id'=>'leagueage_use_leagueage',
                                 'options' => array('true'=>'True','false'=>'False'),
@@ -65,7 +68,7 @@
 			    ));?>
 			</div>
 			<div id="tabs-3">
-			    <h2>Payment Options</h2>
+			    <h3>Payment Options</h3>
 			    <?=$this->Form->input('authorize_net_enabled',array(
                                 'id'=>'authorize_net_enabled',
                                 'options' => array('true'=>'True','false'=>'False'),
