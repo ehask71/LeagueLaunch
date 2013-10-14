@@ -22,11 +22,15 @@ class ProductsController extends AppController {
     }
     
     public function admin_add(){
-	
+	if($this->request->is('post')){
+	    
+	}
     }
     
     public function admin_category(){
-	
+	if($this->request->is('post')){
+	    
+	}
     }
     
 }
