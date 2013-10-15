@@ -39,11 +39,15 @@ class FundraisingController extends AppController {
     }
     
     public function admin_raffle() {
-	
+	if($this->request->is('post')){
+	    
+	}
     }
     
     public function admin_buyraffle($id){
-	
+	if($this->request->is('post')){
+	    
+	}
     }
     
     public function admin_pokerrun(){
