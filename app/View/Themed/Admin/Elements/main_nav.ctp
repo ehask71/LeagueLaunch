@@ -19,10 +19,9 @@
     </li>
     <li><a href="#">Plugins<span class="icon6"></span></a>
 	<ul>	 
-	    <li><?php echo $this->html->link(__('Fundraisers'), array('prefix' => 'admin', 'controller' => 'fundraising')); ?>
+	    <li><?php echo $this->html->link(__('Fundraisers'), array('prefix' => 'admin', 'controller' => 'fundraising','action'=>'index')); ?>
                 <ul>
-                    <li><?php echo $this->html->link(__('Raffle'), array('prefix' => 'admin', 'controller' => 'fundraising','action'=>'raffle')); ?></li>
-                    <li><?php echo $this->html->link(__('Poker Run'), array('prefix' => 'admin', 'controller' => 'fundraising','action'=>'pokerrun')); ?></li>
+                    <li><?php echo $this->html->link(__('Create New'), array('prefix' => 'admin', 'controller' => 'fundraising','action'=>'new')); ?></li>
                 </ul>
             </li>
 	    <li><?php echo $this->html->link(__('Scheduler'), array('prefix' => 'admin', 'controller' => 'home')); ?></li>
