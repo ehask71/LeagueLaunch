@@ -38,7 +38,7 @@ class FundraisingController extends AppController {
 	$this->set('fundraisers', $fundraisers);
     }
     
-    public function admin_raffle() {
+    public function admin_new() {
 	if($this->request->is('post')){
 	    
 	}
