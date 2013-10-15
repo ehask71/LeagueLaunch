@@ -10,6 +10,7 @@ class FundraisingController extends AppController {
 
     public $name = 'Fundraising';
     public $uses = array('Fundraiser');
+    public $helpers = array('Media.Media');
 
     public function beforeFilter() {
 	parent::beforeFilter();
