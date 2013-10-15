@@ -270,7 +270,7 @@ class SandboxController extends AppController {
             ->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
             ->to('ehask71@gmail.com')
             ->subject('Attach test')
-            ->addAttachments(array('raffleticket.pdf'=>array('data'=>$pdfstr,'mimetype'=>'application/pdf')))
+            ->addAttachments(array('raffleticket.pdf'=>array('content'=>$pdfstr,'mimetype'=>'application/pdf')))
             ->send('My message');
     }
 
