@@ -47,8 +47,7 @@
                     </div>
                     <div class="clear"></div>
                     <div class="logo-text left">
-                        <h1>Buddy</h1>
-                        <h1>Ball</h1>
+                        <h1>Buddyball</h1>
                     </div>
                 </div>
                 <div class="grid_4" >
