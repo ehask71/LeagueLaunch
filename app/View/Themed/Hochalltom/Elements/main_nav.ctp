@@ -2,6 +2,7 @@
     <ul id="nav">
         <li><a href="/" title="{SITENAME} Home Page">Home</a></li>
         <li><a href="/news" title="{SITENAME} News Page">News</a></li>
+        <li><a href="/about" title="{SITENAME} About">About</a></li>
         <li><a href="/calendar" title="{SITENAME} Calendar Page">Calendar</a></li>
         <li><a href="/schedule" title="{SITENAME} Game Schedule Page">Schedule</a></li>
         <li><a href="/standings" title="{SITENAME} Current Standings Page">Standings</a></li>
