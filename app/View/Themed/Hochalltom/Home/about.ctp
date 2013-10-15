@@ -1,0 +1,10 @@
+<div class="grid_12" id="body-content">
+    <div class="article">
+        <h2>About Us</h2>
+    </div>
+</div>
+<div class="grid_4" id="side-bar-right">
+    <?php echo $this->element('schedule_widget',array(),array('cache'=>array('time'=>'+1 hour')));?>
+    <?php echo $this->element('events_widget',array(),array('cache'=>array('time'=>'+1 hour')));?>
+    <?php echo $this->element('sponsors_widget',array(),array('cache'=>array('time'=>'+1 hour')));?>
+</div>
