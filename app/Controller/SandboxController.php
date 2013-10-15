@@ -174,6 +174,8 @@ class SandboxController extends AppController {
     }
 
     public function generate_pdf() {
+        $ticket = '111011101110111';
+        $purchaser = 'Eric Haskins';
         App::import('Vendor', 'xtcpdf');
         $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
         $pdf->SetMargins(PDF_MARGIN_LEFT, 25, PDF_MARGIN_RIGHT);
