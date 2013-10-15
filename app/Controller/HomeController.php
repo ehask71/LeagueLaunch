@@ -27,6 +27,11 @@ class HomeController extends AppController {
         
     }
     
+    public function about() {
+        //$content = 
+    }
+
+
     public function admin_index() {
        // $this->redirect('/');
     }
