@@ -1,3 +1,12 @@
+<?php
+$this->Html->scriptStart(array('block' => 'scriptBottom'));
+    echo "$(function() {
+	$( '#startDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+	$( '#endDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+	$( '#eventDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+});";
+    $this->Html->scriptEnd();
+?>
 <div class="grid_12">
     <div class="box">
         <h2>
@@ -24,7 +33,7 @@
 				'after' => '<small>Fundraiser Title/Name (will be on tickets)</small></div></div><div class="clear"></div></section>'
 			    ));?>
 		<?=$this->Media->ckeditor('description',array(
-				'rows' => 10,
+				'rows' => 5,
 				'cols' => 80,
 				'label' => 'Description') );?>
 		<?=$this->Form->input('type',array(
@@ -54,11 +63,11 @@
 				'type' => 'text'
 			    ));?>
 		<?=$this->Media->ckeditor('event_location',array(
-				'rows' => 10,
+				'rows' => 5,
 				'cols' => 80,
 				'label' => 'Event Location') );?>
 		<?=$this->Media->ckeditor('disclaimer',array(
-				'rows' => 10,
+				'rows' => 5,
 				'cols' => 80,
 				'label' => 'Disclaimer') );?>
 		<?=$this->Form->input('Provider',array(
