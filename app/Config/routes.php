@@ -35,6 +35,7 @@
         Router::connect('/logout', array('controller' => 'account', 'action' => 'logout'));
 	Router::connect('/register', array('controller' => 'account', 'action' => 'register'));
         Router::connect('/terms', array('controller' => 'home', 'action' => 'terms'));
+        Router::connect('/about', array('controller' => 'home', 'action' => 'about'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
