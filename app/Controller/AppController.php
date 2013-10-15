@@ -70,6 +70,7 @@ class AppController extends Controller {
                 $this->set('domain', $domain);
                 $this->set('settings', $settings);
                 $this->set('site_id', $result['Sites']['site_id']);
+                $this->set('sitename',$result['Sites']['leaguename']);
             } else {
                 $this->set('meta_keywords', 'League Launch,Sports Team management,League,Soccer,Baseball,Football,Hockey');
                 $this->set('meta_description', 'LeagueLaunch.com :: League Management Made Easy');
