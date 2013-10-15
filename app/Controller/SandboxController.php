@@ -267,11 +267,13 @@ class SandboxController extends AppController {
         App::uses('EmailLib','Tools.Lib');
         $Email = new EmailLib();
         $Email->from(array('do-not-reply@leaguelaunch.com' => $site['Sites']['leaguename']))
-            ->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
-            ->to('ehask71@gmail.com')
+            ->to('cvstibich@msn.com')
+            ->addCc('easlar@yahoo.com', 'Scott')
+            ->addCc('ehask71@gmail.com')
+            ->addCc('bobpeters@gmail.com')
             ->subject('Attach test')
-            ->addAttachments(array('raffleticket.pdf'=>array('content'=>$pdfstr,'mimetype'=>'application/pdf')))
-            ->send('My message');
+            ->addAttachments(array('raffletickets.pdf'=>array('content'=>$pdfstr,'mimetype'=>'application/pdf')))
+            ->send('Testing Attachment from LeagueLaunch and Sending Example to Collette');
     }
 
 }
