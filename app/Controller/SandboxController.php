@@ -263,13 +263,14 @@ class SandboxController extends AppController {
         //echo $pdf->Output(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf' . DS . 'test.pdf', 'F');
         $pdfstr = $pdf->Output('raffle.pdf','S');
         
-        App::uses('CakeEmail', 'Network/Email');
-        $Email = new CakeEmail();
+        //App::uses('CakeEmail', 'Network/Email');
+        App::uses('EmailLib','Tools.Lib');
+        $Email = new EmailLib();
         $Email->from(array('do-not-reply@leaguelaunch.com' => $site['Sites']['leaguename']))
             ->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
             ->to('ehask71@gmail.com')
             ->subject('Attach test')
-            ->addAttachments(array('raffleticket.pdf'=>array('content'=>$pdfstr,'mimetype'=>'application/pdf')))
+            ->addAttachments(array('raffleticket.pdf'=>array('data'=>$pdfstr,'mimetype'=>'application/pdf')))
             ->send('My message');
     }
 
