@@ -4,8 +4,12 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 	$( '#startDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
 	$( '#endDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
 	$( '#eventDate' ).datepicker({ dateFormat: 'yy-mm-dd' });
+        window.onload = function(){
+             CKEDITOR.replace( 'ckeditor', { toolbar : 'Normal' } );
+        };
 });";
     $this->Html->scriptEnd();
+    echo $this->Html->script('ckeditor/ckeditor');
 ?>
 <div class="grid_12">
     <div class="box">
@@ -32,10 +36,18 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 				'label' => 'Name',
 				'after' => '<small>Fundraiser Title/Name (will be on tickets)</small></div></div><div class="clear"></div></section>'
 			    ));?>
-		<?=$this->Media->ckeditor('description',array(
+		<?/*=$this->Media->ckeditor('description',array(
 				'rows' => 5,
 				'cols' => 80,
-				'label' => 'Description') );?>
+				'label' => 'Description') );*/?>
+                <?=$this->Form->input('description',array(
+				'class' => 'ckeditor',
+				'id' => 'editor1',
+				'rows' => 5,
+				'cols' => 80,
+				'label' => 'Description',
+				'type' => 'textarea',
+			    ));?>
 		<?=$this->Form->input('type',array(
 				//'type' => 'select',
 				'options' => array(''=>'Select','raffle'=>'Raffle','pokerrun'=>'Poker Run'),
@@ -66,10 +78,11 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 				'rows' => 5,
 				'cols' => 80,
 				'label' => 'Event Location') );?>
-		<?=$this->Media->ckeditor('disclaimer',array(
+		<?/*=$this->Media->ckeditor('disclaimer',array(
 				'rows' => 5,
 				'cols' => 80,
-				'label' => 'Disclaimer') );?>
+				'label' => 'Disclaimer') );*/?>
+                <?=
 		<?=$this->Form->input('provider',array(
 				//'type' => 'select',
 				'options' => array('local'=>'Local','pokerrun'=>'PokerRun.org'),
