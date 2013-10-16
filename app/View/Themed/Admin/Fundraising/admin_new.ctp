@@ -75,7 +75,7 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 				'options' => array('local'=>'Local','pokerrun'=>'PokerRun.org'),
 				'class' => 'chzn-select-deselect',
 				'style'=> 'width:350px',
-				'label' => 'Type',
+				'label' => 'Provider',
 				'after' => '<br/><small></small></div></div><div class="clear"></div></section>'
 			    ));?>
 		<?=$this->Form->input('create_product',array(
@@ -83,7 +83,7 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 				'options' => array('yes'=>'Yes','no'=>'No'),
 				'class' => 'chzn-select-deselect',
 				'style'=> 'width:350px',
-				'label' => 'Type',
+				'label' => 'Create A Product?',
 				'after' => '<br/><small></small></div></div><div class="clear"></div></section>'
 			    ));?>
 		<?=$this->Form->input('product_category',array(
