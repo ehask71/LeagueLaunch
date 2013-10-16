@@ -124,7 +124,7 @@ class Products extends AppModel {
         return $this->validates();
     }
     
-    public function getProductsByCat($id){
+    public function getProductsByCat($id,$select=false){
         $data = $this->find('all',array(
             'conditions' => array(
                 'Products.category_id' => $id,
@@ -132,6 +132,15 @@ class Products extends AppModel {
             )
         ));
         
+        if($select){
+            if(is_array($data)){
+                $return = array();
+                foreach($data AS $row){
+                    $return[$row['Products']['id']] = '$'.$row['Products']['price'].' '.$row['Products']['name'];
+                }
+                return $return;
+            }
+        }
         return $data;
     } 
 
