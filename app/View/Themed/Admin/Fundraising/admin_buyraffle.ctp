@@ -40,19 +40,21 @@
 			    ));?>
 		<?=$this->Form->input('state',array(
 				'class' => 'i-format',
-				'label' => 'State'
+				'label' => 'State',
+                                'options' => Configure::read('States')
 			    ));?>
 		<?=$this->Form->input('email',array(
 				'class' => 'i-format',
 				'label' => 'Email'
 			    ));?>
-		<?=$this->Form->input('firstname',array(
+		<?=$this->Form->input('phone',array(
 				'class' => 'i-format',
 				'label' => 'Phone'
 			    ));?>
-		<?=$this->Form->input('qty',array(
+		<?=$this->Form->input('product_id',array(
 				'class' => 'i-format',
-				'label' => 'Ticket Qty'
+				'label' => 'Ticket',
+                                'options' => $products
 			    ));?>
 		<?php echo $this->Form->end('Purchase'); ?>
 	    </div>
