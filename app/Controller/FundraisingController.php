@@ -52,9 +52,11 @@ class FundraisingController extends AppController {
     }
     
     public function admin_buyraffle($id){
+        $this->loadModel('Products');
 	if($this->request->is('post')){
 	    
 	}
+        $this->set('products',$this->Products->getProductsByCat(7,true));
     }
     
     public function admin_pokerrun(){
