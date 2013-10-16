@@ -113,6 +113,7 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 			    ));*/?>
 		<?=$this->Form->input('site_id',array(
                                 'type' => 'hidden',
+				'value' => Configure::read('Settings.site_id'),
                                 'before' => '',
                                 'between' => '',
 				'after' => ''
