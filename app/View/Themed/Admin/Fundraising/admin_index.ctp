@@ -23,10 +23,10 @@
                                 foreach ($fundraisers AS $row){
                                     ?>
                         <tr>
-                            <td><?=$row['name'];?></td>
-                            <td><?=$row['start_date'];?></td>
-                            <td><?=$row['end_date'];?></td>
-                            <td><?=$row['is_active'];?></td>
+                            <td><?=$row['Fundraiser']['name'];?></td>
+                            <td><?=$row['Fundraiser']['start'];?></td>
+                            <td><?=$row['Fundraiser']['end'];?></td>
+                            <td><?=$row['Fundraiser']['active'];?></td>
                             <td></td>
                         </tr>
                                     <?php
