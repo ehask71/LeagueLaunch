@@ -36,10 +36,6 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 				'label' => 'Name',
 				'after' => '<small>Fundraiser Title/Name (will be on tickets)</small></div></div><div class="clear"></div></section>'
 			    ));?>
-		<?/*=$this->Media->ckeditor('description',array(
-				'rows' => 5,
-				'cols' => 80,
-				'label' => 'Description') );*/?>
                 <?=$this->Form->input('description',array(
 				'class' => 'ckeditor',
 				'id' => 'editor1',
@@ -74,14 +70,22 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 				'label' => 'Event Date',
 				'type' => 'text'
 			    ));?>
-		<?=$this->Media->ckeditor('event_location',array(
+                <?=$this->Form->input('event_location',array(
+				'class' => 'ckeditor',
+				'id' => 'editor1',
 				'rows' => 5,
 				'cols' => 80,
-				'label' => 'Event Location') );?>
-		<?/*=$this->Media->ckeditor('disclaimer',array(
+				'label' => 'Event Location',
+				'type' => 'textarea',
+			    ));?>
+                <?=$this->Form->input('disclaimer',array(
+				'class' => 'ckeditor',
+				'id' => 'editor1',
 				'rows' => 5,
 				'cols' => 80,
-				'label' => 'Disclaimer') );*/?>
+				'label' => 'Disclaimer',
+				'type' => 'textarea',
+			    ));?>
                 
 		<?=$this->Form->input('provider',array(
 				//'type' => 'select',
