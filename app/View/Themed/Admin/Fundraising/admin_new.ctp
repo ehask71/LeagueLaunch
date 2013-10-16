@@ -9,7 +9,7 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
         };
 });";
     $this->Html->scriptEnd();
-    echo $this->Html->script('ckeditor/ckeditor');
+    echo $this->Html->script('/ckeditor/ckeditor');
 ?>
 <div class="grid_12">
     <div class="box">
