@@ -70,7 +70,7 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 				'rows' => 5,
 				'cols' => 80,
 				'label' => 'Disclaimer') );?>
-		<?=$this->Form->input('Provider',array(
+		<?=$this->Form->input('provider',array(
 				//'type' => 'select',
 				'options' => array('local'=>'Local','pokerrun'=>'PokerRun.org'),
 				'class' => 'chzn-select-deselect',
