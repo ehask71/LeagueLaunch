@@ -42,6 +42,7 @@ class FundraisingController extends AppController {
     public function admin_new() {
 	if($this->request->is('post')){
 	    if($this->Fundraiser->validateFundraiser()){
+		$this->request->data['Fundraiser']['site_id'] = Configure::read('Settings.site_id');
 		if($this->Fundraiser->save($this->request->data)){
 		    $this->Session->setFlash(__('New Fundraiser Added'),'default',array('class'=>'alert succes_msg'));
 		    $this->redirect('/admin/fundraising');
