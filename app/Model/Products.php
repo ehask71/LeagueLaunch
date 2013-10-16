@@ -123,6 +123,17 @@ class Products extends AppModel {
         $this->validate = $validate1;
         return $this->validates();
     }
+    
+    public function getProductsByCat($id){
+        $data = $this->find('all',array(
+            'conditions' => array(
+                'Products.category_id' => $id,
+                'Products.site_id' => Configure::read('Settings.site_id')
+            )
+        ));
+        
+        return $data;
+    } 
 
 }
 
