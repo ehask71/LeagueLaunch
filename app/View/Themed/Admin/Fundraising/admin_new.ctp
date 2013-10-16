@@ -86,14 +86,14 @@ $this->Html->scriptStart(array('block' => 'scriptBottom'));
 				'label' => 'Create A Product?',
 				'after' => '<br/><small></small></div></div><div class="clear"></div></section>'
 			    ));?>
-		<?=$this->Form->input('product_category',array(
+		<?/*$this->Form->input('product_category',array(
 				//'type' => 'select',
 				'options' => $categories,
 				'class' => 'chzn-select-deselect',
 				'style'=> 'width:350px',
 				'label' => 'Product Category',
 				'after' => '<br/><small></small></div></div><div class="clear"></div></section>'
-			    ));?>
+			    ));*/?>
 		<?=$this->Form->input('site_id',array(
                                 'type' => 'hidden',
                                 'before' => '',
