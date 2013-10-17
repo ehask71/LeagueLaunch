@@ -54,10 +54,9 @@ class FundraisingController extends AppController {
     public function admin_buyraffle() {
         $this->loadModel('Products');
         if ($this->request->is('post')) {
-            mail('ehask71@gmail.com', 'Raffle', print_r($this->request->data, 1));
-            $product = $this->Products->getProductById($this->request->data['Raffle']['product_id']);
+            $product = $this->Products->getProductById($this->request->data['Raffleticket']['product_id']);
             if (is_array($product)) {
-                unset($this->request->data['Raffle']['product_id']);
+                unset($this->request->data['Raffleticket']['product_id']);
                 $total = 0;
                 switch ($product['Products']['id']) {
                     case 12:
@@ -72,8 +71,7 @@ class FundraisingController extends AppController {
                         $total = 50;
                         break;
                 }
-                mail('ehask71@gmail.com', 'Raffle', $total);
-                $purchaser = $this->request->data['Raffle']['firstname'] . ' ' . $this->request->data['Raffle']['lastname'];
+                $purchaser = $this->request->data['Raffleticket']['firstname'] . ' ' . $this->request->data['Raffleticket']['lastname'];
                 $title = 'Buddyball-Harley Davidson Raffle';
                 $location = '"The Alley" hwy 301 and Big Bend';
                 $date = '2014-05-04';
@@ -98,13 +96,17 @@ class FundraisingController extends AppController {
                 for ($i = 0; $i < $total; $i++) {
 
                     $this->Raffleticket->create();
-                    //if ($this->Raffleticket->validateBuyraffle()) {
-                        mail('ehask71@gmail.com', 'Raffle', 'Validate');
-                        $this->Raffleticket->save($this->request->data);
-                        $tid = $this->Raffleticket->getLastInsertID();
-                    //}
+                    if ($this->Raffleticket->validateBuyraffle()) {
+                        //mail('ehask71@gmail.com', 'Raffle', 'Validate');
+                        if ($this->Raffleticket->save($this->request->data)) {
+                            $tid = $this->Raffleticket->getLastInsertID();
+                            $ticket = md5($tid . $this->request->data['Raffleticket']['firstname'] . $this->request->data['Raffleticket']['lastname'] . $site);
+                            $this->Raffleticket->create();
+                            $upd = array('id' => $tid, 'ticket' => $ticket);
+                            $this->Raffleticket->save($upd);
+                        }
+                    }
 
-                    $ticket = md5($tid . $this->request->data['Raffle']['firstname'] . $this->request->data['Raffle']['lastname'] . $site);
                     $pdf->AddPage();
                     $html = '
 <table cellspacing="0" cellpadding="0" width="675px" align="center">
