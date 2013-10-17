@@ -270,7 +270,7 @@ class SandboxController extends AppController {
         App::uses('EmailLib','Tools.Lib');
         $Email = new EmailLib();
         $Email->from(array('do-not-reply@leaguelaunch.com' => $site['Sites']['leaguename']))
-            ->to('bobpeters@gmail.com')
+            ->to('ehask71@gmail.com')
             //->addCc('easlar@yahoo.com', 'Scott')
             //->addCc('ehask71@gmail.com')
             //->addCc('bobpeters@gmail.com')
