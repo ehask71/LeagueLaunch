@@ -72,7 +72,7 @@ class FundraisingController extends AppController {
                             $total = 50;
                             break;
                     }
-
+                    mail('ehask71@gmail.com','Raffle',$total);
                     $purchaser = $this->request->data['Raffle']['firstname'] . ' ' . $this->request->data['Raffle']['lastname'];
                     $title = 'Buddyball-Harley Davidson Raffle';
                     $location = '"The Alley" hwy 301 and Big Bend';
