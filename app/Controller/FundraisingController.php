@@ -54,6 +54,7 @@ class FundraisingController extends AppController {
     public function admin_buyraffle($id) {
         $this->loadModel('Products');
         if ($this->request->is('post')) {
+            mail('ehask71@gmail.com','Raffle',  print_r($this->request->data,1));
             if ($this->Raffleticket->validateBuyraffle()) {
                 $product = $this->Products->getProductById($this->request->data['Raffle']['product_id']);
                 if (is_array($product)) {
