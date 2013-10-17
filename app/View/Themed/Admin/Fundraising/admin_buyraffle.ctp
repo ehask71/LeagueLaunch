@@ -50,6 +50,11 @@
                                 'class' => 'chzn-select',
                                 'style' => 'width: 350px;',
 			    ));?>
+                <?=$this->Form->input('zip',array(
+				'class' => 'i-format',
+				'label' => 'Zip',
+                                'type' => 'text'
+			    ));?>
 		<?=$this->Form->input('email',array(
 				'class' => 'i-format',
 				'label' => 'Email',
