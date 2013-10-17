@@ -284,7 +284,7 @@ class SandboxController extends AppController {
     public function testfor(){
         $this->autoRender = false;
         $total = 1;
-        for($i=1;$i<$total;$i++){
+        for($i=0;$i<$total;$i++){
             echo $i.'<br/>';
         }
     }
