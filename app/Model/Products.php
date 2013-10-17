@@ -143,6 +143,17 @@ class Products extends AppModel {
         }
         return $data;
     } 
+    
+    public function getProductById($id){
+        $data = $this->find('first',array(
+            'conditions' => array(
+                'Products.id' => $id,
+                'Products.site_id' => Configure::read('Settings.site_id')
+            )
+        ));
+        
+        return $data;
+    }
 
 }
 
