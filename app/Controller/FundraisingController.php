@@ -113,6 +113,7 @@ class FundraisingController extends AppController {
                 
                 $purchaser = $this->request->data['Raffleticket']['firstname'] . ' ' . $this->request->data['Raffleticket']['lastname'];
                 $this->request->data['Raffleticket']['raffle_id'] = 2;
+                $this->request->data['Raffleticket']['order_id'] = $orderid;
                 $title = 'Buddyball-Harley Davidson Raffle';
                 $location = '"The Alley" hwy 301 and Big Bend';
                 $date = '2014-05-04';
