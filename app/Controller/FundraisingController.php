@@ -105,7 +105,7 @@ class FundraisingController extends AppController {
                             'product_id' => $product['Products']['id'],
                             'name' => $product['Products']['name'],
                             'quantity' => 1,
-                            'weight' => $product['Products']['weight'],
+                            'weight' => 0.00,
                             'price' => $product['Products']['price'],
                             'subtotal' => $product['Products']['price'],
                             'player_id' => '',
