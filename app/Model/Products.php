@@ -144,7 +144,7 @@ class Products extends AppModel {
         return $data;
     } 
     
-    public function getProductById($id){
+    /*public function getProductById($id){
         $data = $this->find('first',array(
             'conditions' => array(
                 'Products.id' => $id,
@@ -153,7 +153,7 @@ class Products extends AppModel {
         ));
         
         return $data;
-    }
+    }*/
 
 }
 
