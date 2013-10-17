@@ -74,7 +74,7 @@ class FundraisingController extends AppController {
                         $total = 50;
                         break;
                 }
-                
+
                 $order['Order']['status'] = 2;
                 $order['Order']['site_id'] = Configure::read('Settings.site_id');
                 $order['Order']['first_name'] = $this->request->data['Raffleticket']['firstname'];
@@ -97,20 +97,22 @@ class FundraisingController extends AppController {
                 $order['Order']['subtotal'] = $product['Products']['price'];
                 $order['Order']['total'] = $product['Products']['price'];
                 $order['Order']['ip_address'] = '';
-                if($this->Order->save($order)){
+                if ($this->Order->save($order)) {
                     $orderid = $this->Order->getLastInsertID();
                     $item = array(
-                        'order_id' => $orderid,
-                        'product_id' => $product['Products']['id'],
-                        'name' => $product['Products']['name'],
-                        'quantity' => 1,
-                        'weight' => $product['Products']['weight'],
-                        'price' => $product['Products']['price'],
-                        'subtotal' => $product['Products']['price']
+                        'OrderItem' => array(
+                            'order_id' => $orderid,
+                            'product_id' => $product['Products']['id'],
+                            'name' => $product['Products']['name'],
+                            'quantity' => 1,
+                            'weight' => $product['Products']['weight'],
+                            'price' => $product['Products']['price'],
+                            'subtotal' => $product['Products']['price']
+                        )
                     );
                     $this->OrderItem->save($item);
                 }
-                
+
                 $purchaser = $this->request->data['Raffleticket']['firstname'] . ' ' . $this->request->data['Raffleticket']['lastname'];
                 $this->request->data['Raffleticket']['raffle_id'] = 2;
                 $this->request->data['Raffleticket']['order_id'] = $orderid;
@@ -233,11 +235,11 @@ class FundraisingController extends AppController {
                     $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/Ad300x250_2.jpg', 107, 185, 88, 65, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
                 }
                 $pdf->lastPage();
-                
+
                 //Body
-                $body = $title."\r\n
-Drawing Date & Location: ".$date." - ".$location."\r\n\r\nDisclaimer:\r\n";
-                
+                $body = $title . "\r\n
+Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\n";
+
                 $pdfstr = $pdf->Output('raffle.pdf', 'S');
                 App::uses('EmailLib', 'Tools.Lib');
                 $Email = new EmailLib();
