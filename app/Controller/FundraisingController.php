@@ -113,11 +113,12 @@ class FundraisingController extends AppController {
 <table cellspacing="0" cellpadding="0" width="675px" align="center">
     <tr>
         <td align="left">
-	    <font size="+2">' . $title . '</font><br>
+	    <font size="+2">' . $title . '</font><br><br>
+            <u>Drawing Date & Location</u><br>
             ' . $date . ' ' . $location . '<br>
             Purchased By: <b>' . $purchaser . '</b><br>
-            <small>Generated: ' . date('Y-m-d H:m:i') . '</small><br>
 	    Ticket #: <b>' . $ticket . '</b><br>
+            <small>Generated: ' . date('Y-m-d H:m:i') . '</small><br>
 	</td>
 	<td width="25%" height="150px"></td>
     </tr>
