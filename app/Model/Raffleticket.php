@@ -10,7 +10,7 @@
  */
 App::uses('Model', 'Model');
 
-class RaffleticketModel extends AppModel {
+class Raffleticket extends AppModel {
 
     public $name = 'Raffleticket';
     public $primaryKey = 'id';
