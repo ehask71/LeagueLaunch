@@ -18,6 +18,12 @@
 				'after' => '</div></div><div class="clear"></div></section>'
                             )
 			));?>
+                <?=$this->Form->input('product_id',array(
+				'label' => 'Ticket',
+                                'options' => $products,
+                                'class' => 'chzn-select',
+                                'style' => 'width: 350px;',
+			    ));?>
 		<?=$this->Form->input('firstname',array(
 				'class' => 'i-format',
 				'label' => 'First Name'
@@ -54,12 +60,7 @@
 				'label' => 'Phone',
                                 'type' => 'text'
 			    ));?>
-		<?=$this->Form->input('product_id',array(
-				'label' => 'Ticket',
-                                'options' => $products,
-                                'class' => 'chzn-select',
-                                'style' => 'width: 350px;',
-			    ));?>
+		
 		<?php echo $this->Form->end('Purchase'); ?>
 	    </div>
 	</div>
