@@ -162,7 +162,7 @@ class FundraisingController extends AppController {
                     );
                     $pdf->write1DBarcode($ticket, 'C128', 18, 58, '', 18, 0.4, $style, 'N');
                     //$pdf->write2DBarcode('http://buddyball.org', 'QRCODE,H', 138, 27, 50, 50, $style, 'N');
-                    $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/logoforraffle.jpg', 138, 27, 50, 50, 'JPG', 'http://www.buddyball.org', '', true, 150, '', false, false, 1, false, false, false);
+                    $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/logoforraffle.jpg', 138, 20, 30, 30, 'JPG', 'http://www.buddyball.org', '', true, 150, '', false, false, 1, false, false, false);
 // set JPEG quality
                     $pdf->setJPEGQuality(75);
 // Ad Space 1
