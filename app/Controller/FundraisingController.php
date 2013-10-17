@@ -54,6 +54,8 @@ class FundraisingController extends AppController {
     public function admin_buyraffle() {
         $this->loadModel('Products');
         if ($this->request->is('post')) {
+            $this->loadModel('Order');
+            $this->loadModel('OrderItem');
             $product = $this->Products->getProductById($this->request->data['Raffleticket']['product_id']);
             if (is_array($product)) {
                 unset($this->request->data['Raffleticket']['product_id']);
@@ -72,6 +74,43 @@ class FundraisingController extends AppController {
                         $total = 50;
                         break;
                 }
+                
+                $order['Order']['status'] = 2;
+                $order['Order']['site_id'] = Configure::read('Settings.site_id');
+                $order['Order']['first_name'] = $this->request->data['Raffleticket']['firstname'];
+                $order['Order']['last_name'] = $this->request->data['Raffleticket']['lastname'];
+                $order['Order']['email'] = $this->request->data['Raffleticket']['email'];
+                $order['Order']['phone'] = $this->request->data['Raffleticket']['phone'];
+                $order['Order']['billing_address'] = $this->request->data['Raffleticket']['address'];
+                $order['Order']['billing_address2'] = $this->request->data['Raffleticket']['address2'];
+                $order['Order']['billing_city'] = $this->request->data['Raffleticket']['city'];
+                $order['Order']['billing_zip'] = $this->request->data['Raffleticket']['zip'];
+                $order['Order']['billing_state'] = $this->request->data['Raffleticket']['state'];
+                $order['Order']['billing_country'] = 'US';
+                $order['Order']['shipping_address'] = $this->request->data['Raffleticket']['address'];
+                $order['Order']['shipping_address2'] = $this->request->data['Raffleticket']['address2'];
+                $order['Order']['shipping_city'] = $this->request->data['Raffleticket']['city'];
+                $order['Order']['shipping_zip'] = $this->request->data['Raffleticket']['zip'];
+                $order['Order']['shipping_state'] = $this->request->data['Raffleticket']['state'];
+                $order['Order']['shipping_country'] = 'US';
+                $order['Order']['order_item_count'] = 1;
+                $order['Order']['subtotal'] = $product['Products']['price'];
+                $order['Order']['total'] = $product['Products']['price'];
+                $order['Order']['ip_address'] = '';
+                if($this->Order->save($order)){
+                    $orderid = $this->Order->getLastInsertID();
+                    $item = array(
+                        'order_id' => $orderid,
+                        'product_id' => $product['Products']['id'],
+                        'name' => $product['Products']['name'],
+                        'quantity' => 1,
+                        'weight' => $product['Products']['weight'],
+                        'price' => $product['Products']['price'],
+                        'subtotal' => $product['Products']['price']
+                    );
+                    $this->OrderItem->save($item);
+                }
+                
                 $purchaser = $this->request->data['Raffleticket']['firstname'] . ' ' . $this->request->data['Raffleticket']['lastname'];
                 $this->request->data['Raffleticket']['raffle_id'] = 2;
                 $title = 'Buddyball-Harley Davidson Raffle';
