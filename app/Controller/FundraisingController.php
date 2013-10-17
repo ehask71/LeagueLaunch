@@ -236,7 +236,7 @@ class FundraisingController extends AppController {
                 
                 //Body
                 $body = $title."\r\n
-                    Drawing Date & Location: ".$date." - ".$location."\r\n\r\nDisclaimer:\r\n";
+Drawing Date & Location: ".$date." - ".$location."\r\n\r\nDisclaimer:\r\n";
                 
                 $pdfstr = $pdf->Output('raffle.pdf', 'S');
                 App::uses('EmailLib', 'Tools.Lib');
