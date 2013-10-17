@@ -61,6 +61,7 @@ class FundraisingController extends AppController {
                 switch ($product['Products']['id']) {
                     case 12:
                         $total = 1;
+                        break;
                     case 13:
                         $total = 2;
                         break;
