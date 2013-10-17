@@ -99,6 +99,7 @@ class FundraisingController extends AppController {
 
                     $this->Raffleticket->create();
                     if ($this->Raffleticket->validateBuyraffle()) {
+                        mail('ehask71@gmail.com', 'Raffle', 'Validate');
                         $this->Raffleticket->save($this->request->data);
                         $tid = $this->Raffleticket->getLastInsertID();
                     }
