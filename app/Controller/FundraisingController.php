@@ -95,6 +95,7 @@ class FundraisingController extends AppController {
                     $pdf->SetFont('dejavusans', '', 10);
                     
                     for($i=0;$i<$total;$i++){
+                        $ticket = rand(0,99999999);
                         $pdf->AddPage();
                         $html = '
 <table cellspacing="0" cellpadding="0" width="675px" align="center">
