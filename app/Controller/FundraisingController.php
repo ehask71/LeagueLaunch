@@ -250,9 +250,12 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
                         ->subject($title.' ticket(s) attached')
                         ->addAttachments(array('raffletickets.pdf' => array('content' => $pdfstr, 'mimetype' => 'application/pdf')))
                         ->send($body);
+                // Redirect
+                $this->Session->setFlash('Raffle Ticket(s) Sent!!!', 'default', array('class' => 'alert succes_msg'));
+                $this->redirect('/admin/fundraising/buyraffle');
             } else {
                 $this->Session->setFlash('No Product', 'default', array('class' => 'alert succes_msg'));
-                $this->redirect('/admin/fundraising/butraffle');
+                $this->redirect('/admin/fundraising/buyraffle');
             }
         }
         $this->set('products', $this->Products->getProductsByCat(7, true));
