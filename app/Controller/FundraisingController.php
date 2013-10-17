@@ -179,7 +179,7 @@ class FundraisingController extends AppController {
                 $pdfstr = $pdf->Output('raffle.pdf', 'S');
                 App::uses('EmailLib', 'Tools.Lib');
                 $Email = new EmailLib();
-                $Email->from(array('do-not-reply@leaguelaunch.com' => $site['Sites']['leaguename']))
+                $Email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
                         ->to('ehask71@gmail.com')
                         ->subject('Attach test new')
                         ->addAttachments(array('raffletickets.pdf' => array('content' => $pdfstr, 'mimetype' => 'application/pdf')))
