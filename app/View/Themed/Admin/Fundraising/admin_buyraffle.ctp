@@ -7,7 +7,7 @@
         </h2>
         <div class="block">
             <div class="block_in">
-		<?php echo $this->Form->create('Raffle', array(
+		<?php echo $this->Form->create('Raffleticket', array(
 			    'class' => 'form_place',
 			    'type' => 'file',
                             'inputDefaults' => array(
