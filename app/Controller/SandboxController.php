@@ -174,7 +174,8 @@ class SandboxController extends AppController {
     }
 
     public function generate_pdf() {
-        $ticket = '111011101110111';
+        
+        $ticket = 111011101110111;
         $purchaser = 'Eric Haskins';
         App::import('Vendor', 'xtcpdf');
         $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
@@ -191,6 +192,7 @@ class SandboxController extends AppController {
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 //$pdf->setPrintFooter(false);
+        for($i=0;$i<=50;$i++){
         $pdf->AddPage();
         $html = '
 <table cellspacing="0" cellpadding="0" width="675px" align="center">
@@ -257,8 +259,8 @@ class SandboxController extends AppController {
         $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/Ad300x250_1.jpg', 15, 185, 88, 65, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
 // Ad Space 5
         $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/Ad300x250_2.jpg', 107, 185, 88, 65, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
-
-
+            $ticket++;
+        }
         $pdf->lastPage();
         //echo $pdf->Output(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf' . DS . 'test.pdf', 'F');
         $pdfstr = $pdf->Output('raffle.pdf','S');
@@ -267,11 +269,11 @@ class SandboxController extends AppController {
         App::uses('EmailLib','Tools.Lib');
         $Email = new EmailLib();
         $Email->from(array('do-not-reply@leaguelaunch.com' => $site['Sites']['leaguename']))
-            ->to('cvstibich@msn.com')
-            ->addCc('easlar@yahoo.com', 'Scott')
-            ->addCc('ehask71@gmail.com')
-            ->addCc('bobpeters@gmail.com')
-            ->subject('Attach test')
+            ->to('bobpeters@gmail.com')
+            //->addCc('easlar@yahoo.com', 'Scott')
+            //->addCc('ehask71@gmail.com')
+            //->addCc('bobpeters@gmail.com')
+            ->subject('Attach test new')
             ->addAttachments(array('raffletickets.pdf'=>array('content'=>$pdfstr,'mimetype'=>'application/pdf')))
             ->send('Testing Attachment from LeagueLaunch and Sending Example to Collette');
     }
