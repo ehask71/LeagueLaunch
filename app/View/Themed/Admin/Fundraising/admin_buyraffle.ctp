@@ -39,22 +39,26 @@
 				'label' => 'City'
 			    ));?>
 		<?=$this->Form->input('state',array(
-				'class' => 'i-format',
 				'label' => 'State',
-                                'options' => Configure::read('States')
+                                'options' => Configure::read('States'),
+                                'class' => 'chzn-select',
+                                'style' => 'width: 350px;',
 			    ));?>
 		<?=$this->Form->input('email',array(
 				'class' => 'i-format',
-				'label' => 'Email'
+				'label' => 'Email',
+                                'type' => 'text'
 			    ));?>
 		<?=$this->Form->input('phone',array(
 				'class' => 'i-format',
-				'label' => 'Phone'
+				'label' => 'Phone',
+                                'type' => 'text'
 			    ));?>
 		<?=$this->Form->input('product_id',array(
-				'class' => 'i-format',
 				'label' => 'Ticket',
-                                'options' => $products
+                                'options' => $products,
+                                'class' => 'chzn-select',
+                                'style' => 'width: 350px;',
 			    ));?>
 		<?php echo $this->Form->end('Purchase'); ?>
 	    </div>
