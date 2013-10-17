@@ -174,6 +174,7 @@ class SandboxController extends AppController {
     }
 
     public function generate_pdf() {
+        $this->autoRender = false;
         
         $ticket = 111011101110111;
         $purchaser = 'Eric Haskins';
