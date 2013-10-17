@@ -140,7 +140,15 @@ class FundraisingController extends AppController {
 	</tr>
         <tr>
             <td colspan="2" valign="top"><small>
-            Disclaimer Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at quam lectus. Vivamus eget vulputate dui. Nam sit amet auctor elit. Ut congue nibh leo, vitae tincidunt odio eleifend lobortis. Aliquam rutrum neque ligula, vitae tincidunt eros vehicula id. Aliquam suscipit sodales ipsum, vitae laoreet lectus suscipit nec. Integer velit odio, porttitor semper imperdiet quis, sagittis sit amet purus. Pellentesque accumsan sed nulla vitae malesuada. Curabitur quis nisl eget libero sodales pellentesque vitae non ante. Duis lectus nibh, dapibus vel neque sit amet, molestie scelerisque turpis.
+            Disclaimer Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Aliquam at quam lectus. Vivamus eget vulputate dui. Nam sit amet auctor elit. 
+            Ut congue nibh leo, vitae tincidunt odio eleifend lobortis. Aliquam 
+            rutrum neque ligula, vitae tincidunt eros vehicula id. Aliquam suscipit 
+            sodales ipsum, vitae laoreet lectus suscipit nec. Integer velit odio, 
+            porttitor semper imperdiet quis, sagittis sit amet purus. Pellentesque 
+            accumsan sed nulla vitae malesuada. Curabitur quis nisl eget libero 
+            sodales pellentesque vitae non ante. Duis lectus nibh, dapibus vel neque 
+            sit amet, molestie scelerisque turpis. Nam sit amet auctor elit. Ut congue nibh leo, vitae tincidunt odio eleifend lobortis. Aliquam rutrum neque ligula, vitae tincidunt eros vehicula id. Aliquam suscipit sodales ipsum, vitae laoreet lectus suscipit nec. Integer velit odio, porttitor semper imperdiet quis, sagittis sit amet purus. Pellentesque accumsan sed nulla vitae malesuada. Curabitur quis nisl eget libero sodales pellentesque vitae non ante. Duis lectus nibh, dapibus vel neque sit amet, molestie scelerisque turpis
             </small></td>
         </tr>
 	</table>
