@@ -131,7 +131,7 @@ class FundraisingController extends AppController {
 	<td colspan="2" align="center" cellpadding="1">
 	<table cellspacing="2" cellpadding="1">
 	<tr>
-        <td align="center" height="430px">
+        <td align="center" height="428px">
 	    <!--<b>Ad Space 2</b>-->
 	</td>
         <td align="center">
