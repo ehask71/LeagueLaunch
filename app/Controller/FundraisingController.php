@@ -138,6 +138,11 @@ class FundraisingController extends AppController {
 	    <!--<b>Ad Space 3</b>-->
 	</td>
 	</tr>
+        <tr>
+            <td colspan="2">
+            Disclaimer
+            </td>
+        </tr>
 	</table>
 	</td>
     </tr>
