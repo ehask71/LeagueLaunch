@@ -176,6 +176,9 @@ class FundraisingController extends AppController {
                             ->subject('Attach test new')
                             ->addAttachments(array('raffletickets.pdf' => array('content' => $pdfstr, 'mimetype' => 'application/pdf')))
                             ->send('Testing Attachment from LeagueLaunch and Sending Example to Collette');
+                } else {
+                    $this->Session->setFlash('No Product', 'default',  array('class' => 'alert succes_msg'));
+                    $this->redirect('/admin/fundraising/butraffle');
                 }
             }
         }
