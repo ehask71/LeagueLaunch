@@ -139,7 +139,7 @@ class FundraisingController extends AppController {
 	</td>
 	</tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" valign="top">
             Disclaimer
             </td>
         </tr>
