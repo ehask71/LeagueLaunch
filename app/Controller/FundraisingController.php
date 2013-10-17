@@ -72,8 +72,12 @@ class FundraisingController extends AppController {
                             $total = 50;
                             break;
                     }
-                    $ticket = 111011101110111;
+
                     $purchaser = $this->request->data['Raffle']['firstname'] . ' ' . $this->request->data['Raffle']['lastname'];
+                    $title = 'Buddyball-Harley Davidson Raffle';
+                    $location = '"The Alley" hwy 301 and Big Bend';
+                    $date = '2014-05-04';
+                    
                     App::import('Vendor', 'xtcpdf');
                     $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
                     $pdf->SetMargins(PDF_MARGIN_LEFT, 25, PDF_MARGIN_RIGHT);
@@ -88,15 +92,18 @@ class FundraisingController extends AppController {
                     $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
                     $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
                     $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-                    for ($i = 0; $i < 50; $i++) {
+                    $pdf->SetFont('dejavusans', '', 10);
+                    
+                    for($i=0;$i<$total;$i++){
                         $pdf->AddPage();
                         $html = '
 <table cellspacing="0" cellpadding="0" width="675px" align="center">
     <tr>
         <td align="left">
-	    BuddyBall.Org Fall Raffle<br><br>
+	    <font size="+2">'.$title.'</font><br>
+            '.$date.' '.$location.'<br>
             Purchased By: <b>' . $purchaser . '</b><br>
-            Generated: ' . date('Y-m-d H:m:i') . '<br>
+            <small>Generated: ' . date('Y-m-d H:m:i') . '</small><br>
 	    Ticket #: <b>' . $ticket . '</b><br>
 	</td>
 	<td width="25%" height="150px"></td>
