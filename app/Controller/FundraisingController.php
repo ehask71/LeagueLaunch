@@ -100,7 +100,7 @@ class FundraisingController extends AppController {
                 if ($this->Order->save($order)) {
                     $orderid = $this->Order->getLastInsertID();
                     $item = array(
-                        'OrderItem' => array(
+                        //'OrderItem' => array(
                             'order_id' => $orderid,
                             'product_id' => $product['Products']['id'],
                             'name' => $product['Products']['name'],
@@ -110,7 +110,7 @@ class FundraisingController extends AppController {
                             'subtotal' => $product['Products']['price'],
                             'player_id' => '',
                             'season_id' => 0
-                        )
+                        //)
                     );
                     $this->OrderItem->save($item);
                 }
