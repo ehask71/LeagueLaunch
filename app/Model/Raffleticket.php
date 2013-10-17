@@ -63,12 +63,7 @@ class RaffleticketModel extends Model {
                     'message' => 'Invalid email address'
                 )
             ),
-            'product_id' => array(
-                'mustNotEmpty' => array(
-                    'rule' => 'notEmpty',
-                    'message' => 'Please Select A Product'
-                )
-            )
+            
         );
         
         $this->validate = $validate1;
