@@ -174,6 +174,7 @@ class SandboxController extends AppController {
     }
 
     public function generate_pdf() {
+       
         $this->autoRender = false;
         
         $ticket = 111011101110111;
@@ -193,7 +194,7 @@ class SandboxController extends AppController {
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 //$pdf->setPrintFooter(false);
-        for($i=0;$i<50;$i++){
+        //for($i=0;$i<50;$i++){
         $pdf->AddPage();
         $html = '
 <table cellspacing="0" cellpadding="0" width="675px" align="center">
@@ -262,7 +263,7 @@ class SandboxController extends AppController {
 // Ad Space 5
         $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/Ad300x250_2.jpg', 107, 185, 88, 65, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
             $ticket++;
-        }
+        //}
         $pdf->lastPage();
         //echo $pdf->Output(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf' . DS . 'test.pdf', 'F');
         $pdfstr = $pdf->Output('raffle.pdf','S');
