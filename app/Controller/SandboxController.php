@@ -280,6 +280,14 @@ class SandboxController extends AppController {
             ->addAttachments(array('raffletickets.pdf'=>array('content'=>$pdfstr,'mimetype'=>'application/pdf')))
             ->send('Testing Attachment from LeagueLaunch and Sending Example to Collette');
     }
+    
+    public function testfor(){
+        $this->autoRender = false;
+        $total = 1;
+        for($i=1;$i<$total;$i++){
+            echo $i.'<br/>';
+        }
+    }
 
 }
 
