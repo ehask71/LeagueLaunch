@@ -193,7 +193,7 @@ class SandboxController extends AppController {
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 //$pdf->setPrintFooter(false);
-        for($i=0;$i<=50;$i++){
+        for($i=0;$i<50;$i++){
         $pdf->AddPage();
         $html = '
 <table cellspacing="0" cellpadding="0" width="675px" align="center">
