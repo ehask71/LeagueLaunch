@@ -107,7 +107,9 @@ class FundraisingController extends AppController {
                             'quantity' => 1,
                             'weight' => $product['Products']['weight'],
                             'price' => $product['Products']['price'],
-                            'subtotal' => $product['Products']['price']
+                            'subtotal' => $product['Products']['price'],
+                            'player_id' => '',
+                            'season_id' => 0
                         )
                     );
                     $this->OrderItem->save($item);
@@ -245,7 +247,7 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
                 $Email = new EmailLib();
                 $Email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
                         ->to($this->request->data['Raffleticket']['email'])
-                        ->subject($title)
+                        ->subject($title.' ticket(s) attached')
                         ->addAttachments(array('raffletickets.pdf' => array('content' => $pdfstr, 'mimetype' => 'application/pdf')))
                         ->send($body);
             } else {
