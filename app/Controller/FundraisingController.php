@@ -193,15 +193,19 @@ class FundraisingController extends AppController {
                     $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/Ad300x250_2.jpg', 107, 185, 88, 65, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
                 }
                 $pdf->lastPage();
-
+                
+                //Body
+                $body = $title."\r\n
+                    Drawing Date & Location: ".$date." - ".$location."\r\n\r\nDisclaimer:\r\n";
+                
                 $pdfstr = $pdf->Output('raffle.pdf', 'S');
                 App::uses('EmailLib', 'Tools.Lib');
                 $Email = new EmailLib();
                 $Email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
-                        ->to('ehask71@gmail.com')
-                        ->subject('Attach test new')
+                        ->to($this->request->data['Raffleticket']['email'])
+                        ->subject($title)
                         ->addAttachments(array('raffletickets.pdf' => array('content' => $pdfstr, 'mimetype' => 'application/pdf')))
-                        ->send('Testing Attachment from LeagueLaunch and Sending Example to Collette');
+                        ->send($body);
             } else {
                 $this->Session->setFlash('No Product', 'default', array('class' => 'alert succes_msg'));
                 $this->redirect('/admin/fundraising/butraffle');
