@@ -98,11 +98,11 @@ class FundraisingController extends AppController {
                 for ($i = 0; $i < $total; $i++) {
 
                     $this->Raffleticket->create();
-                    if ($this->Raffleticket->validateBuyraffle()) {
+                    //if ($this->Raffleticket->validateBuyraffle()) {
                         mail('ehask71@gmail.com', 'Raffle', 'Validate');
                         $this->Raffleticket->save($this->request->data);
                         $tid = $this->Raffleticket->getLastInsertID();
-                    }
+                    //}
 
                     $ticket = md5($tid . $this->request->data['Raffle']['firstname'] . $this->request->data['Raffle']['lastname'] . $site);
                     $pdf->AddPage();
