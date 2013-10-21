@@ -186,7 +186,7 @@ class FundraisingController extends AppController {
         <tr>
             <td colspan="2" valign="top"><small>
             <b>Disclaimer:</b>
-            </small></td>
+            </small>No purchase necessary. A Free entry may be obtained by sending a self addressed envelope with your name, age, address, phone number and email address for notification purposes to 6004 Adagio lane apollo beach FL 33572.  Drawing to be held at 1:30 May 4th at the Alley 10221 Big Bend Blvd Riverview Florida.  High Octane Brands LLC, League Launch and its subsidiaries are in no way affilited with this raffle.</td>
         </tr>
 	</table>
 	</td>
