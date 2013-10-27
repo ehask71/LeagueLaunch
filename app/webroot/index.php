@@ -1,6 +1,6 @@
 <?php
 
-define('MAINTENANCE', 1); 
+define('MAINTENANCE', 0); 
 if(MAINTENANCE > 0 && $_SERVER['REMOTE_ADDR'] !='188.YOUR.IP.HERE')
 {
 	require('maintenance.php'); die(); 
