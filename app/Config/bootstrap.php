@@ -89,6 +89,7 @@ CakePlugin::load('Media');
 CakePlugin::load('Search');
 CakePlugin::load('DebugKit');
 CakePlugin::load('Tools');
+CakePlugin::load('BoostCake');
 
 App::import('Lib', 'Tools.Bootstrap/MyBootstrap');
 /**
