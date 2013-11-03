@@ -113,7 +113,7 @@
 		<div class="grid_4" >
 		    <div class="content first">
 			<h3>Facebook</h3>
-                        <iframe src="//www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/pages/East-Bay-Little-League/111770702218642&amp;width=300&amp;height=258&amp;show_faces=false&amp;colorscheme=light&amp;stream=false&amp;show_border=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:158px;" allowtransparency="true"></iframe>
+                        <iframe src="//www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/pages/East-Bay-Little-League/111770702218642&amp;width=300&amp;height=258&amp;show_faces=false&amp;colorscheme=dark&amp;stream=false&amp;show_border=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:158px;" allowtransparency="true"></iframe>
 		    </div>
 		</div>
 		<div class="grid_4" >
