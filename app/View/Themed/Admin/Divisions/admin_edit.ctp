@@ -49,6 +49,18 @@
                 ));
                 ?>
                 <?=
+                $this->Form->input('leagueage', array(
+                    'class' => 'i-format',
+                    'label' => 'League Age'
+                ));
+                ?>
+                <?=
+                $this->Form->input('leagueage_cutoff', array(
+                    'class' => 'i-format',
+                    'label' => 'League Ages (ex: 14,15)'
+                ));
+                ?>
+                <?=
                 $this->Form->input('parent', array(
                     'class' => 'i-format',
                     'label' => 'Parent Division',
