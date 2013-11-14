@@ -39,10 +39,11 @@ class AppController extends Controller {
         //mail('ehask71@gmail.com','Test BF',print_r($this->params['controller'],1));
 
         $domain = $this->Sites->getDomain();
-        if ($this->Sites->getSiteId($domain)) {
+        $sid = $this->Sites->getSiteId($domain);
+        if ($sid) {
             $result = $this->Sites->find('first', array(
                 'conditions' => array(
-                    'Sites.domain' => $domain,
+                    'Sites.site_id' => $sid,
                     'Sites.isactive' => 'yes')
                     ));
             if (count($result) > 0) {
