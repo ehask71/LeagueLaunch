@@ -36,7 +36,9 @@
         <!-- begin JS -->
     </head>
     <body>
-        <img src="http://eastbaycalripken.org/theme/hoebll/images/eastbay-cal-ripken.jpg" style="margin: 0 auto;padding-top: 60px;">
+        <div style="width:400px;height: 460px;margin: 0 auto;text-align: center;padding-top: 65px;">
+        <img src="http://eastbaycalripken.org/theme/hoebll/images/eastbay-cal-ripken.jpg">
+        </div>
         <?php echo $this->fetch('scriptBottom'); ?>
         <script type="text/javascript">
             var _gaq = _gaq || [];
