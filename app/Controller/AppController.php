@@ -43,7 +43,7 @@ class AppController extends Controller {
         if ($sid) {
             $result = $this->Sites->find('first', array(
                 'conditions' => array(
-                    'Sites.site_id' => $sid,
+                    'Sites.site_id' => $sid['site_id'],
                     'Sites.isactive' => 'yes')
                     ));
             if (count($result) > 0) {
