@@ -36,7 +36,7 @@
         <!-- begin JS -->
     </head>
     <body>
-        <img src="http://cdn.leaguelaunch.com/theme/hoebll/images/eastbay-cal-ripken.jpg" style="margin: 0 auto;padding-top: 60px;">
+        <img src="http://eastbaycalripken.org/theme/hoebll/images/eastbay-cal-ripken.jpg" style="margin: 0 auto;padding-top: 60px;">
         <?php echo $this->fetch('scriptBottom'); ?>
         <script type="text/javascript">
             var _gaq = _gaq || [];
