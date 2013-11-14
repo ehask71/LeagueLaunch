@@ -15,7 +15,7 @@ class Sites extends AppModel {
 
     public function getSiteId($domain) {
         //$sql = "SELECT * FROM sites WHERE domain = '$domain' AND isactive = 'yes'";
-        $sql = "SELECT * FROM domains WHERE domain = '$domain' WHERE 1";
+        $sql = "SELECT * FROM domains WHERE domain = '$domain'";
         $res = $this->query($sql);
 
         if (count($res) > 0) {
