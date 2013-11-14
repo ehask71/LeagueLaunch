@@ -17,7 +17,7 @@ class Sites extends AppModel {
         //$sql = "SELECT * FROM sites WHERE domain = '$domain' AND isactive = 'yes'";
         $sql = "SELECT * FROM domains WHERE domain = '$domain'";
         $res = $this->query($sql);
-        mail('ehask71@gmail.com','Domains',print_r($res[0],1));
+        
         if (count($res) > 0) {
             return $res[0];
         } else {
