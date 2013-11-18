@@ -33,6 +33,19 @@
 				'after' => '<small>League Description</small></div></div><div class="clear"></div></section>'
 			    ));?>
 			</div>
+			<h3>Social</h3>
+			<div>
+			    <?=$this->Form->input('facebook_id',array(
+				'class' => 'i-format',
+				'label' => 'Facebook Id',
+				'after' => '<small>Your Facebook Page ID</small></div></div><div class="clear"></div></section>'
+			    ));?>
+			    <?=$this->Form->input('twitter_feed',array(
+				'class' => 'i-format',
+				'label' => 'Twitter Handle',
+				'after' => '<small>@twitter</small></div></div><div class="clear"></div></section>'
+			    ));?>
+			</div>
                         <?php if(Configure::read('Settings.sport') == 'baseball' || Configure::read('Settings.sport') == 'softball'):?>
 			<h3><a href="#">League Age</a></h3>
 			<div>
