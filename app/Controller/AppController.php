@@ -36,8 +36,10 @@ class AppController extends Controller {
     }
 
     public function beforeFilter() {
-        //mail('ehask71@gmail.com','Test BF',print_r($this->params['controller'],1));
-
+	if($this->params['controller'] == 'home' && $this->params['action'] == 'index'){
+	    $this->set('isHomePage','true');
+	}
+	
         $domain = $this->Sites->getDomain();
         $sid = $this->Sites->getSiteId($domain);
         if ($sid) {
