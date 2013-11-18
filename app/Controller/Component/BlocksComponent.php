@@ -11,7 +11,8 @@
  * @author EricMain
  */
 class BlocksComponent extends Component {
-
+    
+    public $blocksForLayout = array();
     public $components = array();
 
     public function initialize($controller) {
