@@ -6,8 +6,6 @@
 class LayoutHelper extends AppHelper {
 
     public $helpers = array();
-    
-    public  $core
 
     public function __construct(View $View, $settings = array()) {
 	parent::__construct($View, $settings);
