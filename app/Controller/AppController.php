@@ -8,7 +8,7 @@ class AppController extends Controller {
     public $viewClass = 'Theme';
     public $theme = 'default';
     public $uses = array('Settings', 'Sites', 'Widget');
-    public $helpers = array('CloudFlare');
+    public $helpers = array('CloudFlare','Layout');
     public $components = array(
         'Session',
         'Auth' => array(
