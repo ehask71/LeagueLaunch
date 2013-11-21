@@ -11,7 +11,7 @@
  */
 App::uses('Model', 'Model');
 
-class BlockCustomModel extends Model {
+class BlockCustom extends Model {
     
     public $name = 'BlockCustom';
     public $primaryKey = 'id';
