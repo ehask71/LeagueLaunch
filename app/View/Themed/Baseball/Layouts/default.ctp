@@ -14,6 +14,7 @@
 <body>
 
 <div class="container">
+        <?php echo $this->Layout->sessionFlash();?>
 	<div class="row" id="body-content">
 
 	</div>
