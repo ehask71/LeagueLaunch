@@ -8,7 +8,12 @@ App::uses('AppHelper', 'View/Helper');
 
 class LayoutHelper extends AppHelper {
 
-    public $helpers = array();
+    public $helpers = array(
+        'Html',
+        'Form',
+        'Session',
+        'Js',
+    );
 
     public function __construct(View $View, $settings = array()) {
         parent::__construct($View, $settings);
