@@ -1,0 +1,42 @@
+body{
+	background: #FFF url('../img/background.jpg') center top no-repeat;
+	background-attachment: fixed;
+}
+p{
+	font-family: 'Open Sans', Arial, Tahoma, sans-serif;
+	line-height: 160%;
+	font-size: .9em;
+
+	text-align: justify;
+}
+#masthead{
+	min-height: 66px;
+	padding: 12px;
+}
+
+#body-content, #footer{
+	background-color: #FFF;
+	border-radius: 5px 10px 10px 5px;
+	-moz-border-radius: 5px 5px 10px 10px;
+	-webkit-border-radius: 5px 5px 10px 10px;
+	margin-bottom: 12px;
+}
+#goals{
+	font-size: .9em;
+}
+#sidebar{
+	text-align: center;
+	padding: 18px;
+	border-left: 1px solid #cdcdcd;
+}
+#disclaimer{
+	font-size: .8em;
+	padding: 18px;
+}
+#coaches{
+	border-top: 1px solid #cdcdcd;
+	font-size: .9em;
+}
+#form-container{
+	
+}
