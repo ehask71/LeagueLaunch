@@ -11,7 +11,7 @@
  */
 App::uses('Model', 'Model');
 
-class BlockModel extends Model {
+class Block extends Model {
     
     public $name = 'Block';
     public $primaryKey = 'id';
