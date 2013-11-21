@@ -16,7 +16,7 @@
 <div class="container">
         <?php echo $this->Layout->sessionFlash();?>
 	<div class="row" id="body-content">
-
+            <?php echo $this->fetch('content'); ?>
 	</div>
 	<div class="row" id="footer">
 		<? echo $this->Regions->blocks('footer');?>
