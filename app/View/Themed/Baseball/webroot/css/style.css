@@ -40,3 +40,16 @@ p{
 #form-container{
 	
 }
+
+#footer{
+    background-color: #333;
+    margin-right:-15px;
+    margin-left:-15px;
+    margin-bottom:-25px;
+    padding: 10px 0 10px 10px;
+    color: #BBB;
+}
+
+#footer a{
+    color: #99BB00;
+}
