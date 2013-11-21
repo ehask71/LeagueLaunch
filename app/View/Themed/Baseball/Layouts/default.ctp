@@ -13,8 +13,13 @@
     </head>
     <body>
         <div class="container">
-            <div class="row" id="header">
+            <div class="row">
+                <div class="span6" id="masthead">
+                    <a href="/event/<?php echo $slug; ?>" title="Back to Home Page"><?php echo $this->Html->image('logon-png.png', array('width' => "523", 'height' => "66")); ?></a>
+                </div>
+                <div class="span6">
 
+                </div>
             </div>
             <?php echo $this->Layout->sessionFlash(); ?>
             <div class="row" id="body-content">
@@ -24,7 +29,7 @@
                 <? echo $this->Regions->blocks('footer'); ?>
                 <div class="row" id="copyright">
                     <div class="span12 pull-right">
-                        &COPY; <?php echo Configure::read('Settings.leaguename').' '.date('Y');?><br/>
+                        &COPY; <?php echo Configure::read('Settings.leaguename') . ' ' . date('Y'); ?><br/>
                         <small>Powered by <a href="http://leaguelaunch.com" target="_blank">LeagueLaunch</a></small>
                     </div>
                 </div>
