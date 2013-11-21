@@ -8,7 +8,7 @@ class AppController extends Controller {
     public $viewClass = 'Theme';
     public $theme = 'default';
     public $uses = array('Settings', 'Sites', 'Widget');
-    public $helpers = array('CloudFlare','Layout');
+    public $helpers = array('CloudFlare','Layout','Regions');
     public $components = array(
         'Session',
         'Auth' => array(
@@ -28,7 +28,8 @@ class AppController extends Controller {
             'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'account', 'action' => 'login'),
             'loginAction' => '/login',
-        )
+        ),
+        'Blocks'
     );
 
     public function canUploadMedias($model, $id) {
