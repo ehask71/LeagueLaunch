@@ -250,7 +250,7 @@ class SeasonController extends AppController {
 	$this->redirect('/admin/season');
     }
     
-    public function mailBlast(){
+    public function admin_mailBlast(){
         $players = $this->Season->query("SELECT 
             Accounts.firstname,Accounts.lastname,Accounts.email,Accounts.phone FROM accounts Accounts 
             LEFT JOIN roles_users RoleUser ON Accounts.id = RoleUser.user_id
