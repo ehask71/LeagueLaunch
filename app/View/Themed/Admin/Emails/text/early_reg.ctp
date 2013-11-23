@@ -1,4 +1,4 @@
-Hello <?php echo $player[0]['firstname'].' '.$player[0]['lastname'];?>,
+Hello <?php echo $player[Accounts]['firstname'].' '.$player[Accounts]['lastname'];?>,
         
    East Bay Youth Athletics is offering Early Registration for the Spring Season.  
 You can reserve your child's spot with a $50 non-refundable deposit.  We are 
