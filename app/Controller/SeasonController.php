@@ -249,5 +249,31 @@ class SeasonController extends AppController {
 	$this->Session->setFlash(__('Email Sent!'), 'default', array('class' => 'alert succes_msg'));
 	$this->redirect('/admin/season');
     }
+    
+    public function mailBlast(){
+        $players = $this->Season->query("SELECT 
+            Accounts.firstname,Accounts.lastname,Accounts.email,Accounts.phone FROM accounts Accounts 
+            LEFT JOIN roles_users RoleUser ON Accounts.id = RoleUser.user_id
+            WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . "  AND RoleUser.user_id = 2 ORDER BY Accounts.lastname ASC");
+            //WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . "  AND RoleUser.role_id = 6 ORDER BY Accounts.lastname ASC");
+        
+        App::uses('CakeEmail', 'Network/Email');
+	
+	foreach ($players AS $player){
+	$email = new CakeEmail();
+	$email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
+		->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
+		->sender('playeragentebll@gmail.com')
+		->replyTo('playeragentebll@gmail.com')
+		->to($player[Accounts]['email'])
+		->subject(Configure::read('Settings.leaguename') . ' Early Registration')
+		->template('early_reg')
+		->theme('admin')
+		->emailFormat('text')
+		->viewVars(array('player' => $player, 'leaguename' => Configure::read('Settings.leaguename')))
+                ->attachments('/home/demoleag/public_html/app/webroot/content/'.Configure::read('Settings.site_id').'/2014-Spring-Registration-Early.docx')
+		->send();
+	}
+    }
 
 }
