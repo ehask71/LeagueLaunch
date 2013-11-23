@@ -254,8 +254,7 @@ class SeasonController extends AppController {
         $players = $this->Season->query("SELECT 
             Accounts.firstname,Accounts.lastname,Accounts.email,Accounts.phone FROM accounts Accounts 
             LEFT JOIN roles_users RoleUser ON Accounts.id = RoleUser.user_id
-            WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . "  AND RoleUser.user_id = 2 ORDER BY Accounts.lastname ASC");
-            //WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . "  AND RoleUser.role_id = 6 ORDER BY Accounts.lastname ASC");
+            WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . " ORDER BY Accounts.lastname ASC");
         
         App::uses('CakeEmail', 'Network/Email');
 	
