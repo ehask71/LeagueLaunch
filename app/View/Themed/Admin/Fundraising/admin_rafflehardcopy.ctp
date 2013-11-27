@@ -8,7 +8,7 @@
         <div class="block">
             <div class="block_in">
                 <?php if(isset($link)){
-                    echo 'Link to Ticket(s)<b>'.$link.'</b>';
+                    echo 'Link to Ticket(s)<b>'.$_SERVER['SERVER_NAME'].$link.' or click to <a href="'.$_SERVER['SERVER_NAME'].$link.'" target="_blank">Download</a></b>';
                 }
                 ?>
                 <?php echo $this->Form->create('Raffleticket', array(
