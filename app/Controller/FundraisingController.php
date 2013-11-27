@@ -259,7 +259,8 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
             $tickets = $this->Raffleticket->find('all', array(
                 'conditions' => array(
                     'Raffleticket.raffle_id' => 2,
-                    'Raffleticket.site_id' => 4
+                    'Raffleticket.site_id' => 4,
+                    'Raffleticket.email' => $this->request->data['Raffleticket']['email']
                 )
             ));
 
