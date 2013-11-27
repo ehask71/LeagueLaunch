@@ -101,22 +101,23 @@ class FundraisingController extends AppController {
                     $orderid = $this->Order->getLastInsertID();
                     $item = array(
                         //'OrderItem' => array(
-                            'order_id' => $orderid,
-                            'product_id' => $product['Products']['id'],
-                            'name' => $product['Products']['name'],
-                            'quantity' => 1,
-                            'weight' => 0.00,
-                            'price' => $product['Products']['price'],
-                            'subtotal' => $product['Products']['price'],
-                            'player_id' => '',
-                            'season_id' => 0
-                        //)
+                        'order_id' => $orderid,
+                        'product_id' => $product['Products']['id'],
+                        'name' => $product['Products']['name'],
+                        'quantity' => 1,
+                        'weight' => 0.00,
+                        'price' => $product['Products']['price'],
+                        'subtotal' => $product['Products']['price'],
+                        'player_id' => '',
+                        'season_id' => 0
+                            //)
                     );
                     $this->OrderItem->save($item);
                 }
 
                 $purchaser = $this->request->data['Raffleticket']['firstname'] . ' ' . $this->request->data['Raffleticket']['lastname'];
                 $this->request->data['Raffleticket']['raffle_id'] = 2;
+                $this->request->data['Raffleticket']['site_id'] = Configure::read('Settings.site_id');
                 $this->request->data['Raffleticket']['order_id'] = $orderid;
                 $title = 'Buddyball-Harley Davidson Raffle';
                 $location = '"The Alley" hwy 301 and Big Bend';
@@ -239,7 +240,7 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
                 $Email = new EmailLib();
                 $Email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
                         ->to($this->request->data['Raffleticket']['email'])
-                        ->subject($title.' ticket(s) attached')
+                        ->subject($title . ' ticket(s) attached')
                         ->addAttachments(array('raffletickets.pdf' => array('content' => $pdfstr, 'mimetype' => 'application/pdf')))
                         ->send($body);
                 // Redirect
@@ -253,9 +254,140 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
         $this->set('products', $this->Products->getProductsByCat(7, true));
     }
 
+    public function admin_rafflehardcopy() {
+        if ($this->request->is('post')) {
+            $tickets = $this->Raffleticket->find('all', array(
+                'conditions' => array(
+                    'Raffleticket.raffle_id' => 2,
+                    'Raffleticket.site_id' => 4
+                )
+            ));
+
+            if (count($tickets) > 0) {
+                $purchaser = $this->request->data['Raffleticket']['firstname'] . ' ' . $this->request->data['Raffleticket']['lastname'];
+                $title = 'Buddyball-Harley Davidson Raffle';
+                $location = '"The Alley" hwy 301 and Big Bend';
+                $date = '2014-05-04';
+                $site = Configure::read('Settings.site_id');
+                App::import('Vendor', 'xtcpdf');
+                $pdf = new XTCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
+                $pdf->SetMargins(PDF_MARGIN_LEFT, 25, PDF_MARGIN_RIGHT);
+                $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+                $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+                $pdf->SetCreator('LeagueLaunch.com');
+                $pdf->SetAuthor('LeagueLaunch.com');
+                $pdf->SetTitle($title);
+                $pdf->SetSubject($title);
+                $pdf->setHeaderData('logo-medium.png', 30, '', PDF_HEADER_STRING, array(0, 64, 255), array(0, 64, 128));
+                $pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
+                $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+                $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+                $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+                $pdf->SetFont('dejavusans', '', 10);
+
+                foreach ($tickets AS $tic) {
+                    $pdf->AddPage();
+                    $html = '
+<table cellspacing="0" cellpadding="0" width="675px" align="center">
+    <tr>
+        <td align="left">
+	    <font size="+2">' . $title . '</font><br><br>
+            <u>Drawing Date & Location</u><br>
+            ' . $date . ' ' . $location . '<br>
+            Purchased By: <b>' . $tic['Raffleticket']['firstname'].' '.$tic['Raffleticket']['lastname'] . '</b><br>
+	    Ticket #: <b>' . $tic['Raffleticket']['ticket'] . '</b><br>
+            <small>Generated: ' . date('Y-m-d H:m:i') . '</small><br>
+	</td>
+	<td width="25%" height="150px"></td>
+    </tr>
+    <tr>
+	<td colspan="2" align="center" height="70px">
+	    <!--<b>AD SPACE 1</b>-->
+	</td>
+    </tr>
+    <tr>
+	<td colspan="2" align="center" cellpadding="1">
+	<table cellspacing="2" cellpadding="1">
+	<tr>
+        <td align="center" height="420px">
+	    <!--<b>Ad Space 2</b>-->
+	</td>
+        <td align="center">
+	    <!--<b>Ad Space 3</b>-->
+	</td>
+	</tr>
+        <tr>
+            <td colspan="2" valign="top"><small>
+            <b>Disclaimer:</b>
+            No purchase necessary. A Free entry may be obtained by sending a self addressed envelope with your name, age, address, phone number and email address for notification purposes to 6004 Adagio lane apollo beach FL 33572.  Drawing to be held at 1:30 May 4th at the Alley 10221 Big Bend Blvd Riverview Florida.  High Octane Brands LLC, League Launch and its subsidiaries are in no way affilited with this raffle.</small></td>
+        </tr>
+	</table>
+	</td>
+    </tr>
+</table>';
+
+// output the HTML content
+                    $pdf->writeHTML($html, true, false, true, false, '');
+// set style for barcode
+                    $style = array(
+                        'position' => '',
+                        'align' => 'C',
+                        'stretch' => false,
+                        'fitwidth' => true,
+                        'cellfitalign' => '',
+                        'border' => true,
+                        'hpadding' => 'auto',
+                        'vpadding' => 'auto',
+                        'fgcolor' => array(0, 0, 0),
+                        'bgcolor' => false, //array(255,255,255),
+                        'text' => true,
+                        'font' => 'helvetica',
+                        'fontsize' => 8,
+                        'stretchtext' => 4
+                    );
+                    $pdf->write1DBarcode($tic['Raffleticket']['ticket'], 'C128', 18, 60, '', 18, 0.4, $style, 'N');
+                    //$pdf->write2DBarcode('http://buddyball.org', 'QRCODE,H', 138, 27, 50, 50, $style, 'N');
+                    $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/logoforraffle.jpg', 138, 20, 35, 35, 'JPG', 'http://www.buddyball.org', '', true, 150, '', false, false, 1, false, false, false);
+// set JPEG quality
+                    $pdf->setJPEGQuality(75);
+// Ad Space 1
+                    $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/HO728x90.jpg', 15, 85, 180, 28, 'JPG', 'http://www.highoctanebrands.com', '', true, 150, '', false, false, 1, false, false, false);
+// Ad Space 2
+                    $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/BrandonAreaPrimaryCareLOGO.jpg', 15, 115, 88, 65, 'JPG', 'http://www.brandondocs.com', '', true, 150, '', false, false, 1, false, false, false);
+// Ad Space 3
+                    $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/ButlerBoydLOGO.jpg', 107, 115, 88, 65, 'JPG', 'http://www.butlerboyd.com', '', true, 150, '', false, false, 1, false, false, false);
+// Ad Space 4
+                    $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/Circles.jpg', 15, 185, 88, 65, 'JPG', 'http://www.circleswaterfront.com', '', true, 150, '', false, false, 1, false, false, false);
+// Ad Space 5
+                    $pdf->Image(APP . WEBROOT_DIR . '/content/' . Configure::read('Settings.site_id') . '/pdf/images/creativelogo.jpg', 107, 185, 88, 65, 'JPG', 'http://www.creativeconvenience.com', '', true, 150, '', false, false, 1, false, false, false);
+                }
+                $pdf->lastPage();
+                
+                // Now what are we doing with it
+                if($this->request->data['type'] == 'hardcopy'){
+                    $link = '/content/' . Configure::read('Settings.site_id') . '/pdf' . DS . $tic['Raffleticket']['firstname'].'_'.$tic['Raffleticket']['lastname'].'_'.$tic['Raffleticket']['raffle_id'].$tic['Raffleticket']['site_id'].'.pdf';
+                    echo $pdf->Output(APP . WEBROOT_DIR . $link, 'F');
+                } else {
+                    // Email
+                    $body = $title . "\r\n
+Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\n";
+
+                $pdfstr = $pdf->Output('raffle.pdf', 'S');
+                App::uses('EmailLib', 'Tools.Lib');
+                $Email = new EmailLib();
+                $Email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
+                        ->to($tic['Raffleticket']['email'])
+                        ->subject($title . ' ticket(s) attached')
+                        ->addAttachments(array('raffletickets.pdf' => array('content' => $pdfstr, 'mimetype' => 'application/pdf')))
+                        ->send($body);
+                    
+                }
+            }
+        }
+    }
+
     public function admin_pokerrun() {
         
     }
 
 }
-
