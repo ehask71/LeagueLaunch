@@ -21,6 +21,12 @@
                 <?=$this->Form->input('email',array(
 				'label' => 'Email Address',
 			    ));?>
+                <?=$this->Form->input('type',array(
+				'label' => 'Type',
+                                'options' => array('hardcopy'=>'Generate Hardcopy','email'=>'Email'),
+                                'class' => 'chzn-select',
+                                'style' => 'width: 350px;',
+			    ));?>
                 <?php echo $this->Form->end('Find'); ?>
             </div>
         </div> 
