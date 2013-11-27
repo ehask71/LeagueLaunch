@@ -364,7 +364,7 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
                 $pdf->lastPage();
                 
                 // Now what are we doing with it
-                if($this->request->data['type'] == 'hardcopy'){
+                if($this->request->data['Raffleticket']['type'] == 'hardcopy'){
                     $link = '/content/' . Configure::read('Settings.site_id') . '/pdf' . DS . $tic['Raffleticket']['firstname'].'_'.$tic['Raffleticket']['lastname'].'_'.$tic['Raffleticket']['raffle_id'].$tic['Raffleticket']['site_id'].'.pdf';
                     echo $pdf->Output(APP . WEBROOT_DIR . $link, 'F');
                 } else {
