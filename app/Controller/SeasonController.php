@@ -261,6 +261,7 @@ class SeasonController extends AppController {
 	
 	foreach ($players AS $player){
             //mail('ehask71@gmail.com','Player',print_r($player,1));
+            echo $player[Accounts]['firstname'].' '.$player[Accounts]['lastname'];
 	$email = new CakeEmail('default');
 	$email->to($player[Accounts]['email'])
 		->subject(Configure::read('Settings.leaguename') . ' Early Registration')
