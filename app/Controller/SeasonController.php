@@ -251,6 +251,7 @@ class SeasonController extends AppController {
     }
     
     public function admin_mailBlast(){
+        $this->autoRender = false;
         $players = $this->Season->query("SELECT 
             Accounts.firstname,Accounts.lastname,Accounts.email,Accounts.phone FROM accounts Accounts 
             LEFT JOIN roles_users RoleUser ON Accounts.id = RoleUser.user_id
