@@ -259,7 +259,7 @@ class SeasonController extends AppController {
         App::uses('CakeEmail', 'Network/Email');
 	
 	foreach ($players AS $player){
-            mail('ehask71@gmail.com','Player',print_r($player,1));
+            //mail('ehask71@gmail.com','Player',print_r($player,1));
 	$email = new CakeEmail();
 	$email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
 		->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
@@ -271,7 +271,7 @@ class SeasonController extends AppController {
 		->theme('admin')
 		->emailFormat('text')
 		->viewVars(array('player' => $player, 'leaguename' => Configure::read('Settings.leaguename')))
-                ->attachments('/home/demoleag/public_html/app/webroot/content/'.Configure::read('Settings.site_id').'/2014-Spring-Registration-Early.docx')
+                //->attachments('/home/demoleag/public_html/app/webroot/content/'.Configure::read('Settings.site_id').'/2014-Spring-Registration-Early.docx')
 		->send();
 	}
     }
