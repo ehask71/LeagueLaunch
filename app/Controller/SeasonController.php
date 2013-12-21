@@ -261,12 +261,8 @@ class SeasonController extends AppController {
 	
 	foreach ($players AS $player){
             //mail('ehask71@gmail.com','Player',print_r($player,1));
-	$email = new CakeEmail();
-	$email->from(array('do-not-reply@leaguelaunch.com' => Configure::read('Settings.leaguename')))
-		->config(array('host' => 'mail.leaguelaunch.com', 'port' => 25, 'username' => 'do-not-reply@leaguelaunch.com', 'password' => '87.~~?ZG}eI}', 'transport' => 'Smtp'))
-		->sender('playeragentebll@gmail.com')
-		->replyTo('playeragentebll@gmail.com')
-		->to($player[Accounts]['email'])
+	$email = new CakeEmail('default');
+	$email->to($player[Accounts]['email'])
 		->subject(Configure::read('Settings.leaguename') . ' Early Registration')
 		->template('professional_camp')
 		->theme('admin')
