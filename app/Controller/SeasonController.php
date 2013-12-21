@@ -267,7 +267,7 @@ class SeasonController extends AppController {
 		->replyTo('playeragentebll@gmail.com')
 		->to($player[Accounts]['email'])
 		->subject(Configure::read('Settings.leaguename') . ' Early Registration')
-		->template('early_reg')
+		->template('professional_camp')
 		->theme('admin')
 		->emailFormat('text')
 		->viewVars(array('player' => $player, 'leaguename' => Configure::read('Settings.leaguename')))
