@@ -253,7 +253,7 @@ class SeasonController extends AppController {
     public function admin_mailBlast(){
         $this->autoRender = false;
         $players = $this->Season->query("SELECT 
-            Accounts.firstname,Accounts.lastname,Accounts.email,Accounts.phone FROM accounts Accounts 
+            Accounts.firstname,Accounts.lastname,DISTINCT(Accounts.email),Accounts.phone FROM accounts Accounts 
             LEFT JOIN roles_users RoleUser ON Accounts.id = RoleUser.user_id
             WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . " ORDER BY Accounts.lastname ASC");
         
@@ -261,10 +261,10 @@ class SeasonController extends AppController {
 	
 	foreach ($players AS $player){
             //mail('ehask71@gmail.com','Player',print_r($player,1));
-            echo $player[Accounts]['firstname'].' '.$player[Accounts]['lastname'];
+            echo $player[Accounts]['firstname'].' '.$player[Accounts]['lastname'].'<br>';
 	$email = new CakeEmail('default');
 	$email->to($player[Accounts]['email'])
-		->subject(Configure::read('Settings.leaguename') . ' Early Registration')
+		->subject(Configure::read('Settings.leaguename') . ' Winter Camp Dec 27 - 28, Dec 30 - Jan 1')
 		->template('professional_camp')
 		->theme('admin')
 		->emailFormat('text')
