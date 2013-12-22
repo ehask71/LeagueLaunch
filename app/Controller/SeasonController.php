@@ -252,17 +252,19 @@ class SeasonController extends AppController {
     
     public function admin_mailBlast(){
         $this->autoRender = false;
+        //Accounts.firstname,Accounts.lastname,Accounts.email,Accounts.phone FROM accounts Accounts 
         $players = $this->Season->query("SELECT 
-            Accounts.firstname,Accounts.lastname,Accounts.email,Accounts.phone FROM accounts Accounts 
+            * FROM accounts Accounts 
             LEFT JOIN roles_users RoleUser ON Accounts.id = RoleUser.user_id
             WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . " ORDER BY Accounts.lastname ASC");
         
         App::uses('CakeEmail', 'Network/Email');
-	
+	echo '<pre>';
 	foreach ($players AS $player){
             //mail('ehask71@gmail.com','Player',print_r($player,1));
-            echo $player[Accounts]['firstname'].' '.$player[Accounts]['lastname'].'<br>';
-	$email = new CakeEmail('default');
+            print_r($player);
+            //echo $player[Accounts]['firstname'].' '.$player[Accounts]['lastname'].'<br>';
+	/*$email = new CakeEmail('default');
 	$email->to($player[Accounts]['email'])
 		->subject(Configure::read('Settings.leaguename') . ' Winter Camp Dec 27 - 28, Dec 30 - Jan 1')
 		->template('professional_camp')
@@ -270,7 +272,7 @@ class SeasonController extends AppController {
 		->emailFormat('text')
 		->viewVars(array('player' => $player, 'leaguename' => Configure::read('Settings.leaguename')))
                 //->attachments('/home/demoleag/public_html/app/webroot/content/'.Configure::read('Settings.site_id').'/2014-Spring-Registration-Early.docx')
-		->send();
+		->send();*/
 	}
     }
 
