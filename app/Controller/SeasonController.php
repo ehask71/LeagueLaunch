@@ -256,7 +256,7 @@ class SeasonController extends AppController {
         $players = $this->Season->query("SELECT 
             * FROM (SELECT 
             A.* FROM accounts A 
-            LEFT JOIN roles_users rs ON Accounts.id = RoleUser.user_id
+            LEFT JOIN roles_users rs ON A.id = rs.user_id
             WHERE rs.site_id = " . Configure::read('Settings.site_id') . " GROUP BY A.email) Accounts 
             LEFT JOIN roles_users RoleUser ON Accounts.id = RoleUser.user_id
             WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . " ORDER BY Accounts.lastname ASC");
