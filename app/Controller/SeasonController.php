@@ -254,7 +254,7 @@ class SeasonController extends AppController {
         $this->autoRender = false;
         //Accounts.firstname,Accounts.lastname,Accounts.email,Accounts.phone FROM accounts Accounts 
         $players = $this->Season->query("SELECT 
-            DISTINCT(Accounts.email) FROM accounts Accounts 
+            DISTINCT Accounts.email FROM accounts Accounts 
             LEFT JOIN roles_users RoleUser ON Accounts.id = RoleUser.user_id
             WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . " ORDER BY Accounts.lastname ASC");
         
