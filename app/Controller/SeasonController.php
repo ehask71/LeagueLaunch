@@ -254,12 +254,9 @@ class SeasonController extends AppController {
         $this->autoRender = false;
         //Accounts.firstname,Accounts.lastname,Accounts.email,Accounts.phone FROM accounts Accounts 
         $players = $this->Season->query("SELECT 
-            * FROM (SELECT 
-            A.* FROM accounts A 
-            LEFT JOIN roles_users rs ON A.id = rs.user_id
-            WHERE rs.site_id = " . Configure::read('Settings.site_id') . " GROUP BY rs.site_id) Accounts 
+            * FROM accounts Accounts 
             LEFT JOIN roles_users RoleUser ON Accounts.id = RoleUser.user_id
-            WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . " ORDER BY Accounts.lastname ASC");
+            WHERE RoleUser.site_id = " . Configure::read('Settings.site_id') . " GROUP BY RoleUser.site_id ORDER BY Accounts.lastname ASC");
         
         App::uses('CakeEmail', 'Network/Email');
 	echo '<pre>';
