@@ -413,5 +413,15 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
     public function admin_pokerrun() {
         
     }
+    
+    public function buytickets($id){
+	$raffle = $this->Fundraiser->findById($id);
+	
+	if(!$raffle){
+	    throw new NotFoundException('Unable To Locate That Fundraiser');
+	}
+	
+	$this->set('raffle',$raffle);
+    }
 
 }
