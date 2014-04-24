@@ -400,7 +400,8 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
 		'Raffleticket.raffle_id' => $id,
 		'Raffleticket.site_id' => Configure::read('Settings.site_id')
 	    ),
-	    'order' => 'Raffleticket.lastname DESC'));
+	    'group' => array('Raffleticket.order_id'),
+	    'order' => 'Raffleticket.lastname'));
 	
 	if(!$raffletickets){
 	    throw new NotFoundException('Unable to Locate this Raffle!');
