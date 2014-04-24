@@ -27,7 +27,7 @@
                             <td><?=$row['Fundraiser']['start'];?></td>
                             <td><?=$row['Fundraiser']['end'];?></td>
                             <td><?=$row['Fundraiser']['active'];?></td>
-                            <td></td>
+                            <td><a class="button green" href="/admin/fundraising/viewraffle/<?=$row['Fundraiser']['id'];?>">Entries</a>&nbsp;<a class="button red" href="/admin/fundraising/buyraffle/<?=$row['Fundraiser']['id'];?>">Buy</a></td>
                         </tr>
                                     <?php
                                 }
