@@ -389,6 +389,7 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
     }
 
     public function admin_viewraffle($id){
+	$this->layout = 'flat';
 	$raffletickets = $this->Raffleticket->find('all',array(
 	    'fields' => array(
 		'DISTINCT(Raffleticket.order_id)',
