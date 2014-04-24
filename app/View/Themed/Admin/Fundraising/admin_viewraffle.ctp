@@ -30,6 +30,9 @@
 			<?php } ?>
 		    </tbody>
 		</table>
+		<pre>
+		    <?php print_r($raffle);?>
+		</pre>
 	    </div>
 	</div>
     </div>
