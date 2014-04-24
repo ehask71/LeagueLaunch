@@ -17,7 +17,7 @@
 		    </thead>
 		    <tbody>
 			<?php if(count($raffle) > 0){?>
-			    <?php foreach($raffle AS $r){
+			    <?php foreach($raffle['raffletickets'] AS $r){
 				echo '<tr>';
 				echo '<td>'.$r['Raffleticket']['firstname'].' '.$r['Raffleticket']['lastname'].'</td>';
 				echo '<td>'.$r['Raffleticket']['order_id'].'</td>';
