@@ -388,6 +388,27 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
         }
     }
 
+    public function admin_viewraffle($id){
+	$raffletickets = $this->Raffleticket->find('all',array(
+	    'fields' => array(
+		'DISTINCT(Raffleticket.order_id)',
+		'Raffleticket.firstname',
+		'Raffleticket.lastname',
+		'Raffleticket.created'
+	    ),
+	    'conditions' => array(
+		'Raffleticket.raffle_id' => $id,
+		'Raffleticket.site_id' => Configure::read('Settings.site_id')
+	    ),
+	    'order' => 'Raffleticket.lastname DESC'));
+	
+	if(!$raffletickets){
+	    throw new NotFoundException('Unable to Locate this Raffle!');
+	}
+	
+	$this->set('raffle',  compact('raffletickets'));
+    }
+    
     public function admin_pokerrun() {
         
     }
