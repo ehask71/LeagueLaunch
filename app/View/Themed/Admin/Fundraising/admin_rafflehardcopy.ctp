@@ -13,6 +13,7 @@
                 ?>
                 <?php echo $this->Form->create('Raffleticket', array(
 			    'class' => 'form_place',
+			    'style' => 'min-height:400px',
 			    'type' => 'file',
                             'inputDefaults' => array(
                                 'div' => false,
