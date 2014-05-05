@@ -6,7 +6,7 @@
             <span class="r"></span>
         </h2>
         <div class="block">
-            <div class="block_in" style="min-height: 500px;">
+            <div class="block_in" style="min-height: 800px;">
                 <?php if(isset($link)){
                     echo 'Link to Ticket(s)<b>http://'.$_SERVER['SERVER_NAME'].$link.' or click to <a href="//'.$_SERVER['SERVER_NAME'].$link.'" target="_blank">Download</a></b>';
                 }
