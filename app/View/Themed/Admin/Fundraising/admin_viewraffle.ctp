@@ -38,7 +38,7 @@
 		    </tbody>
 		</table>
 		<pre>
-		    <?php print_r($raffle);?>
+		    <?php //print_r($raffle);?>
 		</pre>
 	    </div>
 	</div>
