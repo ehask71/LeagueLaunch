@@ -394,6 +394,7 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
 		'DISTINCT(Raffleticket.order_id)',
 		'Raffleticket.firstname',
 		'Raffleticket.lastname',
+                'Raffleticket.email',
 		'Raffleticket.created'
 	    ),
 	    'conditions' => array(
