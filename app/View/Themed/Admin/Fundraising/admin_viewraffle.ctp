@@ -13,6 +13,7 @@
                             <th>Name</th>
 			    <th>Order Id</th>
 			    <th>Date</th>
+                            <th>&nbsp;</th>
 			</tr>
 		    </thead>
 		    <tbody>
