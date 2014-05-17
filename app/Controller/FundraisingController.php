@@ -254,7 +254,7 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
         $this->set('products', $this->Products->getProductsByCat(7, true));
     }
 
-    public function admin_rafflehardcopy() {
+    public function admin_rafflehardcopy($id) {
         if ($this->request->is('post')) {
             $tickets = $this->Raffleticket->find('all', array(
                 'conditions' => array(
