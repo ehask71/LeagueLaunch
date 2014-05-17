@@ -23,7 +23,7 @@
 				echo '<td>'.$r['Raffleticket']['firstname'].' '.$r['Raffleticket']['lastname'].'</td>';
 				echo '<td>'.$r['Raffleticket']['order_id'].'</td>';
 				echo '<td>'.$r['Raffleticket']['created'].'</td>';
-                                echo '<td>'.$this->Form->postButton(__('ReSend'), '/fundraising/rafflehardcopy/'.$this->request->params['pass'][0], array(
+                                echo '<td>'.$this->Form->postButton(__('ReSend'), '/admin/fundraising/rafflehardcopy/'.$this->request->params['pass'][0], array(
                                     'data' => array(
                                         'Raffleticket.email' => $r['Raffleticket']['email'],
                                         'Raffleticket.type' => 'email'
