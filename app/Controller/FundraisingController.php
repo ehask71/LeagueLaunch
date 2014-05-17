@@ -382,8 +382,14 @@ Drawing Date & Location: " . $date . " - " . $location . "\r\n\r\nDisclaimer:\r\
                         ->subject($title . ' ticket(s) attached')
                         ->addAttachments(array('raffletickets.pdf' => array('content' => $pdfstr, 'mimetype' => 'application/pdf')))
                         ->send($body);
-                    
+                
+                
+                    $this->Session->setFlash('Tickets Sent!!!', 'default', array('class' => 'alert succes_msg'));  
+                    $this->redirect('/admin/fundraising/viewraffle/'.$id);
                 }
+                
+            } else {
+                $this->Session->setFlash('No Tickets Found for that email!!', 'default', array('class' => 'alert error_msg'));
             }
         }
     }
